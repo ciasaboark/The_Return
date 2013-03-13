@@ -27,102 +27,133 @@
 
 -(Room *)createWorld {
 	//The downstairs rooms
-	Room 	*hall1, *hall2, *hall3, *dining_room, *formal_room, *mast_bed, *sitting_room, *kitchen, *mast_bath
-			*srvnt_dining_room, *well_house;
+	Room 	*hall1, *hall2, *hall3, *dining_room, *formal_room, *mast_bed, *sitting_room, *kitchen, *mast_bath;
+    Room    *srvnt_dining_room, *well_house;
 
-	hall1 = [[[Room alloc] initWithTag:@""] autorelease];
-		[hall1 setExit:@"west" toRoom:dining_room];
-		[hall1 setExit:@"east" toRoom:formal_room];
-		[hall1 setExit:@"north" toRoom:hall2];
-	
-	hall2 = [[[Room alloc] initWithTag:@""] autorelease];
-		[hall2 setExit:@"west" toRoom:sitting_room];
-		[hall2 setExit:@"east" toRoom:mast_bed];
-		[hall2 setExit:@"north" toRoom:hall3];
-		[hall2 setExit:@"south" toRoom:hall1];
-		[hall2 setExit:@"up" toRoom:upstairs_hall];
-
-	hall3 = [[[Room alloc] initWithTag:@""] autorelease];
-		[hall3 setExit:@"west" toRoom:kitchen];
-		[hall3 setExit:@"east" toRoom:srvnt_dining_room];
-		[hall3 setExit:@"north" toRoom:well_house];
-		[hall3 setExit:@"south" toRoom:hall2];
-
-	dining_room = [[[Room alloc] initWithTag:@""] autorelease];
-		[dining_room setExit:@"east" toRoom:hall1];
-
-	formal_room = [[[Room alloc] initWithTag:@""] autorelease];
-		[formal_room setExit:@"west" toRoom:hall1];
-
-	mast_bed = [[[Room alloc] initWithTag:@""] autorelease];
-		[mast_bed setExit:@"west" toRoom:hall2];
-		[mast_bed setExit:@"north" toRoom:mast_bath];
-
-	sitting_room = [[[Room alloc] initWithTag:@""] autorelease];
-		[sitting_room setExit:@"east" toRoom:hall2];
-
-	kitchen = [[[Room alloc] initWithTag:@""] autorelease];
-		[kitchen setExit:@"east" toRoom:hall3];
-
-	mast_bath = [[[Room alloc] initWithTag:@""] autorelease];
-		[mast_bath setExit:@"south" toRoom:mast_bed];
-
-	srvnt_dining_room = [[[Room alloc] initWithTag:@""] autorelease];
-		[srvnt_dining_room setExit:@"west" toRoom:hall3];
-
-	well_house = [[[Room alloc] initWithTag:@""] autorelease];
-		[well_house setExit:@"down" toRoom:cave];
-		[well_house setExit:@"south" toRoom:hall3];
-
-	//The basement room
+    hall1 = [[[Room alloc] initWithTag:@"the south of the downstairs hallway"] autorelease];
+    hall2 = [[[Room alloc] initWithTag:@"the middle of the downstairs hallway"] autorelease];
+    hall3 = [[[Room alloc] initWithTag:@"the north of the downstairs hallway"] autorelease];
+    dining_room = [[[Room alloc] initWithTag:@"the dining room"] autorelease];
+    formal_room = [[[Room alloc] initWithTag:@"the formal room"] autorelease];
+    mast_bed = [[[Room alloc] initWithTag:@"the master bedroom"] autorelease];
+    sitting_room = [[[Room alloc] initWithTag:@"the sitting room"] autorelease];
+    kitchen = [[[Room alloc] initWithTag:@"the kitchen"] autorelease];
+    mast_bath = [[[Room alloc] initWithTag:@"the master bathroom"] autorelease];
+    srvnt_dining_room = [[[Room alloc] initWithTag:@"the servant's small dining room"] autorelease];
+    well_house = [[[Room alloc] initWithTag:@"an attached well house"] autorelease];
+    
+    
+    //The basement room
 	Room 	*cave;
-
-	cave = [[[Room alloc] initWithTag@""] autorelease];
-		[cave setExit:@"up" toRoom:well_house];
-
-	//The upstairs rooms
+    
+    cave = [[[Room alloc] initWithTag:@"an underground cave"] autorelease];
+    
+    //The upstairs rooms
 	Room 	*bed1, *bed2, *bed3, *bathroom, *upstairs_hall, *short_hall, *storage, *srvnt_bed_room;
 
-	bed1 = [[[Room alloc] initWithTag:@""] autorelease];
-		[bed1 setExit:@"west" toRoom:upstairs_hall];
-		[bed1 setExit:@"north" toRoom:bathroom];
+    bed1 = [[[Room alloc] initWithTag:@"a child's bedroom"] autorelease];
+    bed2 = [[[Room alloc] initWithTag:@"an empty bedroom"] autorelease];
+    bed3 = [[[Room alloc] initWithTag:@"an empty bedroom"] autorelease];
+    bathroom = [[[Room alloc] initWithTag:@"the upstairs bath"] autorelease];
+    upstairs_hall = [[[Room alloc] initWithTag:@"the upstairs hall"] autorelease];
+    short_hall = [[[Room alloc] initWithTag:@"a short hall"] autorelease];
+    storage = [[[Room alloc] initWithTag:@"a dark storage room"] autorelease];
+    srvnt_bed_room = [[[Room alloc] initWithTag:@"the servant's bedroom"] autorelease];
+    
+    //Downstairs room connections
+	[hall1 setExit:@"west" toRoom:dining_room];
+    [hall1 setExit:@"east" toRoom:formal_room];
+    [hall1 setExit:@"north" toRoom:hall2];
 
-	bed2 = [[[Room alloc] initWithTag:@""] autorelease];
-		[bed2 setExit:@"south" toRoom:bed3];
-		[bed2 setExit:@"east" toRoom:short_hall];
+    [hall2 setExit:@"west" toRoom:sitting_room];
+    [hall2 setExit:@"east" toRoom:mast_bed];
+    [hall2 setExit:@"north" toRoom:hall3];
+    [hall2 setExit:@"south" toRoom:hall1];
+    [hall2 setExit:@"up" toRoom:upstairs_hall];
 
-	bed3 = [[[Room alloc] initWithTag:@""] autorelease];
-		[bed3 setExit:@"north" toRoom:bed2];
-		[bed3 setExit:@"east" toRoom:upstairs_hall];
 
-	bathroom = [[[Room alloc] initWithTag:@""] autorelease];
-		[bathroom setExit:@"south" toRoom:bed1];
-		[bathroom setExit:@"west" toRoom:short_hall];
+    [hall3 setExit:@"west" toRoom:kitchen];
+    [hall3 setExit:@"east" toRoom:srvnt_dining_room];
+    [hall3 setExit:@"north" toRoom:well_house];
+    [hall3 setExit:@"south" toRoom:hall2];
 
-	upstairs_hall = [[[Room alloc] initWithTag:@""] autorelease];
-		[upstairs_hall setExit:@"down" toRoom:hall2];
-		[upstairs_hall setExit:@"west" toRoom:bed3];
-		[upstairs_hall setExit:@"south" toRoom:storage];
-		[upstairs_hall setExit:@"east" toRoom:bed1];
 
-	short_hall = [[[Room alloc] initWithTag:@""] autorelease];
-		[short_hall setExit:@"down" toRoom:hall2];
-		[short_hall setExit:@"west" toRoom:bed2];
-		[short_hall setExit:@"north" toRoom:srvnt_bed_room];
-		[short_hall setExit:@"east" toRoom:bathroom];
+    [dining_room setExit:@"east" toRoom:hall1];
 
-	storage = [[[Room alloc] initWithTag:@""] autorelease];
-		[storage setExit:@"north" toRoom:upstairs_hall];
 
-	srvnt_bed_room = [[[Room alloc] initWithTag:@""] autorelease];
-		[srvnt_bed_room setExit:@"south" toRoom:short_hall];
+    [formal_room setExit:@"west" toRoom:hall1];
 
+
+    [mast_bed setExit:@"west" toRoom:hall2];
+    [mast_bed setExit:@"north" toRoom:mast_bath];
+
+
+    [sitting_room setExit:@"east" toRoom:hall2];
+
+
+    [kitchen setExit:@"east" toRoom:hall3];
+
+
+    [mast_bath setExit:@"south" toRoom:mast_bed];
+
+
+    [srvnt_dining_room setExit:@"west" toRoom:hall3];
+
+
+    [well_house setExit:@"down" toRoom:cave];
+    [well_house setExit:@"south" toRoom:hall3];
+
+	
+    //Basement Connections
+	[cave setExit:@"up" toRoom:well_house];
+
+	//Upstairs Connections
+    [bed1 setExit:@"west" toRoom:upstairs_hall];
+    [bed1 setExit:@"north" toRoom:bathroom];
+
+    [bed2 setExit:@"south" toRoom:bed3];
+    [bed2 setExit:@"east" toRoom:short_hall];
+
+
+    [bed3 setExit:@"north" toRoom:bed2];
+    [bed3 setExit:@"east" toRoom:upstairs_hall];
+
+
+    [bathroom setExit:@"south" toRoom:bed1];
+    [bathroom setExit:@"west" toRoom:short_hall];
+
+
+    [upstairs_hall setExit:@"down" toRoom:hall2];   //should this be down or north?
+    [upstairs_hall setExit:@"west" toRoom:bed3];
+    [upstairs_hall setExit:@"south" toRoom:storage];
+    [upstairs_hall setExit:@"east" toRoom:bed1];
+
+
+    [short_hall setExit:@"down" toRoom:hall2];
+    [short_hall setExit:@"west" toRoom:bed2];
+    [short_hall setExit:@"north" toRoom:srvnt_bed_room];
+    [short_hall setExit:@"east" toRoom:bathroom];
+
+
+    [storage setExit:@"north" toRoom:upstairs_hall];
+
+
+    [srvnt_bed_room setExit:@"south" toRoom:short_hall];
+
+    
+    //Long Descriptions of the Rooms
+    [mast_bed setLongDescription:   @"The room is dimly lit.\nWindows along the east of the room are curtained and shuttered.  The little light that filters through illuminates a large masted bed draped in what looks to be velvet.  To the north there looks to be a bathroom.  A heavy dresser sits along the western wall.  A closet is to the south.  Dust motes float in the stale air."];
+    
+    //Some Items for the rooms
+    Item *flashlight, *key;
+    
+    
 	//We can start in a (semi) random room
-	NSArray *rooms;
-	rooms = [NSArray arrayWithObjects: bed1, bed2, bed3, mast_bed, mast_bath, bathroom, srvnt_bed_room];
-	uint32_t rand = arc4random_uniform([tips count]);
+	NSArray *rooms = [NSArray arrayWithObjects: bed1, bed2, bed3, mast_bed, mast_bath, bathroom, srvnt_bed_room, nil];
+	uint32_t rand = arc4random_uniform([rooms count]);
 
 	return [rooms objectAtIndex: rand];
+    //return mast_bed;
 }
 
 -(void)start
@@ -155,8 +186,8 @@
 
 -(NSString *)welcome
 {
-	NSString *message = @"Welcome to the World of CSU!\nThe World of CSU is a new, incredibly boring adventure game.\nType 'help' if you need help.";
-	return [NSString stringWithFormat:@"\n\n%@\n%@", message, [player currentRoom]];
+	return [NSString stringWithFormat:@"You wake.  The pain in your head begins to fade.  Looking around you see that you are in %@.\n%@  You can't remember how you got here.  Perhaps this house holds some answers.", [player currentRoom], [[player currentRoom] longDescription]];
+	//return [NSString stringWithFormat:@"\n\n%@\n%@", message, [player currentRoom]];
 }
 
 -(NSString *)goodbye

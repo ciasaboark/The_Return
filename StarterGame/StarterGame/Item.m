@@ -14,9 +14,9 @@
 }
 
 -(id)initWithName:(NSString *)newName andDescription:(NSString*) newDescription usedIn:(Room*) aRoom {
-	self = [super init]
+	self = [super init];
 
-	if (self != nill) {
+	if (self != nil) {
 		name = newName;
 		description = newDescription;
 		usedIn = aRoom;

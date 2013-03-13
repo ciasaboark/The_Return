@@ -14,6 +14,7 @@
 
 @synthesize currentRoom;
 @synthesize io;
+@synthesize playerInventory;
 
 -(id)init
 {
@@ -27,6 +28,7 @@
 	if (nil != self) {
 		[self setCurrentRoom:room];
         [self setIo:theIO];
+        playerInventory = [[Inventory alloc] init];
 	}
     
 	return self;
@@ -36,11 +38,21 @@
 {
 	Room *nextRoom = [currentRoom getExit:direction];
 	if (nextRoom) {
-		[self setCurrentRoom:nextRoom];
-        [self outputMessage:[NSString stringWithFormat:@"\n%@", nextRoom]];
+		if (nextRoom == nil) {
+            [self outputMessage:@"The path is blocked."];
+        } else {
+            [self setCurrentRoom:nextRoom];
+            
+            //We can pretty things up a bit by using some random verbs
+            NSArray *verbs = [NSArray arrayWithObjects: @"enter", @"walk into", @"make your way to", nil];
+            uint32_t rand = arc4random_uniform([verbs count]);
+
+            
+            [self outputMessage:[NSString stringWithFormat:@"\nYou %@ %@.\n", [verbs objectAtIndex: rand], nextRoom]];
+        }
 	}
 	else {
-        [self outputMessage:[NSString stringWithFormat:@"\nThere is no door on %@!", direction]];
+        [self outputMessage:[NSString stringWithFormat:@"\nThere is no path %@!", direction]];
 	}
 
 }

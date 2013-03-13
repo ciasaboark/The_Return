@@ -23,6 +23,10 @@
 		81AF892116E6AAC400276C6B /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 81AF891F16E6AAC400276C6B /* Credits.rtf */; };
 		81AF892416E6AAC400276C6B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 81AF892316E6AAC400276C6B /* AppDelegate.m */; };
 		81AF892716E6AAC500276C6B /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81AF892516E6AAC500276C6B /* MainMenu.xib */; };
+		E7C7CD6D16F0DAD700CB9292 /* Inventory.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C7CD6A16F0DAD700CB9292 /* Inventory.m */; };
+		E7C7CD6E16F0DAD700CB9292 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C7CD6C16F0DAD700CB9292 /* Item.m */; };
+		E7C7CD7216F0DDB700CB9292 /* LookCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C7CD7116F0DDB700CB9292 /* LookCommand.m */; };
+		E7C7CD7516F0EF2C00CB9292 /* TakeCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C7CD7416F0EF2C00CB9292 /* TakeCommand.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +63,14 @@
 		81AF892216E6AAC400276C6B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		81AF892316E6AAC400276C6B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		81AF892616E6AAC500276C6B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		E7C7CD6916F0DAD700CB9292 /* Inventory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Inventory.h; sourceTree = "<group>"; };
+		E7C7CD6A16F0DAD700CB9292 /* Inventory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Inventory.m; sourceTree = "<group>"; };
+		E7C7CD6B16F0DAD700CB9292 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
+		E7C7CD6C16F0DAD700CB9292 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
+		E7C7CD7016F0DDB700CB9292 /* LookCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookCommand.h; sourceTree = "<group>"; };
+		E7C7CD7116F0DDB700CB9292 /* LookCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookCommand.m; sourceTree = "<group>"; };
+		E7C7CD7316F0EF2C00CB9292 /* TakeCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TakeCommand.h; sourceTree = "<group>"; };
+		E7C7CD7416F0EF2C00CB9292 /* TakeCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TakeCommand.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +93,10 @@
 				819122D116E95A0000BEDA1B /* Game.m */,
 				8197B18716E8DF80007F8845 /* GameIO.h */,
 				8197B18816E8DF80007F8845 /* GameIO.m */,
+				E7C7CD6916F0DAD700CB9292 /* Inventory.h */,
+				E7C7CD6A16F0DAD700CB9292 /* Inventory.m */,
+				E7C7CD6B16F0DAD700CB9292 /* Item.h */,
+				E7C7CD6C16F0DAD700CB9292 /* Item.m */,
 				819122D716E95A0000BEDA1B /* Parser.h */,
 				819122D816E95A0000BEDA1B /* Parser.m */,
 				819122D916E95A0000BEDA1B /* Player.h */,
@@ -104,6 +120,10 @@
 				819122D516E95A0000BEDA1B /* HelpCommand.m */,
 				819122CE16E95A0000BEDA1B /* CommandWords.h */,
 				819122CF16E95A0000BEDA1B /* CommandWords.m */,
+				E7C7CD7016F0DDB700CB9292 /* LookCommand.h */,
+				E7C7CD7116F0DDB700CB9292 /* LookCommand.m */,
+				E7C7CD7316F0EF2C00CB9292 /* TakeCommand.h */,
+				E7C7CD7416F0EF2C00CB9292 /* TakeCommand.m */,
 			);
 			name = Commands;
 			sourceTree = "<group>";
@@ -244,6 +264,10 @@
 				819122E516E95A0000BEDA1B /* Player.m in Sources */,
 				819122E616E95A0000BEDA1B /* QuitCommand.m in Sources */,
 				819122E716E95A0000BEDA1B /* Room.m in Sources */,
+				E7C7CD6D16F0DAD700CB9292 /* Inventory.m in Sources */,
+				E7C7CD6E16F0DAD700CB9292 /* Item.m in Sources */,
+				E7C7CD7216F0DDB700CB9292 /* LookCommand.m in Sources */,
+				E7C7CD7516F0EF2C00CB9292 /* TakeCommand.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

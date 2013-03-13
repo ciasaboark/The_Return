@@ -11,9 +11,13 @@
 
 @interface Room : NSObject {
 	NSMutableDictionary *exits;
+    NSString* longDescription;
+    NSMutableArray* items;
 }
 
-@property (retain, nonatomic)NSString *tag;
+@property (retain, nonatomic)NSString* tag;
+@property (retain, nonatomic)NSString* longDescription;
+@property (retain, nonatomic)NSMutableArray* items;
 
 -(id)init;
 -(id)initWithTag:(NSString *)newTag;

@@ -9,13 +9,20 @@
 
 #import <Cocoa/Cocoa.h>
 #import "Room.h"
+#import "Inventory.h"
+//#import "Item.h"
 #import "GameIO.h"
 
 
-@interface Player : NSObject
+@interface Player : NSObject {
+    Room* currentRoom;
+    GameIO* io;
+    Inventory* playerInventory;
+}
 
 @property (retain, nonatomic)Room *currentRoom;
 @property (retain, nonatomic)GameIO *io;
+@property (retain, nonatomic)Inventory* playerInventory;
 
 -(id)init;
 -(id)initWithRoom:(Room *)room andIO:(GameIO *)theIO;

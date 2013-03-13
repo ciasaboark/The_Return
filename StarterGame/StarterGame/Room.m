@@ -12,6 +12,8 @@
 @implementation Room
 
 @synthesize tag;
+@synthesize longDescription;
+@synthesize items;
 
 -(id)init
 {
@@ -24,7 +26,14 @@
     
 	if (nil != self) {
 		[self setTag:newTag];
-		exits = [[NSMutableDictionary alloc] initWithCapacity:10];
+        //to keep the code readable init only touches the short description  Game->CreateWorld
+        //+ will update the long descriptions after the rooms are created.
+        [self setLongDescription:nil]; 
+		
+        exits = [[NSMutableDictionary alloc] initWithCapacity:10];
+        
+        //items are added after initialization
+        items = [[NSMutableArray alloc] init];
 	}
     
 	return self;
@@ -48,13 +57,17 @@
 
 -(NSString *)description
 {
-	return [NSString stringWithFormat:@"You are %@.\n *** %@", tag, [self getExits]];
+	//The exits were originally listed after the short description.  They should be listed within the text of
+    //+ the long description instead.
+    return [NSString stringWithFormat:@"%@", tag /*, [self getExits]*/];
 }
 
 -(void)dealloc
 {
 	[tag release];
 	[exits release];
+    [longDescription release];
+    [items release];
 	
 	[super dealloc];
 }
