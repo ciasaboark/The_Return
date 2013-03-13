@@ -26,8 +26,6 @@
 }
 
 -(Room *)createWorld {
-	//Room *outside, *cctParking, *boulevard, *universityParking, *parkingDeck, *cct, *theGreen, *universityHall, *schuster;
-
 	//The downstairs rooms
 	Room 	*hall1, *hall2, *hall3, *dining_room, *formal_room, *mast_bed, *sitting_room, *kitchen, *mast_bath
 			*srvnt_dining_room, *well_house;
