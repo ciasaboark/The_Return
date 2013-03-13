@@ -44,7 +44,7 @@
     
     
     //The basement room
-	Room 	*cave;
+    Room 	*cave;
     
     cave = [[[Room alloc] initWithTag:@"an underground cave"] autorelease];
     
@@ -144,15 +144,34 @@
     //Long Descriptions of the Rooms
     [mast_bed setLongDescription:   @"The room is dimly lit.\nWindows along the east of the room are curtained and shuttered.  The little light that filters through illuminates a large masted bed draped in what looks to be velvet.  To the north there looks to be a bathroom.  A heavy dresser sits along the western wall.  A closet is to the south.  Dust motes float in the stale air."];
     
-    //Some Items for the rooms
-    Item *flashlight, *key;
-    
-    
-	//We can start in a (semi) random room
-	NSArray *rooms = [NSArray arrayWithObjects: bed1, bed2, bed3, mast_bed, mast_bath, bathroom, srvnt_bed_room, nil];
-	uint32_t rand = arc4random_uniform([rooms count]);
+    //Some (non-takable) Items for the rooms
+    //Items for the dining room
+    Item* dining_room_table = [[Item alloc] initWithName:@"the dining room table" andDescription:@"A large table.  There are place-settings for four.  A large candlestick holder sits in the center.  It does not look like anyone has eaten here in years." usedIn:nil andWeight: 40];
+    Item* clock = [[Item alloc] initWithName:@"a grandfather clock." andDescription:@"Describe the grandfather clock." usedIn:nil andWeight: 40];
 
-	return [rooms objectAtIndex: rand];
+    [dining_room addItem: dining_room_table];
+    [dining_room addItem: clock];
+    
+    //Items in the sitting room
+    Item* fireplace = [[Item alloc] initWithName:@"fireplace" andDescription:@"A brick fireplace.  Three leather-covered chairs face the fireplace. The mantlepiece appears to be ebony.  Carved figures adorn the sides.  The brick and metal are cold, and there is not even the slightest smell of soot in the air.  The cast iron grating covers the front.  Strangely there is a lock on the cover." usedIn:nil andWeight:40];
+
+    [sitting_room addItem: fireplace];
+     
+    //Some (collectable) Items
+    Item* flashlight = [[Item alloc] initWithName:@"flashlight" andDescription:@"An old chrome flashlight.  You can't see how to open the battery compartment, but it feels heavy.  Maybe it will be of use somewhere." usedIn:storage andWeight:3];
+    Item* key = [[Item alloc] initWithName:@"key" andDescription:@"A brass key.  The shine is tarnished. " usedIn:dining_room andWeight:20];
+    Item* lantern = [[Item alloc] initWithName:@"lantern" andDescription:@"A tin lantern.  The metal is more rust than shine, and the glass covering is chipped at the top.  There appears to be a small amount of oil in the resevoir." usedIn:kitchen andWeight:3];
+    
+     
+     [dining_room addItem: key];
+     [mast_bed addItem: flashlight];
+    
+    
+    //We can start in a (semi) random room
+	NSArray *rooms = [NSArray arrayWithObjects: bed1, bed2, bed3, mast_bed, mast_bath, bathroom, srvnt_bed_room, nil];
+    uint32_t rand = arc4random_uniform([rooms count]);
+
+    return [rooms objectAtIndex: rand];
     //return mast_bed;
 }
 

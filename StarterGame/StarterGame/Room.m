@@ -7,6 +7,7 @@
 //
 
 #import "Room.h"
+#import "Item.h"
 
 
 @implementation Room
@@ -33,7 +34,7 @@
         exits = [[NSMutableDictionary alloc] initWithCapacity:10];
         
         //items are added after initialization
-        items = [[NSMutableArray alloc] init];
+        items = [[NSMutableDictionary alloc] init];
 	}
     
 	return self;
@@ -47,6 +48,19 @@
 -(Room *)getExit:(NSString *)exit
 {
 	return [exits objectForKey:exit];
+}
+
+-(void)addItem:(Item*) anItem {
+    if (anItem != nil) {
+        [items setObject: anItem forKey: [anItem name]];
+    }
+}
+
+-(Item*)takeItem:(NSString*) anItemName {
+    id anItem = [items objectForKey: anItemName];
+    [items removeObjectForKey: anItemName];
+    
+    return anItem; //anItem could be nil here, must check in TakeCommand
 }
 
 -(NSString *)getExits

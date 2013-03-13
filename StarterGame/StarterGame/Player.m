@@ -14,7 +14,9 @@
 
 @synthesize currentRoom;
 @synthesize io;
-@synthesize playerInventory;
+@synthesize inventory;
+@synthesize maxWeight;
+@synthesize currentWeight;
 
 -(id)init
 {
@@ -28,7 +30,9 @@
 	if (nil != self) {
 		[self setCurrentRoom:room];
         [self setIo:theIO];
-        playerInventory = [[Inventory alloc] init];
+        inventory = [[NSMutableDictionary alloc] init];
+        maxWeight = 30;
+        currentWeight = 0;
 	}
     
 	return self;
@@ -60,6 +64,12 @@
 -(void)outputMessage:(NSString *)message
 {
     [io sendLines:message];
+}
+
+-(void)addToInventory:(Item*) anItem {
+    if (anItem != nil) {
+        [inventory setObject: anItem forKey: [anItem name]];
+    }
 }
 
 -(void)dealloc
