@@ -1,215 +1,0 @@
-TStarterGame
-v5
-r1
-cCheck dependencies
-cProcessInfoPlistFile /Users/robando/Documents/CPSC3175-2013/StarterGame/build/Debug/StarterGame.app/Contents/Info.plist StarterGame/StarterGame-Info.plist
-cProcessPCH /var/folders/r8/m5zt3jm16y7ckkd2qh4w59680000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/StarterGame-Prefix-dulxdlvyrkwialcxmqpevokomemc/StarterGame-Prefix.pch.pth StarterGame/StarterGame-Prefix.pch normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/StarterGame.build/Debug/StarterGame.build/Objects-normal/x86_64/main.o /Users/robando/Documents/CPSC3175-2013/StarterGame/StarterGame/main.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/StarterGame.build/Debug/StarterGame.build/Objects-normal/x86_64/AppDelegate.o /Users/robando/Documents/CPSC3175-2013/StarterGame/StarterGame/AppDelegate.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cLd /Users/robando/Documents/CPSC3175-2013/StarterGame/build/Debug/StarterGame.app/Contents/MacOS/StarterGame normal x86_64
-cCopyStringsFile /Users/robando/Documents/CPSC3175-2013/StarterGame/build/Debug/StarterGame.app/Contents/Resources/en.lproj/InfoPlist.strings StarterGame/en.lproj/InfoPlist.strings
-cCpResource StarterGame/en.lproj/Credits.rtf build/Debug/StarterGame.app/Contents/Resources/en.lproj/Credits.rtf
-cCompileXIB /Users/robando/Documents/CPSC3175-2013/StarterGame/StarterGame/en.lproj/MainMenu.xib
-cTouch /Users/robando/Documents/CPSC3175-2013/StarterGame/build/Debug/StarterGame.app
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk
-c00000000503F1B7700000000000000AA
-t1346313079
-s170
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Cocoa.framework/Cocoa
-c000000005063BF3900000000000025C8
-t1348714297
-s9672
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Cocoa.framework/Headers/Cocoa.h
-c000000005063BF3900000000000001E5
-t1348714297
-s485
-
-N/Users/robando/Documents/CPSC3175-2013/StarterGame/StarterGame/AppDelegate.m
-c00000000513673440000000000000178
-t1362522948
-s376
-
-N/Users/robando/Documents/CPSC3175-2013/StarterGame/StarterGame/StarterGame-Prefix.pch
-c00000000513673440000000000000099
-t1362522948
-s153
-i<Cocoa/Cocoa.h>
-
-N/Users/robando/Documents/CPSC3175-2013/StarterGame/StarterGame/en.lproj/Credits.rtf
-c000000005136734400000000000001B4
-t1362522948
-s436
-
-N/Users/robando/Documents/CPSC3175-2013/StarterGame/StarterGame/en.lproj/InfoPlist.strings
-c0000000051367344000000000000002D
-t1362522948
-s45
-
-N/Users/robando/Documents/CPSC3175-2013/StarterGame/StarterGame/en.lproj/MainMenu.xib
-c00000000513673450000000000033E0D
-t1362522949
-s212493
-
-N/Users/robando/Documents/CPSC3175-2013/StarterGame/StarterGame/main.m
-c00000000513673440000000000000101
-t1362522948
-s257
-
-N/Users/robando/Documents/CPSC3175-2013/StarterGame/build/Debug/StarterGame.app
-t2
-s0
-
-N/Users/robando/Documents/CPSC3175-2013/StarterGame/build/Debug/StarterGame.app/Contents/Info.plist
-t2
-s0
-
-N/Users/robando/Documents/CPSC3175-2013/StarterGame/build/Debug/StarterGame.app/Contents/MacOS/StarterGame
-t2
-s0
-
-N/Users/robando/Documents/CPSC3175-2013/StarterGame/build/Debug/StarterGame.app/Contents/PkgInfo
-t2
-s0
-
-N/Users/robando/Documents/CPSC3175-2013/StarterGame/build/Debug/StarterGame.app/Contents/Resources/en.lproj/Credits.rtf
-t2
-s0
-
-N/Users/robando/Documents/CPSC3175-2013/StarterGame/build/Debug/StarterGame.app/Contents/Resources/en.lproj/InfoPlist.strings
-t2
-s0
-
-N/Users/robando/Documents/CPSC3175-2013/StarterGame/build/Debug/StarterGame.app/Contents/Resources/en.lproj/MainMenu.nib
-t2
-s0
-
-N/Users/robando/Documents/CPSC3175-2013/StarterGame/build/StarterGame.build/Debug/StarterGame.build/Objects-normal/x86_64/AppDelegate.o
-t2
-s0
-
-N/Users/robando/Documents/CPSC3175-2013/StarterGame/build/StarterGame.build/Debug/StarterGame.build/Objects-normal/x86_64/StarterGame.LinkFileList
-c00000000513673870000000000000107
-t1362523015
-s263
-
-N/Users/robando/Documents/CPSC3175-2013/StarterGame/build/StarterGame.build/Debug/StarterGame.build/Objects-normal/x86_64/main.o
-t2
-s0
-
-N/var/folders/r8/m5zt3jm16y7ckkd2qh4w59680000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/StarterGame-Prefix-dulxdlvyrkwialcxmqpevokomemc/StarterGame-Prefix.pch.pth
-t2
-s0
-
-NStarterGame/StarterGame-Info.plist
-c00000000513673440000000000000451
-t1362522948
-s1105
-
-CBuild AST from /Users/robando/Documents/CPSC3175-2013/StarterGame/StarterGame/AppDelegate.m
-r0
-
-CBuild AST from /Users/robando/Documents/CPSC3175-2013/StarterGame/StarterGame/main.m
-r0
-
-CCheck dependencies
-r0
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependenciesb14e8107abe6b641^906ac407abe6b641^---0#1#0#--18"Check dependencies36"76F5F160-4684-4E6A-927E-3834F2371993-
-
-CCompileC build/StarterGame.build/Debug/StarterGame.build/Objects-normal/x86_64/AppDelegate.o /Users/robando/Documents/CPSC3175-2013/StarterGame/StarterGame/AppDelegate.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s384215824.457916
-e384215828.404102
-r1
-xCompileC
-xbuild/StarterGame.build/Debug/StarterGame.build/Objects-normal/x86_64/AppDelegate.o
-x/Users/robando/Documents/CPSC3175-2013/StarterGame/StarterGame/AppDelegate.m
-xnormal
-xx86_64
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection84"Compile /Users/robando/Documents/CPSC3175-2013/StarterGame/StarterGame/AppDelegate.med9d7510abe6b641^32756714abe6b641^---0#0#0#-19%DVTDocumentLocation2@92"file://localhost/Users/robando/Documents/CPSC3175-2013/StarterGame/StarterGame/AppDelegate.m0000000000000000^3322"CompileC build/StarterGame.build/Debug/StarterGame.build/Objects-normal/x86_64/AppDelegate.o StarterGame/AppDelegate.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/robando/Documents/CPSC3175-2013/StarterGame    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch x86_64 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.7 -g -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -iquote /Users/robando/Documents/CPSC3175-2013/StarterGame/build/StarterGame.build/Debug/StarterGame.build/StarterGame-generated-files.hmap -I/Users/robando/Documents/CPSC3175-2013/StarterGame/build/StarterGame.build/Debug/StarterGame.build/StarterGame-own-target-headers.hmap -I/Users/robando/Documents/CPSC3175-2013/StarterGame/build/StarterGame.build/Debug/StarterGame.build/StarterGame-all-target-headers.hmap -iquote /Users/robando/Documents/CPSC3175-2013/StarterGame/build/StarterGame.build/Debug/StarterGame.build/StarterGame-project-headers.hmap -I/Users/robando/Documents/CPSC3175-2013/StarterGame/build/Debug/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/robando/Documents/CPSC3175-2013/StarterGame/build/StarterGame.build/Debug/StarterGame.build/DerivedSources/x86_64 -I/Users/robando/Documents/CPSC3175-2013/StarterGame/build/StarterGame.build/Debug/StarterGame.build/DerivedSources -F/Users/robando/Documents/CPSC3175-2013/StarterGame/build/Debug -include /var/folders/r8/m5zt3jm16y7ckkd2qh4w59680000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/StarterGame-Prefix-dulxdlvyrkwialcxmqpevokomemc/StarterGame-Prefix.pch -MMD -MT dependencies -MF /Users/robando/Documents/CPSC3175-2013/StarterGame/build/StarterGame.build/Debug/StarterGame.build/Objects-normal/x86_64/AppDelegate.d --serialize-diagnostics /Users/robando/Documents/CPSC3175-2013/StarterGame/build/StarterGame.build/Debug/StarterGame.build/Objects-normal/x86_64/AppDelegate.dia -c /Users/robando/Documents/CPSC3175-2013/StarterGame/StarterGame/AppDelegate.m -o /Users/robando/Documents/CPSC3175-2013/StarterGame/build/StarterGame.build/Debug/StarterGame.build/Objects-normal/x86_64/AppDelegate.o36"686A4136-04D5-4A70-B97F-7D4AD1C4CD8F-
-
-CCompileC build/StarterGame.build/Debug/StarterGame.build/Objects-normal/x86_64/main.o /Users/robando/Documents/CPSC3175-2013/StarterGame/StarterGame/main.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s384215824.457427
-e384215828.405978
-r1
-xCompileC
-xbuild/StarterGame.build/Debug/StarterGame.build/Objects-normal/x86_64/main.o
-x/Users/robando/Documents/CPSC3175-2013/StarterGame/StarterGame/main.m
-xnormal
-xx86_64
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection77"Compile /Users/robando/Documents/CPSC3175-2013/StarterGame/StarterGame/main.mc4787510abe6b641^bbf06714abe6b641^---0#0#0#-19%DVTDocumentLocation2@85"file://localhost/Users/robando/Documents/CPSC3175-2013/StarterGame/StarterGame/main.m0000000000000000^3280"CompileC build/StarterGame.build/Debug/StarterGame.build/Objects-normal/x86_64/main.o StarterGame/main.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/robando/Documents/CPSC3175-2013/StarterGame    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch x86_64 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.7 -g -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -iquote /Users/robando/Documents/CPSC3175-2013/StarterGame/build/StarterGame.build/Debug/StarterGame.build/StarterGame-generated-files.hmap -I/Users/robando/Documents/CPSC3175-2013/StarterGame/build/StarterGame.build/Debug/StarterGame.build/StarterGame-own-target-headers.hmap -I/Users/robando/Documents/CPSC3175-2013/StarterGame/build/StarterGame.build/Debug/StarterGame.build/StarterGame-all-target-headers.hmap -iquote /Users/robando/Documents/CPSC3175-2013/StarterGame/build/StarterGame.build/Debug/StarterGame.build/StarterGame-project-headers.hmap -I/Users/robando/Documents/CPSC3175-2013/StarterGame/build/Debug/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/robando/Documents/CPSC3175-2013/StarterGame/build/StarterGame.build/Debug/StarterGame.build/DerivedSources/x86_64 -I/Users/robando/Documents/CPSC3175-2013/StarterGame/build/StarterGame.build/Debug/StarterGame.build/DerivedSources -F/Users/robando/Documents/CPSC3175-2013/StarterGame/build/Debug -include /var/folders/r8/m5zt3jm16y7ckkd2qh4w59680000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/StarterGame-Prefix-dulxdlvyrkwialcxmqpevokomemc/StarterGame-Prefix.pch -MMD -MT dependencies -MF /Users/robando/Documents/CPSC3175-2013/StarterGame/build/StarterGame.build/Debug/StarterGame.build/Objects-normal/x86_64/main.d --serialize-diagnostics /Users/robando/Documents/CPSC3175-2013/StarterGame/build/StarterGame.build/Debug/StarterGame.build/Objects-normal/x86_64/main.dia -c /Users/robando/Documents/CPSC3175-2013/StarterGame/StarterGame/main.m -o /Users/robando/Documents/CPSC3175-2013/StarterGame/build/StarterGame.build/Debug/StarterGame.build/Objects-normal/x86_64/main.o36"28ECCE38-25EB-41DA-900B-E3235167F186-
-
-CCompileXIB /Users/robando/Documents/CPSC3175-2013/StarterGame/StarterGame/en.lproj/MainMenu.xib
-s384215839.085672
-e384215839.483951
-r1
-xCompileXIB
-x/Users/robando/Documents/CPSC3175-2013/StarterGame/StarterGame/en.lproj/MainMenu.xib
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection94"Compiling /Users/robando/Documents/CPSC3175-2013/StarterGame/StarterGame/en.lproj/MainMenu.xib6728161fabe6b641^32007c1fabe6b641^---0#0#0#-19%DVTDocumentLocation2@100"file://localhost/Users/robando/Documents/CPSC3175-2013/StarterGame/StarterGame/en.lproj/MainMenu.xib0000000000000000^641"CompileXIB StarterGame/en.lproj/MainMenu.xib    cd /Users/robando/Documents/CPSC3175-2013/StarterGame    setenv XCODE_DEVELOPER_USR_PATH /Applications/Xcode.app/Contents/Developer/usr/bin/..    /Applications/Xcode.app/Contents/Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/robando/Documents/CPSC3175-2013/StarterGame/build/Debug/StarterGame.app/Contents/Resources/en.lproj/MainMenu.nib /Users/robando/Documents/CPSC3175-2013/StarterGame/StarterGame/en.lproj/MainMenu.xib --sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk36"2C98A8FA-F8F7-4CB5-A351-20FC443D273A-
-
-CCopyStringsFile /Users/robando/Documents/CPSC3175-2013/StarterGame/build/Debug/StarterGame.app/Contents/Resources/en.lproj/InfoPlist.strings StarterGame/en.lproj/InfoPlist.strings
-s384215839.024840
-e384215839.086574
-r1
-xCopyStringsFile
-x/Users/robando/Documents/CPSC3175-2013/StarterGame/build/Debug/StarterGame.app/Contents/Resources/en.lproj/InfoPlist.strings
-xStarterGame/en.lproj/InfoPlist.strings
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection43"Copy StarterGame/en.lproj/InfoPlist.strings6685061fabe6b641^f242161fabe6b641^---0#0#0#-19%DVTDocumentLocation2@105"file://localhost/Users/robando/Documents/CPSC3175-2013/StarterGame/StarterGame/en.lproj/InfoPlist.strings0000000000000000^426"CopyStringsFile build/Debug/StarterGame.app/Contents/Resources/en.lproj/InfoPlist.strings StarterGame/en.lproj/InfoPlist.strings    cd /Users/robando/Documents/CPSC3175-2013/StarterGame    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding UTF-16 --outdir /Users/robando/Documents/CPSC3175-2013/StarterGame/build/Debug/StarterGame.app/Contents/Resources/en.lproj -- StarterGame/en.lproj/InfoPlist.strings36"2E9AFD63-6BCD-41E3-8036-EB0E2E6E46D1-
-
-CCpResource StarterGame/en.lproj/Credits.rtf build/Debug/StarterGame.app/Contents/Resources/en.lproj/Credits.rtf
-s384215839.025462
-e384215839.084198
-r1
-xCpResource
-xStarterGame/en.lproj/Credits.rtf
-xbuild/Debug/StarterGame.app/Contents/Resources/en.lproj/Credits.rtf
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection72"Copy build/Debug/StarterGame.app/Contents/Resources/en.lproj/Credits.rtf0f9d061fabe6b641^5b98151fabe6b641^---0#0#0#-19%DVTDocumentLocation2@134"file://localhost/Users/robando/Documents/CPSC3175-2013/StarterGame/build/Debug/StarterGame.app/Contents/Resources/en.lproj/Credits.rtf000000000080d041^473"CpResource StarterGame/en.lproj/Credits.rtf build/Debug/StarterGame.app/Contents/Resources/en.lproj/Credits.rtf    cd /Users/robando/Documents/CPSC3175-2013/StarterGame    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/robando/Documents/CPSC3175-2013/StarterGame/StarterGame/en.lproj/Credits.rtf /Users/robando/Documents/CPSC3175-2013/StarterGame/build/Debug/StarterGame.app/Contents/Resources/en.lproj36"6ABFF135-45A1-4EE7-9BCE-1B2277070BF2-
-
-CLd /Users/robando/Documents/CPSC3175-2013/StarterGame/build/Debug/StarterGame.app/Contents/MacOS/StarterGame normal x86_64
-s384215828.413945
-e384215839.016335
-r1
-xLd
-x/Users/robando/Documents/CPSC3175-2013/StarterGame/build/Debug/StarterGame.app/Contents/MacOS/StarterGame
-xnormal
-xx86_64
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection110"Link /Users/robando/Documents/CPSC3175-2013/StarterGame/build/Debug/StarterGame.app/Contents/MacOS/StarterGamec1366a14abe6b641^0531041fabe6b641^---0#0#0#--848"Ld build/Debug/StarterGame.app/Contents/MacOS/StarterGame normal x86_64    cd /Users/robando/Documents/CPSC3175-2013/StarterGame    setenv MACOSX_DEPLOYMENT_TARGET 10.7    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -L/Users/robando/Documents/CPSC3175-2013/StarterGame/build/Debug -F/Users/robando/Documents/CPSC3175-2013/StarterGame/build/Debug -filelist /Users/robando/Documents/CPSC3175-2013/StarterGame/build/StarterGame.build/Debug/StarterGame.build/Objects-normal/x86_64/StarterGame.LinkFileList -mmacosx-version-min=10.7 -fobjc-link-runtime -framework Cocoa -o /Users/robando/Documents/CPSC3175-2013/StarterGame/build/Debug/StarterGame.app/Contents/MacOS/StarterGame36"2260988C-245E-4F96-9AED-212501BED087-
-
-CProcessInfoPlistFile /Users/robando/Documents/CPSC3175-2013/StarterGame/build/Debug/StarterGame.app/Contents/Info.plist StarterGame/StarterGame-Info.plist
-s384215815.840947
-e384215815.925206
-r1
-xProcessInfoPlistFile
-x/Users/robando/Documents/CPSC3175-2013/StarterGame/build/Debug/StarterGame.app/Contents/Info.plist
-xStarterGame/StarterGame-Info.plist
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection42"Process StarterGame/StarterGame-Info.plist7ff8e107abe6b641^950c1808abe6b641^---0#0#0#-19%DVTDocumentLocation2@101"file://localhost/Users/robando/Documents/CPSC3175-2013/StarterGame/StarterGame/StarterGame-Info.plist0000000000000000^474"ProcessInfoPlistFile build/Debug/StarterGame.app/Contents/Info.plist StarterGame/StarterGame-Info.plist    cd /Users/robando/Documents/CPSC3175-2013/StarterGame    builtin-infoPlistUtility StarterGame/StarterGame-Info.plist -genpkginfo /Users/robando/Documents/CPSC3175-2013/StarterGame/build/Debug/StarterGame.app/Contents/PkgInfo -expandbuildsettings -platform macosx -o /Users/robando/Documents/CPSC3175-2013/StarterGame/build/Debug/StarterGame.app/Contents/Info.plist36"E1FAC83C-3363-4B6A-8980-D62AC6615017-
-
-CProcessPCH /Users/robando/Library/Developer/Xcode/DerivedData/StarterGame-dmlmcxhupebiocdaumydibrrfkos/Index/PrecompiledHeaders/StarterGame-Prefix-fldrtpwohzuaiecrlayrdkwjdvuu_ast/StarterGame-Prefix.pch.pth StarterGame/StarterGame-Prefix.pch normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.astbuilder
-r0
-
-CProcessPCH /var/folders/r8/m5zt3jm16y7ckkd2qh4w59680000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/StarterGame-Prefix-dulxdlvyrkwialcxmqpevokomemc/StarterGame-Prefix.pch.pth StarterGame/StarterGame-Prefix.pch normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s384215815.933979
-e384215824.450084
-r1
-xProcessPCH
-x/var/folders/r8/m5zt3jm16y7ckkd2qh4w59680000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/StarterGame-Prefix-dulxdlvyrkwialcxmqpevokomemc/StarterGame-Prefix.pch.pth
-xStarterGame/StarterGame-Prefix.pch
-xnormal
-xx86_64
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection45"Precompile StarterGame/StarterGame-Prefix.pch15aaef07abe6b641^363e7310abe6b641^---0#0#0#-19%DVTDocumentLocation2@101"file://localhost/Users/robando/Documents/CPSC3175-2013/StarterGame/StarterGame/StarterGame-Prefix.pch0000000000000000^3358"ProcessPCH /var/folders/r8/m5zt3jm16y7ckkd2qh4w59680000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/StarterGame-Prefix-dulxdlvyrkwialcxmqpevokomemc/StarterGame-Prefix.pch.pth StarterGame/StarterGame-Prefix.pch normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/robando/Documents/CPSC3175-2013/StarterGame    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c-header -arch x86_64 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.7 -g -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -iquote /Users/robando/Documents/CPSC3175-2013/StarterGame/build/StarterGame.build/Debug/StarterGame.build/StarterGame-generated-files.hmap -I/Users/robando/Documents/CPSC3175-2013/StarterGame/build/StarterGame.build/Debug/StarterGame.build/StarterGame-own-target-headers.hmap -I/Users/robando/Documents/CPSC3175-2013/StarterGame/build/StarterGame.build/Debug/StarterGame.build/StarterGame-all-target-headers.hmap -iquote /Users/robando/Documents/CPSC3175-2013/StarterGame/build/StarterGame.build/Debug/StarterGame.build/StarterGame-project-headers.hmap -I/Users/robando/Documents/CPSC3175-2013/StarterGame/build/Debug/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/robando/Documents/CPSC3175-2013/StarterGame/build/StarterGame.build/Debug/StarterGame.build/DerivedSources/x86_64 -I/Users/robando/Documents/CPSC3175-2013/StarterGame/build/StarterGame.build/Debug/StarterGame.build/DerivedSources -F/Users/robando/Documents/CPSC3175-2013/StarterGame/build/Debug --serialize-diagnostics /var/folders/r8/m5zt3jm16y7ckkd2qh4w59680000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/StarterGame-Prefix-dulxdlvyrkwialcxmqpevokomemc/StarterGame-Prefix.pch.dia -c /Users/robando/Documents/CPSC3175-2013/StarterGame/StarterGame/StarterGame-Prefix.pch -o /var/folders/r8/m5zt3jm16y7ckkd2qh4w59680000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/StarterGame-Prefix-dulxdlvyrkwialcxmqpevokomemc/StarterGame-Prefix.pch.pth -MMD -MT dependencies -MF /var/folders/r8/m5zt3jm16y7ckkd2qh4w59680000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/StarterGame-Prefix-dulxdlvyrkwialcxmqpevokomemc/StarterGame-Prefix.pch.d36"BBD1CA3E-BD16-441D-B6E8-615116DCA2FA-
-
-CTouch /Users/robando/Documents/CPSC3175-2013/StarterGame/build/Debug/StarterGame.app
-s384215839.493245
-e384215839.603708
-r1
-xTouch
-x/Users/robando/Documents/CPSC3175-2013/StarterGame/build/Debug/StarterGame.app
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection84"Touch /Users/robando/Documents/CPSC3175-2013/StarterGame/build/Debug/StarterGame.appff5a7e1fabe6b641^99a09a1fabe6b641^---0#0#0#--193"Touch build/Debug/StarterGame.app    cd /Users/robando/Documents/CPSC3175-2013/StarterGame    /usr/bin/touch -c /Users/robando/Documents/CPSC3175-2013/StarterGame/build/Debug/StarterGame.app36"32221447-D6AE-4AAC-B208-EF60C2C6A05A-
-
