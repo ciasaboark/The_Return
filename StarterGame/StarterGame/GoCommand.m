@@ -24,7 +24,7 @@
 -(BOOL)execute:(Player *)player
 {
 	if ([self hasSecondWord]) {
-		[player walkTo:secondWord];
+        [player walkTo:secondWord];
 	}
 	else {
         [player outputMessage:@"\nGo where?"];
