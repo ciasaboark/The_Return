@@ -141,30 +141,74 @@
     [srvnt_bed_room setExit:@"south" toRoom:short_hall];
 
     
-    //Long Descriptions of the Rooms
+    /************************
+    * Long Descriptions of the Rooms
+    ************************/
+
+    //The Downstairs rooms
     [mast_bed setLongDescription:   @"The room is dimly lit.\nWindows along the east of the room are curtained and shuttered.  The little light that filters through illuminates a large masted bed draped in what looks to be velvet.  To the north there looks to be a bathroom.  A heavy dresser sits along the western wall.  A closet is to the south.  Dust motes float in the stale air."];
     
-    //Some (non-takable) Items for the rooms
+    [hall1 setLongDescription: @"The hallway is lit by two small windows flanking the main entrance to the south.  The floor is bare wood, dark in color.  The front door is large and barricaded.  You won't be able to remove the boards with your bare hands.  To the east there is a dining room.  To the west there is a formal hall.  The hall continues to the north, where you can see additonal rooms."];
+
+    [hall2 setLongDescription: @"The hallway is contines north and south from here.  The southern end leads to the front door as well as two additional rooms.  To the north the hallway enters shadow.  To the east there is a bedroom.  To the west there is some sort of library. There is a stairway here leading to the second floor."];
+
+    [hall3 setLongDescription: @"There isn't much light at the northern end of the hallway.  To the west there is a kitchen.  The light from the oven spills into the hall, but the penumbra is large.  To the east there is a small room with a plain wooden table.  To the north there is a plain door."];
+    
+    [dining_room setLongDescription: @""];
+    [formal_room setLongDescription: @""];
+    [mast_bed setLongDescription: @""];
+    [sitting_room setLongDescription: @""];
+    [kitchen setLongDescription: @""];
+    [mast_bath setLongDescription: @""];
+    [srvnt_dining_room setLongDescription: @""];
+    [well_house setLongDescription: @""];
+
+    //The Basement Rooms
+    [cave setLongDescription: @""];
+
+    //The Upstairs Rooms
+    [bed1 setLongDescription: @""];
+    [bed2 setLongDescription: @""];
+    [bed3 setLongDescription: @""];
+    [bathroom setLongDescription: @""];
+    [upstairs_hall setLongDescription: @""];
+    [short_hall setLongDescription: @""];
+    [storage setLongDescription: @""];
+    [srvnt_bed_room setLongDescription: @""];
+
+
+    /*****************************
+    * Items for the rooms
+    *****************************/
+
+    //Items in the Master Bedroom
+    Item* flashlight = [[Item alloc] initWithName:@"flashlight" andDescription:@"An old chrome flashlight.  You can't see how to open the battery compartment, but it feels heavy.  Maybe it will be of use somewhere." usedIn:storage andWeight:3];
+    Item* hat = [[Item alloc] initWithName:@"hat" andDescription:@"A rumbled bowler hat.  Tucked into the rim of the hat is a faded piece of paper with the numbers \"42\", \"28\", and \"16\"."];
+    [mast_bed addItem: flashlight];
+    [mast_bed addItem: hat];
+
     //Items for the dining room
     Item* dining_room_table = [[Item alloc] initWithName:@"the dining room table" andDescription:@"A large table.  There are place-settings for four.  A large candlestick holder sits in the center.  It does not look like anyone has eaten here in years." usedIn:nil andWeight: 40];
     Item* clock = [[Item alloc] initWithName:@"a grandfather clock." andDescription:@"Describe the grandfather clock." usedIn:nil andWeight: 40];
-
+    Item* key = [[Item alloc] initWithName:@"key" andDescription:@"A brass key.  The shine is tarnished. " usedIn:dining_room andWeight:1];
     [dining_room addItem: dining_room_table];
     [dining_room addItem: clock];
-    
+    [dining_room addItem: key];
+
     //Items in the sitting room
     Item* fireplace = [[Item alloc] initWithName:@"fireplace" andDescription:@"A brick fireplace.  Three leather-covered chairs face the fireplace. The mantlepiece appears to be ebony.  Carved figures adorn the sides.  The brick and metal are cold, and there is not even the slightest smell of soot in the air.  The cast iron grating covers the front.  Strangely there is a lock on the cover." usedIn:nil andWeight:40];
-
+    Item* book_stand = [[Item alloc] initWithName@"stand" andDescription:@"A book stand.  On the stand there is an open book.  The book appears to be some kind of journal.  You leaf through the pages, but, though the dates are ledgable, the text is mostly gibberish.  A single passage stands out, written in a shakey hand:\n----\nJuly 23rd 1918:\n\tSounds from below again.  The well.  The boards wont't hold forever.  Should have ended it." usedIn:nil andWeight:40];
     [sitting_room addItem: fireplace];
+    [sitting_room addItem: book_stand];
      
     //Some (collectable) Items
-    Item* flashlight = [[Item alloc] initWithName:@"flashlight" andDescription:@"An old chrome flashlight.  You can't see how to open the battery compartment, but it feels heavy.  Maybe it will be of use somewhere." usedIn:storage andWeight:3];
-    Item* key = [[Item alloc] initWithName:@"key" andDescription:@"A brass key.  The shine is tarnished. " usedIn:dining_room andWeight:20];
+    
     Item* lantern = [[Item alloc] initWithName:@"lantern" andDescription:@"A tin lantern.  The metal is more rust than shine, and the glass covering is chipped at the top.  There appears to be a small amount of oil in the resevoir." usedIn:kitchen andWeight:3];
+    Item* axe = [[Item alloc] initWithName:@"axe" andDescription:"A broken axe.  The handle is just long enough to be used as a hatchet." usedIn:hall3 andWeight:0];
     
      
-     [dining_room addItem: key];
-     [mast_bed addItem: flashlight];
+    
+    
     
     
     //We can start in a (semi) random room

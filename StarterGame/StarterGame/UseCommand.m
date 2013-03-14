@@ -36,8 +36,7 @@
                 else if (secondWord == @"key") {
                     [player outputMessage:@"You insert the key into the rusty lock on the fireplace.  After some effort you are rewarded with the squeal of the hinges.  Resting in the ashes of the fireplace there is an axe.  The handle is splintered no more than a foot from the blade, but you might be able to use it as a hatchet.  The blade is dull, but with a little effort no door can block your path"];
                     //figure out how to add the axe here
-                    //Item* axe = [[Item alloc] initWithName:@"axe" andDescription:"A broken axe.  The handle is just long enough to be used as a hatchet." usedIn:hall3 andWeight:0];
-                    //[[player inventory] setObject:axe forKey:[axe name]];
+                    
                 }
                 
                 /*else if (secondWord == @"axe") {
