@@ -82,7 +82,7 @@
 	[exits release];
     [longDescription release];
     [items release];
-	
+
 	[super dealloc];
 }
 
