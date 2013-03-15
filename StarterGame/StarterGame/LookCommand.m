@@ -45,35 +45,48 @@
             //+ this item.
             //As per the Apple API enumeration should not be done on an array that will be changed during enumeration
             //+ so we get to do this the ugly way.
-            id instance = [[[[[player currentRoom] items] objectForKey: secondWord] hiddenItems] lastObject];
-            while (instance != nil) {
-                [[player currentRoom] addItem: instance];
-                [[[[player currentRoom] items] objectForKey: secondWord] removeObject: instance];
+            Item* hiddenItem = [[tmpItem hiddenItems] lastObject];
+            while (hiddenItem != nil) {
+                [[player currentRoom] addItem: hiddenItem];
+                [[tmpItem hiddenItems] removeObject: hiddenItem];
                 //move to the next object (or nil)
-                instance = [[[[[player currentRoom] items] objectForKey: secondWord] hiddenItems] lastObject];
+                hiddenItem = [[tmpItem hiddenItems] lastObject];
             }
+            //[hiddenItem release];
+        }
+        //[tmpItem release];
 	} else {
         //player wants a description of the current room and known items
-        [player outputMessage:[NSString stringWithFormat:@"You are in %@. %@", [player currentRoom], [[player currentRoom] longDescription]]];
+        //[player outputMessage:[NSString stringWithFormat:@"You are in %@. %@", [player currentRoom], [[player currentRoom] longDescription]]];
 
-        //describe native items in the room (one per line)
-        //dropped items are added to a string to be printed later
-        NSMutableString* droppedText = @"";
-        for (id instance in [[player currentRoom] items]  {
-            // tempString = [NSString stringWithFormat:@"%@ Card%i:\"%@\"", tempString, ++i, instance ];
-            if ([instance isDropped]) {
-                droppedText = [NSString stringWithFormat:@"%@ %@", droppedText, [instance name]]
+        //Build a string for native items and a string for dropped items
+        NSMutableString* droppedText = [[NSMutableString alloc] initWithString:@""];
+        NSMutableString* nativeItemText = [[NSMutableString alloc] initWithString:@""];
+        
+        for (NSString* key in [[player currentRoom] items])  {
+            Item* thisItem = [[[player currentRoom] items] objectForKey: key];
+            
+            if ([thisItem isDropped]) {
+                droppedText = [NSString stringWithFormat:@"%@  A %@.", droppedText, key];
             } else {
-                [player outputMessage: [NSString stringWithFormat:@"%@\n", [instance roomDescription]]];
+                nativeItemText = [NSString stringWithFormat:@"%@  %@", nativeItemText, [thisItem roomDescription]];
+                //[player outputMessage: [NSString stringWithFormat:@"%@\n", [thisItem roomDescription]]];
             }
+            
+            [thisItem release];
         }
-
-        //list dropped items in a single block of text
+        //[key release];  //does this need to be released also?
+        
+        
         if ([droppedText length] > 1) {
-            [player outputMessage: [NSString stringWithFormat:@"In a pile in the middle of the room you see: %@", droppedText]];
+            droppedText = [NSString stringWithFormat:@"\nIn a pile in the middle of the room you see: %@.", droppedText];
         }
-   
-	return NO;
+        
+        [player outputMessage: [NSString stringWithFormat:@"You are in %@.  %@  %@  %@", [player currentRoom], [[player currentRoom] longDescription], nativeItemText, droppedText]];
+        
+    }
+    
+    return NO;
 }
 
 @end

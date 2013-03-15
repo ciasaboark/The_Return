@@ -45,7 +45,7 @@
 @property (retain, nonatomic)NSString* name;
 @property (retain, nonatomic)NSString* description;
 @property (retain, nonatomic)NSString* roomDescription;
-@property (retain, nonatomic)Boolean isDropped;
+@property (nonatomic)Boolean isDropped;
 @property (retain, nonatomic)NSMutableArray* hiddenItems;
 @property (retain, nonatomic)Room* usedIn;
 @property (nonatomic)int weight;
@@ -55,7 +55,7 @@
 -(id)initWithName:(NSString *)newName andDescription:(NSString*) newDescription usedIn:(Room*) aRoom
 		andWeight:(int) aWeight andRoomDescription:(NSString*) newRoomDescription;
 
--(void)addHiddenItem
+//-(void)addHiddenItem
 
 -(void)dealloc;
 

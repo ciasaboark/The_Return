@@ -146,7 +146,7 @@
     ************************/
 
     //The Downstairs rooms
-    [mast_bed setLongDescription:   @"The room is dimly lit.\nWindows along the east of the room are curtained and shuttered. To the north there looks to be a bathroom.  Dust motes float in the stale air."];
+    [mast_bed setLongDescription: @"The room is dimly lit.  Windows along the east of the room are curtained and shuttered. To the north there looks to be a bathroom.  Dust motes float in the stale air."];
     
     [hall1 setLongDescription: @"The hallway is lit by two small windows flanking the main entrance to the south.  The floor is bare wood, dark in color.  The front door is large and barricaded.  You won't be able to remove the boards with your bare hands.  To the east there is a dining room.  To the west there is a formal hall.  The hall continues to the north, where you can see additonal rooms."];
 
@@ -156,7 +156,7 @@
     
     [dining_room setLongDescription: @""];
     [formal_room setLongDescription: @""];
-    [mast_bed setLongDescription: @""];
+    
     [sitting_room setLongDescription: @""];
     [kitchen setLongDescription: @""];
     [mast_bath setLongDescription: @""];
@@ -183,21 +183,23 @@
 
     //Items in the Master Bedroom
         //fixed items
-        Item* master_bedroom_bed = [[Item alloc] initWithName:@"bed" andDescription:@"The BED is large and seems to be made entirely out of some glossy dark wood.  The covers are unmade.  For some reason the unmade covers seem to fill you with dispair." usedIn:nill andWeight:40 andRoomDescription:@"The little light that filters through illuminates a large four post BED draped in what looks to be velvet."];
+        Item* master_bedroom_bed = [[Item alloc] initWithName:@"bed" andDescription:@"The BED is large and seems to be made entirely out of some glossy dark wood.  The covers are unmade.  For some reason the unmade covers seem to fill you with dispair." usedIn:nil andWeight:40 andRoomDescription:@"The little light that filters through illuminates a large four post BED draped in what looks to be velvet."];
         
         //items with hidden items
-        Item* master_bedroom_dresser = [[Item alloc] initWithName:@"dresser" andDescription:@"The DRESSER is large and made in the Victorian fassion.  Sitting on top of the dresser there is a KEY" usedIn:nill andWeight:40 andRoomDescription:@"A heavy DRESSER sits along the western wall."];
+        Item* master_bedroom_dresser = [[Item alloc] initWithName:@"dresser" andDescription:@"The DRESSER is large and made in the Victorian fassion.  Sitting on top of the dresser there is a KEY" usedIn:nil andWeight:40 andRoomDescription:@"A heavy DRESSER sits along the western wall."];
             //Items on the dresser
             Item* key = [[Item alloc] initWithName:@"key" andDescription:@"A brass KEY.  The shine is tarnished. " usedIn:sitting_room andWeight:1 andRoomDescription:@"key room description here."];
-            [[master_bedroom_dresser hiddenItems] addObject: key];
+            [[master_bedroom_dresser hiddenItems] addObject: [key autorelease]];
 
         Item* master_bedroom_closet = [[Item alloc] initWithName:@"closet" andDescription:@"The CLOSET is a mess.  Clothes are scattered all over the floor.  Searching through the mess you notice that there is a FLASHLIGHT on the top shelf." usedIn:nil andWeight:-1 andRoomDescription:@"A CLOSET is to the south."];
             //Items in the closet
-            Item* flashlight = [[Item alloc] initWithName:@"flashlight" andDescription:@"An old chrome FLASHLIGHT.  You can't see how to open the battery compartment, but it feels heavy.  Maybe it will be of use somewhere." usedIn:storage andWeight:3 andRoomDescription: @"On the top shelf of the closet there is a FLASHLIGHT."];
-            [[master_bedroom_closet hiddenItems] addObject: flashlight];
+            Item* flashlight = [[Item alloc] initWithName:@"flashlight" andDescription:@"An old chrome FLASHLIGHT.  You can't see how to open the battery compartment, but it feels heavy.  Maybe it will be of use somewhere." usedIn:storage andWeight:11 andRoomDescription: @"On the top shelf of the closet there is a FLASHLIGHT."];
+            [[master_bedroom_closet hiddenItems] addObject: [flashlight autorelease]];
 
         //collectable items
-        Item* hat = [[Item alloc] initWithName:@"hat" andDescription:@"A rumbled bowler HAT.  Tucked into the rim of the hat is a faded piece of paper with the numbers \"42\", \"28\", and \"16\"." andWeight: 2 andRoomDescription: @"A bowlers HAT rests on a hook by the door."];
+        Item* hat = [[Item alloc] initWithName:@"hat" andDescription:@"A rumbled bowler HAT.  Tucked into the rim of the hat is a faded piece of paper with the numbers \"42\", \"28\", and \"16\"." usedIn:nil andWeight: 11 andRoomDescription: @"A bowlers HAT rests on a hook by the door."];
+        //make the hat dropped for testing
+        [hat setIsDropped:YES];
     
         [mast_bed addItem: master_bedroom_bed];
         [mast_bed addItem: master_bedroom_dresser];
@@ -232,12 +234,12 @@
 
     //Items in the library
         //Fixed items
-        Item* library_book_stand = [[Item alloc] initWithName@"stand" andDescription:@"A book STAND.  On the stand there is an open book.  The book appears to be some kind of journal.  You leaf through the pages, but, though the dates are ledgable, the text is mostly gibberish.  A single passage stands out, written in a shakey hand:\n----\nJuly 23rd 1918:\n\tSounds from below again.  The well.  The boards wont't hold forever.  Should have ended it." usedIn:nil andWeight:40 andRoomDescription:@"Against the south wall there is a book STAND with an open book on top."];
+        Item* library_book_stand = [[Item alloc] initWithName:@"stand" andDescription:@"A book STAND.  On the stand there is an open book.  The book appears to be some kind of journal.  You leaf through the pages, but, though the dates are ledgable, the text is mostly gibberish.  A single passage stands out, written in a shakey hand:\n----\nJuly 23rd 1918:\n\tSounds from below again.  The well.  The boards wont't hold forever.  Should have ended it." usedIn:nil andWeight:40 andRoomDescription:@"Against the south wall there is a book STAND with an open book on top."];
 
         //Items with hidden items
         Item* library_fireplace = [[Item alloc] initWithName:@"fireplace" andDescription:@"A brick FIREPLACE.  Three leather-covered chairs face the fireplace. The mantlepiece appears to be ebony.  Carved figures adorn the sides.  The brick and metal are cold, and there is not even the slightest smell of soot in the air.  The cast iron grating covers the front.  Strangely there is a lock on the cover." usedIn:nil andWeight:40 andRoomDescription:@"Along the north wall of the sitting room there is a FIREPLACE."];
             //Items inside the fireplace
-            Item* axe = [[Item alloc] initWithName:@"axe" andDescription:"A broken AXE.  The handle is just long enough to be used as a hatchet." usedIn:hall3 andWeight:1 andRoomDescription:@"Sitting in the dust of the fireplace there is an AXE."];
+            Item* axe = [[Item alloc] initWithName:@"axe" andDescription:@"A broken AXE.  The handle is just long enough to be used as a hatchet." usedIn:hall3 andWeight:1 andRoomDescription:@"Sitting in the dust of the fireplace there is an AXE."];
             [[library_fireplace hiddenItems] addObject: axe];
         
         [sitting_room addItem: library_fireplace];
@@ -269,7 +271,7 @@
         Item* srvnt_dining_room_table = [[Item alloc] initWithName:@"table" andDescription:@"" usedIn:nil andWeight:60 andRoomDescription:@""];
             //Items on the servant's dining room table
              Item* lantern = [[Item alloc] initWithName:@"lantern" andDescription:@"A tin lantern.  The metal is more rust than shine, and the glass covering is chipped at the top.  There appears to be a small amount of oil in the resevoir." usedIn:kitchen andWeight:3 andRoomDescription:@"room description for the lantern"];
-            [[srvnt_dining_room hiddenItems] addObject: lantern];
+            [[srvnt_dining_room_table hiddenItems] addObject: lantern];
 
         [srvnt_dining_room addItem: srvnt_dining_room_table];
 
@@ -288,8 +290,8 @@
 	NSArray *rooms = [NSArray arrayWithObjects: bed1, bed2, bed3, mast_bed, mast_bath, bathroom, srvnt_bed_room, nil];
     uint32_t rand = arc4random_uniform([rooms count]);
 
-    return [rooms objectAtIndex: rand];
-    //return mast_bed;
+    //return [rooms objectAtIndex: rand];
+    return mast_bed;
 }
 
 -(void)start

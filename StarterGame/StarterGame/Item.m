@@ -14,7 +14,7 @@
 @synthesize weight;
 
 -(id)init {
-	return [self initWithName:@"Default Item" andDescription:@"Default Description" usedIn:nil];
+	return [self initWithName:@"Default Item" andDescription:@"Default Description" usedIn:nil andWeight:-1 andRoomDescription:@"Default Room Description"];
 }
 
 -(id)initWithName:(NSString *)newName andDescription:(NSString*) newDescription usedIn:(Room*) aRoom andWeight:(int) aWeight andRoomDescription:(NSString*) newRoomDescription {

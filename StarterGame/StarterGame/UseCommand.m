@@ -34,19 +34,19 @@
                 }
                 
                 else if (secondWord == @"key") {
-                    [player outputMessage:@"You insert the key into the rusty lock on the fireplace.  After some effort you are rewarded with the squeal of the hinges.  Resting in the ashes of the fireplace there is an axe.  The handle is splintered no more than a foot from the blade, but you might be able to use it as a hatchet.  The blade is dull, but with a little effort no door can block your path"];
-                    //figure out how to add the axe here
+                    
+                    //use the key here
                     
                 }
                 
-                /*else if (secondWord == @"axe") {
-                    [player outputMessge:@"You strike the door with the axe.  Chips of wood fly into the air.  Again.  Time passes.  Your arms tire.  Eventually the wood around the lock splinters.  You kick the door free and step out into the air.  As you walk from the house you ask yourself why you didn't just smash a window in the first place"];
-                    //the game is over now
-                }*/
+                else if (secondWord == @"axe") {
+                    //use the axe here
+                }
             }
+        } else {
+            [player outputMessage:[NSString stringWithFormat:@"You do not have a %@", secondWord]];
         }
-    }
-	else {
+    } else {
         [player outputMessage:@"\nUse what?"];
 	}
 	return NO;
