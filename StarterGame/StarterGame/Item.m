@@ -8,6 +8,7 @@
 @synthesize name;
 @synthesize description;
 @synthesize roomDescription;
+@synthesize isDropped;
 @synthesize hiddenItems;
 @synthesize usedIn;
 @synthesize weight;
@@ -27,6 +28,7 @@
 		roomDescription = newRoomDescription;
 		//the initializer does not handle hidden items.  These are added later.
 		hiddenItems = [[NSMutableArray alloc] init];
+		isDropped = NO;
 	}
 
 	return self;
