@@ -286,12 +286,12 @@
     
     
     
-    //We can start in a (semi) random room
+    //In order to advance the sense of amnesia we can start in a (semi) random room.
 	NSArray *rooms = [NSArray arrayWithObjects: bed1, bed2, bed3, mast_bed, mast_bath, bathroom, srvnt_bed_room, nil];
+    [player setSleepRooms: rooms];
     uint32_t rand = arc4random_uniform([rooms count]);
 
-    //return [rooms objectAtIndex: rand];
-    return mast_bed;
+    return [rooms objectAtIndex: rand];
 }
 
 -(void)start

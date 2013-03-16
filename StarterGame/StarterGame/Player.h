@@ -21,6 +21,7 @@
     NSMutableDictionary* inventory;
     int maxWeight;
     int currentWeight;
+    NSMutableArray* sleepRooms;
 }
 
 @property (retain, nonatomic)Room *currentRoom;
@@ -29,6 +30,7 @@
 @property (retain, nonatomic)NSMutableDictionary* inventory;
 @property (nonatomic)int maxWeight;
 @property (nonatomic)int currentWeight;
+@property (retain, nonatomic) sleepRooms;
 
 -(id)init;
 -(id)initWithRoom:(Room *)room andIO:(GameIO *)theIO;

@@ -17,6 +17,7 @@
 @synthesize inventory;
 @synthesize maxWeight;
 @synthesize currentWeight;
+@synthesize sleepRooms;
 
 -(id)init
 {
@@ -33,6 +34,7 @@
         inventory = [[NSMutableDictionary alloc] init];
         maxWeight = 30;
         currentWeight = 0;
+        sleepRooms = nil;
 	}
     
 	return self;
