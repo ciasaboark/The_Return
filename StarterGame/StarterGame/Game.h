@@ -22,7 +22,7 @@
 @property (retain, nonatomic)Player *player;
 
 -(id)initWithGameIO:(GameIO *)theIO;
--(Room *)createWorld;
+-(NSArray *)createWorld;
 -(void)start;
 -(void)end;
 -(BOOL)execute:(NSString *)commandString;

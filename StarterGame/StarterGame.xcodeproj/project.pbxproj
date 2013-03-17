@@ -23,6 +23,8 @@
 		81AF892116E6AAC400276C6B /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 81AF891F16E6AAC400276C6B /* Credits.rtf */; };
 		81AF892416E6AAC400276C6B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 81AF892316E6AAC400276C6B /* AppDelegate.m */; };
 		81AF892716E6AAC500276C6B /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81AF892516E6AAC500276C6B /* MainMenu.xib */; };
+		DFA337AF16F534B100666817 /* DropCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA337AE16F534B100666817 /* DropCommand.m */; };
+		DFDA7AB116F4CB7E00A03E30 /* SleepCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = DFDA7AB016F4CB7E00A03E30 /* SleepCommand.m */; };
 		E7C0303F16F1397B00BA85F0 /* UseCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C0303E16F1397A00BA85F0 /* UseCommand.m */; };
 		E7C7CD6E16F0DAD700CB9292 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C7CD6C16F0DAD700CB9292 /* Item.m */; };
 		E7C7CD7216F0DDB700CB9292 /* LookCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C7CD7116F0DDB700CB9292 /* LookCommand.m */; };
@@ -63,6 +65,10 @@
 		81AF892216E6AAC400276C6B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		81AF892316E6AAC400276C6B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		81AF892616E6AAC500276C6B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		DFA337AD16F534B100666817 /* DropCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropCommand.h; sourceTree = "<group>"; };
+		DFA337AE16F534B100666817 /* DropCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropCommand.m; sourceTree = "<group>"; };
+		DFDA7AAF16F4CB7E00A03E30 /* SleepCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SleepCommand.h; sourceTree = "<group>"; };
+		DFDA7AB016F4CB7E00A03E30 /* SleepCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SleepCommand.m; sourceTree = "<group>"; };
 		E7C0303D16F1397A00BA85F0 /* UseCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UseCommand.h; sourceTree = "<group>"; };
 		E7C0303E16F1397A00BA85F0 /* UseCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UseCommand.m; sourceTree = "<group>"; };
 		E7C7CD6B16F0DAD700CB9292 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
@@ -103,11 +109,14 @@
 				819122DE16E95A0000BEDA1B /* Room.m */,
 			);
 			name = GameClasses;
+			path = StarterGame;
 			sourceTree = "<group>";
 		};
 		819122E816EA20A900BEDA1B /* Commands */ = {
 			isa = PBXGroup;
 			children = (
+				DFA337AD16F534B100666817 /* DropCommand.h */,
+				DFA337AE16F534B100666817 /* DropCommand.m */,
 				819122CC16E95A0000BEDA1B /* Command.h */,
 				819122CD16E95A0000BEDA1B /* Command.m */,
 				819122D216E95A0000BEDA1B /* GoCommand.h */,
@@ -122,6 +131,8 @@
 				E7C7CD7116F0DDB700CB9292 /* LookCommand.m */,
 				E7C7CD7316F0EF2C00CB9292 /* TakeCommand.h */,
 				E7C7CD7416F0EF2C00CB9292 /* TakeCommand.m */,
+				DFDA7AAF16F4CB7E00A03E30 /* SleepCommand.h */,
+				DFDA7AB016F4CB7E00A03E30 /* SleepCommand.m */,
 				E7C0303D16F1397A00BA85F0 /* UseCommand.h */,
 				E7C0303E16F1397A00BA85F0 /* UseCommand.m */,
 			);
@@ -131,6 +142,7 @@
 		81AF890116E6AAC400276C6B = {
 			isa = PBXGroup;
 			children = (
+				819122CA16E959A800BEDA1B /* GameClasses */,
 				81AF891616E6AAC400276C6B /* StarterGame */,
 				81AF890F16E6AAC400276C6B /* Frameworks */,
 				81AF890D16E6AAC400276C6B /* Products */,
@@ -169,7 +181,6 @@
 			children = (
 				81AF892216E6AAC400276C6B /* AppDelegate.h */,
 				81AF892316E6AAC400276C6B /* AppDelegate.m */,
-				819122CA16E959A800BEDA1B /* GameClasses */,
 				81AF892516E6AAC500276C6B /* MainMenu.xib */,
 				81AF891716E6AAC400276C6B /* Supporting Files */,
 			);
@@ -268,6 +279,8 @@
 				E7C7CD7216F0DDB700CB9292 /* LookCommand.m in Sources */,
 				E7C7CD7516F0EF2C00CB9292 /* TakeCommand.m in Sources */,
 				E7C0303F16F1397B00BA85F0 /* UseCommand.m in Sources */,
+				DFDA7AB116F4CB7E00A03E30 /* SleepCommand.m in Sources */,
+				DFA337AF16F534B100666817 /* DropCommand.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

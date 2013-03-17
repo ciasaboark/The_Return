@@ -24,17 +24,20 @@
 	return [self initWithRoom:nil andIO:nil];
 }
 
--(id)initWithRoom:(Room *)room andIO:(GameIO *)theIO
+-(id)initWithRoom:(NSArray *)rooms andIO:(GameIO *)theIO
 {
 	self = [super init];
     
 	if (nil != self) {
-		[self setCurrentRoom:room];
+        uint32_t rand = arc4random_uniform([rooms count]);
+		[self setCurrentRoom:[rooms objectAtIndex:rand]];
+        //[self setCurrentRoom:room];
         [self setIo:theIO];
         inventory = [[NSMutableDictionary alloc] init];
-        maxWeight = 30;
-        currentWeight = 0;
-        sleepRooms = nil;
+        [self setMaxWeight: 30];
+        [self setCurrentWeight: 0];
+        //sleepRooms = [[NSMutableArray alloc] init];   //these will be added in createWord
+        [self setSleepRooms: rooms];
 	}
     
 	return self;

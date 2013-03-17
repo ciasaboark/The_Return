@@ -25,7 +25,7 @@
 	return self;
 }
 
--(Room *)createWorld {
+-(NSArray *)createWorld {
 	//The downstairs rooms
 	Room 	*hall1, *hall2, *hall3, *dining_room, *formal_room, *mast_bed, *sitting_room, *kitchen, *mast_bath;
     Room    *srvnt_dining_room, *well_house;
@@ -288,10 +288,17 @@
     
     //In order to advance the sense of amnesia we can start in a (semi) random room.
 	NSArray *rooms = [NSArray arrayWithObjects: bed1, bed2, bed3, mast_bed, mast_bath, bathroom, srvnt_bed_room, nil];
-    [player setSleepRooms: rooms];
-    uint32_t rand = arc4random_uniform([rooms count]);
+    //for (Room* aRoom in rooms) {
+    //    NSLog([aRoom description]);
+    //    [[[self player] sleepRooms] addObject: aRoom];
+    //}
+    
+    //[player setSleepRooms:[NSMutableArray arrayWithArray:rooms]];
+   
+    //uint32_t rand = arc4random_uniform([rooms count]);
 
-    return [rooms objectAtIndex: rand];
+    //return [rooms objectAtIndex: rand];
+    return rooms;
 }
 
 -(void)start

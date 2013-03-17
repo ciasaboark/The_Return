@@ -52,12 +52,10 @@
                 //move to the next object (or nil)
                 hiddenItem = [[tmpItem hiddenItems] lastObject];
             }
-            //[hiddenItem release];
         }
         //[tmpItem release];
 	} else {
-        //player wants a description of the current room and known items
-        //[player outputMessage:[NSString stringWithFormat:@"You are in %@. %@", [player currentRoom], [[player currentRoom] longDescription]]];
+        //player wants a description of the current room and known item
 
         //Build a string for native items and a string for dropped items
         NSMutableString* droppedText = [[NSMutableString alloc] initWithString:@""];
@@ -70,19 +68,16 @@
                 droppedText = [NSString stringWithFormat:@"%@  A %@.", droppedText, key];
             } else {
                 nativeItemText = [NSString stringWithFormat:@"%@  %@", nativeItemText, [thisItem roomDescription]];
-                //[player outputMessage: [NSString stringWithFormat:@"%@\n", [thisItem roomDescription]]];
             }
             
-            [thisItem release];
         }
-        //[key release];  //does this need to be released also?
         
         
         if ([droppedText length] > 1) {
-            droppedText = [NSString stringWithFormat:@"\nIn a pile in the middle of the room you see: %@.", droppedText];
+            droppedText = [NSString stringWithFormat:@"\nIn a pile in the middle of the room you see: %@", droppedText];
         }
         
-        [player outputMessage: [NSString stringWithFormat:@"You are in %@.  %@  %@  %@", [player currentRoom], [[player currentRoom] longDescription], nativeItemText, droppedText]];
+        [player outputMessage: [NSString stringWithFormat:@"You are in %@.  %@  %@  %@", [player currentRoom], [[player currentRoom] longDescription], [nativeItemText autorelease], [droppedText autorelease]]];
         
     }
     
