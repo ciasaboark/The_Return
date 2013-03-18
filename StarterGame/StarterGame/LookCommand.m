@@ -58,8 +58,8 @@
         //player wants a description of the current room and known item
 
         //Build a string for native items and a string for dropped items
-        NSMutableString* droppedText = [[NSMutableString alloc] initWithString:@""];
-        NSMutableString* nativeItemText = [[NSMutableString alloc] initWithString:@""];
+        NSString* droppedText = @"";
+        NSString* nativeItemText = @"";
         
         for (NSString* key in [[player currentRoom] items])  {
             Item* thisItem = [[[player currentRoom] items] objectForKey: key];

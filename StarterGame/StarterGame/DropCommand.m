@@ -25,10 +25,11 @@
         //check the current room to see if the item exist
         
         id itemToDrop = [[player inventory] objectForKey: secondWord];
+        [itemToDrop retain];
         
         if (itemToDrop == nil ) {
-            //the item is not in the room
-            [player outputMessage:@"You don't have that item"];
+            //the item is not in the players inventory
+            [player outputMessage:[NSString stringWithFormat:@"You don't have a %@ to drop.", [itemToDrop name]]];
             
         } else {
             [itemToDrop setIsDropped:YES];
@@ -41,6 +42,7 @@
             
         }
         
+        [itemToDrop release];
 	}
 	else {
         [player outputMessage:@"\nDrop what?"];

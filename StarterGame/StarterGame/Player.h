@@ -22,6 +22,7 @@
     int maxWeight;
     int currentWeight;
     NSArray* sleepRooms;
+    Boolean hasTakenItem;				//whether or not the player has picked anything up yet (used for string formatting)
 }
 
 @property (retain, nonatomic)Room *currentRoom;
@@ -31,6 +32,7 @@
 @property (nonatomic)int maxWeight;
 @property (nonatomic)int currentWeight;
 @property (retain, nonatomic)NSArray* sleepRooms;
+@property (nonatomic)Boolean hasTakenItem;
 
 -(id)init;
 -(id)initWithRoom:(NSArray *)rooms andIO:(GameIO *)theIO;
