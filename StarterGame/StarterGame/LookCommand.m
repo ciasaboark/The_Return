@@ -53,7 +53,7 @@
                 hiddenItem = [[tmpItem hiddenItems] lastObject];
             }
         }
-        //[tmpItem release];
+        
 	} else {
         //player wants a description of the current room and known item
 
@@ -65,7 +65,7 @@
             Item* thisItem = [[[player currentRoom] items] objectForKey: key];
             
             if ([thisItem isDropped]) {
-                droppedText = [NSString stringWithFormat:@"%@  A %@.", droppedText, key];
+                droppedText = [NSString stringWithFormat:@"%@  A %@.", droppedText, [thisItem name]];
             } else {
                 nativeItemText = [NSString stringWithFormat:@"%@  %@", nativeItemText, [thisItem roomDescription]];
             }

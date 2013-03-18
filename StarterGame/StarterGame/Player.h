@@ -17,7 +17,6 @@
 @interface Player : NSObject {
     Room* currentRoom;
     GameIO* io;
-    //Inventory* playerInventory;
     NSMutableDictionary* inventory;
     int maxWeight;
     int currentWeight;
@@ -27,7 +26,6 @@
 
 @property (retain, nonatomic)Room *currentRoom;
 @property (retain, nonatomic)GameIO *io;
-//@property (retain, nonatomic)Inventory* playerInventory;
 @property (retain, nonatomic)NSMutableDictionary* inventory;
 @property (nonatomic)int maxWeight;
 @property (nonatomic)int currentWeight;

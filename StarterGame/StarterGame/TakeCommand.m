@@ -42,9 +42,10 @@
                  
             
             } else {
-                //the item is not too heavy
+                //we can take the item
                 [[[player currentRoom] items] removeObjectForKey: secondWord];    //remove the item from the room
                 [[player inventory] setObject: itemToTake forKey: secondWord];      //and place it in the players inventory
+                [itemToTake setIsDropped:false];
                 [player setCurrentWeight: [player currentWeight] + [itemToTake weight]];
                 
                 //give some fancy feedback if this was the first item we picked up

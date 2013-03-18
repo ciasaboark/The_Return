@@ -24,24 +24,28 @@
 	if ([self hasSecondWord]) {
         //check the current room to see if the item exist
         
-        id itemToDrop = [[player inventory] objectForKey: secondWord];
-        [itemToDrop retain];
+        Item* itemToDrop = [[player inventory] objectForKey: secondWord];
+		[itemToDrop retain];
         
         if (itemToDrop == nil ) {
-            //the item is not in the players inventory
-            [player outputMessage:[NSString stringWithFormat:@"You don't have a %@ to drop.", [itemToDrop name]]];
+            //the item is not in the room
+            [player outputMessage:@"You don't have that item"];
             
         } else {
-            [itemToDrop setIsDropped:YES];
-            //add item to the current room
-            [[[player currentRoom] items] setObject: itemToDrop forKey: [itemToDrop name]];
-            //remove item from player
-            [[player inventory] removeObjectForKey:[itemToDrop name]];
+            [itemToDrop setIsDropped:true];
+            
             //lighten the load a bit
             [player setCurrentWeight: [player currentWeight] - [itemToDrop weight]];
             
+            //remove item from player
+            [[player inventory] removeObjectForKey:[itemToDrop name]];
+            
+            //add item to the current room
+            [[[player currentRoom] items] setObject: itemToDrop forKey: [itemToDrop name]];
+            
+            [player outputMessage:[NSString stringWithFormat:@"You drop the %@ in the middle of the %@.", [itemToDrop name], [[player currentRoom] tag]]];
         }
-        
+
         [itemToDrop release];
 	}
 	else {
