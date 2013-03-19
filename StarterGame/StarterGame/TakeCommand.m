@@ -27,6 +27,7 @@
         //check the current room to see if the item exist
         
         Item* itemToTake = [[[player currentRoom] items] objectForKey: secondWord];
+        [itemToTake retain];
         if (itemToTake == nil ) {
             //the item is not in the room
             [player outputMessage:@"That items does not exist here"];
@@ -62,6 +63,7 @@
                 }
             }
         }
+        [itemToTake release];
         
 	}
 	else {

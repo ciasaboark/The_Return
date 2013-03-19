@@ -18,17 +18,21 @@
 }
 
 -(id)initWithName:(NSString *)newName andDescription:(NSString*) newDescription usedIn:(Room*) aRoom andWeight:(int) aWeight andRoomDescription:(NSString*) newRoomDescription {
+    return [self initWithName:newName andDescription:newDescription usedIn:aRoom andWeight:aWeight andRoomDescription:newRoomDescription andPoints:0];
+}
+
+-(id)initWithName:(NSString *)newName andDescription:(NSString*) newDescription usedIn:(Room*) aRoom andWeight:(int) aWeight andRoomDescription:(NSString*) newRoomDescription andPoints:(int)itemPoints {
 	self = [super init];
 
 	if (self != nil) {
-		name = newName;
-		description = newDescription;
-		usedIn = aRoom;
-		weight = aWeight;
-		roomDescription = newRoomDescription;
-		//the initializer does not handle hidden items.  These are added later.
-		hiddenItems = [[NSMutableArray alloc] init];
-		isDropped = NO;
+		[self setName: newName];
+		[self setDescription: newDescription];
+		[self setUsedIn: aRoom];
+		[self setWeight: aWeight];
+		[self setRoomDescription: newRoomDescription];
+		[self setHiddenItems: [[NSMutableArray alloc] init]];
+		[self setIsDropped: false];
+        [self setPoints: itemPoints];
 	}
 
 	return self;

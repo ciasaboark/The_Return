@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		107386EA16F9022D005AD481 /* InventoryCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 107386E916F9022D005AD481 /* InventoryCommand.m */; };
 		819122DF16E95A0000BEDA1B /* Command.m in Sources */ = {isa = PBXBuildFile; fileRef = 819122CD16E95A0000BEDA1B /* Command.m */; };
 		819122E016E95A0000BEDA1B /* CommandWords.m in Sources */ = {isa = PBXBuildFile; fileRef = 819122CF16E95A0000BEDA1B /* CommandWords.m */; };
 		819122E116E95A0000BEDA1B /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 819122D116E95A0000BEDA1B /* Game.m */; };
@@ -32,6 +33,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		107386E816F9022D005AD481 /* InventoryCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InventoryCommand.h; sourceTree = "<group>"; };
+		107386E916F9022D005AD481 /* InventoryCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InventoryCommand.m; sourceTree = "<group>"; };
 		819122CC16E95A0000BEDA1B /* Command.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Command.h; sourceTree = "<group>"; };
 		819122CD16E95A0000BEDA1B /* Command.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Command.m; sourceTree = "<group>"; };
 		819122CE16E95A0000BEDA1B /* CommandWords.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommandWords.h; sourceTree = "<group>"; };
@@ -135,6 +138,8 @@
 				DFDA7AB016F4CB7E00A03E30 /* SleepCommand.m */,
 				E7C0303D16F1397A00BA85F0 /* UseCommand.h */,
 				E7C0303E16F1397A00BA85F0 /* UseCommand.m */,
+				107386E816F9022D005AD481 /* InventoryCommand.h */,
+				107386E916F9022D005AD481 /* InventoryCommand.m */,
 			);
 			name = Commands;
 			sourceTree = "<group>";
@@ -281,6 +286,7 @@
 				E7C0303F16F1397B00BA85F0 /* UseCommand.m in Sources */,
 				DFDA7AB116F4CB7E00A03E30 /* SleepCommand.m in Sources */,
 				DFA337AF16F534B100666817 /* DropCommand.m in Sources */,
+				107386EA16F9022D005AD481 /* InventoryCommand.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

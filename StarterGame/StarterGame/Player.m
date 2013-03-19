@@ -18,6 +18,7 @@
 @synthesize maxWeight;
 @synthesize currentWeight;
 @synthesize sleepRooms;
+@synthesize hasTakenItem;
 
 -(id)init
 {
@@ -38,6 +39,7 @@
         [self setCurrentWeight: 0];
         //sleepRooms = [[NSMutableArray alloc] init];   //these will be added in createWord
         [self setSleepRooms: rooms];
+        [self setHasTakenItem: false];
 	}
     
 	return self;
@@ -81,7 +83,9 @@
 {
 	[currentRoom release];
     [io release];
-	
+    [inventory release];
+    [sleepRooms release];
+         
 	[super dealloc];
 }
 

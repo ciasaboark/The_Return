@@ -43,10 +43,12 @@
     well_house = [[[Room alloc] initWithTag:@"an attached well house"] autorelease];
     
     
-    //The basement room
-    Room 	*cave;
+    //The cave rooms
+    Room 	*cave, *cave_hall, *cemetery;
     
     cave = [[[Room alloc] initWithTag:@"an underground cave"] autorelease];
+    cave_hall = [[[Room alloc] initWithTag:@"a long underground tunnel" ] autorelease];
+    cemetery = [[[Room alloc] initWithTag:@"a small family cemetery"] autorelease];
     
     //The upstairs rooms
 	Room 	*bed1, *bed2, *bed3, *bathroom, *upstairs_hall, *short_hall, *storage, *srvnt_bed_room;
@@ -104,8 +106,14 @@
     [well_house setExit:@"south" toRoom:hall3];
 
 	
-    //Basement Connections
+    //cave Connections
 	[cave setExit:@"up" toRoom:well_house];
+    [cave setExit:@"north" toRoom:cave_hall];
+    
+    [cave_hall setExit:@"south" toRoom:cave];
+    [cave_hall setExit:@"west" toRoom:cemetery];
+    
+    [cemetery setExit:@"east" toRoom:cave_hall];
 
 	//Upstairs Connections
     [bed1 setExit:@"west" toRoom:upstairs_hall];
@@ -159,12 +167,14 @@
     
     [sitting_room setLongDescription: @"A library of some kind.  The western wall is filled with bookcases from floor to ceiling, except for a small window in the center of the wall.  Above the door there is a marble bust of some long forgotten poet."];
     [kitchen setLongDescription: @"The northern and western walls of the kitchen are lined with counter-tops and cabinets.  The southern wall has two sinks.  One deep enough to hold a number of lenins, the other smaller.  The center of the room is dominated with a long counter over which there hangs a number of pots, pans, and utensiles.  A small Franklin stove is in the south eastern corner, next to the oven.  A small fire in the oven sheds enough light through the grating to cast shadows throughout the room."];
-    [mast_bath setLongDescription: @"The master bathroom is spotless white tile.  A window along the eastern wall lets in some light from a gas lamp by the street.  The bathtub, a clawed-foot monstrosity, sits on a raised platform by the western wall.  It has been fitted with copper pipes."];
+    [mast_bath setLongDescription: @"The master bathroom is spotless white tile.  A window along the eastern wall lets in some light from a gas lamp by the street.  The bathtub, a clawed-foot monstrosity, sits on a raised platform by the western wall.  It has been fitted with copper pipes.  The mirror that was once above the sink lies shattered on the floor.  Was there a fight here?"];
     [srvnt_dining_room setLongDescription: @""];
     [well_house setLongDescription: @""];
 
     //The Basement Rooms
-    [cave setLongDescription: @""];
+    [cave setLongDescription: @"At the bottom of the well you find yourself in a cave of some sorts.  Light filters down from the well, but the walls seem to glow with a faint light.  It is hards to see any details, but the glow illuminates a passage north."];
+    [cave_hall setLongDescription:@"The cave ends to the south in a small chamber, and continues north."];
+    [cemetery setLongDescription:@"The cemetery is a small family plot.  There are no more than a dozen graves, most of which seem to be long neglected.  A dense forest encloses the opening."];
 
     //The Upstairs Rooms
     [bed1 setLongDescription: @""];
@@ -188,7 +198,7 @@
         //items with hidden items
         Item* master_bedroom_dresser = [[Item alloc] initWithName:@"dresser" andDescription:@"The DRESSER is large and made in the Victorian fassion.  Sitting on top of the dresser there is a KEY" usedIn:nil andWeight:40 andRoomDescription:@"A heavy DRESSER sits along the western wall."];
             //Items on the dresser
-            Item* key = [[Item alloc] initWithName:@"key" andDescription:@"A brass KEY.  The shine is tarnished. " usedIn:sitting_room andWeight:1 andRoomDescription:@"key room description here."];
+            Item* key = [[Item alloc] initWithName:@"key" andDescription:@"A brass KEY.  The shine is tarnished. " usedIn:nil andWeight:1 andRoomDescription:@"key room description here."];
             [[master_bedroom_dresser hiddenItems] addObject: [key autorelease]];
 
         Item* master_bedroom_closet = [[Item alloc] initWithName:@"closet" andDescription:@"The CLOSET is a mess.  Clothes are scattered all over the floor.  Searching through the mess you notice that there is a FLASHLIGHT on the top shelf." usedIn:nil andWeight:-1 andRoomDescription:@"A CLOSET is to the south."];
@@ -197,9 +207,10 @@
             [[master_bedroom_closet hiddenItems] addObject: [flashlight autorelease]];
 
         //collectable items
-        Item* hat = [[Item alloc] initWithName:@"hat" andDescription:@"A rumbled bowler HAT.  Tucked into the rim of the hat is a faded piece of paper with the numbers \"42\", \"28\", and \"16\"." usedIn:nil andWeight: 11 andRoomDescription: @"A bowlers HAT rests on a hook by the door."];
+        //Item* hat = [[Item alloc] initWithName:@"hat" andDescription:@"A rumbled bowler HAT.  Tucked into the rim of the hat is a faded piece of paper with the numbers \"42\", \"28\", and \"16\"." usedIn:nil andWeight: 11 andRoomDescription: @"A bowlers HAT rests on a hook by the door."];
+        Item* hat = [[Item alloc] initWithName:@"hat" andDescription:@"A hat." usedIn:nil andWeight:5 andRoomDescription:@"hat room descripiton"];
         //make the hat dropped for testing
-        [hat setIsDropped:YES];
+        //[hat setIsDropped:YES];
     
         [mast_bed addItem: master_bedroom_bed];
         [mast_bed addItem: master_bedroom_dresser];
@@ -233,23 +244,29 @@
 
 
     //Items in the library
-        //Fixed items
-        Item* library_book_stand = [[Item alloc] initWithName:@"stand" andDescription:@"A book STAND.  On the stand there is an open book.  The book appears to be some kind of journal.  You leaf through the pages, but, though the dates are ledgable, the text is mostly gibberish.  A single passage stands out, written in a shakey hand:\n----\nJuly 23rd 1918:\n\tSounds from below again.  The well.  The boards wont't hold forever.  Should have ended it." usedIn:nil andWeight:40 andRoomDescription:@"Against the south wall there is a book STAND with an open book on top."];
-
         //Items with hidden items
+        Item* library_book_stand = [[Item alloc] initWithName:@"stand" andDescription:@"A book STAND.  On the stand there is an open book.  The book appears to be some kind of journal.  A page is open, weighted down by a carved raven.  Though the dates on the page are ledgable, the text is mostly gibberish.  A single passage stands out, written in a shakey hand:\n----\nJuly 23rd 1918:\n\tSounds from below again.  The well.  The boards wont't hold forever.  Should have ended it." usedIn:nil andWeight:40 andRoomDescription:@"Against the south wall there is a book STAND with an open book on top."];
+            //Items on the book stand
+            Item* raven = [[Item alloc] initWithName:@"raven" andDescription:@"A small black onyx carving of a raven.  The birds beak is open, as if caught in a moment of speech" usedIn:nil andWeight:3 andRoomDescription:@"" andPoints: 5];
+            [[library_book_stand hiddenItems] addObject:raven];
+        
         Item* library_fireplace = [[Item alloc] initWithName:@"fireplace" andDescription:@"A brick FIREPLACE.  Three leather-covered chairs face the fireplace. The mantlepiece appears to be ebony.  Carved figures adorn the sides.  The brick and metal are cold, and there is not even the slightest smell of soot in the air.  The cast iron grating covers the front.  Strangely there is a lock on the cover." usedIn:nil andWeight:40 andRoomDescription:@"Along the north wall of the library there is a FIREPLACE."];
             //Items inside the fireplace
             Item* axe = [[Item alloc] initWithName:@"axe" andDescription:@"A broken AXE.  The handle is just long enough to be used as a hatchet." usedIn:hall3 andWeight:1 andRoomDescription:@"Sitting in the dust of the fireplace there is an AXE."];
             [[library_fireplace hiddenItems] addObject: axe];
+    
+        //Collectable Items
+        Item* bust = [[Item alloc] initWithName:@"bust" andDescription:@"A marble bust of some long forgotten Greek god." usedIn:nil andWeight:5 andRoomDescription:@"" andPoints:4];
         
         [sitting_room addItem: library_fireplace];
         [sitting_room addItem: library_book_stand];
+        [sitting_room addItem: bust];
 
 
     //Items in the Formal room
         //Fixed items
-        Item* formal_room_record = [[Item alloc] initWithName:@"" andDescription:@"" usedIn:nil andWeight:60 andRoomDescription:@""];
-        Item* formal_room_chairs = [[Item alloc] initWithName:@"" andDescription:@"" usedIn:nil andWeight:60 andRoomDescription:@""];
+        Item* formal_room_record = [[Item alloc] initWithName:@"phonograph" andDescription:@"A phonograph player of older design.  Sitting next to the phonograph there are a number of records" usedIn:nil andWeight:60 andRoomDescription:@"In the middle of the western wall there is a PHONOGRAPH player.  Dispite there being no record on the player you can almost hear the music playing."];
+        Item* formal_room_chairs = [[Item alloc] initWithName:@"chairs" andDescription:@"Two rows of chairs, one along the north wall, and one along the south.  The chairs are ornate, and do not look like they have seen much use.  It is obvious that the room was intended to be used for dancing and socializing." usedIn:nil andWeight:60 andRoomDescription:@"Along both the north and south wall there are rows of CHAIRS."];
 
         [formal_room addItem: formal_room_record];
         [formal_room addItem: formal_room_chairs];
@@ -274,12 +291,35 @@
             [[srvnt_dining_room_table hiddenItems] addObject: lantern];
 
         [srvnt_dining_room addItem: srvnt_dining_room_table];
-
-
+    
+    //Items in the cave
+        //Fixed items
+        Item* cave_gleam = [[Item alloc] initWithName:@"gleam" andDescription:@"A small section of the floor gleams a bit brighter than the rest.  Sticking up slightly from the mud you see the outline of something hard.  You scrape the mud away and see that there is a small statue embeded in the ground" usedIn:nil andWeight:-1 andRoomDescription:@"A gleam on the floor seems brighter than the surrounding mud."];
+            //Items in the gleam
+            Item* cthulhu = [[Item alloc] initWithName:@"statue" andDescription:@"A small jade statue of some obscene monstrosity.  It is vaguely huminoid, but bat wings drap the figure, and a mass of tenticles are its mouth.  The figure is crouched, as if waiting.  Along the base there are words carved: \"Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn.\""usedIn:nil andWeight:3 andRoomDescription:@"" andPoints:6];
+            [[cave_gleam hiddenItems] addObject:cthulhu];
+        
+        [cave addItem:cave_gleam];
+    
+    //Items in the cave tunnel
+    
+    //Items in the cemetery
+        //Fixed items
+        Item* grave = [[Item alloc] initWithName:@"grave" andDescription:@"A newly dug grave.  The headstone reads: \"William @#$@\n1887 - 1918\nBeloved Husband and Father.\"  The ground ground of the grave is disturbed, like some animal has dug into it.  A small glint in the dirt beside the grave that shines in the moonlight  " usedIn:nil andWeight:-1 andRoomDescription:@"  At the eastern edge of the plot there is a fresh GRAVE."];
+            //Items beside the grave
+            Item* locket = [[Item alloc] initWithName:@"locket" andDescription:@"A gold locket" usedIn:nil andWeight:1 andRoomDescription:@"" andPoints:3];
+            [[grave hiddenItems] addObject:locket];
+        [cemetery addItem:grave];
      
     //Some (collectable) Items
     //move these to appropriate rooms once the story is fleshed out.
    
+    
+    
+    
+    
+    
+    
     
      
     

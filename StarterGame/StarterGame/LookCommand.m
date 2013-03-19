@@ -39,19 +39,24 @@
             }
         } else {
             //looking at an item in the room
-            [player outputMessage:[NSString stringWithFormat:@"Looking at the %@ in the room you see: %@", [tmpItem name], [tmpItem description]]];
+            [player outputMessage:[NSString stringWithFormat:@"%@", [tmpItem description]]];
             
             //If this item has some hidden items inside we need to add those items to the room, then remove them from
             //+ this item.
             //As per the Apple API enumeration should not be done on an array that will be changed during enumeration
             //+ so we get to do this the ugly way.
             Item* hiddenItem = [[tmpItem hiddenItems] lastObject];
+            [hiddenItem retain];
             while (hiddenItem != nil) {
-                [[player currentRoom] addItem: hiddenItem];
+                [[[player currentRoom] items] setObject:hiddenItem forKey:[hiddenItem name]];
                 [[tmpItem hiddenItems] removeObject: hiddenItem];
                 //move to the next object (or nil)
+                [hiddenItem release];
                 hiddenItem = [[tmpItem hiddenItems] lastObject];
+                [hiddenItem retain];
             }
+            [hiddenItem release];
+            
         }
         
 	} else {
@@ -77,7 +82,7 @@
             droppedText = [NSString stringWithFormat:@"\nIn a pile in the middle of the room you see: %@", droppedText];
         }
         
-        [player outputMessage: [NSString stringWithFormat:@"You are in %@.  %@  %@  %@", [player currentRoom], [[player currentRoom] longDescription], [nativeItemText autorelease], [droppedText autorelease]]];
+        [player outputMessage: [NSString stringWithFormat:@"You are in %@.  %@  %@  %@", [player currentRoom], [[player currentRoom] longDescription], nativeItemText, droppedText]];
         
     }
     

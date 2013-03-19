@@ -15,7 +15,7 @@
 
 -(id)init
 {
-    return [self initFromList:@"GoCommand QuitCommand LookCommand UseCommand TakeCommand SleepCommand DropCommand"];
+    return [self initFromList:@"GoCommand QuitCommand LookCommand UseCommand TakeCommand SleepCommand DropCommand InventoryCommand"];
 }
 
 -(id)initFromList:(NSString *)commandList;
