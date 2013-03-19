@@ -38,7 +38,6 @@
         [self setCurrentWeight: 0];
         //sleepRooms = [[NSMutableArray alloc] init];   //these will be added in createWord
         [self setSleepRooms: rooms];
-        [self setHasTakenItem: false];
 	}
     
 	return self;

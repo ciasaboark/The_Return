@@ -5,8 +5,8 @@
 
 @interface Item : NSObject {
 	//A one word, unique description of the item.  It is the term that the player must type to 'look', 'take',
-	//+ or 'use' this item.  Note that there can be multiple items with the same name in the world, but there
-	//+ should only be one of each within each room, and items meant to be collected should have unique names.
+	//+ or 'use' this item.  Note that if the item's weight is -1 or > 30, then there can be multiple items with
+	//+ the same name within the world, but only one per room.
 	NSString* name;
 
 	//A long, free form description of the object.
@@ -18,10 +18,16 @@
 	//+ instead.
 	NSString* roomDescription;
 
+	/*
+	//Has the player discovered the item yet?  All visible items are listed after the room description, so items that
+	//+ are "hidden" within another item should be set to false initially, and changed in the 
+	Boolean visible;
+	*/
+
 	//This item may have been dropped in a room other than where it was initially placed.
 	Boolean isDropped;
 
-	//Items can hold other Items.  These items are "hidden" from the room description until this item is 'look'ed
+	//This item can hold other Items.  These items are "hidden" from the room description until this item is 'look'ed
 	//+ at, then they are moved into the current room.
 	NSMutableArray* hiddenItems;
 	
@@ -34,9 +40,6 @@
 	//+ places within a room (corner, window, a locked door) that should not even be attempted to be moved.
 	int weight;
 
-	//Item Points.  Special items may have points.  These points are calculated at the end of the game.
-	int poins;
-
 }
 
 @property (retain, nonatomic)NSString* name;
@@ -46,14 +49,13 @@
 @property (retain, nonatomic)NSMutableArray* hiddenItems;
 @property (retain, nonatomic)Room* usedIn;
 @property (nonatomic)int weight;
-@property (nonatomic)int points;
 
 
 -(id)init;
 -(id)initWithName:(NSString *)newName andDescription:(NSString*) newDescription usedIn:(Room*) aRoom
 		andWeight:(int) aWeight andRoomDescription:(NSString*) newRoomDescription;
--(id)initWithName:(NSString *)newName andDescription:(NSString*) newDescription usedIn:(Room*) aRoom
-		andWeight:(int) aWeight andRoomDescription:(NSString*) newRoomDescription andPoints:(int) itemPoints;
+
+//-(void)addHiddenItem
 
 -(void)dealloc;
 
