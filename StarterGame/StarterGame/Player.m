@@ -19,6 +19,8 @@
 @synthesize currentWeight;
 @synthesize sleepRooms;
 @synthesize hasTakenItem;
+@synthesize endRoom;
+@synthesize startRoom;
 
 -(id)init
 {
@@ -30,14 +32,18 @@
 	self = [super init];
     
 	if (nil != self) {
+        //we need to remove the end room from the array before we do anything else
+        [self setEndRoom: [rooms: lastObject]];
+        [rooms removeLastObject];
+
         uint32_t rand = arc4random_uniform([rooms count]);
 		[self setCurrentRoom:[rooms objectAtIndex:rand]];
-        //[self setCurrentRoom:room];
+
+        [self setStartRoom: currentRoom];
         [self setIo:theIO];
         inventory = [[NSMutableDictionary alloc] init];
         [self setMaxWeight: 30];
         [self setCurrentWeight: 0];
-        //sleepRooms = [[NSMutableArray alloc] init];   //these will be added in createWord
         [self setSleepRooms: rooms];
         [self setHasTakenItem: false];
 	}

@@ -51,7 +51,7 @@
     cemetery = [[[Room alloc] initWithTag:@"a small family cemetery"] autorelease];
     
     //The upstairs rooms
-	Room 	*bed1, *bed2, *bed3, *bathroom, *upstairs_hall, *short_hall, *storage, *srvnt_bed_room;
+	Room 	*bed1, *bed2, *bed3, *bathroom, *upstairs_hall, *short_hall, *end, *srvnt_bed_room;
 
     bed1 = [[[Room alloc] initWithTag:@"a child's bedroom"] autorelease];
     bed2 = [[[Room alloc] initWithTag:@"an empty bedroom"] autorelease];
@@ -59,7 +59,7 @@
     bathroom = [[[Room alloc] initWithTag:@"the upstairs bath"] autorelease];
     upstairs_hall = [[[Room alloc] initWithTag:@"the upstairs hall"] autorelease];
     short_hall = [[[Room alloc] initWithTag:@"a short hall"] autorelease];
-    storage = [[[Room alloc] initWithTag:@"a dark storage room"] autorelease];
+    end = [[[Room alloc] initWithTag:@"a dark end room"] autorelease];
     srvnt_bed_room = [[[Room alloc] initWithTag:@"the servant's bedroom"] autorelease];
     
     //Downstairs room connections
@@ -133,7 +133,8 @@
 
     [upstairs_hall setExit:@"down" toRoom:hall2];   //should this be down or north?
     [upstairs_hall setExit:@"west" toRoom:bed3];
-    [upstairs_hall setExit:@"south" toRoom:storage];
+    //This will now be the end room
+    //[upstairs_hall setExit:@"south" toRoom:end];
     [upstairs_hall setExit:@"east" toRoom:bed1];
 
 
@@ -143,7 +144,7 @@
     [short_hall setExit:@"east" toRoom:bathroom];
 
 
-    [storage setExit:@"north" toRoom:upstairs_hall];
+    [end setExit:@"north" toRoom:upstairs_hall];
 
 
     [srvnt_bed_room setExit:@"south" toRoom:short_hall];
@@ -183,7 +184,7 @@
     [bathroom setLongDescription: @""];
     [upstairs_hall setLongDescription: @""];
     [short_hall setLongDescription: @""];
-    [storage setLongDescription: @""];
+    [end setLongDescription: @""];
     [srvnt_bed_room setLongDescription: @""];
 
 
@@ -203,7 +204,7 @@
 
         Item* master_bedroom_closet = [[Item alloc] initWithName:@"closet" andDescription:@"The CLOSET is a mess.  Clothes are scattered all over the floor.  Searching through the mess you notice that there is a FLASHLIGHT on the top shelf." usedIn:nil andWeight:-1 andRoomDescription:@"A CLOSET is to the south."];
             //Items in the closet
-            Item* flashlight = [[Item alloc] initWithName:@"flashlight" andDescription:@"An old chrome FLASHLIGHT.  You can't see how to open the battery compartment, but it feels heavy.  Maybe it will be of use somewhere." usedIn:storage andWeight:11 andRoomDescription: @"On the top shelf of the closet there is a FLASHLIGHT."];
+            Item* flashlight = [[Item alloc] initWithName:@"flashlight" andDescription:@"An old chrome FLASHLIGHT.  You can't see how to open the battery compartment, but it feels heavy.  Maybe it will be of use somewhere." usedIn:end andWeight:11 andRoomDescription: @"On the top shelf of the closet there is a FLASHLIGHT."];
             [[master_bedroom_closet hiddenItems] addObject: [flashlight autorelease]];
 
         //collectable items
@@ -326,18 +327,10 @@
     
     
     
-    //In order to advance the sense of amnesia we can start in a (semi) random room.
-	NSArray *rooms = [NSArray arrayWithObjects: bed1, bed2, bed3, mast_bed, mast_bath, bathroom, srvnt_bed_room, nil];
-    //for (Room* aRoom in rooms) {
-    //    NSLog([aRoom description]);
-    //    [[[self player] sleepRooms] addObject: aRoom];
-    //}
-    
-    //[player setSleepRooms:[NSMutableArray arrayWithArray:rooms]];
-   
-    //uint32_t rand = arc4random_uniform([rooms count]);
-
-    //return [rooms objectAtIndex: rand];
+    //In order to advance the sense of amnesia we can start in a (semi) random room.  Note that the last item
+    //+ is the end room, and should be skipped.
+	NSArray *rooms = [NSArray arrayWithObjects: bed1, bed2, bed3, mast_bed, mast_bath, bathroom, srvnt_bed_room, end, nil];
+  
     return rooms;
 }
 
@@ -372,7 +365,6 @@
 -(NSString *)welcome
 {
 	return [NSString stringWithFormat:@"You wake.  The pain in your head begins to fade.  Looking around you see that you are in %@.\n%@  You can't remember how you got here.  Perhaps this house holds some answers.", [player currentRoom], [[player currentRoom] longDescription]];
-	//return [NSString stringWithFormat:@"\n\n%@\n%@", message, [player currentRoom]];
 }
 
 -(NSString *)goodbye

@@ -9,7 +9,6 @@
 
 #import <Cocoa/Cocoa.h>
 #import "Room.h"
-//#import "Inventory.h"
 #import "Item.h"
 #import "GameIO.h"
 
@@ -22,6 +21,8 @@
     int currentWeight;
     NSArray* sleepRooms;                //candidate rooms to which the player may wake
     Boolean hasTakenItem;				//whether or not the player has picked anything up yet
+    Room* endRoom;
+    Room* startRoom;					//used for the xyzzy command
 }
 
 @property (retain, nonatomic)Room *currentRoom;
@@ -31,6 +32,8 @@
 @property (nonatomic)int currentWeight;
 @property (retain, nonatomic)NSArray* sleepRooms;
 @property (nonatomic)Boolean hasTakenItem;
+@property (retain, nonatomic) endRoom;
+@property (retain, nonatomic) startRoom;
 
 -(id)init;
 -(id)initWithRoom:(NSArray *)rooms andIO:(GameIO *)theIO;
