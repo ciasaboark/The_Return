@@ -164,7 +164,7 @@
     [well_house setLongDescription: @""];
 
     //The Basement Rooms
-    [cave setLongDescription: @""];
+    [cave setLongDescription: @"At the bottom of the well you find yourself in a cave of some sorts.  Light filters down from the well, but the walls seem to glow with a faint light.  It is hards to see any details, but the glow illuminates a passage north."];
 
     //The Upstairs Rooms
     [bed1 setLongDescription: @""];
@@ -248,8 +248,8 @@
 
     //Items in the Formal room
         //Fixed items
-        Item* formal_room_record = [[Item alloc] initWithName:@"" andDescription:@"" usedIn:nil andWeight:60 andRoomDescription:@""];
-        Item* formal_room_chairs = [[Item alloc] initWithName:@"" andDescription:@"" usedIn:nil andWeight:60 andRoomDescription:@""];
+        Item* formal_room_record = [[Item alloc] initWithName:@"phonograph" andDescription:@"A phonograph player of older design.  Sitting next to the phonograph there are a number of records" usedIn:nil andWeight:60 andRoomDescription:@"In the middle of the western wall there is a PHONOGRAPH player.  Dispite there being no record on the player you can almost hear the music playing."];
+        Item* formal_room_chairs = [[Item alloc] initWithName:@"chairs" andDescription:@"Two rows of chairs, one along the north wall, and one along the south.  The chairs are ornate, and do not look like they have seen much use.  It is obvious that the room was intended to be used for dancing and socializing." usedIn:nil andWeight:60 andRoomDescription:@"Along both the north and south wall there are rows of CHAIRS."];
 
         [formal_room addItem: formal_room_record];
         [formal_room addItem: formal_room_chairs];
@@ -279,7 +279,10 @@
      
     //Some (collectable) Items
     //move these to appropriate rooms once the story is fleshed out.
-   
+   Item cthulhu = [[Item alloc initWithName:@"cthulhu" andDescription:@"A small jade statue of some grotesque monstrosity.  @$@#$INSERT CTHULHU DESCRIPTION HERE" usedIn:nil andWeight:3 andRoomDescription:@"" andPoints:30]];
+   Item raven = [[Item alloc initWithName:@"raven" andDescription:@"A small onix statue of a raven.  The bird is carved with intricate detail." usedIn:nil andWeight:2 andRoomDescription:@"" andPoints:20]];
+   Item bust = [[Item alloc initWithName:@"bust" andDescription:@"A marble bust of some long forgotten man." usedIn:nil andWeight:5 andRoomDescription:@"" andPoints: 25]];
+
     
      
     

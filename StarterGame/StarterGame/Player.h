@@ -20,7 +20,7 @@
     NSMutableDictionary* inventory;
     int maxWeight;
     int currentWeight;
-    NSArray* sleepRooms;
+    NSArray* sleepRooms;				//candiate Rooms to which the player can wake
     Boolean hasTakenItem;				//whether or not the player has picked anything up yet (used for string formatting)
 }
 
