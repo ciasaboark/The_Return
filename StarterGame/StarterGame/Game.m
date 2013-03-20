@@ -26,9 +26,12 @@
 }
 
 -(NSArray *)createWorld {
-	//The downstairs rooms
+	//A special room to indicate that the path is blocked
+    Room* blocked = [[[Room alloc] initWithTag:@"blocked"] autorelease];
+    
+    //The downstairs rooms
 	Room 	*hall1, *hall2, *hall3, *dining_room, *formal_room, *mast_bed, *sitting_room, *kitchen, *mast_bath;
-    Room    *srvnt_dining_room, *well_house;
+    Room    *srvnt_dining_room, *well_house, *front_steps;
 
     hall1 = [[[Room alloc] initWithTag:@"the south of the downstairs hallway"] autorelease];
     hall2 = [[[Room alloc] initWithTag:@"the middle of the downstairs hallway"] autorelease];
@@ -41,6 +44,7 @@
     mast_bath = [[[Room alloc] initWithTag:@"the master bathroom"] autorelease];
     srvnt_dining_room = [[[Room alloc] initWithTag:@"the servant's small dining room"] autorelease];
     well_house = [[[Room alloc] initWithTag:@"an attached well house"] autorelease];
+    front_steps = [[[Room alloc] initWithTag:@"the front steps of the house"] autorelease];
     
     
     //The cave rooms
@@ -66,6 +70,7 @@
 	[hall1 setExit:@"west" toRoom:dining_room];
     [hall1 setExit:@"east" toRoom:formal_room];
     [hall1 setExit:@"north" toRoom:hall2];
+    [hall1 setExit:@"south" toRoom:blocked];
 
     [hall2 setExit:@"west" toRoom:sitting_room];
     [hall2 setExit:@"east" toRoom:mast_bed];
@@ -104,6 +109,10 @@
 
     [well_house setExit:@"down" toRoom:cave];
     [well_house setExit:@"south" toRoom:hall3];
+    
+    //technically this should have no connection to the hall until the front door is destroyed,
+    //+ but the player can't get here until this happens anyway.
+    [front_steps setExit:@"north" toRoom:hall1];
 
 	
     //cave Connections
@@ -134,7 +143,7 @@
     [upstairs_hall setExit:@"down" toRoom:hall2];   //should this be down or north?
     [upstairs_hall setExit:@"west" toRoom:bed3];
     //This will now be the end room
-    //[upstairs_hall setExit:@"south" toRoom:end];
+    [upstairs_hall setExit:@"south" toRoom:blocked];
     [upstairs_hall setExit:@"east" toRoom:bed1];
 
 
@@ -171,6 +180,7 @@
     [mast_bath setLongDescription: @"The master bathroom is spotless white tile.  A window along the eastern wall lets in some light from a gas lamp by the street.  The bathtub, a clawed-foot monstrosity, sits on a raised platform by the western wall.  It has been fitted with copper pipes.  The mirror that was once above the sink lies shattered on the floor.  Was there a fight here?"];
     [srvnt_dining_room setLongDescription: @""];
     [well_house setLongDescription: @""];
+    [front_steps setLongDescription:@""];
 
     //The Basement Rooms
     [cave setLongDescription: @"Light filters down from the well, but not enough to see by.  If only you had some source of light to illuminate the way."];
@@ -184,7 +194,7 @@
     [bathroom setLongDescription: @""];
     [upstairs_hall setLongDescription: @""];
     [short_hall setLongDescription: @""];
-    [end setLongDescription: @""];
+    [end setLongDescription: @"The room is lit by a single bulb, almost burned out.  Dead lady description here."];
     [srvnt_bed_room setLongDescription: @""];
 
 
@@ -209,7 +219,7 @@
 
         //collectable items
         //Item* hat = [[Item alloc] initWithName:@"hat" andDescription:@"A rumbled bowler HAT.  Tucked into the rim of the hat is a faded piece of paper with the numbers \"42\", \"28\", and \"16\"." usedIn:nil andWeight: 11 andRoomDescription: @"A bowlers HAT rests on a hook by the door."];
-        Item* hat = [[Item alloc] initWithName:@"hat" andDescription:@"A hat." usedIn:nil andWeight:5 andRoomDescription:@"hat room descripiton"];
+        Item* hat = [[Item alloc] initWithName:@"hat" andDescription:@"A rumbled bowler HAT.  Tucked into the rim of the hat is a faded piece of paper with the numbers \"42\", \"28\", and \"16\"." usedIn:nil andWeight:5 andRoomDescription:@"A bowlers HAT rests on a hook by the door."];
         //make the hat dropped for testing
         //[hat setIsDropped:YES];
     
@@ -253,8 +263,7 @@
         
         Item* library_fireplace = [[Item alloc] initWithName:@"fireplace" andDescription:@"A brick FIREPLACE.  Three leather-covered chairs face the fireplace. The mantlepiece appears to be ebony.  Carved figures adorn the sides.  The brick and metal are cold, and there is not even the slightest smell of soot in the air.  The cast iron grating covers the front.  Strangely there is a lock on the cover." usedIn:nil andWeight:40 andRoomDescription:@"Along the north wall of the library there is a FIREPLACE."];
             //Items inside the fireplace
-            Item* axe = [[Item alloc] initWithName:@"axe" andDescription:@"A broken AXE.  The handle is just long enough to be used as a hatchet." usedIn:hall3 andWeight:1 andRoomDescription:@"Sitting in the dust of the fireplace there is an AXE."];
-            [[library_fireplace hiddenItems] addObject: axe];
+            
     
         //Collectable Items
         Item* bust = [[Item alloc] initWithName:@"bust" andDescription:@"A marble bust of some long forgotten Greek god." usedIn:nil andWeight:5 andRoomDescription:@"" andPoints:4];
@@ -311,6 +320,19 @@
             Item* locket = [[Item alloc] initWithName:@"locket" andDescription:@"A gold locket.  Inside there is a picture of a smiling man and woman and infant.  On the back, in letters small enough to be hard to read by the moonlight there is an inscription: \"Olphelia, Wife and Mother. With love. W. 1913\"" usedIn:nil andWeight:1 andRoomDescription:@"" andPoints:3];
             [[grave hiddenItems] addObject:locket];
         [cemetery addItem:grave];
+    
+    //Items in the end room
+        //Fixed items
+        Item* end_corner = [[Item alloc] initWithName:@"corner" andDescription:@"a scary corner" usedIn:nil andWeight:-1 andRoomDescription:@"In the corner something moves"];
+            //Items in the corner
+            Item* mirror = [[Item alloc] initWithName:@"mirror" andDescription:@"a scary mirror" usedIn:nil andWeight:60 andRoomDescription:@"There is a mirror in the corner"];
+            [[end_corner hiddenItems] addObject:mirror];
+        //Regular Items
+        Item* axe = [[Item alloc] initWithName:@"axe" andDescription:@"A broken AXE.  The handle is just long enough to be used as a hatchet." usedIn:hall1 andWeight:1 andRoomDescription:@"Sitting in the dust of the fireplace there is an AXE."];
+    
+        [end addItem:end_corner];
+        [end addItem:axe];
+    
      
     //Some (collectable) Items
     //move these to appropriate rooms once the story is fleshed out.

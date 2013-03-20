@@ -29,7 +29,9 @@
                 }
                 
                 else if ([secondWord isEqualToString:@"key"]) {
-                    [player outputMessage:@"You use the key to open the door.  The door creaks."];
+                    [player outputMessage:@"You leave the key in the lock as you open the door.  The hinges creaks."];
+                    [player setCurrentWeight: [player currentWeight] - [tmpItem weight]];
+                    [[player inventory] removeObjectForKey:@"key"];
                     [[player currentRoom] setExit:@"south" toRoom:[player endRoom]];
                     [player walkTo:@"south"];
                     
@@ -37,8 +39,15 @@
                 
                 else if ([secondWord isEqualToString:@"axe"]) {
                     [player outputMessage:@"You use the axe on the front door."];
+                    [[player currentRoom] setLongDescription: @"The hallway is lit by two small windows flanking the main entrance to the south.  The floor is bare wood, dark in color.  The front door lies in splinters.  To the east there is a dining room.  To the west there is a formal hall.  The hall continues to the north, where you can see additonal rooms."];
+                    //[[player currentRoom] setExit:@"south" toRoom:front_steps];
+                    //[player walkTo:@"south"];
+                    [player outputMessage:@"The game should end here"];
                     //output some scary text here
+                    //calculate the players score
                     //[game end];
+                  
+                    
                 } else {
                     [player outputMessage:@"Woops, this item is missing its use block"];
                 }

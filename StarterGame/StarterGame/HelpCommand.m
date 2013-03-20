@@ -33,12 +33,8 @@
 
 -(BOOL)execute:(Player *)player
 {
-    if ([self hasSecondWord]) {
-        [player outputMessage:[NSString stringWithFormat:@"\nI can't help you with %@", [self secondWord]]];
-    }
-    else {
-        [player outputMessage:[NSString stringWithFormat:@"\nYou are lost. You are alone. You wander\naround the university.\n\nYour available commands are:\n%@", [words description]  ]];
-    }
+    [player outputMessage:@"\nYou can't remember how you got here.  This house may hold some answers and a way out.\nTo navigate around say: 'go <direction>'.\nYou can retrace your steps by saying: 'back'.\nTo look at the room or an item say 'look' or 'look <item>'.\nIf an item is UPPERCASE then it may be of some intrest, try looking at it.\nTo take an item with you say: 'take <item>'.\nSome items may be of use, say 'use <item>' to see if it can be of use where you are.\nItems have a weight, so you will have to be selective in what you take.\nTo view your burden say: 'inventory'.\nIf the burden of exploration becomes too much to bear you can say 'sleep'.\n"];
+
 	return NO;
 }
 

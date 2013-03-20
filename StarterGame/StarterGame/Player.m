@@ -57,8 +57,8 @@
 {
 	Room *nextRoom = [currentRoom getExit:direction];
     if (nextRoom) {
-		if (nextRoom == nil) {
-            [self outputMessage:@"The path is blocked."];
+        if ([[nextRoom tag] isEqualToString:@"blocked"] ) {
+            [self outputMessage:[NSString stringWithFormat:@"The path %@ is blocked.  Perhaps there is a way around?", direction]];
         } else {
             [[self roomStack] addObject: currentRoom];
             [self setCurrentRoom:nextRoom];
@@ -70,8 +70,7 @@
             
             [self outputMessage:[NSString stringWithFormat:@"\nYou %@ %@.\n", [verbs objectAtIndex: rand], nextRoom]];
         }
-	}
-	else {
+	} else {
         [self outputMessage:[NSString stringWithFormat:@"\nThere is no path %@!", direction]];
 	}
 
