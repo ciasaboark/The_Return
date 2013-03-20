@@ -1,16 +1,14 @@
 //
-//  TakeCommand.m
+//  XyzzyCommand.m
 //  StarterGame
 //
-//  Created by Student1 on 3/13/13.
+//  Created by Student2 on 3/20/13.
 //  Copyright (c) 2013 Ringtuple, Inc. All rights reserved.
 //
 
-#import "SleepCommand.h"
+#import "XyzzyCommand.h"
 
-@class Item;
-
-@implementation SleepCommand
+@implementation XyzzyCommand
 
 -(id)init
 {
@@ -24,8 +22,9 @@
 -(BOOL)execute:(Player *)player
 {
     [player setCurrentRoom: [player startRoom]];
+    [[player roomStack] removeAllObjects];
     [player outputMessage:[NSString stringWithFormat:@"As you step forward your vision fades, and find yourself back in %@", [player startRoom]]];
- 
+    
 	return NO;
 }
 

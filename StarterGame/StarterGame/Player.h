@@ -23,6 +23,7 @@
     Boolean hasTakenItem;				//whether or not the player has picked anything up yet
     Room* endRoom;
     Room* startRoom;					//used for the xyzzy command
+    NSMutableArray* roomStack;          //used for the back command
 }
 
 @property (retain, nonatomic)Room *currentRoom;
@@ -34,6 +35,7 @@
 @property (nonatomic)Boolean hasTakenItem;
 @property (retain, nonatomic)Room* endRoom;
 @property (retain, nonatomic)Room* startRoom;
+@property (retain, nonatomic)NSMutableArray* roomStack;
 
 -(id)init;
 -(id)initWithRoom:(NSArray *)rooms andIO:(GameIO *)theIO;

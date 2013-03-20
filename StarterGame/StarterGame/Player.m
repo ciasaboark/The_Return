@@ -21,6 +21,7 @@
 @synthesize hasTakenItem;
 @synthesize endRoom;
 @synthesize startRoom;
+@synthesize roomStack;
 
 -(id)init
 {
@@ -46,6 +47,7 @@
         [self setCurrentWeight: 0];
         [self setSleepRooms: rooms];
         [self setHasTakenItem: false];
+        roomStack = [[NSMutableArray alloc] init];
 	}
     
 	return self;
@@ -54,15 +56,16 @@
 -(void)walkTo:(NSString *)direction
 {
 	Room *nextRoom = [currentRoom getExit:direction];
-	if (nextRoom) {
+    if (nextRoom) {
 		if (nextRoom == nil) {
             [self outputMessage:@"The path is blocked."];
         } else {
+            [[self roomStack] addObject: currentRoom];
             [self setCurrentRoom:nextRoom];
             
             //We can pretty things up a bit by using some random verbs
             NSArray *verbs = [NSArray arrayWithObjects: @"enter", @"walk into", @"make your way to", nil];
-            uint32_t rand = arc4random_uniform([verbs count]);
+            unsigned long rand = arc4random_uniform([verbs count]);
 
             
             [self outputMessage:[NSString stringWithFormat:@"\nYou %@ %@.\n", [verbs objectAtIndex: rand], nextRoom]];
@@ -91,6 +94,9 @@
     [io release];
     [inventory release];
     [sleepRooms release];
+    [startRoom release];
+    [endRoom release];
+    [roomStack release];
          
 	[super dealloc];
 }

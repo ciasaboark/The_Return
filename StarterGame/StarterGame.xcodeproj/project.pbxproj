@@ -26,6 +26,9 @@
 		81AF892716E6AAC500276C6B /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81AF892516E6AAC500276C6B /* MainMenu.xib */; };
 		DFA337AF16F534B100666817 /* DropCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA337AE16F534B100666817 /* DropCommand.m */; };
 		DFDA7AB116F4CB7E00A03E30 /* SleepCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = DFDA7AB016F4CB7E00A03E30 /* SleepCommand.m */; };
+		DFDCA0C816FA204500A00272 /* cthulhu.png in Resources */ = {isa = PBXBuildFile; fileRef = DFDCA0C716FA204500A00272 /* cthulhu.png */; };
+		DFDCA0CC16FA20D200A00272 /* XyzzyCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = DFDCA0CB16FA20D200A00272 /* XyzzyCommand.m */; };
+		DFDCA0CF16FA215900A00272 /* BackCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = DFDCA0CE16FA215900A00272 /* BackCommand.m */; };
 		E7C0303F16F1397B00BA85F0 /* UseCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C0303E16F1397A00BA85F0 /* UseCommand.m */; };
 		E7C7CD6E16F0DAD700CB9292 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C7CD6C16F0DAD700CB9292 /* Item.m */; };
 		E7C7CD7216F0DDB700CB9292 /* LookCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C7CD7116F0DDB700CB9292 /* LookCommand.m */; };
@@ -72,6 +75,11 @@
 		DFA337AE16F534B100666817 /* DropCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropCommand.m; sourceTree = "<group>"; };
 		DFDA7AAF16F4CB7E00A03E30 /* SleepCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SleepCommand.h; sourceTree = "<group>"; };
 		DFDA7AB016F4CB7E00A03E30 /* SleepCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SleepCommand.m; sourceTree = "<group>"; };
+		DFDCA0C716FA204500A00272 /* cthulhu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cthulhu.png; sourceTree = "<group>"; };
+		DFDCA0CA16FA20D200A00272 /* XyzzyCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XyzzyCommand.h; sourceTree = "<group>"; };
+		DFDCA0CB16FA20D200A00272 /* XyzzyCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XyzzyCommand.m; sourceTree = "<group>"; };
+		DFDCA0CD16FA215900A00272 /* BackCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackCommand.h; sourceTree = "<group>"; };
+		DFDCA0CE16FA215900A00272 /* BackCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackCommand.m; sourceTree = "<group>"; };
 		E7C0303D16F1397A00BA85F0 /* UseCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UseCommand.h; sourceTree = "<group>"; };
 		E7C0303E16F1397A00BA85F0 /* UseCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UseCommand.m; sourceTree = "<group>"; };
 		E7C7CD6B16F0DAD700CB9292 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
@@ -140,6 +148,10 @@
 				E7C0303E16F1397A00BA85F0 /* UseCommand.m */,
 				107386E816F9022D005AD481 /* InventoryCommand.h */,
 				107386E916F9022D005AD481 /* InventoryCommand.m */,
+				DFDCA0CA16FA20D200A00272 /* XyzzyCommand.h */,
+				DFDCA0CB16FA20D200A00272 /* XyzzyCommand.m */,
+				DFDCA0CD16FA215900A00272 /* BackCommand.h */,
+				DFDCA0CE16FA215900A00272 /* BackCommand.m */,
 			);
 			name = Commands;
 			sourceTree = "<group>";
@@ -147,6 +159,7 @@
 		81AF890116E6AAC400276C6B = {
 			isa = PBXGroup;
 			children = (
+				DFDCA0C716FA204500A00272 /* cthulhu.png */,
 				819122CA16E959A800BEDA1B /* GameClasses */,
 				81AF891616E6AAC400276C6B /* StarterGame */,
 				81AF890F16E6AAC400276C6B /* Frameworks */,
@@ -258,6 +271,7 @@
 				81AF891B16E6AAC400276C6B /* InfoPlist.strings in Resources */,
 				81AF892116E6AAC400276C6B /* Credits.rtf in Resources */,
 				81AF892716E6AAC500276C6B /* MainMenu.xib in Resources */,
+				DFDCA0C816FA204500A00272 /* cthulhu.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +301,8 @@
 				DFDA7AB116F4CB7E00A03E30 /* SleepCommand.m in Sources */,
 				DFA337AF16F534B100666817 /* DropCommand.m in Sources */,
 				107386EA16F9022D005AD481 /* InventoryCommand.m in Sources */,
+				DFDCA0CC16FA20D200A00272 /* XyzzyCommand.m in Sources */,
+				DFDCA0CF16FA215900A00272 /* BackCommand.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,5 @@
 //
-//  XyzzyCommand.h
+//  BackCommand.h
 //  StarterGame
 //
 //  Created by Student2 on 3/20/13.
@@ -8,7 +8,7 @@
 
 #import "Command.h"
 
-@interface XyzzyCommand : Command
+@interface BackCommand : Command
 
 -(id)init;
 -(BOOL)execute:(Player *)player;
