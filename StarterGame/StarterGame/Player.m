@@ -27,16 +27,16 @@
 	return [self initWithRoom:nil andIO:nil];
 }
 
--(id)initWithRoom:(NSArray *)rooms andIO:(GameIO *)theIO
+-(id)initWithRoom:(NSMutableArray *)rooms andIO:(GameIO *)theIO
 {
 	self = [super init];
     
 	if (nil != self) {
         //we need to remove the end room from the array before we do anything else
-        [self setEndRoom: [rooms: lastObject]];
-        [rooms removeLastObject];
+        [self setEndRoom: [rooms lastObject]];
+        //[rooms removeLastObject];
 
-        uint32_t rand = arc4random_uniform([rooms count]);
+        unsigned long rand = arc4random_uniform([rooms count] - 1);
 		[self setCurrentRoom:[rooms objectAtIndex:rand]];
 
         [self setStartRoom: currentRoom];

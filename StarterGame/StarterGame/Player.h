@@ -32,8 +32,8 @@
 @property (nonatomic)int currentWeight;
 @property (retain, nonatomic)NSArray* sleepRooms;
 @property (nonatomic)Boolean hasTakenItem;
-@property (retain, nonatomic) endRoom;
-@property (retain, nonatomic) startRoom;
+@property (retain, nonatomic)Room* endRoom;
+@property (retain, nonatomic)Room* startRoom;
 
 -(id)init;
 -(id)initWithRoom:(NSArray *)rooms andIO:(GameIO *)theIO;

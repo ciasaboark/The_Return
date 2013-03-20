@@ -173,7 +173,7 @@
     [well_house setLongDescription: @""];
 
     //The Basement Rooms
-    [cave setLongDescription: @"At the bottom of the well you find yourself in a cave of some sorts.  Light filters down from the well, but the walls seem to glow with a faint light.  It is hards to see any details, but the glow illuminates a passage north."];
+    [cave setLongDescription: @"Light filters down from the well, but not enough to see by.  If only you had some source of light to illuminate the way."];
     [cave_hall setLongDescription:@"The cave ends to the south in a small chamber, and continues north."];
     [cemetery setLongDescription:@"The cemetery is a small family plot.  There are no more than a dozen graves, most of which seem to be long neglected.  A dense forest encloses the opening."];
 
@@ -199,7 +199,7 @@
         //items with hidden items
         Item* master_bedroom_dresser = [[Item alloc] initWithName:@"dresser" andDescription:@"The DRESSER is large and made in the Victorian fassion.  Sitting on top of the dresser there is a KEY" usedIn:nil andWeight:40 andRoomDescription:@"A heavy DRESSER sits along the western wall."];
             //Items on the dresser
-            Item* key = [[Item alloc] initWithName:@"key" andDescription:@"A brass KEY.  The shine is tarnished. " usedIn:nil andWeight:1 andRoomDescription:@"key room description here."];
+            Item* key = [[Item alloc] initWithName:@"key" andDescription:@"A brass KEY.  The shine is tarnished. " usedIn:upstairs_hall andWeight:1 andRoomDescription:@"key room description here."];
             [[master_bedroom_dresser hiddenItems] addObject: [key autorelease]];
 
         Item* master_bedroom_closet = [[Item alloc] initWithName:@"closet" andDescription:@"The CLOSET is a mess.  Clothes are scattered all over the floor.  Searching through the mess you notice that there is a FLASHLIGHT on the top shelf." usedIn:nil andWeight:-1 andRoomDescription:@"A CLOSET is to the south."];
@@ -288,14 +288,14 @@
         //Fixed items
         Item* srvnt_dining_room_table = [[Item alloc] initWithName:@"table" andDescription:@"" usedIn:nil andWeight:60 andRoomDescription:@""];
             //Items on the servant's dining room table
-             Item* lantern = [[Item alloc] initWithName:@"lantern" andDescription:@"A tin lantern.  The metal is more rust than shine, and the glass covering is chipped at the top.  There appears to be a small amount of oil in the resevoir." usedIn:kitchen andWeight:3 andRoomDescription:@"room description for the lantern"];
+             Item* lantern = [[Item alloc] initWithName:@"lantern" andDescription:@"A tin lantern.  The metal is more rust than shine, and the glass covering is chipped at the top.  There appears to be a small amount of oil in the reservoir." usedIn:cave andWeight:3 andRoomDescription:@"An old lantern hangs from a peg on the wall."];
             [[srvnt_dining_room_table hiddenItems] addObject: lantern];
 
         [srvnt_dining_room addItem: srvnt_dining_room_table];
     
     //Items in the cave
         //Fixed items
-        Item* cave_gleam = [[Item alloc] initWithName:@"gleam" andDescription:@"A small section of the floor gleams a bit brighter than the rest.  Sticking up slightly from the mud you see the outline of something hard.  You scrape the mud away and see that there is a small statue embeded in the ground" usedIn:nil andWeight:-1 andRoomDescription:@"A gleam on the floor seems brighter than the surrounding mud."];
+        Item* cave_gleam = [[Item alloc] initWithName:@"gleam" andDescription:@"A small section of the floor gleams a bit brighter than the rest.  Sticking up slightly from the mud you see the outline of something hard.  You scrape the mud away and see that there is a small statue embeded in the ground" usedIn:nil andWeight:-1 andRoomDescription:@""];
             //Items in the gleam
             Item* cthulhu = [[Item alloc] initWithName:@"statue" andDescription:@"A small jade statue of some obscene monstrosity.  It is vaguely huminoid, but bat wings drap the figure, and a mass of tenticles are its mouth.  The figure is crouched, as if waiting.  Along the base there are words carved: \"Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn.\""usedIn:nil andWeight:3 andRoomDescription:@"" andPoints:6];
             [[cave_gleam hiddenItems] addObject:cthulhu];
@@ -306,9 +306,9 @@
     
     //Items in the cemetery
         //Fixed items
-        Item* grave = [[Item alloc] initWithName:@"grave" andDescription:@"A newly dug grave.  The headstone reads: \"William @#$@\n1887 - 1918\nBeloved Husband and Father.\"  The ground ground of the grave is disturbed, like some animal has dug into it.  A small glint in the dirt beside the grave that shines in the moonlight  " usedIn:nil andWeight:-1 andRoomDescription:@"  At the eastern edge of the plot there is a fresh GRAVE."];
+        Item* grave = [[Item alloc] initWithName:@"grave" andDescription:@"A newly dug grave.  The headstone reads:\n       \"William @#$@\n       1887 - 1918\n   Beloved Husband and Father.\"\nThe ground ground of the grave is disturbed, like some animal has dug into it.  The hole reaches far enough into the ground that the end disappears into darkness.  Strangely, there is only a small amount of dirt above ground.  A small locket glints in the dirt beside the grave." usedIn:nil andWeight:-1 andRoomDescription:@"  At the eastern edge of the plot there is a fresh GRAVE."];
             //Items beside the grave
-            Item* locket = [[Item alloc] initWithName:@"locket" andDescription:@"A gold locket" usedIn:nil andWeight:1 andRoomDescription:@"" andPoints:3];
+            Item* locket = [[Item alloc] initWithName:@"locket" andDescription:@"A gold locket.  Inside there is a picture of a smiling man and woman and infant.  On the back, in letters small enough to be hard to read by the moonlight there is an inscription: \"Olphelia, Wife and Mother. With love. W. 1913\"" usedIn:nil andWeight:1 andRoomDescription:@"" andPoints:3];
             [[grave hiddenItems] addObject:locket];
         [cemetery addItem:grave];
      
@@ -329,7 +329,7 @@
     
     //In order to advance the sense of amnesia we can start in a (semi) random room.  Note that the last item
     //+ is the end room, and should be skipped.
-	NSArray *rooms = [NSArray arrayWithObjects: bed1, bed2, bed3, mast_bed, mast_bath, bathroom, srvnt_bed_room, end, nil];
+	NSMutableArray *rooms = [NSArray arrayWithObjects: bed1, bed2, bed3, mast_bed, mast_bath, bathroom, srvnt_bed_room, end, nil];
   
     return rooms;
 }
