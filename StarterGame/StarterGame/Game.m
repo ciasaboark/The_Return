@@ -181,22 +181,22 @@
     ************************/
 
     //The Downstairs rooms
-    [mast_bed setLongDescription: @"The room is dimly lit.  Windows along the east of the room are curtained and shuttered. To the north there looks to be a bathroom.  Dust motes float in the stale air."];
+    [mast_bed setLongDescription: @"The room is dimly lit.  WINDOWS along the east of the room are curtained and shuttered, letting in no light from the street lamp.  The overhead light is off, but small bulbs burn in sconces on both sides of the entrance, illuminating the room. To the north there looks to be a bathroom.  The entrance to the hall is west.  Dust motes floats air."];
     
-    [hall1 setLongDescription: @"The hallway is lit by two small windows flanking the main entrance to the south.  The floor is bare wood, dark in color.  The front door is large and barricaded.  You won't be able to remove the boards with your bare hands.  To the east there is a dining room.  To the west there is a formal hall.  The hall continues to the north, where you can see additonal rooms."];
+    [hall1 setLongDescription: @"The hallway is lit by two miniature chandeliers, one in this section of the hall and one somewhat farther down.  The floor is bare wood, dark in color.  The walls are white plaster, with molding that matches the floor.  The front door is large and barricaded with a number of hastily placed boards.  You won't be able to remove the barrier with your bare hands.  To the east there is a dining room.  To the west there is a formal hall.  The hallway continues to the north, where you can see additonal rooms."];
 
-    [hall2 setLongDescription: @"The hallway is contines north and south from here.  The southern end leads to the front door as well as two additional rooms.  To the north the hallway enters shadow.  To the east there is a bedroom.  To the west there is some sort of library. There is a stairway here leading to the second floor."];
+    [hall2 setLongDescription: @"The hallway is lit by a miniature chandelier overhead.  The walls are white plaster with dark wood molding and the floor, a dark stained wood in the style of the molding, is covered by a long rug woven in some Oriential style.  The hallway continues north and south from here.  The southern end leads to the front door as well as two additional rooms.  To the north the hallway enters shadow.  To the east there is a bedroom.  To the west there is some sort of library. There is a stairway here leading up to the second floor."];
 
-    [hall3 setLongDescription: @"There isn't much light at the northern end of the hallway.  To the west there is a kitchen.  The light from the oven spills into the hall, but the penumbra is large.  To the east there is a small room with a plain wooden table.  To the north there is a plain door."];
+    [hall3 setLongDescription: @"There isn't much light at the northern end of the hallway.  To the west there is a kitchen.  Light from within spills into the hall, but the penumbra is large.  To the east there is a small room with a plain wooden table.  To the north there is a plain door."];
     
-    [dining_room setLongDescription: @""];
+    [dining_room setLongDescription: @"The light from the hallway illuminates an ornate and formal dining room.  Nearly the entirity of the floor is covered by a single large rug, woven with a mozaic of birds in flight.  A long table sits in the center of the room, with a number of elegantly carved chairs waiting in position.  Each chair is fronted by a complete table set.  Curiously the two on the southern end seem to have been used recently."];
     [formal_room setLongDescription: @"A formal room of some type.  Chairs line the north and south walls, and the floor is a polished marble, white specaled with pink.  A crystal chandaleer, old enough to have once held a multitude of candles, but now fitted with electric lights, hangs from ceiling."];
     
     [sitting_room setLongDescription: @"A library of some kind.  The western wall is filled with bookcases from floor to ceiling, except for a small window in the center of the wall.  Above the door there is a marble bust of some long forgotten poet."];
     [kitchen setLongDescription: @"The northern and western walls of the kitchen are lined with counter-tops and cabinets.  The southern wall has two sinks.  One deep enough to hold a number of lenins, the other smaller.  The center of the room is dominated with a long counter over which there hangs a number of pots, pans, and utensiles.  A small Franklin stove is in the south eastern corner, next to the oven.  A small fire in the oven sheds enough light through the grating to cast shadows throughout the room."];
     [mast_bath setLongDescription: @"The master bathroom is spotless white tile.  A window along the eastern wall lets in some light from a gas lamp by the street.  The bathtub, a clawed-foot monstrosity, sits on a raised platform by the western wall.  It has been fitted with copper pipes.  The mirror that was once above the sink lies shattered on the floor.  Was there a fight here?"];
-    [srvnt_dining_room setLongDescription: @""];
-    [well_house setLongDescription: @""];
+    [srvnt_dining_room setLongDescription: @"There is no light source within this room, but the glow from the kitchen stretches far enough in to see by.  The small room is dominated by a square TABLE.  A single chair is pushed against the table.  This looks to be where a servent might take their meal so as not to disturb the master of the house."];
+    [well_house setLongDescription: @"A small rectangular room.  The floor here is bare wood, but unstained.  A long window high on the northern wall lets in enough light to see.  In the northeast corner of the room there is an uncovered WELL.  It seems as though this room was added as an expansion sometime recently.  A sturdy rope hangs from a pully connected to a large beam overhead."];
     [front_steps setLongDescription:@""];
 
     //The Basement Rooms
@@ -222,6 +222,8 @@
     //Items in the Master Bedroom
         //fixed items
         Item* master_bedroom_bed = [[Item alloc] initWithName:@"bed" andDescription:@"The BED is large and seems to be made entirely out of some glossy dark wood.  The covers are unmade.  For some reason the unmade covers seem to fill you with dispair." usedIn:nil andWeight:40 andRoomDescription:@"The little light that filters through illuminates a large four post BED draped in what looks to be velvet."];
+        Item* master_bedroom_windows = [[Item alloc] initWithName:@"windows" andDescription:@"The windows are curtained in heavy purple cloth.  They seem familiar, or, to be more precise, you feel as though they should feel familiar." usedIn:nil andWeight:60 andRoomDescription:@""];
+        Item* master_bedroom_couch = [[Item alloc] initWithName:@"couch" andDescription:@"The couch is made from a dark wood, intricately carved on the legs and back.  The cushions are uphostered in a red velvet." usedIn:nil andWeight:60 andRoomDescription:@"A couch shares the wall with the bathroom entrance"];
         
         //items with hidden items
         Item* master_bedroom_dresser = [[Item alloc] initWithName:@"dresser" andDescription:@"The DRESSER is large and made in the Victorian fassion.  Sitting on top of the dresser there is a KEY" usedIn:nil andWeight:40 andRoomDescription:@"A heavy DRESSER sits along the western wall."];
@@ -231,16 +233,17 @@
 
         Item* master_bedroom_closet = [[Item alloc] initWithName:@"closet" andDescription:@"The CLOSET is a mess.  Clothes are scattered all over the floor.  Searching through the mess you notice that there is a FLASHLIGHT on the top shelf." usedIn:nil andWeight:-1 andRoomDescription:@"A CLOSET is to the south."];
             //Items in the closet
-            Item* flashlight = [[Item alloc] initWithName:@"flashlight" andDescription:@"An old chrome FLASHLIGHT.  You can't see how to open the battery compartment, but it feels heavy.  Maybe it will be of use somewhere." usedIn:end andWeight:11 andRoomDescription: @"On the top shelf of the closet there is a FLASHLIGHT."];
+            Item* flashlight = [[Item alloc] initWithName:@"flashlight" andDescription:@"An old chrome FLASHLIGHT.  You can't see how to open the battery compartment, but it feels heavy.  Maybe it will be of use somewhere." usedIn:end andWeight:2 andRoomDescription: @"On the top shelf of the closet there is a FLASHLIGHT."];
             [[master_bedroom_closet hiddenItems] addObject: [flashlight autorelease]];
 
         //collectable items
-        //Item* hat = [[Item alloc] initWithName:@"hat" andDescription:@"A rumbled bowler HAT.  Tucked into the rim of the hat is a faded piece of paper with the numbers \"42\", \"28\", and \"16\"." usedIn:nil andWeight: 11 andRoomDescription: @"A bowlers HAT rests on a hook by the door."];
-        Item* hat = [[Item alloc] initWithName:@"hat" andDescription:@"A rumbled bowler HAT.  Tucked into the rim of the hat is a faded piece of paper with the numbers \"42\", \"28\", and \"16\"." usedIn:nil andWeight:5 andRoomDescription:@"A bowlers HAT rests on a hook by the door."];
+        Item* hat = [[Item alloc] initWithName:@"hat" andDescription:@"A rumbled bowler HAT.  Tucked into the rim of the hat is a faded piece of paper with the numbers \"42\", \"28\", and \"16\"." usedIn:nil andWeight:2 andRoomDescription:@"A bowlers HAT rests on a hook by the door."];
         //make the hat dropped for testing
         //[hat setIsDropped:YES];
     
         [mast_bed addItem: master_bedroom_bed];
+        [mast_bed addItem: master_bedroom_windows];
+        [mast_bed addItem: master_bedroom_couch];
         [mast_bed addItem: master_bedroom_dresser];
         [mast_bed addItem: master_bedroom_closet];
         [mast_bed addItem: hat];
@@ -262,9 +265,9 @@
 
     //Items for the dining room
         //Fixed Items
-        Item* dining_room_table = [[Item alloc] initWithName:@"table" andDescription:@"A large TABLE.  There are place-settings for four.  A large candlestick holder sits in the center.  It does not look like anyone has eaten here in years." usedIn:nil andWeight: 60 andRoomDescription:@"In the center of the room there is a large TABLE."];
+        Item* dining_room_table = [[Item alloc] initWithName:@"table" andDescription:@"A large TABLE.  There is still platters of half eaten food on two of the settings.  A bowl leans at a angle, soup covering the tablecloth." usedIn:nil andWeight: 60 andRoomDescription:@"In the center of the room there is a large TABLE."];
         Item* dining_room_clock = [[Item alloc] initWithName:@"clock." andDescription:@"The grandfather CLOCK is large and dark.  The front panel is missing and there are gouges along the side.  The pendulum inside is still.  The marks look to have been made by some animal." usedIn:nil andWeight: 60 andRoomDescription:@"Sitting against the wall by the door there is a grandfather CLOCK."];
-        Item* dining_room_china = [[Item alloc] initWithName:@"cabnet" andDescription:@"The china CABNET is filled with dishes of fine porcelain and silverware that gleams even in the dim light." usedIn:nil andWeight:60 andRoomDescription:@"In the northwest corner of the room there is a china CABNET"];
+        Item* dining_room_china = [[Item alloc] initWithName:@"cabinet" andDescription:@"The china CABINET is filled with dishes of fine porcelain and silverware that gleams even in the dim light." usedIn:nil andWeight:60 andRoomDescription:@"  A large china CABINET has been placed along the center of the western wall, flanked on either side by serving trays."];
     
         [dining_room addItem: dining_room_table];
         [dining_room addItem: dining_room_clock];

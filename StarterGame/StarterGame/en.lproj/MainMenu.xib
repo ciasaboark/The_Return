@@ -1295,7 +1295,7 @@
 			<object class="NSWindowTemplate" id="972006081">
 				<int key="NSWindowStyleMask">15</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{335, 390}, {788, 831}}</string>
+				<string key="NSWindowRect">{{335, 390}, {788, 767}}</string>
 				<int key="NSWTFlags">1954021376</int>
 				<string key="NSWindowTitle">StarterGame</string>
 				<string key="NSWindowClass">NSWindow</string>
@@ -1311,6 +1311,7 @@
 							<string key="NSFrame">{{20, 20}, {748, 22}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
+							<int key="NSViewLayerContentsRedrawPolicy">2</int>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="641623331">
@@ -1348,20 +1349,53 @@
 						<object class="NSTextField" id="123758284">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{20, 52}, {748, 759}}</string>
+							<string key="NSFrame">{{20, 58}, {748, 689}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="644661522"/>
+							<object class="NSDictionary" key="NSViewAnimations">
+								<string key="NS.key.0">subviews</string>
+								<object class="CATransition" key="NS.object.0">
+									<object class="CIFlashTransition" key="filter">
+										<object class="CIVector" key="CI_inputCenter">
+											<int key="CICount">2</int>
+											<string key="CIVector">{{150, 150}, {0, 0}}</string>
+										</object>
+										<object class="CIVector" key="CI_inputExtent">
+											<int key="CICount">4</int>
+											<string key="CIVector">{{0, 0}, {300, 300}}</string>
+										</object>
+										<object class="CIColor" key="CI_inputColor">
+											<float key="red">1</float>
+											<float key="green">0.80000001192092896</float>
+											<float key="blue">0.60000002384185791</float>
+											<float key="alpha">1</float>
+										</object>
+										<real value="0.0" key="CI_inputTime"/>
+										<real value="2.5800000000000001" key="CI_inputMaxStriationRadius"/>
+										<real value="0.5" key="CI_inputStriationStrength"/>
+										<real value="1.375" key="CI_inputStriationContrast"/>
+										<real value="0.84999999999999998" key="CI_inputFadeThreshold"/>
+										<bool key="CIEnabled">YES</bool>
+									</object>
+									<string key="type">fade</string>
+									<array key="__CACodingContents">
+										<string>filter</string>
+										<string>type</string>
+									</array>
+								</object>
+							</object>
+							<int key="NSViewLayerContentsRedrawPolicy">2</int>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<string key="NSAntiCompressionPriority">{250, 750}</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="975294129">
 								<int key="NSCellFlags">75497472</int>
 								<int key="NSCellFlags2">272629760</int>
-								<string key="NSContents">Welcome to our world</string>
+								<string key="NSContents"/>
 								<object class="NSFont" key="NSSupport">
-									<string key="NSName">LucidaGrande</string>
-									<double key="NSSize">13</double>
+									<string key="NSName">BookmanOldStyle</string>
+									<double key="NSSize">15</double>
 									<int key="NSfFlags">16</int>
 								</object>
 								<string key="NSCellIdentifier">_NS:9</string>
@@ -1384,10 +1418,12 @@
 							</object>
 						</object>
 					</array>
-					<string key="NSFrameSize">{788, 831}</string>
+					<string key="NSFrameSize">{788, 767}</string>
 					<reference key="NSSuperview"/>
 					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="123758284"/>
+					<bool key="NSViewIsLayerTreeHost">YES</bool>
+					<int key="NSViewLayerContentsRedrawPolicy">2</int>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1920, 1058}}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
@@ -3223,7 +3259,7 @@
 						<reference key="object" ref="123758284"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="975294129"/>
-							<object class="IBNSLayoutConstraint" id="131705482">
+							<object class="IBNSLayoutConstraint" id="1192668">
 								<reference key="firstItem" ref="123758284"/>
 								<int key="firstAttribute">8</int>
 								<int key="relation">0</int>
@@ -3231,7 +3267,7 @@
 								<int key="secondAttribute">0</int>
 								<float key="multiplier">1</float>
 								<object class="IBLayoutConstant" key="constant">
-									<double key="value">759</double>
+									<double key="value">689</double>
 								</object>
 								<float key="priority">1000</float>
 								<reference key="containingView" ref="123758284"/>
@@ -3278,8 +3314,8 @@
 						<reference key="parent" ref="439893737"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">650</int>
-						<reference key="object" ref="131705482"/>
+						<int key="objectID">651</int>
+						<reference key="object" ref="1192668"/>
 						<reference key="parent" ref="123758284"/>
 					</object>
 				</array>
@@ -3440,7 +3476,7 @@
 				<string key="57.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="58.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<array class="NSMutableArray" key="583.IBNSViewMetadataConstraints">
-					<reference ref="131705482"/>
+					<reference ref="1192668"/>
 				</array>
 				<boolean value="NO" key="583.IBNSViewMetadataTranslatesAutoresizingMaskIntoConstraints"/>
 				<string key="583.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3451,7 +3487,7 @@
 				<string key="646.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="648.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="649.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="650.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="651.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="72.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="73.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="74.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3468,7 +3504,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">650</int>
+			<int key="maxID">651</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
