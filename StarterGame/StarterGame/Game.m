@@ -28,6 +28,13 @@
 -(NSArray *)createWorld {
 	//A special room to indicate that the path is blocked
     Room* blocked = [[[Room alloc] initWithTag:@"blocked"] autorelease];
+
+    //A special room to indicate that a door is locked
+    Room* locked = [[[Room alloc] initWithTag:@"locked"] autorelease];
+
+    //A special room to indicate that the path is too dark to proceed
+    Room* dark = [[[Room alloc] initWithTag:@"dark"] autorelease];
+
     
     //The downstairs rooms
 	Room 	*hall1, *hall2, *hall3, *dining_room, *formal_room, *mast_bed, *sitting_room, *kitchen, *mast_bath;
@@ -55,7 +62,7 @@
     cemetery = [[[Room alloc] initWithTag:@"a small family cemetery"] autorelease];
     
     //The upstairs rooms
-	Room 	*bed1, *bed2, *bed3, *bathroom, *upstairs_hall, *short_hall, *end, *srvnt_bed_room;
+	Room 	*bed1, *bed2, *bed3, *bathroom, *upstairs_hall, *short_hall, *end, *srvnt_bed_room, *attic;
 
     bed1 = [[[Room alloc] initWithTag:@"a child's bedroom"] autorelease];
     bed2 = [[[Room alloc] initWithTag:@"an empty bedroom"] autorelease];
@@ -65,12 +72,16 @@
     short_hall = [[[Room alloc] initWithTag:@"a short hall"] autorelease];
     end = [[[Room alloc] initWithTag:@"a dark end room"] autorelease];
     srvnt_bed_room = [[[Room alloc] initWithTag:@"the servant's bedroom"] autorelease];
+    attic = [[[Room alloc] initWithTag:@"the attic"] autorelease];
+
     
     //Downstairs room connections
 	[hall1 setExit:@"west" toRoom:dining_room];
     [hall1 setExit:@"east" toRoom:formal_room];
     [hall1 setExit:@"north" toRoom:hall2];
     [hall1 setExit:@"south" toRoom:blocked];
+    //a hidden exit. We will use this to replace the blocked exit later.
+    [hall1 setExit:@"hidden" toRoom:front_steps];
 
     [hall2 setExit:@"west" toRoom:sitting_room];
     [hall2 setExit:@"east" toRoom:mast_bed];
@@ -110,14 +121,14 @@
     [well_house setExit:@"down" toRoom:cave];
     [well_house setExit:@"south" toRoom:hall3];
     
-    //technically this should have no connection to the hall until the front door is destroyed,
-    //+ but the player can't get here until this happens anyway.
     [front_steps setExit:@"north" toRoom:hall1];
 
 	
     //cave Connections
 	[cave setExit:@"up" toRoom:well_house];
-    [cave setExit:@"north" toRoom:cave_hall];
+    [cave setExit:@"north" toRoom:dark];
+    //a hidden path that will replace the north direction later
+    [cave setExit:@"hidden" toRoom:cave_hall];
     
     [cave_hall setExit:@"south" toRoom:cave];
     [cave_hall setExit:@"west" toRoom:cemetery];
@@ -145,6 +156,9 @@
     //This will now be the end room
     [upstairs_hall setExit:@"south" toRoom:blocked];
     [upstairs_hall setExit:@"east" toRoom:bed1];
+    [upstairs_hall setExit:@"up" toRoom:blocked];
+    [upstairs_hall setExit:@"hidden" toRoom:attic];
+
 
 
     [short_hall setExit:@"down" toRoom:hall2];
@@ -157,6 +171,8 @@
 
 
     [srvnt_bed_room setExit:@"south" toRoom:short_hall];
+
+    [attic setExit:@"down" toRoom:upstairs_hall];
 
     
     /************************
@@ -228,7 +244,7 @@
         [mast_bed addItem: master_bedroom_closet];
         [mast_bed addItem: hat];
    
-   //Items in the Master Bathroom
+   //Items in the Master Bath
         //Fixed Items
         Item* mast_bath_tub = [[Item alloc] initWithName:@"tub" andDescription:@"" usedIn:nil andWeight:-1 andRoomDescription:@""];
         Item* mast_bath_mirror = [[Item alloc] initWithName:@"mirror" andDescription:@"" usedIn:nil andWeight:-1 andRoomDescription:@""];
@@ -301,7 +317,12 @@
             [[srvnt_dining_room_table hiddenItems] addObject: lantern];
 
         [srvnt_dining_room addItem: srvnt_dining_room_table];
-    
+
+    //Items in the well house
+        //Collectable items
+        Item* ladder = [[Item alloc] initWithName:@"ladder" andDescription:@"A short wodden ladder.  It appears sturdy enough." usedIn:upstairs_hall andWeight:15 andRoomDescription:@"A wooden LADDER leans against the wall."];
+
+
     //Items in the cave
         //Fixed items
         Item* cave_gleam = [[Item alloc] initWithName:@"gleam" andDescription:@"A small section of the floor gleams a bit brighter than the rest.  Sticking up slightly from the mud you see the outline of something hard.  You scrape the mud away and see that there is a small statue embeded in the ground" usedIn:nil andWeight:-1 andRoomDescription:@""];
