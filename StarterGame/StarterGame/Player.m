@@ -19,7 +19,7 @@
 @synthesize currentWeight;
 @synthesize sleepRooms;
 @synthesize hasTakenItem;
-@synthesize endRoom;
+//@synthesize endRoom;
 @synthesize startRoom;
 @synthesize roomStack;
 
@@ -34,10 +34,10 @@
     
 	if (nil != self) {
         //we need to remove the end room from the array before we do anything else
-        [self setEndRoom: [rooms lastObject]];
+        //[self setEndRoom: [rooms lastObject]];
         //[rooms removeLastObject];
 
-        unsigned long rand = arc4random_uniform([rooms count] - 1);
+        unsigned long rand = arc4random_uniform([rooms count]);
 		[self setCurrentRoom:[rooms objectAtIndex:rand]];
 
         [self setStartRoom: currentRoom];
@@ -59,6 +59,10 @@
     if (nextRoom) {
         if ([[nextRoom tag] isEqualToString:@"blocked"] ) {
             [self outputMessage:[NSString stringWithFormat:@"The path %@ is blocked.  Perhaps there is a way around?", direction]];
+        } else if ([[nextRoom tag] isEqualToString:@"locked"] ) {
+            [self outputMessage:[NSString stringWithFormat:@"The door %@ is locked.  Perhaps there is a key?", direction]];
+        } else if ([[nextRoom tag] isEqualToString:@"dark"] ) {
+            [self outputMessage:[NSString stringWithFormat:@"The way %@ is too dark to proceed.", direction]];
         } else {
             [[self roomStack] addObject: currentRoom];
             [self setCurrentRoom:nextRoom];
@@ -94,7 +98,7 @@
     [inventory release];
     [sleepRooms release];
     [startRoom release];
-    [endRoom release];
+   // [endRoom release];
     [roomStack release];
          
 	[super dealloc];

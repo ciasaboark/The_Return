@@ -19,9 +19,12 @@
     unsigned long rand;
     Room* wakeRoom;
     
+    //if the player doesn't even know how he got to this room how could he go back?
+    [[player roomStack] removeAllObjects];
+    
     //we don't want to wake to the same room
     do {
-        rand = arc4random_uniform([[player sleepRooms] count] - 1);
+        rand = arc4random_uniform([[player sleepRooms] count]);
         wakeRoom = [[player sleepRooms] objectAtIndex:rand];
         [player setCurrentRoom: wakeRoom];
     } while (![[[player currentRoom] tag] isEqualToString:[wakeRoom tag]]);

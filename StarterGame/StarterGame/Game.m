@@ -154,7 +154,8 @@
     [upstairs_hall setExit:@"down" toRoom:hall2];   //should this be down or north?
     [upstairs_hall setExit:@"west" toRoom:bed3];
     //This will now be the end room
-    [upstairs_hall setExit:@"south" toRoom:blocked];
+    [upstairs_hall setExit:@"south" toRoom:locked];
+    [upstairs_hall setExit:@"end" toRoom:end];
     [upstairs_hall setExit:@"east" toRoom:bed1];
     [upstairs_hall setExit:@"up" toRoom:blocked];
     [upstairs_hall setExit:@"hidden" toRoom:attic];
@@ -321,6 +322,8 @@
     //Items in the well house
         //Collectable items
         Item* ladder = [[Item alloc] initWithName:@"ladder" andDescription:@"A short wodden ladder.  It appears sturdy enough." usedIn:upstairs_hall andWeight:15 andRoomDescription:@"A wooden LADDER leans against the wall."];
+    
+        [well_house addItem:ladder];
 
 
     //Items in the cave
@@ -344,9 +347,9 @@
     
     //Items in the end room
         //Fixed items
-        Item* end_corner = [[Item alloc] initWithName:@"corner" andDescription:@"a scary corner" usedIn:nil andWeight:-1 andRoomDescription:@"In the corner something moves"];
+        Item* end_corner = [[Item alloc] initWithName:@"corner" andDescription:@"a scary corner" usedIn:nil andWeight:-1 andRoomDescription:@"In the corner some THING moves."];
             //Items in the corner
-            Item* mirror = [[Item alloc] initWithName:@"mirror" andDescription:@"a scary mirror" usedIn:nil andWeight:60 andRoomDescription:@"There is a mirror in the corner"];
+   			 Item* mirror = [[Item alloc] initWithName:@"thing" andDescription:@"a scary mirror" usedIn:nil andWeight:60 andRoomDescription:@"There is a mirror in the corner"];
             [[end_corner hiddenItems] addObject:mirror];
         //Regular Items
         Item* axe = [[Item alloc] initWithName:@"axe" andDescription:@"A broken AXE.  The handle is just long enough to be used as a hatchet." usedIn:hall1 andWeight:1 andRoomDescription:@"Sitting in the dust of the fireplace there is an AXE."];
@@ -372,7 +375,7 @@
     
     //In order to advance the sense of amnesia we can start in a (semi) random room.  Note that the last item
     //+ is the end room, and should be skipped.
-	NSMutableArray *rooms = [NSArray arrayWithObjects: bed1, bed2, bed3, mast_bed, mast_bath, bathroom, srvnt_bed_room, end, nil];
+	NSMutableArray *rooms = [NSArray arrayWithObjects: bed1, bed2, bed3, mast_bed, mast_bath, bathroom, srvnt_bed_room, nil];
   
     return rooms;
 }
