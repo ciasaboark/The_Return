@@ -34,8 +34,12 @@
 	//+ places within a room (corner, window, a locked door) that should not even be attempted to be moved.
 	int weight;
 
-    //Some items may have points.  These are tallied at the end of the game for an optional score
+    //Some items may have points.  These are tallied for an optional score
     int points;
+
+    //special items are not UPPERCASED in the descriptions, these are tallied at the end of the game for an
+    //+ additonal score
+    Boolean special;
 }
 
 @property (retain, nonatomic)NSString* name;
@@ -46,13 +50,17 @@
 @property (retain, nonatomic)Room* usedIn;
 @property (nonatomic)int weight;
 @property (nonatomic)int points;
+@property (nonatomic)Boolean special;
 
 
 -(id)init;
--(id)initWithName:(NSString *)newName andDescription:(NSString*) newDescription usedIn:(Room*) aRoom andWeight:(int) aWeight andRoomDescription:(NSString*) newRoomDescription;
--(id)initWithName:(NSString *)newName andDescription:(NSString*) newDescription usedIn:(Room*) aRoom andWeight:(int) aWeight andRoomDescription:(NSString*) newRoomDescription andPoints:(int) itemPoints;
-
-//-(void)addHiddenItem
+-(id)initWithName:(NSString *)newName andDescription:(NSString*) newDescription usedIn:(Room*) aRoom
+	andWeight:(int) aWeight andRoomDescription:(NSString*) newRoomDescription;
+-(id)initWithName:(NSString *)newName andDescription:(NSString*) newDescription usedIn:(Room*) aRoom
+	andWeight:(int) aWeight andRoomDescription:(NSString*) newRoomDescription andPoints:(int) itemPoints;
+-(id)initWithName:(NSString *)newName andDescription:(NSString*) newDescription usedIn:(Room*) aRoom
+	andWeight:(int) aWeight andRoomDescription:(NSString*) newRoomDescription andPoints:(int) itemPoints
+	andSpecial:(Boolean) isSpecial;
 
 -(void)dealloc;
 

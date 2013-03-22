@@ -40,6 +40,9 @@
         } else {
             //looking at an item in the room
             [player outputMessage:[NSString stringWithFormat:@"%@", [tmpItem description]]];
+
+            //If this item has points associated with it they need to be added to the players total
+            [player addPoints:[tmpItem points]];
             
             //If this item has some hidden items inside we need to add those items to the room, then remove them from
             //+ this item.

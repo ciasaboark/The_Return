@@ -21,6 +21,7 @@
 		[self setParser:[[[Parser alloc] init] autorelease]];
 		[self setPlayer:[[[Player alloc] initWithRoom:[self createWorld] andIO:theIO] autorelease]];
         playing = NO;
+        [self setWrongCommands: 0];
 	}
 	return self;
 }
@@ -62,10 +63,10 @@
     cemetery = [[[Room alloc] initWithTag:@"a small family cemetery"] autorelease];
     
     //The upstairs rooms
-	Room 	*bed1, *bed2, *bed3, *bathroom, *upstairs_hall, *short_hall, *end, *srvnt_bed_room, *attic;
+	Room 	*bed1, *workroom, *bed3, *bathroom, *upstairs_hall, *short_hall, *sewing_room, *srvnt_bed_room, *attic;
 
     bed1 = [[[Room alloc] initWithTag:@"a child's bedroom"] autorelease];
-    bed2 = [[[Room alloc] initWithTag:@"an empty bedroom"] autorelease];
+    workroom = [[[Room alloc] initWithTag:@"an empty bedroom"] autorelease];
     bed3 = [[[Room alloc] initWithTag:@"an empty bedroom"] autorelease];
     bathroom = [[[Room alloc] initWithTag:@"the upstairs bath"] autorelease];
     upstairs_hall = [[[Room alloc] initWithTag:@"the upstairs hall"] autorelease];
@@ -139,11 +140,11 @@
     [bed1 setExit:@"west" toRoom:upstairs_hall];
     [bed1 setExit:@"north" toRoom:bathroom];
 
-    [bed2 setExit:@"south" toRoom:bed3];
-    [bed2 setExit:@"east" toRoom:short_hall];
+    [workroom setExit:@"south" toRoom:bed3];
+    [workroom setExit:@"east" toRoom:short_hall];
 
 
-    [bed3 setExit:@"north" toRoom:bed2];
+    [bed3 setExit:@"north" toRoom:workroom];
     [bed3 setExit:@"east" toRoom:upstairs_hall];
 
 
@@ -151,11 +152,11 @@
     [bathroom setExit:@"west" toRoom:short_hall];
 
 
-    [upstairs_hall setExit:@"down" toRoom:hall2];   //should this be down or north?
+    [upstairs_hall setExit:@"down" toRoom:hall2];
     [upstairs_hall setExit:@"west" toRoom:bed3];
     //This will now be the end room
     [upstairs_hall setExit:@"south" toRoom:locked];
-    [upstairs_hall setExit:@"end" toRoom:end];
+    [upstairs_hall setExit:@"end" toRoom:sewing_room];
     [upstairs_hall setExit:@"east" toRoom:bed1];
     [upstairs_hall setExit:@"up" toRoom:blocked];
     [upstairs_hall setExit:@"hidden" toRoom:attic];
@@ -163,12 +164,12 @@
 
 
     [short_hall setExit:@"down" toRoom:hall2];
-    [short_hall setExit:@"west" toRoom:bed2];
+    [short_hall setExit:@"west" toRoom:workroom];
     [short_hall setExit:@"north" toRoom:srvnt_bed_room];
     [short_hall setExit:@"east" toRoom:bathroom];
 
 
-    [end setExit:@"north" toRoom:upstairs_hall];
+    [sewing_room setExit:@"north" toRoom:upstairs_hall];
 
 
     [srvnt_bed_room setExit:@"south" toRoom:short_hall];
@@ -206,12 +207,12 @@
 
     //The Upstairs Rooms
     [bed1 setLongDescription: @""];
-    [bed2 setLongDescription: @""];
+    [workroom setLongDescription: @""];
     [bed3 setLongDescription: @""];
     [bathroom setLongDescription: @""];
     [upstairs_hall setLongDescription: @""];
     [short_hall setLongDescription: @""];
-    [end setLongDescription: @"The room is lit by a single bulb, almost burned out.  Dead lady description here."];
+    [sewing_room setLongDescription: @"The room is lit by a single bulb, almost burned out.  In the dim light you behold a grim sight.  In the middle of the room there is a WOMAN.  Pale golden hair hangs loose covering her face.  The front of her dress is splashed in crimson.  Her feet drag on the ground as her body gently swings fron a noose.  Beside her,  on the ground, there is a small BODY.  The appalling vision is so overwhelming that you almost miss seeing movement in the corner."];
     [srvnt_bed_room setLongDescription: @""];
 
 
@@ -233,13 +234,11 @@
 
         Item* master_bedroom_closet = [[Item alloc] initWithName:@"closet" andDescription:@"The CLOSET is a mess.  Clothes are scattered all over the floor.  Searching through the mess you notice that there is a FLASHLIGHT on the top shelf." usedIn:nil andWeight:-1 andRoomDescription:@"A CLOSET is to the south."];
             //Items in the closet
-            Item* flashlight = [[Item alloc] initWithName:@"flashlight" andDescription:@"An old chrome FLASHLIGHT.  You can't see how to open the battery compartment, but it feels heavy.  Maybe it will be of use somewhere." usedIn:end andWeight:2 andRoomDescription: @"On the top shelf of the closet there is a FLASHLIGHT."];
+            Item* flashlight = [[Item alloc] initWithName:@"flashlight" andDescription:@"An old chrome FLASHLIGHT.  You can't see how to open the battery compartment, but it feels heavy.  Maybe it will be of use somewhere." usedIn:sewing_room andWeight:2 andRoomDescription: @"On the top shelf of the closet there is a FLASHLIGHT."];
             [[master_bedroom_closet hiddenItems] addObject: [flashlight autorelease]];
 
         //collectable items
         Item* hat = [[Item alloc] initWithName:@"hat" andDescription:@"A rumbled bowler HAT.  Tucked into the rim of the hat is a faded piece of paper with the numbers \"42\", \"28\", and \"16\"." usedIn:nil andWeight:2 andRoomDescription:@"A bowlers HAT rests on a hook by the door."];
-        //make the hat dropped for testing
-        //[hat setIsDropped:YES];
     
         [mast_bed addItem: master_bedroom_bed];
         [mast_bed addItem: master_bedroom_windows];
@@ -278,18 +277,28 @@
         //Items with hidden items
         Item* library_book_stand = [[Item alloc] initWithName:@"stand" andDescription:@"A book STAND.  On the stand there is an open book.  The book appears to be some kind of journal.  A page is open, weighted down by a carved raven.  Though the dates on the page are ledgable, the text is mostly gibberish.  A single passage stands out, written in a shakey hand:\n----\nJuly 23rd 1918:\n\tSounds from below again.  The well.  The boards wont't hold forever.  Should have ended it." usedIn:nil andWeight:40 andRoomDescription:@"Against the south wall there is a book STAND with an open book on top."];
             //Items on the book stand
-            Item* raven = [[Item alloc] initWithName:@"raven" andDescription:@"A small black onyx carving of a raven.  The birds beak is open, as if caught in a moment of speech" usedIn:nil andWeight:3 andRoomDescription:@"" andPoints: 5];
+            Item* raven = [[Item alloc] initWithName:@"raven" andDescription:@"A small black onyx carving of a raven.  The birds beak is open, as if caught in a moment of speech." usedIn:nil andWeight:3 andRoomDescription:@"" andPoints: 0 andSpecial:true];
             [[library_book_stand hiddenItems] addObject:raven];
         
-        Item* library_fireplace = [[Item alloc] initWithName:@"fireplace" andDescription:@"A brick FIREPLACE.  Three leather-covered chairs face the fireplace. The mantlepiece appears to be ebony.  Carved figures adorn the sides.  The brick and metal are cold, and there is not even the slightest smell of soot in the air.  The cast iron grating covers the front.  Strangely there is a lock on the cover." usedIn:nil andWeight:40 andRoomDescription:@"Along the north wall of the library there is a FIREPLACE."];
+         Item* library_book_stack = [[Item alloc] initWithName:@"stack" andDescription:@"A large STACK of book.  You look through the titles and notice some obscure subjects:\nThe OCCULT of New Haven\nOn the Religion of Papa New GUINEA\nRituals and Practices of IRAM of the Pillars." usedIn:nil andWeight:-1 andRoomDescription:@"On a table beside the chairs there is a large STACK of books."];
+            //Books in the stack
+            Item* book_stack_occult = [[Item alloc] initWithName:@"occult" andDescription:@"" usedIn:nil andWeight:3 andRoomDescription:@"" andPoints: 10];
+            Item* book_stack_guinea = [[Item alloc] initWithName:@"guinea" andDescription:@"" usedIn:nil andWeight:3 andRoomDescription:@"" andPoints: 10];
+            Item* book_stack_iram = [[Item alloc] initWithName:@"iram" andDescription:@"" usedIn:nil andWeight:3 andRoomDescription:@"" andPoints: 10];
+            [library_book_stack addItem: book_stack_occult];
+            [library_book_stack addItem: book_stack_guinea];
+            [library_book_stack addItem: book_stack_iram];
+
+        Item* library_fireplace = [[Item alloc] initWithName:@"fireplace" andDescription:@"A brick FIREPLACE.  Three leather-covered chairs face the fireplace. The mantlepiece appears to be ebony.  Carved figures adorn the sides.  The brick and metal are cold, and there is not even the slightest smell of soot in the air.  The cast iron grating covers the front." usedIn:nil andWeight:-1 andRoomDescription:@"Along the north wall of the library there is a FIREPLACE."];
             //Items inside the fireplace
             
     
         //Collectable Items
-        Item* bust = [[Item alloc] initWithName:@"bust" andDescription:@"A marble bust of some long forgotten Greek god." usedIn:nil andWeight:5 andRoomDescription:@"" andPoints:4];
+        Item* bust = [[Item alloc] initWithName:@"bust" andDescription:@"A pale marble bust of some long forgotten Greek god." usedIn:nil andWeight:5 andRoomDescription:@"" andPoints:0 andSpecial:true];
         
         [sitting_room addItem: library_fireplace];
         [sitting_room addItem: library_book_stand];
+        [sitting_room addItem: library_book_stack];
         [sitting_room addItem: bust];
 
 
@@ -333,7 +342,7 @@
         //Fixed items
         Item* cave_gleam = [[Item alloc] initWithName:@"gleam" andDescription:@"A small section of the floor gleams a bit brighter than the rest.  Sticking up slightly from the mud you see the outline of something hard.  You scrape the mud away and see that there is a small statue embeded in the ground" usedIn:nil andWeight:-1 andRoomDescription:@""];
             //Items in the gleam
-            Item* cthulhu = [[Item alloc] initWithName:@"statue" andDescription:@"A small jade statue of some obscene monstrosity.  It is vaguely huminoid, but bat wings drap the figure, and a mass of tenticles are its mouth.  The figure is crouched, as if waiting.  Along the base there are words carved: \"Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn.\""usedIn:nil andWeight:3 andRoomDescription:@"" andPoints:6];
+            Item* cthulhu = [[Item alloc] initWithName:@"statue" andDescription:@"A small jade statue of some obscene monstrosity.  It is vaguely huminoid, but bat wings drap the figure, and a mass of tenticles are its mouth.  The figure is crouched, as if waiting.  Along the base there are words carved: \"Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn.\""usedIn:nil andWeight:3 andRoomDescription:@"" andPoints:0 andSpecial:true];
             [[cave_gleam hiddenItems] addObject:cthulhu];
         
         [cave addItem:cave_gleam];
@@ -342,23 +351,23 @@
     
     //Items in the cemetery
         //Fixed items
-        Item* grave = [[Item alloc] initWithName:@"grave" andDescription:@"A newly dug grave.  The headstone reads:\n       \"William @#$@\n       1887 - 1918\n   Beloved Husband and Father.\"\nThe ground ground of the grave is disturbed, like some animal has dug into it.  The hole reaches far enough into the ground that the end disappears into darkness.  Strangely, there is only a small amount of dirt above ground.  A small locket glints in the dirt beside the grave." usedIn:nil andWeight:-1 andRoomDescription:@"  At the eastern edge of the plot there is a fresh GRAVE."];
+        Item* grave = [[Item alloc] initWithName:@"grave" andDescription:@"A newly dug grave.  The headstone reads:\n       \"William @#$@\n       1887 - 1918\n   Beloved Husband and Father.\"\nThe ground ground of the grave is disturbed, like some animal has dug into it.  The hole reaches far enough into the ground that the end disappears into darkness.  Strangely, there is only a small amount of dirt above ground.  A small locket glints in the dirt beside the grave." usedIn:nil andWeight:-1 andRoomDescription:@"  At the eastern edge of the plot there is a fresh GRAVE." andPoints:10];
             //Items beside the grave
-            Item* locket = [[Item alloc] initWithName:@"locket" andDescription:@"A gold locket.  Inside there is a picture of a smiling man and woman and infant.  On the back, in letters small enough to be hard to read by the moonlight there is an inscription: \"Olphelia, Wife and Mother. With love. W. 1913\"" usedIn:nil andWeight:1 andRoomDescription:@"" andPoints:3];
+            Item* locket = [[Item alloc] initWithName:@"locket" andDescription:@"A gold locket.  Inside there is a picture of a smiling man and woman and infant.  On the back, in letters small enough to be hard to read by the moonlight there is an inscription: \"Olphelia, Wife and Mother. With love. W. 1913\"" usedIn:nil andWeight:1 andRoomDescription:@"" andPoints:0 andSpecial:true];
             [[grave hiddenItems] addObject:locket];
         [cemetery addItem:grave];
     
-    //Items in the end room
+    //Items in the sewing room
         //Fixed items
-        Item* end_corner = [[Item alloc] initWithName:@"corner" andDescription:@"a scary corner" usedIn:nil andWeight:-1 andRoomDescription:@"In the corner some THING moves."];
+        Item* sewing_room_corner = [[Item alloc] initWithName:@"corner" andDescription:@"a scary corner" usedIn:nil andWeight:-1 andRoomDescription:@"In the corner some THING moves."];
             //Items in the corner
-   			 Item* mirror = [[Item alloc] initWithName:@"thing" andDescription:@"a scary mirror" usedIn:nil andWeight:60 andRoomDescription:@"There is a mirror in the corner"];
-            [[end_corner hiddenItems] addObject:mirror];
+   			 Item* mirror = [[Item alloc] initWithName:@"thing" andDescription:@"In the corner of the room some THING waits crouched.  In the dim light it is impossible to make out any details." usedIn:nil andWeight:60 andRoomDescription:@"" andPoints:20];
+            [[sewing_room_corner hiddenItems] addObject:mirror];
         //Regular Items
-        Item* axe = [[Item alloc] initWithName:@"axe" andDescription:@"A broken AXE.  The handle is just long enough to be used as a hatchet." usedIn:hall1 andWeight:1 andRoomDescription:@"Sitting in the dust of the fireplace there is an AXE."];
+        Item* axe = [[Item alloc] initWithName:@"axe" andDescription:@"A broken AXE.  The handle is just long enough to be used as a hatchet." usedIn:hall1 andWeight:1 andRoomDescription:@"Lying beside the body there is a broken AXE."];
     
-        [end addItem:end_corner];
-        [end addItem:axe];
+        [sewing_room addItem:sewing_room_corner];
+        [sewing_room addItem:axe];
     
      
     //Some (collectable) Items
@@ -376,9 +385,8 @@
     
     
     
-    //In order to advance the sense of amnesia we can start in a (semi) random room.  Note that the last item
-    //+ is the end room, and should be skipped.
-	NSMutableArray *rooms = [NSArray arrayWithObjects: bed1, bed2, bed3, mast_bed, mast_bath, bathroom, srvnt_bed_room, nil];
+    //In order to advance the sense of amnesia we can start in a (semi) random room.
+	NSMutableArray *rooms = [NSArray arrayWithObjects: bed1, workroom, bed3, mast_bed, mast_bath, bathroom, srvnt_bed_room, nil];
   
     return rooms;
 }
@@ -405,7 +413,14 @@
             finished = [command execute:player];
         }
         else {
-            [player outputMessage:@"\nI dont' understand..."];
+            wrongWords++;
+            if (wrongWords > 2) {
+                [player outputMessage:@"\nI dont' understand that command."];
+                [player outputMessage:@"Lost or confused?  Try typing 'help' for some tips."];
+                [self setWrongCommands: 0];
+            } else {
+                [player outputMessage:@"\nI dont' understand..."];
+            }
         }
     }
     return finished;
@@ -413,7 +428,7 @@
 
 -(NSString *)welcome
 {
-	return [NSString stringWithFormat:@"You wake.  The pain in your head begins to fade.  Looking around you see that you are in %@.\n%@  You can't remember how you got here.  Perhaps this house holds some answers.", [player currentRoom], [[player currentRoom] longDescription]];
+	return [NSString stringWithFormat:@"You wake.  The pain in your head begins to fade.  Looking around you see that you have been laying in a puddle of mud and water in %@.\nYour clothes, once fine, are torn, muddy, and soaked.  You can't remember how you got here.  Perhaps this house holds some answers.\n\nUse your words to control the player, search the house to find a way out, or explore further to unlock hidden mysteries.\nSay 'help' for a complete list of commands.", [player currentRoom], [[player currentRoom] longDescription]];
 }
 
 -(NSString *)goodbye

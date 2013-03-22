@@ -19,9 +19,9 @@
 @synthesize currentWeight;
 @synthesize sleepRooms;
 @synthesize hasTakenItem;
-//@synthesize endRoom;
 @synthesize startRoom;
 @synthesize roomStack;
+@synthesize points;
 
 -(id)init
 {
@@ -33,10 +33,6 @@
 	self = [super init];
     
 	if (nil != self) {
-        //we need to remove the end room from the array before we do anything else
-        //[self setEndRoom: [rooms lastObject]];
-        //[rooms removeLastObject];
-
         unsigned long rand = arc4random_uniform([rooms count]);
 		[self setCurrentRoom:[rooms objectAtIndex:rand]];
 
@@ -91,6 +87,11 @@
     }
 }
 
+-(void)addPoints:(int) morePoints {
+    [self setPoints: points + morePoints];
+}
+
+
 -(void)dealloc
 {
 	[currentRoom release];
@@ -98,7 +99,6 @@
     [inventory release];
     [sleepRooms release];
     [startRoom release];
-   // [endRoom release];
     [roomStack release];
          
 	[super dealloc];

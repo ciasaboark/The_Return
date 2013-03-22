@@ -21,9 +21,9 @@
     int currentWeight;
     NSArray* sleepRooms;                //candidate rooms to which the player may wake
     Boolean hasTakenItem;				//whether or not the player has picked anything up yet
-   // Room* endRoom;
     Room* startRoom;					//used for the xyzzy command
     NSMutableArray* roomStack;          //used for the back command
+    int points;
 }
 
 @property (retain, nonatomic)Room *currentRoom;
@@ -33,14 +33,17 @@
 @property (nonatomic)int currentWeight;
 @property (retain, nonatomic)NSArray* sleepRooms;
 @property (nonatomic)Boolean hasTakenItem;
-//@property (retain, nonatomic)Room* endRoom;
 @property (retain, nonatomic)Room* startRoom;
 @property (retain, nonatomic)NSMutableArray* roomStack;
+@property (readonly)int points;
 
 -(id)init;
 -(id)initWithRoom:(NSArray *)rooms andIO:(GameIO *)theIO;
 -(void)walkTo:(NSString *)direction;
 -(void)outputMessage:(NSString *)message;
--(void)addToInventory:(Item*) anItem;
+-(void)addItem:(Item*) anItem;
+-(Boolean)hasItem:(NSString*) itemName;
+-(Item*)removeItem:(NSString*) itemName;
+-(void)addPoints:(int) morePoints;
 
 @end

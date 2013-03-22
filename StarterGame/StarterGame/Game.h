@@ -16,10 +16,12 @@
 
 @interface Game : NSObject {
     BOOL playing;
+    int wrongCommands;
 }
 
 @property (retain, nonatomic)Parser *parser;
 @property (retain, nonatomic)Player *player;
+@property (nonatomic)int wrongCommands;
 
 -(id)initWithGameIO:(GameIO *)theIO;
 -(NSArray *)createWorld;
