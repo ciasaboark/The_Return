@@ -8,24 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "StarterGame/Game.m"
-         timestampString = "385510674.841921"
+         timestampString = "385692259.600648"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "144"
-         endingLineNumber = "144"
-         landmarkName = "-createWorld"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "StarterGame/Game.m"
-         timestampString = "385510674.841921"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "71"
-         endingLineNumber = "71"
+         startingLineNumber = "145"
+         endingLineNumber = "145"
          landmarkName = "-createWorld"
          landmarkType = "5">
       </FileBreakpoint>
@@ -40,6 +27,19 @@
          startingLineNumber = "61"
          endingLineNumber = "61"
          landmarkName = "-walkTo:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "StarterGame/Game.m"
+         timestampString = "385691499.605548"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "20"
+         endingLineNumber = "20"
+         landmarkName = "-initWithGameIO:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

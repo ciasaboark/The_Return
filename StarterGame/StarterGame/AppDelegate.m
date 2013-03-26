@@ -22,7 +22,7 @@
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    gameIO = [[GameIO alloc] initWithOutput:output andNumberOfLines:10];
+    gameIO = [[GameIO alloc] initWithOutput:output andNumberOfLines:20];
     game = [[Game alloc] initWithGameIO:gameIO];
     [game start];
 }

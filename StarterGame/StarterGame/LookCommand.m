@@ -32,14 +32,14 @@
             
             if (tmpItem == nil) {
                 //the item does not exist here
-                [player outputMessage:[NSString stringWithFormat:@"You search the room for some time, but can not find a %@", secondWord]];
+                [player outputMessage:[NSString stringWithFormat:@"\nYou search the room for some time, but can not find a %@", secondWord]];
             } else {
                 //looking at an item in the inventory
-                [player outputMessage:[NSString stringWithFormat:@"Looking at the %@ in your backpack you see: %@", [tmpItem name], [tmpItem description]]];
+                [player outputMessage:[NSString stringWithFormat:@"\nLooking at the %@ in your backpack you see: %@", [tmpItem name], [tmpItem description]]];
             }
         } else {
             //looking at an item in the room
-            [player outputMessage:[NSString stringWithFormat:@"%@", [tmpItem description]]];
+            [player outputMessage:[NSString stringWithFormat:@"\n%@", [tmpItem description]]];
 
             //If this item has points associated with it they need to be added to the players total
             [player addPoints:[tmpItem points]];
@@ -85,7 +85,7 @@
             droppedText = [NSString stringWithFormat:@"\nIn a pile in the middle of the room you see: %@", droppedText];
         }
         
-        [player outputMessage: [NSString stringWithFormat:@"You are in %@.  %@  %@  %@", [player currentRoom], [[player currentRoom] longDescription], nativeItemText, droppedText]];
+        [player outputMessage: [NSString stringWithFormat:@"\nYou are in %@.  %@  %@  %@", [player currentRoom], [[player currentRoom] longDescription], nativeItemText, droppedText]];
         
     }
     

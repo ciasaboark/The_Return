@@ -14,6 +14,7 @@
 
 @synthesize parser;
 @synthesize player;
+@synthesize wrongCommands;
 
 -(id)initWithGameIO:(GameIO *)theIO {
 	self = [super init];
@@ -71,7 +72,7 @@
     bathroom = [[[Room alloc] initWithTag:@"the upstairs bath"] autorelease];
     upstairs_hall = [[[Room alloc] initWithTag:@"the upstairs hall"] autorelease];
     short_hall = [[[Room alloc] initWithTag:@"a short hall"] autorelease];
-    end = [[[Room alloc] initWithTag:@"a dark end room"] autorelease];
+    sewing_room = [[[Room alloc] initWithTag:@"a dark end room"] autorelease];
     srvnt_bed_room = [[[Room alloc] initWithTag:@"the servant's bedroom"] autorelease];
     attic = [[[Room alloc] initWithTag:@"the attic"] autorelease];
 
@@ -195,7 +196,7 @@
     
     [sitting_room setLongDescription: @"A library of some kind.  The western wall is filled with bookcases from floor to ceiling, except for a small window in the center of the wall.  Above the door there is a marble bust of some long forgotten poet."];
     [kitchen setLongDescription: @"The northern and western walls of the kitchen are lined with counter-tops and cabinets.  The southern wall has two sinks.  One deep enough to hold a number of lenins, the other smaller.  The center of the room is dominated with a long counter over which there hangs a number of pots, pans, and utensiles.  A small Franklin stove is in the south eastern corner, next to the oven.  A small fire in the oven sheds enough light through the grating to cast shadows throughout the room."];
-    [mast_bath setLongDescription: @"The master bathroom is spotless white tile.  A window along the eastern wall lets in some light from a gas lamp by the street.  The bathtub, a clawed-foot monstrosity, sits on a raised platform by the western wall.  It has been fitted with copper pipes.  The mirror that was once above the sink lies shattered on the floor.  Was there a fight here?"];
+    [mast_bath setLongDescription: @"The master bathroom is spotless white tile.  A window along the eastern wall lets in some light from a gas lamp by the street."];
     [srvnt_dining_room setLongDescription: @"There is no light source within this room, but the glow from the kitchen stretches far enough in to see by.  The small room is dominated by a square TABLE.  A single chair is pushed against the table.  This looks to be where a servent might take their meal so as not to disturb the master of the house."];
     [well_house setLongDescription: @"A small rectangular room.  The floor here is bare wood, but unstained.  A long window high on the northern wall lets in enough light to see.  In the northeast corner of the room there is an uncovered WELL.  It seems as though this room was added as an expansion sometime recently.  A sturdy rope hangs from a pully connected to a large beam overhead."];
     [front_steps setLongDescription:@""];
@@ -222,9 +223,9 @@
 
     //Items in the Master Bedroom
         //fixed items
-        Item* master_bedroom_bed = [[Item alloc] initWithName:@"bed" andDescription:@"The BED is large and seems to be made entirely out of some glossy dark wood.  The covers are unmade.  For some reason the unmade covers seem to fill you with dispair." usedIn:nil andWeight:40 andRoomDescription:@"The little light that filters through illuminates a large four post BED draped in what looks to be velvet."];
+        Item* master_bedroom_bed = [[Item alloc] initWithName:@"bed" andDescription:@"The BED is large and seems to be made entirely out of some glossy dark wood.  The covers are unmade.  For some reason this seems to fill you with dispair." usedIn:nil andWeight:40 andRoomDescription:@"The little light that filters through illuminates a large four post BED draped in what looks to be velvet."];
         Item* master_bedroom_windows = [[Item alloc] initWithName:@"windows" andDescription:@"The windows are curtained in heavy purple cloth.  They seem familiar, or, to be more precise, you feel as though they should feel familiar." usedIn:nil andWeight:60 andRoomDescription:@""];
-        Item* master_bedroom_couch = [[Item alloc] initWithName:@"couch" andDescription:@"The couch is made from a dark wood, intricately carved on the legs and back.  The cushions are uphostered in a red velvet." usedIn:nil andWeight:60 andRoomDescription:@"A couch shares the wall with the bathroom entrance"];
+        Item* master_bedroom_couch = [[Item alloc] initWithName:@"couch" andDescription:@"The couch is made from a dark wood, intricately carved on the legs and back.  The cushions are uphostered in a red velvet." usedIn:nil andWeight:60 andRoomDescription:@"A COUCH shares the wall with the bathroom entrance."];
         
         //items with hidden items
         Item* master_bedroom_dresser = [[Item alloc] initWithName:@"dresser" andDescription:@"The DRESSER is large and made in the Victorian fassion.  Sitting on top of the dresser there is a KEY" usedIn:nil andWeight:40 andRoomDescription:@"A heavy DRESSER sits along the western wall."];
@@ -249,13 +250,15 @@
    
    //Items in the Master Bath
         //Fixed Items
-        Item* mast_bath_tub = [[Item alloc] initWithName:@"tub" andDescription:@"" usedIn:nil andWeight:-1 andRoomDescription:@""];
-        Item* mast_bath_mirror = [[Item alloc] initWithName:@"mirror" andDescription:@"" usedIn:nil andWeight:-1 andRoomDescription:@""];
+        Item* mast_bath_tub = [[Item alloc] initWithName:@"tub" andDescription:@"A glazed, cast iron, clawed-foot monstrosity.  It has been re-fitted with copper pipes." usedIn:nil andWeight:-1 andRoomDescription:@"There is a TUB on a raised platform by the western wall."];
+        
+    
+        Item* mast_bath_mirror = [[Item alloc] initWithName:@"mirror" andDescription:@"A broken mirror.  You can't see any blood on the glass shards.  The frame has spots of mud along the sides." usedIn:nil andWeight:6 andRoomDescription:@"The MIRROR that was once above the sink lies shattered on the floor."];
 
         //Items with hidden items
-        Item* mast_bath_shelf = [[Item alloc] initWithName:@"shelf" andDescription:@"" usedIn:nil andWeight:-1 andRoomDescription:@""];
+        Item* mast_bath_shelf = [[Item alloc] initWithName:@"shelf" andDescription:@"A shelf of white wood." usedIn:nil andWeight:-1 andRoomDescription:@"A SHELF above the sink holds a few items."];
             //Items on the shelf
-            Item* razor = [[Item alloc] initWithName:@"razor" andDescription:@"" usedIn:nil andWeight:1 andRoomDescription:@""];
+            Item* razor = [[Item alloc] initWithName:@"razor" andDescription:@"A straight razor.  The handle is ivory.  It seems to be sharp, but there are small spots of rust on the blade." usedIn:nil andWeight:1 andRoomDescription:@"A RAZOR is on the shelf."];
             [[mast_bath_shelf hiddenItems] addObject: razor];
 
         [mast_bath addItem: mast_bath_tub];
@@ -285,9 +288,10 @@
             Item* book_stack_occult = [[Item alloc] initWithName:@"occult" andDescription:@"" usedIn:nil andWeight:3 andRoomDescription:@"" andPoints: 10];
             Item* book_stack_guinea = [[Item alloc] initWithName:@"guinea" andDescription:@"" usedIn:nil andWeight:3 andRoomDescription:@"" andPoints: 10];
             Item* book_stack_iram = [[Item alloc] initWithName:@"iram" andDescription:@"" usedIn:nil andWeight:3 andRoomDescription:@"" andPoints: 10];
-            [library_book_stack addItem: book_stack_occult];
-            [library_book_stack addItem: book_stack_guinea];
-            [library_book_stack addItem: book_stack_iram];
+            [[library_book_stack hiddenItems] addObject:book_stack_occult];
+            [[library_book_stack hiddenItems] addObject:book_stack_guinea];
+            [[library_book_stack hiddenItems] addObject:book_stack_iram];
+            
 
         Item* library_fireplace = [[Item alloc] initWithName:@"fireplace" andDescription:@"A brick FIREPLACE.  Three leather-covered chairs face the fireplace. The mantlepiece appears to be ebony.  Carved figures adorn the sides.  The brick and metal are cold, and there is not even the slightest smell of soot in the air.  The cast iron grating covers the front." usedIn:nil andWeight:-1 andRoomDescription:@"Along the north wall of the library there is a FIREPLACE."];
             //Items inside the fireplace
@@ -359,9 +363,9 @@
     
     //Items in the sewing room
         //Fixed items
-        Item* sewing_room_corner = [[Item alloc] initWithName:@"corner" andDescription:@"a scary corner" usedIn:nil andWeight:-1 andRoomDescription:@"In the corner some THING moves."];
+        Item* sewing_room_corner = [[Item alloc] initWithName:@"corner" andDescription:@"In the corner there is movement EXPAND MOVEMENT TOWARDS MIRROR HERE" usedIn:nil andWeight:-1 andRoomDescription:@""];
             //Items in the corner
-   			 Item* mirror = [[Item alloc] initWithName:@"thing" andDescription:@"In the corner of the room some THING waits crouched.  In the dim light it is impossible to make out any details." usedIn:nil andWeight:60 andRoomDescription:@"" andPoints:20];
+   			 Item* mirror = [[Item alloc] initWithName:@"thing" andDescription:@"In the corner of the room some THING waits crouched.  In the dim light it is impossible to make out any details. EXPAND DESCRIPTION OF TOUCHING THE MIRROR" usedIn:nil andWeight:60 andRoomDescription:@"" andPoints:20];
             [[sewing_room_corner hiddenItems] addObject:mirror];
         //Regular Items
         Item* axe = [[Item alloc] initWithName:@"axe" andDescription:@"A broken AXE.  The handle is just long enough to be used as a hatchet." usedIn:hall1 andWeight:1 andRoomDescription:@"Lying beside the body there is a broken AXE."];
@@ -413,11 +417,11 @@
             finished = [command execute:player];
         }
         else {
-            wrongWords++;
-            if (wrongWords > 2) {
+            wrongCommands++;
+            if (wrongCommands > 2) {
                 [player outputMessage:@"\nI dont' understand that command."];
                 [player outputMessage:@"Lost or confused?  Try typing 'help' for some tips."];
-                [self setWrongCommands: 0];
+                [self setWrongCommands: 1];
             } else {
                 [player outputMessage:@"\nI dont' understand..."];
             }
@@ -428,7 +432,7 @@
 
 -(NSString *)welcome
 {
-	return [NSString stringWithFormat:@"You wake.  The pain in your head begins to fade.  Looking around you see that you have been laying in a puddle of mud and water in %@.\nYour clothes, once fine, are torn, muddy, and soaked.  You can't remember how you got here.  Perhaps this house holds some answers.\n\nUse your words to control the player, search the house to find a way out, or explore further to unlock hidden mysteries.\nSay 'help' for a complete list of commands.", [player currentRoom], [[player currentRoom] longDescription]];
+	return [NSString stringWithFormat:@"You wake.  The pain in your head begins to fade.  Looking around you see that you have been laying in a puddle of mud and water in %@.\nYour clothes, once fine, are torn, muddy, and soaked.  You can't remember how you got here.  Perhaps this house holds some answers.\n\nUse your words to control the player, search the house to find a way out, or explore further to unlock hidden mysteries.\nSay 'help' for a complete list of commands.", [player currentRoom]];
 }
 
 -(NSString *)goodbye

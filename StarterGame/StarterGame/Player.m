@@ -54,11 +54,11 @@
 	Room *nextRoom = [currentRoom getExit:direction];
     if (nextRoom) {
         if ([[nextRoom tag] isEqualToString:@"blocked"] ) {
-            [self outputMessage:[NSString stringWithFormat:@"The path %@ is blocked.  Perhaps there is a way around?", direction]];
+            [self outputMessage:[NSString stringWithFormat:@"\nThe path %@ is blocked.  Perhaps there is a way around?", direction]];
         } else if ([[nextRoom tag] isEqualToString:@"locked"] ) {
-            [self outputMessage:[NSString stringWithFormat:@"The door %@ is locked.  Perhaps there is a key?", direction]];
+            [self outputMessage:[NSString stringWithFormat:@"\nThe door %@ is locked.  Perhaps there is a key?", direction]];
         } else if ([[nextRoom tag] isEqualToString:@"dark"] ) {
-            [self outputMessage:[NSString stringWithFormat:@"The way %@ is too dark to proceed.", direction]];
+            [self outputMessage:[NSString stringWithFormat:@"\nThe way %@ is too dark to proceed.", direction]];
         } else {
             [[self roomStack] addObject: currentRoom];
             [self setCurrentRoom:nextRoom];
@@ -81,10 +81,18 @@
     [io sendLines:message];
 }
 
--(void)addToInventory:(Item*) anItem {
-    if (anItem != nil) {
-        [inventory setObject: anItem forKey: [anItem name]];
-    }
+
+-(void)addItem:(Item*) anItem {
+    
+}
+
+-(Boolean)hasItem:(NSString*) itemName {
+    Boolean playerHasItem = false;
+    return playerHasItem;
+}
+
+-(Item*)removeItem:(NSString*) itemName {
+    return nil;
 }
 
 -(void)addPoints:(int) morePoints {

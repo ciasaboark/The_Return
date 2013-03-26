@@ -35,7 +35,7 @@
 @property (nonatomic)Boolean hasTakenItem;
 @property (retain, nonatomic)Room* startRoom;
 @property (retain, nonatomic)NSMutableArray* roomStack;
-@property (readonly)int points;
+@property (nonatomic)int points;
 
 -(id)init;
 -(id)initWithRoom:(NSArray *)rooms andIO:(GameIO *)theIO;

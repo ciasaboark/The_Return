@@ -24,7 +24,7 @@
 	self = [super init];
     
 	if (nil != self) {
-		[self setWords:newWords];	//we won't be 
+		[self setWords:newWords];
         name = @"help";
 	}
     

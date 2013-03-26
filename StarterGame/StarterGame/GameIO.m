@@ -34,6 +34,7 @@
 
 -(void)sendLines:(NSString *)input
 {
+    //NSLog([NSString stringWithFormat:@"called with %@ \n", input]);
     NSArray *sLines = [input componentsSeparatedByString:@"\n"];
     for (id instance in sLines) {
         [self sendLine:instance];
