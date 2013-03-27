@@ -24,6 +24,9 @@
 		81AF892116E6AAC400276C6B /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 81AF891F16E6AAC400276C6B /* Credits.rtf */; };
 		81AF892416E6AAC400276C6B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 81AF892316E6AAC400276C6B /* AppDelegate.m */; };
 		81AF892716E6AAC500276C6B /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81AF892516E6AAC500276C6B /* MainMenu.xib */; };
+		DF16A7CD17039D2E005C7B58 /* 1430420910_21170d5854_b.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DF16A7CC17039D2E005C7B58 /* 1430420910_21170d5854_b.jpg */; };
+		DF16A7D117039ECF005C7B58 /* Grunge-Stained-Paper-Texture-520x737.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DF16A7CF17039ECF005C7B58 /* Grunge-Stained-Paper-Texture-520x737.jpg */; };
+		DF16A7D217039ECF005C7B58 /* texture_paper_4_by_marshmellowheaven-d388m04.png in Resources */ = {isa = PBXBuildFile; fileRef = DF16A7D017039ECF005C7B58 /* texture_paper_4_by_marshmellowheaven-d388m04.png */; };
 		DF54164F1702798B009A0143 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DF54164E1702798B009A0143 /* icon.png */; };
 		DF54165317027B28009A0143 /* Icon_128x128.png in Resources */ = {isa = PBXBuildFile; fileRef = DF54165217027B28009A0143 /* Icon_128x128.png */; };
 		DFA337AF16F534B100666817 /* DropCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA337AE16F534B100666817 /* DropCommand.m */; };
@@ -74,6 +77,9 @@
 		81AF892216E6AAC400276C6B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		81AF892316E6AAC400276C6B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		81AF892616E6AAC500276C6B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		DF16A7CC17039D2E005C7B58 /* 1430420910_21170d5854_b.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 1430420910_21170d5854_b.jpg; path = ../../../1430420910_21170d5854_b.jpg; sourceTree = "<group>"; };
+		DF16A7CF17039ECF005C7B58 /* Grunge-Stained-Paper-Texture-520x737.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Grunge-Stained-Paper-Texture-520x737.jpg"; path = "../../../Grunge-Stained-Paper-Texture-520x737.jpg"; sourceTree = "<group>"; };
+		DF16A7D017039ECF005C7B58 /* texture_paper_4_by_marshmellowheaven-d388m04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "texture_paper_4_by_marshmellowheaven-d388m04.png"; path = "../../../texture_paper_4_by_marshmellowheaven-d388m04.png"; sourceTree = "<group>"; };
 		DF54164E1702798B009A0143 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		DF54165217027B28009A0143 /* Icon_128x128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_128x128.png; sourceTree = "<group>"; };
 		DFA337AD16F534B100666817 /* DropCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropCommand.h; sourceTree = "<group>"; };
@@ -209,6 +215,9 @@
 				81AF892216E6AAC400276C6B /* AppDelegate.h */,
 				81AF892316E6AAC400276C6B /* AppDelegate.m */,
 				81AF892516E6AAC500276C6B /* MainMenu.xib */,
+				DF16A7CF17039ECF005C7B58 /* Grunge-Stained-Paper-Texture-520x737.jpg */,
+				DF16A7D017039ECF005C7B58 /* texture_paper_4_by_marshmellowheaven-d388m04.png */,
+				DF16A7CC17039D2E005C7B58 /* 1430420910_21170d5854_b.jpg */,
 				81AF891716E6AAC400276C6B /* Supporting Files */,
 			);
 			path = StarterGame;
@@ -284,6 +293,9 @@
 				DFFF69401701031200062936 /* 5GrungePaperBackground_banner_thumb02.jpg in Resources */,
 				DF54164F1702798B009A0143 /* icon.png in Resources */,
 				DF54165317027B28009A0143 /* Icon_128x128.png in Resources */,
+				DF16A7CD17039D2E005C7B58 /* 1430420910_21170d5854_b.jpg in Resources */,
+				DF16A7D117039ECF005C7B58 /* Grunge-Stained-Paper-Texture-520x737.jpg in Resources */,
+				DF16A7D217039ECF005C7B58 /* texture_paper_4_by_marshmellowheaven-d388m04.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

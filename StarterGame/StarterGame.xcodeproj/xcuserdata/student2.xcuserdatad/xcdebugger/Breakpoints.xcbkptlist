@@ -47,11 +47,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "StarterGame/Game.m"
-         timestampString = "386035317.924031"
+         timestampString = "386117515.813924"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "466"
-         endingLineNumber = "466"
+         startingLineNumber = "483"
+         endingLineNumber = "483"
          landmarkName = "-didEnterRoom:"
          landmarkType = "5">
       </FileBreakpoint>

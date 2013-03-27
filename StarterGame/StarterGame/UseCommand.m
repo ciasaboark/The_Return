@@ -23,14 +23,14 @@
                 // match against known items
                 //there doesn't seem to be a way to switch/case using NSStrings so get ready for some if/elses
                 if ([secondWord isEqualToString:@"lantern"]) {
-                    [player outputMessage:@"\nAfter some fumbling in the dark I managed to light the lantern.  The darkness fled.  I noticed a spike driven into the wall, and hung the lantern there.  The glow stretched onwards."];
+                    [player outputMessage:@"\nAfter some fumbling in the dark I managed to light the lantern. The darkness fled. I noticed a spike driven into the wall, and hung the lantern there. The glow stretched outwards, illuminating a passageway to the north."];
                     [[player currentRoom] setExit:@"north" toRoom:[[player currentRoom] getExit:@"hidden"]];
-                    [[player currentRoom] setLongDescription: @"At the bottom of the well you find yourself in a cave of some sorts.  The light from the lantern illuminates a passageway leading north.  Even with the light it is hards to see any details.  The walls seem to absorb the light, but there is a small gleam from something on the floor."];
+                    [[player currentRoom] setLongDescription: @"At the bottom of the well I found myself in a cave of some sorts. The light from the lantern illuminated a passageway leading north. The rope from the well ended a foot above the floor."];
                     
                 }
                 
                 else if ([secondWord isEqualToString:@"key"]) {
-                    [player outputMessage:@"\nYou leave the key in the lock as you open the door.  The hinges creak."];
+                    [player outputMessage:@"\nI left the key in the lock as I opened the door.  The hinges creaked as the door swung inward."];
                     [player setCurrentWeight: [player currentWeight] - [tmpItem weight]];
                     [[player inventory] removeObjectForKey:@"key"];
                     [[player currentRoom] setExit:@"south" toRoom:[[player currentRoom] getExit:@"end"]];
@@ -40,8 +40,8 @@
                 }
                 
                 else if ([secondWord isEqualToString:@"axe"]) {
-                    [player outputMessage:@"\nYou use the axe on the front door.  Splinters fly.  The way out is clear."];
-                    [[player currentRoom] setLongDescription: @"The hallway is lit by two small windows flanking the main entrance to the south.  The floor is bare wood, dark in color.  The front door to the south lies in splinters.  To the east there is a dining room.  To the west there is a formal hall.  The hall continues to the north, where you can see additonal rooms."];
+                    [player outputMessage:@"\nI used the axe on the front door.  Splinters flew.  The way out was clear."];
+                    [[player currentRoom] setLongDescription: @"The hallway was lit by two small windows flanking the main entrance to the south.  The floor was bare wood, dark in color.  The front door to the south lied in splinters.  To the east there was a dining room.  To the west there was a formal hall.  The hall continued to the north, where i could see additonal rooms."];
                     [[player currentRoom] setExit:@"south" toRoom:[[player currentRoom] getExit:@"hidden"]];
                     //[player walkTo:@"south"];
                     //[player outputMessage:@"The game should end here"];
@@ -62,10 +62,10 @@
                     [player outputMessage:@"\nWoops, this item is missing its use block"];
                 }
             } else {
-                [player outputMessage:@"How would you use that here?"];
+                [player outputMessage:[NSString stringWithFormat:@"I couldn't see how to use the %@ here.",secondWord]];
             }
         } else {
-            [player outputMessage:@"You do not have that item"];
+            [player outputMessage:@"I did not have that item"];
         }
     } else {
         [player outputMessage:@"Use what?"];

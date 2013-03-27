@@ -15,7 +15,7 @@
 
 -(BOOL)execute:(Player *)player
 {
-    [player outputMessage:@"\nAn unbearable weight seems to settle on you.  Alone and confused you sink to the floor in a stupor...\n"];
+    [player outputMessage:@"\nAn unbearable weight seemed to settle on me.  Alone and confused I sunk to the floor in a stupor...\n"];
     unsigned long rand;
     Room* wakeRoom;
     
@@ -29,7 +29,7 @@
         [player setCurrentRoom: wakeRoom];
     } while (![[[player currentRoom] tag] isEqualToString:[wakeRoom tag]]);
     
-   [player outputMessage:[NSString stringWithFormat:@"After some time you wake, and find yourself in %@.  You can't remember how you got here.  Were you moved?", [player currentRoom]]];
+   [player outputMessage:[NSString stringWithFormat:@"After some time I awoke, and found myself in %@.  I couldn't recall how I got here.  Was I moved in my sleep?", [player currentRoom]]];
   
 	return NO;
 }
