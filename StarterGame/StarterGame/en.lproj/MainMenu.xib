@@ -1342,7 +1342,7 @@
 						<object class="NSTextField" id="123758284">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{29, 52}, {738, 714}}</string>
+							<string key="NSFrame">{{26, 52}, {744, 714}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="644661522"/>
@@ -1379,11 +1379,11 @@
 							<string key="NSAntiCompressionPriority">{250, 750}</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="975294129">
-								<int key="NSCellFlags">67633152</int>
-								<int key="NSCellFlags2">1077968896</int>
+								<int key="NSCellFlags">68681792</int>
+								<int key="NSCellFlags2">1077969920</int>
 								<string key="NSContents">Welcome</string>
-								<object class="NSFont" key="NSSupport" id="106081182">
-									<string key="NSName">BookmanOldStyle</string>
+								<object class="NSFont" key="NSSupport">
+									<string key="NSName">Courier</string>
 									<double key="NSSize">15</double>
 									<int key="NSfFlags">16</int>
 								</object>
@@ -1405,6 +1405,7 @@
 							<string key="NSFrame">{{20, 20}, {761, 22}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView"/>
 							<int key="NSViewLayerContentsRedrawPolicy">2</int>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
@@ -1412,7 +1413,11 @@
 								<int key="NSCellFlags">-1801453503</int>
 								<int key="NSCellFlags2">34816</int>
 								<string key="NSContents"/>
-								<reference key="NSSupport" ref="106081182"/>
+								<object class="NSFont" key="NSSupport">
+									<string key="NSName">BookmanOldStyle</string>
+									<double key="NSSize">15</double>
+									<int key="NSfFlags">16</int>
+								</object>
 								<string key="NSPlaceholderString">&gt;</string>
 								<string key="NSCellIdentifier">_NS:9</string>
 								<reference key="NSControlView" ref="644661522"/>

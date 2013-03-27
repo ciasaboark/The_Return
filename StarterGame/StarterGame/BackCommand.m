@@ -27,10 +27,10 @@
         [backRoom retain];
         [[player roomStack] removeLastObject];
         [player setCurrentRoom: backRoom];
-        [player outputMessage:[NSString stringWithFormat:@"You trace your steps back to the %@.", backRoom]];
+        [player outputMessage:[NSString stringWithFormat:@"I traced my steps back to the %@.", backRoom]];
         [backRoom release];
     } else {
-        [player outputMessage:@"There is no path back.  There is only forwards."];
+        [player outputMessage:@"There was no path back.  There was only forwards."];
     }
     
 	return NO;

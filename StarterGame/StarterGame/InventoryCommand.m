@@ -21,10 +21,10 @@
 
 -(BOOL)execute:(Player *)player
 {
-    NSString* returnString = @"You look through your backpack and see:";
+    NSString* returnString = @"I looked through my backpack and saw: ";
     
     if ([[player inventory] count] == 0) {
-        returnString = @"You aren't carrying anything yet";
+        returnString = @"I wasn't carrying anything yet";
     } else {
         for (id key in [player inventory]) {
             Item* theItem = [[player inventory]  objectForKey: key];
@@ -32,8 +32,17 @@
         }
     }
     
-    [player outputMessage: returnString];
-    [player outputMessage:[NSString stringWithFormat:@"You can carry around %i more pounds.", [player maxWeight] - [player currentWeight]]];
+    [player outputMessage: [NSString stringWithFormat:@"%@\n",returnString]];
+    int remaining_weight = [player maxWeight] - [player currentWeight];
+    if (remaining_weight < 10 ) {
+        [player outputMessage:@"I wasn't sure how much more I could carry.\n"];
+    } else if (remaining_weight < 20) {
+        [player outputMessage:@"My load was becomming heavy.\n"];
+    } else {
+        [player outputMessage:@"I could still move lightly.\n"];
+    }
+        
+    //[player outputMessage:[NSString stringWithFormat:@"You can carry around %i more pounds.", [player maxWeight] - [player currentWeight]]];
 
 	return NO;
 }

@@ -34,20 +34,40 @@
 
 -(void)sendLines:(NSString *)input
 {
-    int offset = 81;
-
+    //sendLine expects every incomming line to be able to fit in the width provided.  If there are
+    //+ multiple lines that require wrapping then the content could be placed too far down to read.
+    
+    //To fix this we split every outgoing line into multiple lines of 81 or less characters.
+    
+    //To keep the output from splitting mid-word we tokenize each word then check to see whether
+    //+ adding that word would place the length over the max.
+    
+    //We keep track of spaces to make sure that lines of many short words do not go over the limit.
+    int maxlength = 91;
     NSArray *sLines = [input componentsSeparatedByString:@"\n"];
-    for (id instance in sLines) {
-        while ([instance length] > 81) {
-            NSString* outLine;
-            outLine = [instance substringToIndex:offset];
-            instance = [instance substringFromIndex:offset];
-            [self sendLine:i];
+    
+    for (id string in sLines) {
+        NSString* outLine = @"";
+        NSArray* wordTokens = [string componentsSeparatedByString:@" "];
+        int spaces = 0;
+        
+        for (id word in wordTokens) {
+            if ([outLine length] + [word length] + spaces < maxlength) {
+                outLine = [NSString stringWithFormat:@"%@%@ ", outLine, word];
+                spaces++;
+                //NSLog(@"Adding %@ to outline",word);
+                
+            } else {
+                //the line is too long, we need to start a new one
+                [self sendLine:outLine];
+                spaces = 0;
+                outLine = [NSString stringWithFormat:@"%@ ", word];
+            }
         }
         
-        [self sendLine:instance];        
+      [self sendLine:outLine];
     }
-    [self refreshOutput];
+    //[self refreshOutput];
 }
 
 -(void)refreshOutput

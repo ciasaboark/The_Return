@@ -54,11 +54,11 @@
 	Room *nextRoom = [currentRoom getExit:direction];
     if (nextRoom) {
         if ([[nextRoom tag] isEqualToString:@"blocked"] ) {
-            [self outputMessage:[NSString stringWithFormat:@"\nThe path %@ is blocked.  Perhaps there is a way around?", direction]];
+            [self outputMessage:[NSString stringWithFormat:@"\nThe path %@ was blocked.  But there might have been a way around.", direction]];
         } else if ([[nextRoom tag] isEqualToString:@"locked"] ) {
-            [self outputMessage:[NSString stringWithFormat:@"\nThe door %@ is locked.  Perhaps there is a key?", direction]];
+            [self outputMessage:[NSString stringWithFormat:@"\nThe door %@ was locked.  There might have been a key.", direction]];
         } else if ([[nextRoom tag] isEqualToString:@"dark"] ) {
-            [self outputMessage:[NSString stringWithFormat:@"\nThe way %@ is too dark to proceed.", direction]];
+            [self outputMessage:[NSString stringWithFormat:@"\nThe way %@ was too dark to proceed.", direction]];
         } else {
             [[NSNotificationCenter defaultCenter] postNotificationName:@"playerWillExitRoom" object:self];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"playerWillEnterRoom" object:nextRoom];
@@ -66,16 +66,16 @@
             [self setCurrentRoom:nextRoom];
             
             //We can pretty things up a bit by using some random verbs
-            NSArray *verbs = [NSArray arrayWithObjects: @"enter", @"walk into", @"make your way to", nil];
+            NSArray *verbs = [NSArray arrayWithObjects: @"entered", @"walked into", @"made my way to", nil];
             unsigned long rand = arc4random_uniform([verbs count]);
 
             
-            [self outputMessage:[NSString stringWithFormat:@"\nYou %@ %@.\n", [verbs objectAtIndex: rand], nextRoom]];
+            [self outputMessage:[NSString stringWithFormat:@"\nI %@ %@.\n", [verbs objectAtIndex: rand], nextRoom]];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"playerDidExitRoom" object:self];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"playerDidEnterRoom" object:nextRoom];
         }
 	} else {
-        [self outputMessage:[NSString stringWithFormat:@"\nThere is no path %@!", direction]];
+        [self outputMessage:[NSString stringWithFormat:@"\nThere was no path %@!", direction]];
 	}
 
 }

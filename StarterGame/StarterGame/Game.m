@@ -420,11 +420,11 @@
         else {
             wrongCommands++;
             if (wrongCommands > 2) {
-                [player outputMessage:@"\nI dont' understand that command."];
-                [player outputMessage:@"Lost or confused?  Try typing 'help' for some tips."];
+                [player outputMessage:[NSString stringWithFormat:@"\nI wasn't sure how to %@.\n", commandString]];
+                [player outputMessage:@"Sometimes the pain in my head became unbearable and the simplest of tasks became overwhelming.  I remembered that I could ask for 'help' for some tips.\n"];
                 [self setWrongCommands: 1];
             } else {
-                [player outputMessage:@"\nI dont' understand..."];
+                [player outputMessage:[NSString stringWithFormat:@"\nI couldn't remember how to %@\n", commandString ]];
             }
         }
     }
@@ -433,7 +433,7 @@
 
 -(NSString *)welcome
 {
-	return [NSString stringWithFormat:@"You wake.  The pain in your head begins to fade.  Looking around you see that you have been laying in a puddle of mud and water in %@.\nYour clothes, once fine, are torn, muddy, and soaked.  You can't remember how you got here.  Perhaps this house holds some answers.\n\nUse your words to control the player, search the house to find a way out, or explore further to unlock hidden mysteries.\nSay 'help' for a complete list of commands.", [player currentRoom]];
+	return [NSString stringWithFormat:@"I awoke.  The pain in my head was blinding. I looked around and saw that I had been laying in a puddle of mud and water in %@.\nMy clothes, which I did not recognize, appeared to have once been fine, but were now torn, muddy, and soaked.  I couldn't remember how I came to this place.  Perhaps this house holds some answers.\n\nUse your words to control the player, search the house to find a way out, or explore further to unlock hidden mysteries.\nSay 'help' for a complete list of commands.\n", [player currentRoom]];
 }
 
 -(NSString *)goodbye
