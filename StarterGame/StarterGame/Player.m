@@ -60,6 +60,8 @@
         } else if ([[nextRoom tag] isEqualToString:@"dark"] ) {
             [self outputMessage:[NSString stringWithFormat:@"\nThe way %@ is too dark to proceed.", direction]];
         } else {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"playerWillExitRoom" object:self];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"playerWillEnterRoom" object:nextRoom];
             [[self roomStack] addObject: currentRoom];
             [self setCurrentRoom:nextRoom];
             
@@ -69,6 +71,8 @@
 
             
             [self outputMessage:[NSString stringWithFormat:@"\nYou %@ %@.\n", [verbs objectAtIndex: rand], nextRoom]];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"playerDidExitRoom" object:self];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"playerDidEnterRoom" object:nextRoom];
         }
 	} else {
         [self outputMessage:[NSString stringWithFormat:@"\nThere is no path %@!", direction]];

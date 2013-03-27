@@ -34,11 +34,20 @@
 
 -(void)sendLines:(NSString *)input
 {
-    //NSLog([NSString stringWithFormat:@"called with %@ \n", input]);
+    int offset = 81;
+
     NSArray *sLines = [input componentsSeparatedByString:@"\n"];
     for (id instance in sLines) {
-        [self sendLine:instance];
+        while ([instance length] > 81) {
+            NSString* outLine;
+            outLine = [instance substringToIndex:offset];
+            instance = [instance substringFromIndex:offset];
+            [self sendLine:i];
+        }
+        
+        [self sendLine:instance];        
     }
+    [self refreshOutput];
 }
 
 -(void)refreshOutput

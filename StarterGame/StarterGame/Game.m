@@ -19,6 +19,7 @@
 -(id)initWithGameIO:(GameIO *)theIO {
 	self = [super init];
 	if (nil != self) {
+        [self registerForNotifications];
 		[self setParser:[[[Parser alloc] init] autorelease]];
 		[self setPlayer:[[[Player alloc] initWithRoom:[self createWorld] andIO:theIO] autorelease]];
         playing = NO;
@@ -437,7 +438,36 @@
 
 -(NSString *)goodbye
 {
-    return @"\nThank you for playing, Goodbye.\n";
+    int hiddenItems = 0;
+     for (NSString* key in [player inventory])  {
+         Item* theItem = [[player inventory] objectForKey:key];
+         if ([theItem special]) {
+             hiddenItems++;
+         }
+     }
+    
+    return [NSString stringWithFormat:@"\nThank you for playing, Goodbye.\n\tHidden Items found: %i\n\tTotal Story uncovered: %i", hiddenItems, [player points]];
+}
+
+-(void)registerForNotifications {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(willExitRoom:) name:@"playerWillExitRoom" object:nil];
+     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didEnterRoom:) name:@"playerDidEnterRoom" object:nil];
+}
+
+-(void)willExitRoom:(NSNotification*)notification {
+    Player* player = (Player*)[notification object];
+    //NSLog(@"The player will exit the room %@", [[player currentRoom] tag]);
+    
+}
+
+-(void)didEnterRoom:(NSNotification*)notification {
+    Room* theRoom = (Room*)[notification object];
+    
+    //NSLog(@"The player will enter the room %@",[theRoom tag]);
+    
+    if ([[theRoom tag] isEqualToString:@"the front steps of the house"] ) {
+        [self end];
+    }
 }
 
 -(void)dealloc

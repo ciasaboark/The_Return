@@ -1374,23 +1374,12 @@
 									<bool key="CIEnabled">YES</bool>
 								</object>
 							</array>
-							<object class="NSDictionary" key="NSViewAnimations">
-								<string key="NS.key.0">subviews</string>
-								<object class="CATransition" key="NS.object.0">
-									<string key="subtype">fromTop</string>
-									<string key="type">moveIn</string>
-									<array key="__CACodingContents">
-										<string>subtype</string>
-										<string>type</string>
-									</array>
-								</object>
-							</object>
 							<int key="NSViewLayerContentsRedrawPolicy">2</int>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<string key="NSAntiCompressionPriority">{250, 750}</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="975294129">
-								<int key="NSCellFlags">67108864</int>
+								<int key="NSCellFlags">67633152</int>
 								<int key="NSCellFlags2">1077968896</int>
 								<string key="NSContents">Welcome</string>
 								<object class="NSFont" key="NSSupport" id="106081182">
@@ -1400,7 +1389,6 @@
 								</object>
 								<string key="NSCellIdentifier">_NS:9</string>
 								<reference key="NSControlView" ref="123758284"/>
-								<bool key="NSDrawsBackground">YES</bool>
 								<object class="NSColor" key="NSBackgroundColor">
 									<int key="NSColorSpace">3</int>
 									<bytes key="NSWhite">MC43Nzk1Njc3NDY0IDAAA</bytes>

@@ -45,5 +45,4 @@
 -(Boolean)hasItem:(NSString*) itemName;
 -(Item*)removeItem:(NSString*) itemName;
 -(void)addPoints:(int) morePoints;
-
 @end

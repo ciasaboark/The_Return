@@ -31,4 +31,7 @@
 -(NSString *)welcome;
 -(NSString *)goodbye;
 
+-(void)registerForNotification;
+-(void)willExitRoom:(NSNotification*)notification;
+
 @end
