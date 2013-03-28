@@ -24,11 +24,11 @@
 		81AF892116E6AAC400276C6B /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 81AF891F16E6AAC400276C6B /* Credits.rtf */; };
 		81AF892416E6AAC400276C6B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 81AF892316E6AAC400276C6B /* AppDelegate.m */; };
 		81AF892716E6AAC500276C6B /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81AF892516E6AAC500276C6B /* MainMenu.xib */; };
+		DF0A30F21703C43A00C8DA9A /* cthulhu.iconset in Resources */ = {isa = PBXBuildFile; fileRef = DF0A30F11703C43A00C8DA9A /* cthulhu.iconset */; };
 		DF16A7CD17039D2E005C7B58 /* 1430420910_21170d5854_b.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DF16A7CC17039D2E005C7B58 /* 1430420910_21170d5854_b.jpg */; };
 		DF16A7D117039ECF005C7B58 /* Grunge-Stained-Paper-Texture-520x737.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DF16A7CF17039ECF005C7B58 /* Grunge-Stained-Paper-Texture-520x737.jpg */; };
 		DF16A7D217039ECF005C7B58 /* texture_paper_4_by_marshmellowheaven-d388m04.png in Resources */ = {isa = PBXBuildFile; fileRef = DF16A7D017039ECF005C7B58 /* texture_paper_4_by_marshmellowheaven-d388m04.png */; };
 		DF54164F1702798B009A0143 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DF54164E1702798B009A0143 /* icon.png */; };
-		DF54165317027B28009A0143 /* Icon_128x128.png in Resources */ = {isa = PBXBuildFile; fileRef = DF54165217027B28009A0143 /* Icon_128x128.png */; };
 		DFA337AF16F534B100666817 /* DropCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA337AE16F534B100666817 /* DropCommand.m */; };
 		DFDA7AB116F4CB7E00A03E30 /* SleepCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = DFDA7AB016F4CB7E00A03E30 /* SleepCommand.m */; };
 		DFDCA0C816FA204500A00272 /* cthulhu.png in Resources */ = {isa = PBXBuildFile; fileRef = DFDCA0C716FA204500A00272 /* cthulhu.png */; };
@@ -64,24 +64,24 @@
 		819122DE16E95A0000BEDA1B /* Room.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Room.m; sourceTree = "<group>"; };
 		8197B18716E8DF80007F8845 /* GameIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameIO.h; sourceTree = "<group>"; };
 		8197B18816E8DF80007F8845 /* GameIO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameIO.m; sourceTree = "<group>"; };
-		81AF890C16E6AAC400276C6B /* StarterGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarterGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		81AF890C16E6AAC400276C6B /* The Return.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Return.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AF891016E6AAC400276C6B /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		81AF891316E6AAC400276C6B /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		81AF891416E6AAC400276C6B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		81AF891516E6AAC400276C6B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		81AF891816E6AAC400276C6B /* StarterGame-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "StarterGame-Info.plist"; sourceTree = "<group>"; };
+		81AF891816E6AAC400276C6B /* The Return-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "The Return-Info.plist"; sourceTree = "<group>"; };
 		81AF891A16E6AAC400276C6B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		81AF891C16E6AAC400276C6B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		81AF891E16E6AAC400276C6B /* StarterGame-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StarterGame-Prefix.pch"; sourceTree = "<group>"; };
+		81AF891E16E6AAC400276C6B /* The Return-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "The Return-Prefix.pch"; sourceTree = "<group>"; };
 		81AF892016E6AAC400276C6B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		81AF892216E6AAC400276C6B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		81AF892316E6AAC400276C6B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		81AF892616E6AAC500276C6B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		DF0A30F11703C43A00C8DA9A /* cthulhu.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; path = cthulhu.iconset; sourceTree = "<group>"; };
 		DF16A7CC17039D2E005C7B58 /* 1430420910_21170d5854_b.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 1430420910_21170d5854_b.jpg; path = ../../../1430420910_21170d5854_b.jpg; sourceTree = "<group>"; };
 		DF16A7CF17039ECF005C7B58 /* Grunge-Stained-Paper-Texture-520x737.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Grunge-Stained-Paper-Texture-520x737.jpg"; path = "../../../Grunge-Stained-Paper-Texture-520x737.jpg"; sourceTree = "<group>"; };
 		DF16A7D017039ECF005C7B58 /* texture_paper_4_by_marshmellowheaven-d388m04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "texture_paper_4_by_marshmellowheaven-d388m04.png"; path = "../../../texture_paper_4_by_marshmellowheaven-d388m04.png"; sourceTree = "<group>"; };
 		DF54164E1702798B009A0143 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
-		DF54165217027B28009A0143 /* Icon_128x128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_128x128.png; sourceTree = "<group>"; };
 		DFA337AD16F534B100666817 /* DropCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropCommand.h; sourceTree = "<group>"; };
 		DFA337AE16F534B100666817 /* DropCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropCommand.m; sourceTree = "<group>"; };
 		DFDA7AAF16F4CB7E00A03E30 /* SleepCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SleepCommand.h; sourceTree = "<group>"; };
@@ -171,12 +171,12 @@
 		81AF890116E6AAC400276C6B = {
 			isa = PBXGroup;
 			children = (
-				DF54165217027B28009A0143 /* Icon_128x128.png */,
+				DF0A30F11703C43A00C8DA9A /* cthulhu.iconset */,
 				DF54164E1702798B009A0143 /* icon.png */,
 				DFDCA0C716FA204500A00272 /* cthulhu.png */,
 				DFFF693F1701031200062936 /* 5GrungePaperBackground_banner_thumb02.jpg */,
 				819122CA16E959A800BEDA1B /* GameClasses */,
-				81AF891616E6AAC400276C6B /* StarterGame */,
+				81AF891616E6AAC400276C6B /* GameBase */,
 				81AF890F16E6AAC400276C6B /* Frameworks */,
 				81AF890D16E6AAC400276C6B /* Products */,
 			);
@@ -185,7 +185,7 @@
 		81AF890D16E6AAC400276C6B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				81AF890C16E6AAC400276C6B /* StarterGame.app */,
+				81AF890C16E6AAC400276C6B /* The Return.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -209,7 +209,7 @@
 			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
-		81AF891616E6AAC400276C6B /* StarterGame */ = {
+		81AF891616E6AAC400276C6B /* GameBase */ = {
 			isa = PBXGroup;
 			children = (
 				81AF892216E6AAC400276C6B /* AppDelegate.h */,
@@ -220,16 +220,17 @@
 				DF16A7CC17039D2E005C7B58 /* 1430420910_21170d5854_b.jpg */,
 				81AF891716E6AAC400276C6B /* Supporting Files */,
 			);
+			name = GameBase;
 			path = StarterGame;
 			sourceTree = "<group>";
 		};
 		81AF891716E6AAC400276C6B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				81AF891816E6AAC400276C6B /* StarterGame-Info.plist */,
+				81AF891816E6AAC400276C6B /* The Return-Info.plist */,
 				81AF891916E6AAC400276C6B /* InfoPlist.strings */,
 				81AF891C16E6AAC400276C6B /* main.m */,
-				81AF891E16E6AAC400276C6B /* StarterGame-Prefix.pch */,
+				81AF891E16E6AAC400276C6B /* The Return-Prefix.pch */,
 				81AF891F16E6AAC400276C6B /* Credits.rtf */,
 			);
 			name = "Supporting Files";
@@ -238,9 +239,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		81AF890B16E6AAC400276C6B /* StarterGame */ = {
+		81AF890B16E6AAC400276C6B /* The Return */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 81AF892A16E6AAC500276C6B /* Build configuration list for PBXNativeTarget "StarterGame" */;
+			buildConfigurationList = 81AF892A16E6AAC500276C6B /* Build configuration list for PBXNativeTarget "The Return" */;
 			buildPhases = (
 				81AF890816E6AAC400276C6B /* Sources */,
 				81AF890916E6AAC400276C6B /* Frameworks */,
@@ -250,9 +251,9 @@
 			);
 			dependencies = (
 			);
-			name = StarterGame;
+			name = "The Return";
 			productName = StarterGame;
-			productReference = 81AF890C16E6AAC400276C6B /* StarterGame.app */;
+			productReference = 81AF890C16E6AAC400276C6B /* The Return.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -264,7 +265,7 @@
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = "Ringtuple, Inc.";
 			};
-			buildConfigurationList = 81AF890616E6AAC400276C6B /* Build configuration list for PBXProject "StarterGame" */;
+			buildConfigurationList = 81AF890616E6AAC400276C6B /* Build configuration list for PBXProject "The Return" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -276,7 +277,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				81AF890B16E6AAC400276C6B /* StarterGame */,
+				81AF890B16E6AAC400276C6B /* The Return */,
 			);
 		};
 /* End PBXProject section */
@@ -292,10 +293,10 @@
 				DFDCA0C816FA204500A00272 /* cthulhu.png in Resources */,
 				DFFF69401701031200062936 /* 5GrungePaperBackground_banner_thumb02.jpg in Resources */,
 				DF54164F1702798B009A0143 /* icon.png in Resources */,
-				DF54165317027B28009A0143 /* Icon_128x128.png in Resources */,
 				DF16A7CD17039D2E005C7B58 /* 1430420910_21170d5854_b.jpg in Resources */,
 				DF16A7D117039ECF005C7B58 /* Grunge-Stained-Paper-Texture-520x737.jpg in Resources */,
 				DF16A7D217039ECF005C7B58 /* texture_paper_4_by_marshmellowheaven-d388m04.png in Resources */,
+				DF0A30F21703C43A00C8DA9A /* cthulhu.iconset in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,9 +417,9 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "StarterGame/StarterGame-Prefix.pch";
-				INFOPLIST_FILE = "StarterGame/StarterGame-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "StarterGame/The Return-Prefix.pch";
+				INFOPLIST_FILE = "StarterGame/The Return-Info.plist";
+				PRODUCT_NAME = "The Return";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -428,9 +429,9 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "StarterGame/StarterGame-Prefix.pch";
-				INFOPLIST_FILE = "StarterGame/StarterGame-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "StarterGame/The Return-Prefix.pch";
+				INFOPLIST_FILE = "StarterGame/The Return-Info.plist";
+				PRODUCT_NAME = "The Return";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -438,7 +439,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		81AF890616E6AAC400276C6B /* Build configuration list for PBXProject "StarterGame" */ = {
+		81AF890616E6AAC400276C6B /* Build configuration list for PBXProject "The Return" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				81AF892816E6AAC500276C6B /* Debug */,
@@ -447,7 +448,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		81AF892A16E6AAC500276C6B /* Build configuration list for PBXNativeTarget "StarterGame" */ = {
+		81AF892A16E6AAC500276C6B /* Build configuration list for PBXNativeTarget "The Return" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				81AF892B16E6AAC500276C6B /* Debug */,

@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "81AF890B16E6AAC400276C6B"
                BuildableName = "StarterGame.app"
-               BlueprintName = "StarterGame"
-               ReferencedContainer = "container:StarterGame.xcodeproj">
+               BlueprintName = "The Return"
+               ReferencedContainer = "container:The Return.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "81AF890B16E6AAC400276C6B"
             BuildableName = "StarterGame.app"
-            BlueprintName = "StarterGame"
-            ReferencedContainer = "container:StarterGame.xcodeproj">
+            BlueprintName = "The Return"
+            ReferencedContainer = "container:The Return.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -53,8 +53,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "81AF890B16E6AAC400276C6B"
             BuildableName = "StarterGame.app"
-            BlueprintName = "StarterGame"
-            ReferencedContainer = "container:StarterGame.xcodeproj">
+            BlueprintName = "The Return"
+            ReferencedContainer = "container:The Return.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -71,8 +71,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "81AF890B16E6AAC400276C6B"
             BuildableName = "StarterGame.app"
-            BlueprintName = "StarterGame"
-            ReferencedContainer = "container:StarterGame.xcodeproj">
+            BlueprintName = "The Return"
+            ReferencedContainer = "container:The Return.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
