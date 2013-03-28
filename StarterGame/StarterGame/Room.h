@@ -12,6 +12,7 @@
 @class Item;
 
 @interface Room : NSObject {
+	NSString* tag;
 	NSMutableDictionary* exits;
     NSString* longDescription;
     NSMutableDictionary* items;

@@ -41,8 +41,15 @@
 -(id)initWithRoom:(NSArray *)rooms andIO:(GameIO *)theIO;
 -(void)walkTo:(NSString *)direction;
 -(void)outputMessage:(NSString *)message;
+
 -(void)addItem:(Item*) anItem;
 -(Boolean)hasItem:(NSString*) itemName;
 -(Item*)removeItem:(NSString*) itemName;
+
 -(void)addPoints:(int) morePoints;
+
+-(void)pushRoom:(Room*)aRoom;
+-(Room*)popRoom;
+
+-(void)dealloc;
 @end

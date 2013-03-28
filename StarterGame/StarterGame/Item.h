@@ -34,7 +34,7 @@
 	//+ places within a room (corner, window, a locked door) that should not even be attempted to be moved.
 	int weight;
 
-    //Some items may have points.  These are tallied for an optional score
+    //Some items may have points.  These transfered to the player when the item is looked at.
     int points;
 
     //special items are not UPPERCASED in the descriptions, these are tallied at the end of the game for an

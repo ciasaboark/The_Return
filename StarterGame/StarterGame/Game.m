@@ -299,7 +299,7 @@
             Item* raven = [[Item alloc] initWithName:@"raven" andDescription:@"A small black onyx carving of a raven.  The birds beak is open, as if caught in a moment of speech." usedIn:nil andWeight:3 andRoomDescription:@"" andPoints: 0 andSpecial:true];
             [[library_book_stand hiddenItems] addObject:raven];
         
-         Item* library_book_stack = [[Item alloc] initWithName:@"stack" andDescription:@"A large STACK of book.  You look through the titles and notice some obscure subjects:\nThe OCCULT of New Haven\nOn the Religion of Papa New GUINEA\nRituals and Practices of IRAM of the Pillars." usedIn:nil andWeight:-1 andRoomDescription:@"On a table beside the chairs there is a large STACK of books."];
+         Item* library_book_stack = [[Item alloc] initWithName:@"stack" andDescription:@"A large STACK of book.  You look through the titles and notice some obscure subjects:\n\"The OCCULT of New Haven\"\n\"On the Religion of Papa New GUINEA\"\n\"Rituals and Practices of IRAM of the Pillars\"." usedIn:nil andWeight:-1 andRoomDescription:@"On a table beside the chairs there is a large STACK of books."];
             //Books in the stack
             Item* book_stack_occult = [[Item alloc] initWithName:@"occult" andDescription:@"" usedIn:nil andWeight:3 andRoomDescription:@"" andPoints: 10];
             Item* book_stack_guinea = [[Item alloc] initWithName:@"guinea" andDescription:@"" usedIn:nil andWeight:3 andRoomDescription:@"" andPoints: 10];
@@ -448,7 +448,7 @@
          }
      }
     
-    return [NSString stringWithFormat:@"\nThank you for playing, Goodbye.\n\tHidden Items found: %i\n\tTotal Story uncovered: %i", hiddenItems, [player points]];
+    return [NSString stringWithFormat:@"\nThank you for playing, Goodbye.\n\tHidden Items found: %i\n\tTotal Story uncovered: %i\%", hiddenItems, [player points]];
 }
 
 -(void)registerForNotifications {
@@ -457,7 +457,7 @@
 }
 
 -(void)willExitRoom:(NSNotification*)notification {
-    //meh, we don't really care where he left from    
+    //meh, we don't really care where the player left from    
 }
 
 -(void)didEnterRoom:(NSNotification*)notification {

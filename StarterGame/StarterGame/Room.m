@@ -58,9 +58,10 @@
 
 -(Item*)takeItem:(NSString*) anItemName {
     id anItem = [items objectForKey: anItemName];
+    [anItem retain];
     [items removeObjectForKey: anItemName];
     
-    return anItem; //anItem could be nil here, must check in TakeCommand
+    return [anItem autorelease]; //anItem could be nil here, must check in TakeCommand
 }
 
 -(NSString *)getExits
@@ -71,9 +72,7 @@
 
 -(NSString *)description
 {
-	//The exits were originally listed after the short description.  They should be listed within the text of
-    //+ the long description instead.
-    return [NSString stringWithFormat:@"%@", tag /*, [self getExits]*/];
+    return [NSString stringWithFormat:@"%@", tag];
 }
 
 -(void)dealloc

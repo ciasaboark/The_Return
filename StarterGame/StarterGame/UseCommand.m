@@ -26,7 +26,6 @@
                     [player outputMessage:@"\nAfter some fumbling in the dark I managed to light the lantern. The darkness fled. I noticed a spike driven into the wall, and hung the lantern there. The glow stretched outwards, illuminating a passageway to the north."];
                     [[player currentRoom] setExit:@"north" toRoom:[[player currentRoom] getExit:@"hidden"]];
                     [[player currentRoom] setLongDescription: @"At the bottom of the well I found myself in a cave of some sorts. The light from the lantern illuminated a passageway leading north. The rope from the well ended a foot above the floor."];
-                    
                 }
                 
                 else if ([secondWord isEqualToString:@"key"]) {
@@ -35,25 +34,18 @@
                     [player setCurrentWeight: [player currentWeight] - [tmpItem weight]];
                     [[player inventory] removeObjectForKey:@"key"];
                     [[player currentRoom] setExit:@"south" toRoom:[[player currentRoom] getExit:@"end"]];
-                    [[player currentRoom] setLongDescription:@""];
-                    //[player walkTo:@"south"];
-                    
+                    [[player currentRoom] setLongDescription:@""];                    
                 }
                 
                 else if ([secondWord isEqualToString:@"axe"]) {
                     [player outputMessage:@"\nI used the axe on the front door.  Splinters flew.  The way out was clear."];
                     [[player currentRoom] setLongDescription: @"The hallway was lit by two small windows flanking the main entrance to the south. The floor was bare wood, dark in color. The front door to the south lied in splinters. To the east there was a dining room.  To the west there was a formal hall.  The hall continued to the north, where i could see additonal rooms."];
                     [[player currentRoom] setExit:@"south" toRoom:[[player currentRoom] getExit:@"hidden"]];
-                    //[player walkTo:@"south"];
-                    //[player outputMessage:@"The game should end here"];
-                    //output some scary text here
-                    //calculate the players score
-                    //[game end];
                 }
 
                 else if ([secondWord isEqualToString:@"ladder"]) {
                     [player outputMessage:@"\nI placed the ladder against the wall underneath the panel.  It looked tall enough to reach the attic panel."];
-                     [player setCurrentWeight: [player currentWeight] - [tmpItem weight]];
+                    [player setCurrentWeight: [player currentWeight] - [tmpItem weight]];
                     [[player inventory] removeObjectForKey:@"ladder"];
                     //TODO change the hall description to include the ladder
                     [[player currentRoom] setExit:@"up" toRoom:[[player currentRoom] getExit:@"hidden"]];

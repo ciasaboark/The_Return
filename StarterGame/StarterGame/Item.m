@@ -50,6 +50,13 @@
 	return self;
 }
 
+-(void)removeHiddenItem:(Item*)anItem {
+	if (anItem) {
+		[[self hiddenItems] removeObject: hiddenItem];
+	}
+}
+
+
 -(void)dealloc {
 	[name release];
 	[description release];

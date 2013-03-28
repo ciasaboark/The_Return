@@ -44,6 +44,7 @@
             
             //If this item has points associated with it they need to be added to the players total
             [player addPoints:[tmpItem points]];
+            [tmpItem setPoints:0];
             
             //If this item has some hidden items inside we need to add those items to the room, then remove them from
             //+ this item.
@@ -53,9 +54,11 @@
             [hiddenItem retain];
             while (hiddenItem != nil) {
                 itemDesc = [NSString stringWithFormat:@"%@ %@", itemDesc, [hiddenItem roomDescription]];
-                [[[player currentRoom] items] setObject:hiddenItem forKey:[hiddenItem name]];
-                [[tmpItem hiddenItems] removeObject: hiddenItem];
-                //move to the next object (or nil)
+                //[[[player currentRoom] items] setObject:hiddenItem forKey:[hiddenItem name]];
+                [[player currentroom] addItem: hiddenItem];
+                //[[tmpItem hiddenItems] removeObject: hiddenItem];
+                [tmpItem removeHiddenItem: hiddenItem];
+
                 [hiddenItem release];
                 hiddenItem = [[tmpItem hiddenItems] lastObject];
                 [hiddenItem retain];
@@ -74,7 +77,7 @@
         NSString* nativeItemText = @"";
         
         for (NSString* key in [[player currentRoom] items])  {
-            Item* thisItem = [[[player currentRoom] items] objectForKey: key];
+            //Item* thisItem = [[[player currentRoom] items] objectForKey: key];
             
             if ([thisItem isDropped]) {
                 droppedText = [NSString stringWithFormat:@"%@ A %@.", droppedText, [thisItem name]];

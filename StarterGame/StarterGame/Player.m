@@ -104,6 +104,13 @@
     [self setPoints: points + morePoints];
 }
 
+-(void)pushRoom:(Room*)aRoom {
+
+}
+
+-(Room*)popRoom {
+    
+}
 
 -(void)dealloc
 {
