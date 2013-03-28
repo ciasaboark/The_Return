@@ -33,7 +33,7 @@
 	self = [super init];
     
 	if (nil != self) {
-        unsigned long rand = arc4random_uniform([rooms count]);
+        int rand = arc4random() % [rooms count];
 		[self setCurrentRoom:[rooms objectAtIndex:rand]];
 
         [self setStartRoom: currentRoom];
@@ -67,7 +67,8 @@
             
             //We can pretty things up a bit by using some random verbs
             NSArray *verbs = [NSArray arrayWithObjects: @"entered", @"walked into", @"made my way to", nil];
-            unsigned long rand = arc4random_uniform([verbs count]);
+            //unsigned long rand = arc4random_uniform([verbs count]);
+            int rand = arc4random() % [verbs count];
 
             
             [self outputMessage:[NSString stringWithFormat:@"\nI %@ %@.\n", [verbs objectAtIndex: rand], nextRoom]];

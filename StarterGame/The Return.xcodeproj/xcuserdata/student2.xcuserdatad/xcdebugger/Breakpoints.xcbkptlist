@@ -47,16 +47,16 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "StarterGame/Game.m"
-         timestampString = "386117515.813924"
+         timestampString = "386199862.960354"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "483"
-         endingLineNumber = "483"
+         startingLineNumber = "475"
+         endingLineNumber = "475"
          landmarkName = "-dealloc"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "StarterGame/GameIO.m"
@@ -66,6 +66,32 @@
          startingLineNumber = "46"
          endingLineNumber = "46"
          landmarkName = "-sendLines:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "StarterGame/LookCommand.m"
+         timestampString = "386198209.126917"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "27"
+         endingLineNumber = "27"
+         landmarkName = "-execute:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "StarterGame/SleepCommand.m"
+         timestampString = "386198813.560755"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "18"
+         endingLineNumber = "18"
+         landmarkName = "-execute:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

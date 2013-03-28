@@ -35,12 +35,13 @@
                 [player outputMessage:[NSString stringWithFormat:@"\nI searched the room for some time, but can not find a %@\n", secondWord]];
             } else {
                 //looking at an item in the inventory
-                [player outputMessage:[NSString stringWithFormat:@"\nLooking at the %@ in my backpack I saw: %@\n", [tmpItem name], [tmpItem description]]];
+                [player outputMessage:[NSString stringWithFormat:@"\nI looked at the %@ in my backpack and saw: %@\n", [tmpItem name], [tmpItem description]]];
             }
         } else {
             //looking at an item in the room
-            [player outputMessage:[NSString stringWithFormat:@"\n%@\n", [tmpItem description]]];
-
+            //We will need to append hidden item descriptions to the items description
+            NSString* itemDesc = [NSString stringWithString:[tmpItem description]];
+            
             //If this item has points associated with it they need to be added to the players total
             [player addPoints:[tmpItem points]];
             
@@ -51,6 +52,7 @@
             Item* hiddenItem = [[tmpItem hiddenItems] lastObject];
             [hiddenItem retain];
             while (hiddenItem != nil) {
+                itemDesc = [NSString stringWithFormat:@"%@ %@", itemDesc, [hiddenItem roomDescription]];
                 [[[player currentRoom] items] setObject:hiddenItem forKey:[hiddenItem name]];
                 [[tmpItem hiddenItems] removeObject: hiddenItem];
                 //move to the next object (or nil)
@@ -60,10 +62,12 @@
             }
             [hiddenItem release];
             
+            [player outputMessage: [NSString stringWithFormat:@"%@\n",itemDesc]];
+            
         }
         
 	} else {
-        //player wants a description of the current room and known item
+        //player wants a description of the current room and known items
 
         //Build a string for native items and a string for dropped items
         NSString* droppedText = @"";
@@ -73,9 +77,9 @@
             Item* thisItem = [[[player currentRoom] items] objectForKey: key];
             
             if ([thisItem isDropped]) {
-                droppedText = [NSString stringWithFormat:@"%@  A %@.", droppedText, [thisItem name]];
+                droppedText = [NSString stringWithFormat:@"%@ A %@.", droppedText, [thisItem name]];
             } else {
-                nativeItemText = [NSString stringWithFormat:@"%@  %@", nativeItemText, [thisItem roomDescription]];
+                nativeItemText = [NSString stringWithFormat:@"%@ %@", nativeItemText, [thisItem roomDescription]];
             }
             
         }

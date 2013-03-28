@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "81AF890B16E6AAC400276C6B"
-               BuildableName = "StarterGame.app"
+               BuildableName = "The Return.app"
                BlueprintName = "The Return"
                ReferencedContainer = "container:The Return.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "81AF890B16E6AAC400276C6B"
-            BuildableName = "StarterGame.app"
+            BuildableName = "The Return.app"
             BlueprintName = "The Return"
             ReferencedContainer = "container:The Return.xcodeproj">
          </BuildableReference>
@@ -52,7 +52,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "81AF890B16E6AAC400276C6B"
-            BuildableName = "StarterGame.app"
+            BuildableName = "The Return.app"
             BlueprintName = "The Return"
             ReferencedContainer = "container:The Return.xcodeproj">
          </BuildableReference>
@@ -70,7 +70,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "81AF890B16E6AAC400276C6B"
-            BuildableName = "StarterGame.app"
+            BuildableName = "The Return.app"
             BlueprintName = "The Return"
             ReferencedContainer = "container:The Return.xcodeproj">
          </BuildableReference>

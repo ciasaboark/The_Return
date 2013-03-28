@@ -68,7 +68,7 @@
 	Room 	*bed1, *workroom, *bed3, *bathroom, *upstairs_hall, *short_hall, *sewing_room, *srvnt_bed_room, *attic;
 
     bed1 = [[[Room alloc] initWithTag:@"a child's bedroom"] autorelease];
-    workroom = [[[Room alloc] initWithTag:@"an empty bedroom"] autorelease];
+    workroom = [[[Room alloc] initWithTag:@"a workroom"] autorelease];
     bed3 = [[[Room alloc] initWithTag:@"an empty bedroom"] autorelease];
     bathroom = [[[Room alloc] initWithTag:@"the upstairs bath"] autorelease];
     upstairs_hall = [[[Room alloc] initWithTag:@"the upstairs hall"] autorelease];
@@ -188,49 +188,49 @@
     
     [hall1 setLongDescription: @"The hallway was lit by two miniature chandeliers, one in this section of the hall and one somewhat farther down. The floor was bare wood, dark in color. The walls were white plaster, with molding that matched the floor. The front door was large and barricaded with a number of hastily placed boards. I wouldn't be able to remove the barrier with my bare hands. To the east there was a dining room. To the west there was a formal hall. The hallway continued north, where I could see additonal rooms."];
 
-    [hall2 setLongDescription: @"The hallway was lit by a miniature chandelier overhead.  The walls were white plaster with dark wood molding and the floor, a dark stained wood in the style of the molding, was covered by a long rug woven in some oriential style.  The hallway continued north and south from here.  The southern end lead to the front door as well as two additional rooms.  To the north the hallway entered shadow. To the east there was a bedroom. To the west I saw some sort of library. There was a stairway here leading up to the second floor."];
+    [hall2 setLongDescription: @"The hallway was lit by a miniature chandelier overhead. The walls were white plaster with dark wood molding and the floor, a dark stained wood in the style of the molding, was covered by a long rug woven in some oriential style. The hallway continued north and south from here.  The southern end lead to the front door as well as two additional rooms.  To the north the hallway entered shadow. To the east there was a bedroom. To the west I saw some sort of library. There was a stairway here leading up to the second floor."];
 
-    [hall3 setLongDescription: @"There wasn't much light at the northern end of the hallway.  To the west there is a kitchen. Light from within spilled into the hall, but the penumbra was large and the hall was draped in shadow. To the east there was a small room with a plain wooden table. To the north there was a plain door."];
+    [hall3 setLongDescription: @"There wasn't much light at the northern end of the hallway. To the west there is a kitchen. Light from within spilled into the hall, but the penumbra was large and the hall was draped in shadow. To the east there was a small room with a plain wooden table. To the north there was a plain door."];
     
-    [dining_room setLongDescription: @"The light from the hallway illuminated an ornate and formal dining room. Nearly the entirity of the floor was covered by a single large rug, woven with a mozaic of birds in flight. A long table sat in the center of the room, with a number of elegantly carved chairs waiting in position. Each chair was fronted by a complete table set.  Curiously the two on the southern end seemed to have been used recently."];
+    [dining_room setLongDescription: @"The light from the hallway illuminated an ornate and formal dining room. Nearly the entirity of the floor was covered by a single large rug, woven with a mozaic of birds in flight. A long table sat in the center of the room, with a number of elegantly carved chairs waiting in position. Each chair was fronted by a complete table set. Curiously the two on the southern end seemed to have been used recently."];
     
     [formal_room setLongDescription: @"I was in a formal room of some type. Chairs lined the north and south walls, and the floor was a polished marble, white specaled with pink. A crystal chandaleer, old enough to have once held a multitude of candles, but now fitted with electric lights, hung from the ceiling."];
     
-    [sitting_room setLongDescription: @"It was a library of some kind. The western wall was filled with bookcases from floor to ceiling, except for a small window in the center of the wall.  Above the door there sat a marble bust of some long forgotten poet."];
+    [sitting_room setLongDescription: @"It was a library of some kind. The western wall was filled with bookcases from floor to ceiling, except for a small window in the center of the wall. Above the door there sat a marble bust of some long forgotten poet."];
     
     [kitchen setLongDescription: @"The northern and western walls of the kitchen were lined with counter-tops and cabinets. The southern wall had two sinks. One was deep enough to hold a number of lenins, the other smaller. The center of the room was dominated with a long counter over which there hung a number of pots, pans, and utensiles. A small Franklin stove sat in the south eastern corner, next to the oven. A small fire in the oven shed enough light through the grating to cast shadows throughout the room."];
     
     [mast_bath setLongDescription: @"The master bathroom was spotless white tile. A window along the eastern wall let in light from a gas lamp by the street."];
     
-    [srvnt_dining_room setLongDescription: @"There was no light source within this room, but the glow from the kitchen stretched far enough in to see by.  The small room was dominated by a single square TABLE.  A simple wooden chair sat pushed against the table. This looked to be where a servent might take their meal so as not to disturb the master of the house."];
+    [srvnt_dining_room setLongDescription: @"There was no light source within this room, but the glow from the kitchen stretched far enough in to see by. The small room was dominated by a single square TABLE. A simple wooden chair sat pushed against the table. This looked to be where a servent might take their meal so as not to disturb the master of the house."];
     
-    [well_house setLongDescription: @"I was in a small rectangular room. The floor here was bare wood, unstained.  A long window high on the northern wall let in enough light to see by.  In the northeast corner of the room there was an uncovered WELL.  It seemed as though this room had been added as an expansion sometime recently.  A sturdy rope was strung through a pully connected to a large beam overhead."];
+    [well_house setLongDescription: @"I was in a small rectangular room. The floor here was bare wood, unstained. A long window high on the northern wall let in enough light to see by. In the northeast corner of the room there was an uncovered WELL. It seemed as though this room had been added as an expansion sometime recently. A sturdy rope was strung through a pully connected to a large beam overhead."];
     
     [front_steps setLongDescription:@""];
 
     //The Basement Rooms
-    [cave setLongDescription: @"Light filtered down through the hole above, but not enough to see by.  If only I had some source of light to illumine the way."];
+    [cave setLongDescription: @"Light filtered down through the hole above, but not enough to see by. If only I had some source of light to illumine the way."];
     
-    [cave_hall setLongDescription:@"The cave ended to the south in a small chamber, and continued west in a twisted path.  The light from the lantern did not reach far into the tunnel, but the walls and floor seemed to glow with a faint greenish light.  It was not light enough to make out any details, but I was confident I could find my way through."];
+    [cave_hall setLongDescription:@"The cave ended to the south in a small chamber, and continued west in a twisted path. The light from the lantern did not reach far into the tunnel, but the walls and floor seemed to glow with a faint greenish light. It was not light enough to make out any details, but I was confident I could find my way through."];
     
-    [cemetery setLongDescription:@"The cemetery was a small family plot.  There were no more than a dozen graves, most of which seemed to have been long neglected.  A dense forest enclosed the opening.  The woods were draped in deep shadow."];
+    [cemetery setLongDescription:@"The cemetery was a small family plot. There were no more than a dozen graves, most of which seemed to have been long neglected. A dense forest enclosed the opening. The woods were cloaked in deep shadow."];
 
     //The Upstairs Rooms
     [bed1 setLongDescription: @""];
     
-    [workroom setLongDescription: @""];
+    [workroom setLongDescription: @"A workroom"];
     
     [bed3 setLongDescription: @""];
     
     [bathroom setLongDescription: @""];
     
-    [upstairs_hall setLongDescription: @""];
+    [upstairs_hall setLongDescription: @"The hall ran south from the stairway. A door to the east led to a child's bedroom, a door to the west led to another bedroom. Light from both rooms flooded the northern end of the hall in light, but the southern end was wreathed in shadow. There was a closed door at the southern end of the hall and a small panel overhead that looked like it might lead to an attic."];
     
-    [short_hall setLongDescription: @""];
+    [short_hall setLongDescription: @"The hall ran between the western workroom and the bathroom to the east. A door in the middle of the hall opened north to the servents quarters, its twin to the south opened to the stairwell."];
     
-    [sewing_room setLongDescription: @"The room was dark.  The southern wall was dominated by a set of large double doors, opening to a small terrace.  The open doors let in enough moonlight to illuminate the contents of the room.  In the dim glow I beheld a grim sight. In the middle of the room there was a WOMAN. Pale golden hair hung loose covering her face. Her dress was a pale blue stiched with a floral pattern along the hem. The front of the dress was splashed in crimson. In front of her there lay an overturned chair. Her feet faintly trailed on the floor as her body gently swung from a noose. Beside her, on the ground, there was a small BODY. The vision so disturbed and overwhelmed me that I fell to my knees in dispair. I almosted missed seeing movement in the corner."];
+    [sewing_room setLongDescription: @"The room was dark. The southern wall was dominated by a set of large double doors, opening to a small terrace. The open doors let in enough moonlight to illuminate the contents of the room. In the dim glow I beheld a grim sight. In the middle of the room there was a WOMAN. Pale golden hair hung loose covering her face. Her dress was a pale blue stiched with a floral pattern along the hem. The front of the dress was splashed in crimson. In front of her there lay an overturned chair. Her feet faintly trailed on the floor as her body gently swung from a noose. Beside her, on the ground, there was a small BODY. The vision so disturbed and overwhelmed me that I fell to my knees in dispair. I almosted missed seeing movement in the corner."];
     
-    [srvnt_bed_room setLongDescription: @""];
+    [srvnt_bed_room setLongDescription: @"The room was plain, but well kept. The room was paneled in wood, unlike the white plaster I had found in the rest of the house. A small BED was pushd into the northwest corner, a small DRESSER was against the wall by the bed. A steamer TRUNK was at the foot of the bed. There was a small writing TABLE in the northwest corner."];
 
 
     /*****************************
@@ -244,12 +244,12 @@
         Item* master_bedroom_couch = [[Item alloc] initWithName:@"couch" andDescription:@"The couch was made from a dark wood, intricately carved on the legs and back. The cushions were uphostered in a red velvet." usedIn:nil andWeight:60 andRoomDescription:@"A COUCH shared the wall with the bathroom entrance."];
         
         //items with hidden items
-        Item* master_bedroom_dresser = [[Item alloc] initWithName:@"dresser" andDescription:@"The dresser was large and made in the Victorian fassion. Sitting on top of the dresser there was a KEY" usedIn:nil andWeight:40 andRoomDescription:@"A heavy DRESSER sat along the western wall."];
+        Item* master_bedroom_dresser = [[Item alloc] initWithName:@"dresser" andDescription:@"The dresser was large and made in the Victorian fassion." usedIn:nil andWeight:40 andRoomDescription:@"A heavy DRESSER sat along the western wall."];
             //Items on the dresser
             Item* key = [[Item alloc] initWithName:@"key" andDescription:@"A brass key. The shine was tarnished. " usedIn:upstairs_hall andWeight:1 andRoomDescription:@"A brass KEY sat on top of the dresser."];
             [[master_bedroom_dresser hiddenItems] addObject: [key autorelease]];
 
-        Item* master_bedroom_closet = [[Item alloc] initWithName:@"closet" andDescription:@"The closet was a mess. Clothes were scattered all over the floor. Searching through the mess I noticed that there was a FLASHLIGHT on the top shelf." usedIn:nil andWeight:-1 andRoomDescription:@"A CLOSET was to the south."];
+        Item* master_bedroom_closet = [[Item alloc] initWithName:@"closet" andDescription:@"The closet was a mess. Clothes were scattered all over the floor. I searched through the mess for something that might be of use." usedIn:nil andWeight:-1 andRoomDescription:@"A CLOSET was to the south."];
             //Items in the closet
             Item* flashlight = [[Item alloc] initWithName:@"flashlight" andDescription:@"An old chrome flashlight. I couldn't see how to open the battery compartment, but it feelt heavy. I thought it might be of use later." usedIn:sewing_room andWeight:2 andRoomDescription: @"On the top shelf of the closet there was a FLASHLIGHT."];
             [[master_bedroom_closet hiddenItems] addObject: [flashlight autorelease]];
@@ -396,25 +396,22 @@
  
     
     //In order to advance the sense of amnesia we can start in a (semi) random room.
-	NSMutableArray *rooms = [NSArray arrayWithObjects: bed1, workroom, bed3, mast_bed, mast_bath, bathroom, srvnt_bed_room, nil];
+	NSMutableArray *rooms = [NSArray arrayWithObjects: bed1, bed3, mast_bed, srvnt_bed_room, nil];
   
     return rooms;
 }
 
--(void)start
-{
+-(void)start {
     playing = YES;
     [player outputMessage:[self welcome]];
 }
 
--(void)end
-{
+-(void)end {
     [player outputMessage:[self goodbye]];
     playing = NO;
 }
 
--(BOOL)execute:(NSString *)commandString
-{
+-(BOOL)execute:(NSString *)commandString {
 	BOOL finished = NO;
     if (playing) {
         [player outputMessage:[NSString stringWithFormat:@">%@",commandString]];
@@ -426,7 +423,7 @@
             wrongCommands++;
             if (wrongCommands > 2) {
                 [player outputMessage:[NSString stringWithFormat:@"\nI wasn't sure how to %@.\n", commandString]];
-                [player outputMessage:@"Sometimes the pain in my head became unbearable and the simplest of tasks became overwhelming.  I remembered that I could ask for 'help' for some tips.\n"];
+                [player outputMessage:@"Sometimes the pain in my head became unbearable and the simplest of tasks became overwhelming. I remembered that I could ask for 'help' for some tips.\n"];
                 [self setWrongCommands: 1];
             } else {
                 [player outputMessage:[NSString stringWithFormat:@"\nI couldn't remember how to %@\n", commandString ]];
@@ -436,15 +433,13 @@
     return finished;
 }
 
--(NSString *)welcome
-{
+-(NSString *)welcome {
     NSString* asciiArtThe = @"  _____ _\n |_   _| |__   ___\n   | | | '_ \\ / _ \\\n   | | | | | |  __/\n   |_| |_| |_|\\___|";
     NSString* asciiArtReturn = @"     ____      _\n    |  _ \\ ___| |_ _   _ _ __ _ __\n    | |_) / _ \\ __| | | | '__| '_ \\\n    |  _ <  __/ |_| |_| | |  | | | |\n    |_| \\_\\___|\\__|\\__,_|_|  |_| |_|\n";
-	return [NSString stringWithFormat:@"%@\n\n%@\n\nI awoke.  The pain in my head was blinding. I looked around and saw that I had been laying in a puddle of mud and water in %@.\nMy clothes, which I did not recognize, appeared to have once been fine, but were now torn, muddy, and soaked.  I couldn't remember how I came to this place.  Perhaps this house holds some answers.\n\nUse your words to control the player, search the house to find a way out, or explore further to unlock hidden mysteries.\nSay 'help' for a complete list of commands.\n", asciiArtThe, asciiArtReturn, [player currentRoom]];
+	return [NSString stringWithFormat:@"%@\n\n%@\n\nI awoke. The pain in my head was blinding. I looked around and saw that I had been laying in a puddle of mud and water in %@.\nMy clothes, which I did not recognize, appeared to have once been fine, but were now torn, muddy, and soaked. I couldn't remember how I came to this place.  Perhaps this house holds some answers.\n\nUse your words to control the player, search the house to find a way out, or explore further to unlock hidden mysteries.\nSay 'help' for a complete list of commands.\n", asciiArtThe, asciiArtReturn, [player currentRoom]];
 }
 
--(NSString *)goodbye
-{
+-(NSString *)goodbye {
     int hiddenItems = 0;
      for (NSString* key in [player inventory])  {
          Item* theItem = [[player inventory] objectForKey:key];
@@ -458,14 +453,11 @@
 
 -(void)registerForNotifications {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(willExitRoom:) name:@"playerWillExitRoom" object:nil];
-     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didEnterRoom:) name:@"playerDidEnterRoom" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didEnterRoom:) name:@"playerDidEnterRoom" object:nil];
 }
 
 -(void)willExitRoom:(NSNotification*)notification {
-    //meh, we don't really care where he left from
-    //Player* player = (Player*)[notification object];
-    //NSLog(@"The player will exit the room %@", [[player currentRoom] tag]);
-    
+    //meh, we don't really care where he left from    
 }
 
 -(void)didEnterRoom:(NSNotification*)notification {

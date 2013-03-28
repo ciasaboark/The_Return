@@ -23,13 +23,19 @@
     [[player roomStack] removeAllObjects];
     
     //we don't want to wake to the same room
-    do {
-        rand = arc4random_uniform([[player sleepRooms] count]);
-        wakeRoom = [[player sleepRooms] objectAtIndex:rand];
-        [player setCurrentRoom: wakeRoom];
-    } while (![[[player currentRoom] tag] isEqualToString:[wakeRoom tag]]);
+    //rand = arc4random_uniform([[player sleepRooms] count]);
+    rand = arc4random() % [[player sleepRooms] count];
+    wakeRoom = [[player sleepRooms] objectAtIndex:rand];
     
-   [player outputMessage:[NSString stringWithFormat:@"After some time I awoke, and found myself in %@.  I couldn't recall how I got here.  Was I moved in my sleep?", [player currentRoom]]];
+    while ( [[[player currentRoom] tag] isEqualToString:[wakeRoom tag]] ) {
+        //rand = arc4random_uniform([[player sleepRooms] count]);
+        rand = arc4random() % [[player sleepRooms] count];
+        wakeRoom = [[player sleepRooms] objectAtIndex:rand];
+    }
+    
+    [player setCurrentRoom: wakeRoom];
+    
+   [player outputMessage:[NSString stringWithFormat:@"After some time I awoke, and found myself in %@. I couldn't recall how I got here. Was I moved in my sleep?\n", [player currentRoom]]];
   
 	return NO;
 }
