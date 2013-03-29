@@ -190,7 +190,7 @@
 
     [hall2 setLongDescription: @"The hallway was lit by a miniature chandelier overhead. The walls were white plaster with dark wood molding and the floor, a dark stained wood in the style of the molding, was covered by a long rug woven in some oriential style. The hallway continued north and south from here.  The southern end lead to the front door as well as two additional rooms.  To the north the hallway entered shadow. To the east there was a bedroom. To the west I saw some sort of library. There was a stairway here leading up to the second floor."];
 
-    [hall3 setLongDescription: @"There wasn't much light at the northern end of the hallway. To the west there is a kitchen. Light from within spilled into the hall, but the penumbra was large and the hall was draped in shadow. To the east there was a small room with a plain wooden table. To the north there was a plain door."];
+    [hall3 setLongDescription: @"There wasn't much light at the northern end of the hallway. To the west I saw a kitchen. Light from within spilled into the hall, but the penumbra was large and the hall was draped in shadow. To the east there was a small room with a plain wooden table. To the north there was a plain door."];
     
     [dining_room setLongDescription: @"The light from the hallway illuminated an ornate and formal dining room. Nearly the entirity of the floor was covered by a single large rug, woven with a mozaic of birds in flight. A long table sat in the center of the room, with a number of elegantly carved chairs waiting in position. Each chair was fronted by a complete table set. Curiously the two on the southern end seemed to have been used recently."];
     
@@ -346,21 +346,26 @@
         //Fixed items
         Item* srvnt_dining_room_table = [[Item alloc] initWithName:@"table" andDescription:@"" usedIn:nil andWeight:60 andRoomDescription:@""];
             //Items on the servant's dining room table
-             Item* lantern = [[Item alloc] initWithName:@"lantern" andDescription:@"A tin lantern.  The metal is more rust than shine, and the glass covering is chipped at the top.  There appears to be a small amount of oil in the reservoir." usedIn:cave andWeight:3 andRoomDescription:@"An old lantern hangs from a peg on the wall."];
+             Item* lantern = [[Item alloc] initWithName:@"lantern" andDescription:@"The metal was more rust than shine, and the glass covering was chipped at the top, but there was a small amount of oil in the reservoir, and a pair of matches were stuck into a container at the base. It might hold a flame long enough to see by." usedIn:cave andWeight:3 andRoomDescription:@"I saw an old LANTERN on the table."];
             [[srvnt_dining_room_table hiddenItems] addObject: lantern];
 
         [srvnt_dining_room addItem: srvnt_dining_room_table];
 
     //Items in the well house
         //Collectable items
-        Item* ladder = [[Item alloc] initWithName:@"ladder" andDescription:@"A short wodden ladder.  It appears sturdy enough." usedIn:upstairs_hall andWeight:15 andRoomDescription:@"A wooden LADDER leans against the wall."];
-    
+        Item* ladder = [[Item alloc] initWithName:@"ladder" andDescription:@"A short wooden ladder. It appeared sturdy enough." usedIn:upstairs_hall andWeight:15 andRoomDescription:@"A wooden LADDER leaned against the wall."];
+        Item* well = [[Item alloc] initWithName:@"well" andDescription:@"The well was a wooden box covering a deep shaft. The first few feet were lined in brick but the light did not reach far enough down to see further. The rope that hung down into the darkness swayed, and a slight breeze rose from the depths. It smelled of damp and mold.  The hole seemed unusually wide, and I wondered how deep the shaft went." usedIn:nil andWeight:-1 andRoomDescription:@""];
+            //Items next to the well
+            Item* coal = [[Item alloc] initWithName:@"coal" andDescription:@"The box was small enough that I could carry it with me, and held only a few lumps of coal.  To coal was damp to the touch and I didn't think it would hold a flame.  I couldn't see a use for it yet." usedIn:well_house andWeight:6 andRoomDescription:@"There was a small wooden box of COAL next to the well."];
+            [[well hiddenItems] addObject: coal];
+
         [well_house addItem:ladder];
+        [well_house addItem: well];
 
 
     //Items in the cave
         //Fixed items
-        Item* cave_gleam = [[Item alloc] initWithName:@"gleam" andDescription:@"A small section of the floor gleams a bit brighter than the rest.  Sticking up slightly from the mud you see the outline of something hard.  You scrape the mud away and see that there is a small statue embeded in the ground" usedIn:nil andWeight:-1 andRoomDescription:@""];
+        Item* cave_gleam = [[Item alloc] initWithName:@"gleam" andDescription:@"A small section of the floor gleamed a bit brighter than the rest. Sticking up slightly from the mud I saw the outline of something hard. I scraped the mud away and saw that there was a small statue embeded in the ground." usedIn:nil andWeight:-1 andRoomDescription:@""];
             //Items in the gleam
             Item* cthulhu = [[Item alloc] initWithName:@"statue" andDescription:@"A small jade statue of some obscene monstrosity.  It is vaguely huminoid, but bat wings drap the figure, and a mass of tenticles are its mouth.  The figure is crouched, as if waiting.  Along the base there are words carved: \"Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn.\""usedIn:nil andWeight:3 andRoomDescription:@"" andPoints:0 andSpecial:true];
             [[cave_gleam hiddenItems] addObject:cthulhu];
@@ -371,9 +376,9 @@
     
     //Items in the cemetery
         //Fixed items
-        Item* grave = [[Item alloc] initWithName:@"grave" andDescription:@"A newly dug grave.  The headstone reads:\n       \"William @#$@\n       1887 - 1918\n   Beloved Husband and Father.\"\nThe ground ground of the grave is disturbed, like some animal has dug into it.  The hole reaches far enough into the ground that the end disappears into darkness.  Strangely, there is only a small amount of dirt above ground.  A small locket glints in the dirt beside the grave." usedIn:nil andWeight:-1 andRoomDescription:@"  At the eastern edge of the plot there is a fresh GRAVE." andPoints:10];
+        Item* grave = [[Item alloc] initWithName:@"grave" andDescription:@"The grave had been newly dug. The headstone read:\n\t\"William @#$@\n\t1887 - 1918\n\tBeloved Husband and Father.\"\nThe ground around the grave had been disturbed, like some animal has dug into it. The hole reached far enough into the ground that the end disappeared into shadow, but I was sure I saw the lining of a casket below. I didn't notice a body in the grave, and this seemed like a strange place for grave robbers to visit." usedIn:nil andWeight:-1 andRoomDescription:@"  At the eastern edge of the plot there is a fresh GRAVE." andPoints:10];
             //Items beside the grave
-            Item* locket = [[Item alloc] initWithName:@"locket" andDescription:@"A gold locket.  Inside there is a picture of a smiling man and woman and infant.  On the back, in letters small enough to be hard to read by the moonlight there is an inscription: \"Olphelia, Wife and Mother. With love. W. 1913\"" usedIn:nil andWeight:1 andRoomDescription:@"" andPoints:0 andSpecial:true];
+            Item* locket = [[Item alloc] initWithName:@"locket" andDescription:@"A gold locket. I opened the locket and was greeted by a picture of a smiling man, woman, and infant. On the inside of the front, in letters small enough to be hard to read by the moonlight, there is an inscription: \n\t\"Olphelia, Wife and Mother. With love. W. 1913\"" usedIn:nil andWeight:1 andRoomDescription:@"I noticed the glint of a small locket in the dirt beside the grave." andPoints:0 andSpecial:true];
             [[grave hiddenItems] addObject:locket];
         [cemetery addItem:grave];
     

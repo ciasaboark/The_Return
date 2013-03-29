@@ -56,13 +56,13 @@
     }
 }
 
--(Item*)takeItem:(NSString*) anItemName {
-    id anItem = [items objectForKey: anItemName];
-    [anItem retain];
-    [items removeObjectForKey: anItemName];
+// -(Item*)takeItem:(NSString*) anItemName {
+//     id anItem = [items objectForKey: anItemName];
+//     [anItem retain];
+//     [items removeObjectForKey: anItemName];
     
-    return [anItem autorelease]; //anItem could be nil here, must check in TakeCommand
-}
+//     return [anItem autorelease]; //anItem could be nil here, must check in TakeCommand
+// }
 
 -(NSString *)getExits
 {

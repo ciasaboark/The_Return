@@ -21,7 +21,7 @@
             if ([tmpItem usedIn] == [player currentRoom]) {
                 
                 // match against known items
-                //there doesn't seem to be a way to switch/case using NSStrings so get ready for some if/elses
+                //there doesn't seem to be a way to switch using NSStrings so get ready for some if/elses
                 if ([secondWord isEqualToString:@"lantern"]) {
                     [player outputMessage:@"\nAfter some fumbling in the dark I managed to light the lantern. The darkness fled. I noticed a spike driven into the wall, and hung the lantern there. The glow stretched outwards, illuminating a passageway to the north."];
                     [[player currentRoom] setExit:@"north" toRoom:[[player currentRoom] getExit:@"hidden"]];
@@ -49,6 +49,10 @@
                     [[player inventory] removeObjectForKey:@"ladder"];
                     //TODO change the hall description to include the ladder
                     [[player currentRoom] setExit:@"up" toRoom:[[player currentRoom] getExit:@"hidden"]];
+                }
+
+                else if ([secondWord isEqualToString:@"coal"]) {
+                    [player outputMessage:@"I picked a small piece of coal out of the box and dropped it into the well opening.  After a short delay I heard the distinct sound of rock hitting rock. I couldn't tell how deep the well was, but it shaft definately didn't end in water."];
                 }
 
                 else {
