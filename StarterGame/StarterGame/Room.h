@@ -21,6 +21,7 @@
 @property (retain, nonatomic)NSString* tag;
 @property (retain, nonatomic)NSString* longDescription;
 @property (retain, nonatomic)NSMutableDictionary* items;
+@property (retain, nonatomic)NSMutableDictionary* exits;
 
 -(id)init;
 -(id)initWithTag:(NSString *)newTag;

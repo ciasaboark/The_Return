@@ -25,6 +25,11 @@
                 if ([secondWord isEqualToString:@"lantern"]) {
                     [player outputMessage:@"\nAfter some fumbling in the dark I managed to light the lantern. The darkness fled. I noticed a spike driven into the wall, and hung the lantern there. The glow stretched outwards, illuminating a passageway to the north."];
                     [[player currentRoom] setExit:@"north" toRoom:[[player currentRoom] getExit:@"hidden"]];
+                    [[[player currentRoom] exits] removeObjectForKey:@"south"];
+                    [[[player currentRoom] exits] removeObjectForKey:@"east"];
+                    [[[player currentRoom] exits] removeObjectForKey:@"west"];
+                    [[[player currentRoom] exits] removeObjectForKey:@"down"];
+                             
                     [[player currentRoom] setLongDescription: @"At the bottom of the well I found myself in a cave of some sorts. The light from the lantern illuminated a passageway leading north. The rope from the well ended a foot above the floor."];
                 }
                 
@@ -52,7 +57,7 @@
                 }
 
                 else if ([secondWord isEqualToString:@"coal"]) {
-                    [player outputMessage:@"I picked a small piece of coal out of the box and dropped it into the well opening.  After a short delay I heard the distinct sound of rock hitting rock. I couldn't tell how deep the well was, but it shaft definately didn't end in water."];
+                    [player outputMessage:@"\nI picked a small piece of coal out of the box and dropped it into the well opening.  After a short delay I heard the distinct sound of rock hitting rock. I couldn't tell how deep the well was, but it shaft definately didn't end in water."];
                 }
 
                 else {

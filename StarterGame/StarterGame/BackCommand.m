@@ -21,16 +21,15 @@
 
 -(BOOL)execute:(Player *)player
 {
-    Room* backRoom = [[player roomStack] lastObject];
+    Room* backRoom = [player popRoom];
+    [backRoom retain];
     
     if (backRoom) {
-        [backRoom retain];
-        [[player roomStack] removeLastObject];
         [player setCurrentRoom: backRoom];
-        [player outputMessage:[NSString stringWithFormat:@"I traced my steps back to the %@.", backRoom]];
+        [player outputMessage:[NSString stringWithFormat:@"\nI traced my steps back to the %@.\n", backRoom]];
         [backRoom release];
     } else {
-        [player outputMessage:@"There was no path back.  There was only forwards."];
+        [player outputMessage:@"\nThere was no path back.  There was only forwards.\n"];
     }
     
 	return NO;

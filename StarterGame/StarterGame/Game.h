@@ -17,6 +17,7 @@
 @interface Game : NSObject {
     BOOL playing;
     int wrongCommands;
+    NSSound* sound;
 }
 
 @property (retain, nonatomic)Parser *parser;

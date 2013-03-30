@@ -22,8 +22,8 @@
 -(BOOL)execute:(Player *)player
 {
     [player setCurrentRoom: [player startRoom]];
-    [[player roomStack] removeAllObjects];
-    [player outputMessage:[NSString stringWithFormat:@"As you step forward your vision fades, and find yourself back in %@", [player startRoom]]];
+    [player clearRoomStack];
+    [player outputMessage:[NSString stringWithFormat:@"\nAs you step forward your vision fades, and find yourself back in %@\n", [player startRoom]]];
     
 	return NO;
 }

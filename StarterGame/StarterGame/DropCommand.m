@@ -21,7 +21,7 @@
         
         if (itemToDrop == nil ) {
             //the item is not in the room
-            [player outputMessage:@"I didn't have that item"];
+            [player outputMessage:@"\nI didn't have that item\n"];
             
         } else {
             [itemToDrop setIsDropped:true];
@@ -35,13 +35,13 @@
             //add item to the current room
             [[[player currentRoom] items] setObject: itemToDrop forKey: [itemToDrop name]];
             
-            [player outputMessage:[NSString stringWithFormat:@"I dropped the %@ in the middle of the %@.", [itemToDrop name], [[player currentRoom] tag]]];
+            [player outputMessage:[NSString stringWithFormat:@"\nI dropped the %@ in the middle of the %@.\n", [itemToDrop name], [[player currentRoom] tag]]];
         }
 
         [itemToDrop release];
 	}
 	else {
-        [player outputMessage:@"\nDrop what?"];
+        [player outputMessage:@"\nDrop what?\n"];
 	}
 	return NO;
 }

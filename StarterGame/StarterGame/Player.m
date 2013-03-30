@@ -54,15 +54,15 @@
 	Room *nextRoom = [currentRoom getExit:direction];
     if (nextRoom) {
         if ([[nextRoom tag] isEqualToString:@"blocked"] ) {
-            [self outputMessage:[NSString stringWithFormat:@"\nThe path %@ was blocked.  But there might have been a way around.", direction]];
+            [self outputMessage:[NSString stringWithFormat:@"\nThe path %@ was blocked.  But there might have been a way around.\n", direction]];
         } else if ([[nextRoom tag] isEqualToString:@"locked"] ) {
-            [self outputMessage:[NSString stringWithFormat:@"\nThe door %@ was locked.  There might have been a key.", direction]];
+            [self outputMessage:[NSString stringWithFormat:@"\nThe door %@ was locked.  There might have been a key.\n", direction]];
         } else if ([[nextRoom tag] isEqualToString:@"dark"] ) {
-            [self outputMessage:[NSString stringWithFormat:@"\nThe way %@ was too dark to proceed.", direction]];
+            [self outputMessage:[NSString stringWithFormat:@"\nThe way %@ was too dark to proceed.\n", direction]];
         } else {
             [[NSNotificationCenter defaultCenter] postNotificationName:@"playerWillExitRoom" object:self];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"playerWillEnterRoom" object:nextRoom];
-            [[self roomStack] addObject: currentRoom];
+            [self pushRoom: currentRoom];
             [self setCurrentRoom:nextRoom];
             
             //We can pretty things up a bit by using some random verbs
@@ -76,7 +76,7 @@
             [[NSNotificationCenter defaultCenter] postNotificationName:@"playerDidEnterRoom" object:nextRoom];
         }
 	} else {
-        [self outputMessage:[NSString stringWithFormat:@"\nThere was no path %@!", direction]];
+        [self outputMessage:[NSString stringWithFormat:@"\nThere was no path %@.\n", direction]];
 	}
 
 }
@@ -105,11 +105,18 @@
 }
 
 -(void)pushRoom:(Room*)aRoom {
-
+    [[self roomStack] addObject: aRoom];
 }
 
 -(Room*)popRoom {
-    
+    Room* theRoom = [[self roomStack] lastObject];
+    [theRoom retain];
+    [[self roomStack] removeLastObject];
+    return [theRoom autorelease];
+}
+
+-(void)clearRoomStack {
+    [[self roomStack] removeAllObjects];
 }
 
 -(void)dealloc

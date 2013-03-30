@@ -15,6 +15,7 @@
 @synthesize tag;
 @synthesize longDescription;
 @synthesize items;
+@synthesize exits;
 
 -(id)init
 {
@@ -55,14 +56,6 @@
         [items setObject: anItem forKey: [anItem name]];
     }
 }
-
-// -(Item*)takeItem:(NSString*) anItemName {
-//     id anItem = [items objectForKey: anItemName];
-//     [anItem retain];
-//     [items removeObjectForKey: anItemName];
-    
-//     return [anItem autorelease]; //anItem could be nil here, must check in TakeCommand
-// }
 
 -(NSString *)getExits
 {

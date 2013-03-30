@@ -24,6 +24,14 @@
 		[self setPlayer:[[[Player alloc] initWithRoom:[self createWorld] andIO:theIO] autorelease]];
         playing = NO;
         [self setWrongCommands: 0];
+        
+        //how about some moody sound for the app?
+        sound = [NSSound soundNamed:@"dark.mp3"];
+        [sound retain];
+        [sound setLoops: YES];
+        [sound setVolume:.5];
+        [sound play];
+        
 	}
 	return self;
 }
@@ -73,7 +81,7 @@
     bathroom = [[[Room alloc] initWithTag:@"the upstairs bath"] autorelease];
     upstairs_hall = [[[Room alloc] initWithTag:@"the upstairs hall"] autorelease];
     short_hall = [[[Room alloc] initWithTag:@"a short hall"] autorelease];
-    sewing_room = [[[Room alloc] initWithTag:@"a dark end room"] autorelease];
+    sewing_room = [[[Room alloc] initWithTag:@"the sewing room"] autorelease];
     srvnt_bed_room = [[[Room alloc] initWithTag:@"the servant's bedroom"] autorelease];
     attic = [[[Room alloc] initWithTag:@"the attic"] autorelease];
 
@@ -128,8 +136,13 @@
 
 	
     //cave Connections
-	[cave setExit:@"up" toRoom:well_house];
+	//the cave it too dark initially to move anywhere but back up. The connections will be replaced when the lantern is used.
+    [cave setExit:@"up" toRoom:well_house];
     [cave setExit:@"north" toRoom:dark];
+    [cave setExit:@"south" toRoom:dark];
+    [cave setExit:@"east" toRoom:dark];
+    [cave setExit:@"west" toRoom:dark];
+    [cave setExit:@"down" toRoom:dark];
     //a hidden path that will replace the north direction once the lantern is used
     [cave setExit:@"hidden" toRoom:cave_hall];
     
@@ -204,7 +217,7 @@
     
     [srvnt_dining_room setLongDescription: @"There was no light source within this room, but the glow from the kitchen stretched far enough in to see by. The small room was dominated by a single square TABLE. A simple wooden chair sat pushed against the table. This looked to be where a servent might take their meal so as not to disturb the master of the house."];
     
-    [well_house setLongDescription: @"I was in a small rectangular room. The floor here was bare wood, unstained. A long window high on the northern wall let in enough light to see by. In the northeast corner of the room there was an uncovered WELL. It seemed as though this room had been added as an expansion sometime recently. A sturdy rope was strung through a pully connected to a large beam overhead."];
+    [well_house setLongDescription: @"It was a small rectangular room. The floor here was bare wood, unstained. A long window high on the northern wall let in enough light to see by. In the northeast corner of the room there was an uncovered WELL. It seemed as though this room had been added as an expansion sometime recently. A sturdy rope was strung through a pully connected to a large beam overhead."];
     
     [front_steps setLongDescription:@""];
 
@@ -213,7 +226,7 @@
     
     [cave_hall setLongDescription:@"The cave ended to the south in a small chamber, and continued west in a twisted path. The light from the lantern did not reach far into the tunnel, but the walls and floor seemed to glow with a faint greenish light. It was not light enough to make out any details, but I was confident I could find my way through."];
     
-    [cemetery setLongDescription:@"The cemetery was a small family plot. There were no more than a dozen graves, most of which seemed to have been long neglected. A dense forest enclosed the opening. The woods were cloaked in deep shadow."];
+    [cemetery setLongDescription:@"The cemetery was a small family plot. There were no more than a dozen graves, most of which seemed to have been long neglected. A dense forest enclosed the whole opening, except for the rocky outcrop to the east from where I had emerged. The woods were cloaked in deep shadow, and the moon was just high enough that its light cast long shadows over the clearing."];
 
     //The Upstairs Rooms
     [bed1 setLongDescription: @""];
@@ -230,7 +243,7 @@
     
     [sewing_room setLongDescription: @"The room was dark. The southern wall was dominated by a set of large double doors, opening to a small terrace. The open doors let in enough moonlight to illuminate the contents of the room. In the dim glow I beheld a grim sight. In the middle of the room there was a WOMAN. Pale golden hair hung loose covering her face. Her dress was a pale blue stiched with a floral pattern along the hem. The front of the dress was splashed in crimson. In front of her there lay an overturned chair. Her feet faintly trailed on the floor as her body gently swung from a noose. Beside her, on the ground, there was a small BODY. The vision so disturbed and overwhelmed me that I fell to my knees in dispair. I almosted missed seeing movement in the corner."];
     
-    [srvnt_bed_room setLongDescription: @"The room was plain, but well kept. The room was paneled in wood, unlike the white plaster I had found in the rest of the house. A small BED was pushd into the northwest corner, a small DRESSER was against the wall by the bed. A steamer TRUNK was at the foot of the bed. There was a small writing TABLE in the northwest corner."];
+    [srvnt_bed_room setLongDescription: @"The room was plain, but well kept. The room was paneled in wood, unlike the white plaster I had found in the rest of the house. A small BED was pushed into the northwest corner, a small DRESSER was against the wall by the bed. A steamer TRUNK was at the foot of the bed. There was a small writing TABLE in the northwest corner."];
 
 
     /*****************************
@@ -284,7 +297,7 @@
     //Items for the dining room
         //Fixed Items
         Item* dining_room_table = [[Item alloc] initWithName:@"table" andDescription:@"A large TABLE.  There is still platters of half eaten food on two of the settings.  A bowl leans at a angle, soup covering the tablecloth." usedIn:nil andWeight: 60 andRoomDescription:@"In the center of the room there is a large TABLE."];
-        Item* dining_room_clock = [[Item alloc] initWithName:@"clock." andDescription:@"The grandfather CLOCK is large and dark.  The front panel is missing and there are gouges along the side.  The pendulum inside is still.  The marks look to have been made by some animal." usedIn:nil andWeight: 60 andRoomDescription:@"Sitting against the wall by the door there is a grandfather CLOCK."];
+        Item* dining_room_clock = [[Item alloc] initWithName:@"clock" andDescription:@"The grandfather CLOCK is large and dark." usedIn:nil andWeight: 60 andRoomDescription:@"Sitting against the wall by the door there is a grandfather CLOCK."];
         Item* dining_room_china = [[Item alloc] initWithName:@"cabinet" andDescription:@"The china CABINET is filled with dishes of fine porcelain and silverware that gleams even in the dim light." usedIn:nil andWeight:60 andRoomDescription:@"  A large china CABINET has been placed along the center of the western wall, flanked on either side by serving trays."];
     
         [dining_room addItem: dining_room_table];
@@ -356,7 +369,7 @@
         Item* ladder = [[Item alloc] initWithName:@"ladder" andDescription:@"A short wooden ladder. It appeared sturdy enough." usedIn:upstairs_hall andWeight:15 andRoomDescription:@"A wooden LADDER leaned against the wall."];
         Item* well = [[Item alloc] initWithName:@"well" andDescription:@"The well was a wooden box covering a deep shaft. The first few feet were lined in brick but the light did not reach far enough down to see further. The rope that hung down into the darkness swayed, and a slight breeze rose from the depths. It smelled of damp and mold.  The hole seemed unusually wide, and I wondered how deep the shaft went." usedIn:nil andWeight:-1 andRoomDescription:@""];
             //Items next to the well
-            Item* coal = [[Item alloc] initWithName:@"coal" andDescription:@"The box was small enough that I could carry it with me, and held only a few lumps of coal.  To coal was damp to the touch and I didn't think it would hold a flame.  I couldn't see a use for it yet." usedIn:well_house andWeight:6 andRoomDescription:@"There was a small wooden box of COAL next to the well."];
+            Item* coal = [[Item alloc] initWithName:@"coal" andDescription:@"The box was small enough that I could carry it with me, and held only a few lumps of coal. The coal was damp to the touch and I didn't think it would hold a flame. I couldn't see a use for it yet." usedIn:well_house andWeight:6 andRoomDescription:@"There was a small wooden box of COAL next to the well."];
             [[well hiddenItems] addObject: coal];
 
         [well_house addItem:ladder];
@@ -376,7 +389,7 @@
     
     //Items in the cemetery
         //Fixed items
-        Item* grave = [[Item alloc] initWithName:@"grave" andDescription:@"The grave had been newly dug. The headstone read:\n\t\"William @#$@\n\t1887 - 1918\n\tBeloved Husband and Father.\"\nThe ground around the grave had been disturbed, like some animal has dug into it. The hole reached far enough into the ground that the end disappeared into shadow, but I was sure I saw the lining of a casket below. I didn't notice a body in the grave, and this seemed like a strange place for grave robbers to visit." usedIn:nil andWeight:-1 andRoomDescription:@"  At the eastern edge of the plot there is a fresh GRAVE." andPoints:10];
+        Item* grave = [[Item alloc] initWithName:@"grave" andDescription:@"The grave had been newly dug. The headstone read:\n\n\t\t\t William Alexander Gardner\n\t\t\t       1887 - 1918\n\t\t\tBeloved Husband and Father.\n\nThe ground around the grave had been disturbed, like some animal has dug into it. The hole reached far enough into the ground that the end disappeared into shadow, but I was sure I saw the lining of a casket below. I didn't notice a body in the grave, and this seemed like a strange place for grave robbers to visit." usedIn:nil andWeight:-1 andRoomDescription:@"  At the eastern edge of the plot there is a fresh GRAVE." andPoints:10];
             //Items beside the grave
             Item* locket = [[Item alloc] initWithName:@"locket" andDescription:@"A gold locket. I opened the locket and was greeted by a picture of a smiling man, woman, and infant. On the inside of the front, in letters small enough to be hard to read by the moonlight, there is an inscription: \n\t\"Olphelia, Wife and Mother. With love. W. 1913\"" usedIn:nil andWeight:1 andRoomDescription:@"I noticed the glint of a small locket in the dirt beside the grave." andPoints:0 andSpecial:true];
             [[grave hiddenItems] addObject:locket];
@@ -439,9 +452,9 @@
 }
 
 -(NSString *)welcome {
-    NSString* asciiArtThe = @"  _____ _\n |_   _| |__   ___\n   | | | '_ \\ / _ \\\n   | | | | | |  __/\n   |_| |_| |_|\\___|";
-    NSString* asciiArtReturn = @"     ____      _\n    |  _ \\ ___| |_ _   _ _ __ _ __\n    | |_) / _ \\ __| | | | '__| '_ \\\n    |  _ <  __/ |_| |_| | |  | | | |\n    |_| \\_\\___|\\__|\\__,_|_|  |_| |_|\n";
-	return [NSString stringWithFormat:@"%@\n\n%@\n\nI awoke. The pain in my head was blinding. I looked around and saw that I had been laying in a puddle of mud and water in %@.\nMy clothes, which I did not recognize, appeared to have once been fine, but were now torn, muddy, and soaked. I couldn't remember how I came to this place.  Perhaps this house holds some answers.\n\nUse your words to control the player, search the house to find a way out, or explore further to unlock hidden mysteries.\nSay 'help' for a complete list of commands.\n", asciiArtThe, asciiArtReturn, [player currentRoom]];
+    NSString* asciiArtThe = @"\t\t\t\t\t\t  _____ _\n\t\t\t\t\t\t |_   _| |__   ___\n\t\t\t\t\t\t   | | | '_ \\ / _ \\\n\t\t\t\t\t\t   | | | | | |  __/\n\t\t\t\t\t\t   |_| |_| |_|\\___|";
+    NSString* asciiArtReturn = @"\t\t\t\t\t\t\t     ____      _\n\t\t\t\t\t\t\t    |  _ \\ ___| |_ _   _ _ __ _ __\n\t\t\t\t\t\t\t    | |_) / _ \\ __| | | | '__| '_ \\\n\t\t\t\t\t\t\t    |  _ <  __/ |_| |_| | |  | | | |\n\t\t\t\t\t\t\t    |_| \\_\\___|\\__|\\__,_|_|  |_| |_|\n";
+	return [NSString stringWithFormat:@"%@\n\n%@\n\n\n\n\n\n\n\n\n\n\n\nI awoke. The pain in my head was blinding. I looked around and saw that I had been laying in a puddle of mud and water in %@.\nMy clothes, which I did not recognize, appeared to have once been fine, but were now torn, muddy, and soaked. I couldn't remember how I came to this place.  Perhaps this house holds some answers.\n\nUse your words to control the player, search the house to find a way out, or explore further to unlock hidden mysteries.\n\nSay 'help' for a complete list of commands.\n", asciiArtThe, asciiArtReturn, [player currentRoom]];
 }
 
 -(NSString *)goodbye {
@@ -453,7 +466,7 @@
          }
      }
     
-    return [NSString stringWithFormat:@"\nThank you for playing, Goodbye.\n\tHidden Items found: %i\n\tTotal Story uncovered: %i\%", hiddenItems, [player points]];
+    return [NSString stringWithFormat:@"\nThank you for playing, Goodbye.\n\tHidden Items found: %i\n\tTotal Story uncovered: %i%%", hiddenItems, [player points]];
 }
 
 -(void)registerForNotifications {
@@ -478,6 +491,7 @@
 {
 	[parser release];
 	[player release];
+    [sound release];
 	
 	[super dealloc];
 }

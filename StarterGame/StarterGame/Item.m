@@ -26,7 +26,7 @@
 
 -(id)initWithName:(NSString *)newName andDescription:(NSString*) newDescription usedIn:(Room*) aRoom
 	andWeight:(int) aWeight andRoomDescription:(NSString*) newRoomDescription andPoints:(int)itemPoints {
-    return [self initWithName:newName andDescription:newDescription usedIn:aRoom andWeight:aWeight andRoomDescription:newRoomDescription andPoints:0 andSpecial:false];
+    return [self initWithName:newName andDescription:newDescription usedIn:aRoom andWeight:aWeight andRoomDescription:newRoomDescription andPoints:itemPoints andSpecial:false];
 }
 
 
@@ -43,7 +43,7 @@
 		[self setRoomDescription: newRoomDescription];
 		[self setHiddenItems: [[NSMutableArray alloc] init]];
 		[self setIsDropped: false];
-        [self setPoints: itemPoints];
+        points = itemPoints;
         [self setSpecial: isSpecial];
 	}
 
@@ -52,7 +52,7 @@
 
 -(void)removeHiddenItem:(Item*)anItem {
 	if (anItem) {
-		[[self hiddenItems] removeObject: hiddenItem];
+		[[self hiddenItems] removeObject: anItem];
 	}
 }
 

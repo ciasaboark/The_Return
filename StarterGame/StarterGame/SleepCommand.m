@@ -20,7 +20,7 @@
     Room* wakeRoom;
     
     //if the player doesn't even know how he got to this room how could he go back?
-    [[player roomStack] removeAllObjects];
+    [player clearRoomStack];
     
     //we don't want to wake to the same room
     //rand = arc4random_uniform([[player sleepRooms] count]);

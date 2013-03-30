@@ -55,7 +55,7 @@
             while (hiddenItem != nil) {
                 itemDesc = [NSString stringWithFormat:@"%@ %@", itemDesc, [hiddenItem roomDescription]];
                 //[[[player currentRoom] items] setObject:hiddenItem forKey:[hiddenItem name]];
-                [[player currentroom] addItem: hiddenItem];
+                [[player currentRoom] addItem: hiddenItem];
                 //[[tmpItem hiddenItems] removeObject: hiddenItem];
                 [tmpItem removeHiddenItem: hiddenItem];
 
@@ -65,7 +65,7 @@
             }
             [hiddenItem release];
             
-            [player outputMessage: [NSString stringWithFormat:@"%@\n",itemDesc]];
+            [player outputMessage: [NSString stringWithFormat:@"\n%@\n",itemDesc]];
             
         }
         
@@ -77,7 +77,7 @@
         NSString* nativeItemText = @"";
         
         for (NSString* key in [[player currentRoom] items])  {
-            //Item* thisItem = [[[player currentRoom] items] objectForKey: key];
+            Item* thisItem = [[[player currentRoom] items] objectForKey: key];
             
             if ([thisItem isDropped]) {
                 droppedText = [NSString stringWithFormat:@"%@ A %@.", droppedText, [thisItem name]];
@@ -89,10 +89,10 @@
         
         
         if ([droppedText length] > 1) {
-            droppedText = [NSString stringWithFormat:@"\nIn a pile in the middle of the room I saw: %@", droppedText];
+            droppedText = [NSString stringWithFormat:@"\n\nIn a pile in the middle of the room I saw: %@", droppedText];
         }
         
-        [player outputMessage: [NSString stringWithFormat:@"\nI was in %@.  %@  %@  %@\n", [player currentRoom], [[player currentRoom] longDescription], nativeItemText, droppedText]];
+        [player outputMessage: [NSString stringWithFormat:@"\nI was in %@. %@%@%@\n", [player currentRoom], [[player currentRoom] longDescription], nativeItemText, droppedText]];
         
     }
     

@@ -50,6 +50,7 @@
 
 -(void)pushRoom:(Room*)aRoom;
 -(Room*)popRoom;
+-(void)clearRoomStack;
 
 -(void)dealloc;
 @end
