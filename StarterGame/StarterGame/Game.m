@@ -15,29 +15,26 @@
 @synthesize parser;
 @synthesize player;
 @synthesize wrongCommands;
+@synthesize sndServer;
 
 -(id)initWithGameIO:(GameIO *)theIO {
 	self = [super init];
 	if (nil != self) {
         [self registerForNotifications];
-		[self setParser:[[[Parser alloc] init] autorelease]];
+		[self setSndServer: [SoundServer sharedInstance]];
+        [self setParser:[[[Parser alloc] init] autorelease]];
 		[self setPlayer:[[[Player alloc] initWithRoom:[self createWorld] andIO:theIO] autorelease]];
         playing = NO;
         [self setWrongCommands: 0];
         
-        //how about some moody sound for the app?
-        sound = [NSSound soundNamed:@"dark.mp3"];
-        [sound retain];
-        [sound setLoops: YES];
-        [sound setVolume:.5];
-        [sound play];
-        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"gameStarted" object:self];
+
 	}
 	return self;
 }
 
 -(NSArray *)createWorld {
-	//A special room to indicate that the path is blocked
+    //A special room to indicate that the path is blocked
     Room* blocked = [[[Room alloc] initWithTag:@"blocked"] autorelease];
 
     //A special room to indicate that a door is locked
@@ -491,7 +488,7 @@
 {
 	[parser release];
 	[player release];
-    [sound release];
+    [sndServer release];
 	
 	[super dealloc];
 }

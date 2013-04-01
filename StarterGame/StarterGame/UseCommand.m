@@ -20,6 +20,9 @@
             //check that we are in the correct room to use this item
             if ([tmpItem usedIn] == [player currentRoom]) {
                 
+                //Send a notification to the sound server so we can do some awesome audio stuff
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"playerUsedItem" object:secondWord];
+                
                 // match against known items
                 //there doesn't seem to be a way to switch using NSStrings so get ready for some if/elses
                 if ([secondWord isEqualToString:@"lantern"]) {
@@ -34,6 +37,7 @@
                 }
                 
                 else if ([secondWord isEqualToString:@"key"]) {
+                    //[[NSNotificationCenter defaultCenter] postNotificationName:@"pathUnlocked" object:self];
                     [player outputMessage:@"\nI left the key in the lock as I opened the door.  The hinges creaked as the door swung inward."];
                     [[player currentRoom] setLongDescription:@"The hall ran south from the stairway. A door to the east led to a child's bedroom, a door to the west led to another bedroom. Light from both rooms flooded the northern end of the hall in light, but the southern end was wreathed in shadow. The door at the southern end was now open. A small panel overhead looked like it might lead to an attic."];
                     [player setCurrentWeight: [player currentWeight] - [tmpItem weight]];

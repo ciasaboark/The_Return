@@ -54,10 +54,13 @@
 	Room *nextRoom = [currentRoom getExit:direction];
     if (nextRoom) {
         if ([[nextRoom tag] isEqualToString:@"blocked"] ) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"pathBlocked" object:self];
             [self outputMessage:[NSString stringWithFormat:@"\nThe path %@ was blocked.  But there might have been a way around.\n", direction]];
         } else if ([[nextRoom tag] isEqualToString:@"locked"] ) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"pathLocked" object:self];
             [self outputMessage:[NSString stringWithFormat:@"\nThe door %@ was locked.  There might have been a key.\n", direction]];
         } else if ([[nextRoom tag] isEqualToString:@"dark"] ) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"pathDark" object:self];
             [self outputMessage:[NSString stringWithFormat:@"\nThe way %@ was too dark to proceed.\n", direction]];
         } else {
             [[NSNotificationCenter defaultCenter] postNotificationName:@"playerWillExitRoom" object:self];

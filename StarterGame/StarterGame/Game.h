@@ -11,18 +11,20 @@
 #import "Parser.h"
 #import "Player.h"
 #import "GameIO.h"
+#import "SoundServer.h"
 
 
 
 @interface Game : NSObject {
     BOOL playing;
     int wrongCommands;
-    NSSound* sound;
+    SoundServer* sndServer;
 }
 
-@property (retain, nonatomic)Parser *parser;
-@property (retain, nonatomic)Player *player;
+@property (retain, nonatomic)Parser* parser;
+@property (retain, nonatomic)Player* player;
 @property (nonatomic)int wrongCommands;
+@property (retain, nonatomic)SoundServer* sndServer;
 
 -(id)initWithGameIO:(GameIO *)theIO;
 -(NSArray *)createWorld;

@@ -30,6 +30,14 @@
 		DFDA7AB116F4CB7E00A03E30 /* SleepCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = DFDA7AB016F4CB7E00A03E30 /* SleepCommand.m */; };
 		DFDCA0CC16FA20D200A00272 /* XyzzyCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = DFDCA0CB16FA20D200A00272 /* XyzzyCommand.m */; };
 		DFDCA0CF16FA215900A00272 /* BackCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = DFDCA0CE16FA215900A00272 /* BackCommand.m */; };
+		DFE23E711709ED1C000B5017 /* SoundServer.m in Sources */ = {isa = PBXBuildFile; fileRef = DFE23E701709ED1C000B5017 /* SoundServer.m */; };
+		DFE23E741709FAEC000B5017 /* creak.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DFE23E731709FAEC000B5017 /* creak.mp3 */; };
+		DFE23E761709FAF2000B5017 /* wind.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DFE23E751709FAF2000B5017 /* wind.mp3 */; };
+		DFE23E78170A050A000B5017 /* match.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DFE23E77170A050A000B5017 /* match.mp3 */; };
+		DFE23E7A170A05AD000B5017 /* keys.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DFE23E79170A05AD000B5017 /* keys.mp3 */; };
+		DFE23E7C170A1377000B5017 /* unlock.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DFE23E7B170A1377000B5017 /* unlock.mp3 */; };
+		DFE23E7E170A1C32000B5017 /* coal.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DFE23E7D170A1C32000B5017 /* coal.mp3 */; };
+		DFE23E80170A20A8000B5017 /* cave.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DFE23E7F170A20A8000B5017 /* cave.mp3 */; };
 		DFFF69401701031200062936 /* 5GrungePaperBackground_banner_thumb02.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DFFF693F1701031200062936 /* 5GrungePaperBackground_banner_thumb02.jpg */; };
 		E7C0303F16F1397B00BA85F0 /* UseCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C0303E16F1397A00BA85F0 /* UseCommand.m */; };
 		E7C7CD6E16F0DAD700CB9292 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C7CD6C16F0DAD700CB9292 /* Item.m */; };
@@ -84,6 +92,15 @@
 		DFDCA0CB16FA20D200A00272 /* XyzzyCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XyzzyCommand.m; sourceTree = "<group>"; };
 		DFDCA0CD16FA215900A00272 /* BackCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackCommand.h; sourceTree = "<group>"; };
 		DFDCA0CE16FA215900A00272 /* BackCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackCommand.m; sourceTree = "<group>"; };
+		DFE23E6F1709ED1C000B5017 /* SoundServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundServer.h; sourceTree = "<group>"; };
+		DFE23E701709ED1C000B5017 /* SoundServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundServer.m; sourceTree = "<group>"; };
+		DFE23E731709FAEC000B5017 /* creak.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = creak.mp3; sourceTree = "<group>"; };
+		DFE23E751709FAF2000B5017 /* wind.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = wind.mp3; sourceTree = "<group>"; };
+		DFE23E77170A050A000B5017 /* match.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = match.mp3; sourceTree = "<group>"; };
+		DFE23E79170A05AD000B5017 /* keys.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = keys.mp3; sourceTree = "<group>"; };
+		DFE23E7B170A1377000B5017 /* unlock.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = unlock.mp3; sourceTree = "<group>"; };
+		DFE23E7D170A1C32000B5017 /* coal.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = coal.mp3; sourceTree = "<group>"; };
+		DFE23E7F170A20A8000B5017 /* cave.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cave.mp3; sourceTree = "<group>"; };
 		DFFF693F1701031200062936 /* 5GrungePaperBackground_banner_thumb02.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5GrungePaperBackground_banner_thumb02.jpg; sourceTree = "<group>"; };
 		E7C0303D16F1397A00BA85F0 /* UseCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UseCommand.h; sourceTree = "<group>"; };
 		E7C0303E16F1397A00BA85F0 /* UseCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UseCommand.m; sourceTree = "<group>"; };
@@ -121,6 +138,8 @@
 				819122D816E95A0000BEDA1B /* Parser.m */,
 				819122D916E95A0000BEDA1B /* Player.h */,
 				819122DA16E95A0000BEDA1B /* Player.m */,
+				DFE23E6F1709ED1C000B5017 /* SoundServer.h */,
+				DFE23E701709ED1C000B5017 /* SoundServer.m */,
 				819122DD16E95A0000BEDA1B /* Room.h */,
 				819122DE16E95A0000BEDA1B /* Room.m */,
 			);
@@ -237,7 +256,14 @@
 		DF70A63E17063E5B0036EFD6 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				DFE23E751709FAF2000B5017 /* wind.mp3 */,
+				DFE23E731709FAEC000B5017 /* creak.mp3 */,
+				DFE23E7F170A20A8000B5017 /* cave.mp3 */,
 				DF70A64017063E7D0036EFD6 /* dark.mp3 */,
+				DFE23E79170A05AD000B5017 /* keys.mp3 */,
+				DFE23E77170A050A000B5017 /* match.mp3 */,
+				DFE23E7D170A1C32000B5017 /* coal.mp3 */,
+				DFE23E7B170A1377000B5017 /* unlock.mp3 */,
 			);
 			name = Sounds;
 			sourceTree = "<group>";
@@ -299,6 +325,13 @@
 				DFFF69401701031200062936 /* 5GrungePaperBackground_banner_thumb02.jpg in Resources */,
 				DF70A6371704E2BA0036EFD6 /* return.iconset in Resources */,
 				DF70A64117063E7D0036EFD6 /* dark.mp3 in Resources */,
+				DFE23E741709FAEC000B5017 /* creak.mp3 in Resources */,
+				DFE23E761709FAF2000B5017 /* wind.mp3 in Resources */,
+				DFE23E78170A050A000B5017 /* match.mp3 in Resources */,
+				DFE23E7A170A05AD000B5017 /* keys.mp3 in Resources */,
+				DFE23E7C170A1377000B5017 /* unlock.mp3 in Resources */,
+				DFE23E7E170A1C32000B5017 /* coal.mp3 in Resources */,
+				DFE23E80170A20A8000B5017 /* cave.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,6 +363,7 @@
 				107386EA16F9022D005AD481 /* InventoryCommand.m in Sources */,
 				DFDCA0CC16FA20D200A00272 /* XyzzyCommand.m in Sources */,
 				DFDCA0CF16FA215900A00272 /* BackCommand.m in Sources */,
+				DFE23E711709ED1C000B5017 /* SoundServer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
