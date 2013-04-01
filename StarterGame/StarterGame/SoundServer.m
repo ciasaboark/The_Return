@@ -44,7 +44,6 @@ static NSSound* ambient;
 }
 
 +(void)gameStarted {
-    NSLog(@"sound server: game started\n");
     //how about some moody music
     NSSound* sound = [NSSound soundNamed:@"dark.mp3"];
     [sound retain];
@@ -53,9 +52,28 @@ static NSSound* ambient;
     [sound play];
 }
 
++(void)fadeOutAmbient {
+    NSLog(@"starting thread to fade out ambient\n");
+    [NSThread detachNewThreadSelector:@selector(fadeSoundOut:) toTarget:self withObject:ambient];
+}
+
+
++(void)fadeSoundOut:(NSSound*) theSound {
+    NSLog(@"fading ambient %f\n", [theSound volume]);
+    [theSound setVolume: [theSound volume] - 0.1];
+    if ([theSound volume] < 0.1) {
+        [theSound stop];
+        [theSound release];
+        ambient = nil;
+    } else {
+        usleep(1000);
+        [self fadeSoundOut:ambient];
+        //[self performSelector:@selector(fadeSoundOut:) withObject:theSound afterDelay:0.1];
+    }
+}
+
 +(void)didEnterRoom:(NSNotification*)notification {
     Room* theRoom = (Room*)[notification object];
-    NSLog(@"sound server: player changed room\n");
     
     if ([[theRoom tag] isEqualToString:@"a small family cemetery"] ) {
         NSLog(@"sound server: player outside\n");
@@ -63,7 +81,7 @@ static NSSound* ambient;
         [self envOutside];
     } else if ([[theRoom tag] isEqualToString:@"an underground cave"] || [[theRoom tag] isEqualToString:@"a long underground tunnel"]) {
         NSLog(@"sound server: player in cave\n");
-        [self stopAmbientSound];
+        [self stopAmbientSound ];
         [self envCave];
     } else {
         [self stopAmbientSound];
@@ -75,19 +93,14 @@ static NSSound* ambient;
     if (ambient) {
         NSLog(@"Ambient sound was still playing");
         
-        struct timespec ts;
-    	ts.tv_sec = 0;
-    	ts.tv_nsec = 1000000;
+
+        [self fadeOutAmbient];
         
-        for (int i = 1; i < 100; i++) {
-            [ambient setVolume: (1.0 / i)];
-            //nanosleep(&ts, &ts);
-            usleep(10000);
+        //waiting for that thread to finish...
+        while (ambient != nil) {
+            NSLog(@"ambient still not nil]\n");
+            usleep(500);
         }
-        
-        [ambient stop];
-        [ambient release];
-        ambient = nil;
     }
 }
 
