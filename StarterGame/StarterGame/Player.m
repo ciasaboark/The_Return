@@ -62,21 +62,27 @@
         } else if ([[nextRoom tag] isEqualToString:@"dark"] ) {
             [[NSNotificationCenter defaultCenter] postNotificationName:@"pathDark" object:self];
             [self outputMessage:[NSString stringWithFormat:@"\nThe way %@ was too dark to proceed.\n", direction]];
-        } else {
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"playerWillExitRoom" object:self];
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"playerWillEnterRoom" object:nextRoom];
+        } else {            
+            //We will pass this to the notifications to simplify the logic later on
+            //+ (currentRoom is already in player object, and previous room can be
+            //+ accessed via [[player roomStack] lastItem], but thats ugly).
+            NSMutableDictionary* theRooms = [[NSMutableDictionary alloc] init];
+            [theRooms setObject:currentRoom forKey:@"previous"];
+            [theRooms setObject:nextRoom forKey:@"current"];
+
+
             [self pushRoom: currentRoom];
             [self setCurrentRoom:nextRoom];
             
             //We can pretty things up a bit by using some random verbs
             NSArray *verbs = [NSArray arrayWithObjects: @"entered", @"walked into", @"made my way to", nil];
-            //unsigned long rand = arc4random_uniform([verbs count]);
             int rand = arc4random() % [verbs count];
 
             
             [self outputMessage:[NSString stringWithFormat:@"\nI %@ %@.\n", [verbs objectAtIndex: rand], nextRoom]];
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"playerDidExitRoom" object:self];
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"playerDidEnterRoom" object:nextRoom];
+
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"playerDidExitRoom" object:self userInfo:theRooms];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"playerDidEnterRoom" object:nextRoom userInfo:theRooms];
         }
 	} else {
         [self outputMessage:[NSString stringWithFormat:@"\nThere was no path %@.\n", direction]];

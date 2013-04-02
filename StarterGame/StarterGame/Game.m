@@ -467,13 +467,9 @@
 }
 
 -(void)registerForNotifications {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(willExitRoom:) name:@"playerWillExitRoom" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didEnterRoom:) name:@"playerDidEnterRoom" object:nil];
 }
 
--(void)willExitRoom:(NSNotification*)notification {
-    //meh, we don't really care where the player left from    
-}
 
 -(void)didEnterRoom:(NSNotification*)notification {
     Room* theRoom = (Room*)[notification object];

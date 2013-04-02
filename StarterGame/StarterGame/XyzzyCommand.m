@@ -21,6 +21,12 @@
 
 -(BOOL)execute:(Player *)player
 {
+	NSMutableDictionary* theRooms = [[NSMutableDictionary alloc] init];
+    [theRooms setObject:[player currentRoom] forKey:@"previous"];
+    [theRooms setObject:[player startRoom] forKey:@"current"];
+
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"playerDidEnterRoom" object:nextRoom userInfo:theRooms];
+
     [player setCurrentRoom: [player startRoom]];
     [player clearRoomStack];
     [player outputMessage:[NSString stringWithFormat:@"\nAs you step forward your vision fades, and find yourself back in %@\n", [player startRoom]]];
