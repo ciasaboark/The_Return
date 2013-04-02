@@ -24,6 +24,8 @@
             [player outputMessage:@"\nI didn't have that item\n"];
             
         } else {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"playerDroppedItem" object:nil];
+
             [itemToDrop setIsDropped:true];
             
             //lighten the load a bit

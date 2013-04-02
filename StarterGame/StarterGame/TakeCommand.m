@@ -36,6 +36,7 @@
             
             } else {
                 //we can take the item
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"playerTookItem" object:nil];
                 [[[player currentRoom] items] removeObjectForKey: secondWord];    //remove the item from the room
                 [[player inventory] setObject: itemToTake forKey: secondWord];      //and place it in the players inventory
                 [itemToTake setIsDropped:false];

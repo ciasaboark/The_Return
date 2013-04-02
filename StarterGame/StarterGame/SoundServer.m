@@ -14,16 +14,17 @@
 @synthesize ambient;
 
 static NSSound* ambient;
+static bool inTransition;
 
 +(id)sharedInstance {
     static SoundServer* sndServer = nil;
     if (!sndServer) {
-        NSLog(@"sound server: started\n");
         sndServer = [[[self class] alloc] init];
         ambient = nil;
+        inTransition = false;
         [self registerForNotifications];
     } else {
-        NSLog(@"sound server already running\n");
+        NSLog(@"SoundServer: already running\n");
     }
     return sndServer;
 }
@@ -34,14 +35,18 @@ static NSSound* ambient;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pathLocked) name:@"pathLocked" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pathUnlocked) name:@"pathUnlocked" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pathDark) name:@"pathDark" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(transitionRoom) name:@"transitionRoom" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(transitionStairs) name:@"transitionStairs" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(envInside) name:@"envInside" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(envOutside) name:@"envOutside" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(envCave) name:@"envCave" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerTookItem) name:@"playerTookItem" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didEnterRoom:) name:@"playerDidEnterRoom" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerUsedItem:) name:@"playerUsedItem" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerDroppedItem) name:@"playerDroppedItem" object:nil];
 }
+
+
+/***********************
+ *
+ *  Notification methods
+ *
+ ***********************/
 
 +(void)gameStarted {
     //how about some moody music
@@ -52,143 +57,118 @@ static NSSound* ambient;
     [sound play];
 }
 
-+(void)fadeOutAmbient {
-    NSLog(@"starting thread to fade out ambient\n");
-    [NSThread detachNewThreadSelector:@selector(fadeSoundOut:) toTarget:self withObject:ambient];
-}
-
-
-+(void)fadeSoundOut:(NSSound*) theSound {
-    NSLog(@"fading ambient %f\n", [theSound volume]);
-    [theSound setVolume: [theSound volume] - 0.1];
-    if ([theSound volume] < 0.1) {
-        [theSound stop];
-        [theSound release];
-        ambient = nil;
-    } else {
-        usleep(1000);
-        [self fadeSoundOut:ambient];
-        //[self performSelector:@selector(fadeSoundOut:) withObject:theSound afterDelay:0.1];
-    }
-}
-
 +(void)didEnterRoom:(NSNotification*)notification {
     Room* theRoom = (Room*)[notification object];
     
+    //TODO check to see if the previous room is in the same environment, if so keep the current ambient sound playing
     if ([[theRoom tag] isEqualToString:@"a small family cemetery"] ) {
-        NSLog(@"sound server: player outside\n");
-        [self stopAmbientSound];
-        [self envOutside];
+        [self changeAmbientSound:@"wind.mp3"];
     } else if ([[theRoom tag] isEqualToString:@"an underground cave"] || [[theRoom tag] isEqualToString:@"a long underground tunnel"]) {
-        NSLog(@"sound server: player in cave\n");
-        [self stopAmbientSound ];
-        [self envCave];
+        [self changeAmbientSound:@"cave.mp3"];
     } else {
-        [self stopAmbientSound];
-        [self envInside];
-    }
-}
-
-+(void)stopAmbientSound {
-    if (ambient) {
-        NSLog(@"Ambient sound was still playing");
-        
-
-        [self fadeOutAmbient];
-        
-        //waiting for that thread to finish...
-        while (ambient != nil) {
-            NSLog(@"ambient still not nil]\n");
-            usleep(500);
-        }
+        [self changeAmbientSound:nil];
     }
 }
 
 +(void)playerUsedItem:(NSNotification*) notification {
-    NSLog(@"sound server: player used item");
-    
     NSString* itemName = (NSString*)[notification object];
     
     if ([itemName isEqualToString:@"lantern"]) {
-        NSSound* sound = [NSSound soundNamed:@"match.mp3"];
-        [sound retain];
-        [sound setLoops: NO];
-        [sound setVolume:1.0];
-        [sound play];
-        [sound release];
+        [self playSingle:@"match.mp3"];
     } else if ([itemName isEqualToString:@"axe"]) {
-        //chopping sounds here
+        [self playSingle:@"chop.mp3"];
     } else if ([itemName isEqualToString:@"key"]) {
-        NSSound* sound = [NSSound soundNamed:@"unlock.mp3"];
-        [sound retain];
-        [sound setLoops: NO];
-        [sound setVolume:1.0];
-        [sound play];
-        [sound release];
+        [self playSingle:@"unlock.mp3"];
     }  else if ([itemName isEqualToString:@"coal"]) {
-        NSSound* sound = [NSSound soundNamed:@"coal.mp3"];
-        [sound retain];
-        [sound setLoops: NO];
-        [sound setVolume:1.0];
-        [sound play];
-        [sound release];
+        [self playSingle:@"coal.mp3"];
     }
+}
+
++(void)playerTookItem {
+    NSArray* sounds = [NSArray arrayWithObjects: @"backpack.mp3", @"backpack2.mp3", nil];
+    int rand = arc4random() % [sounds count];
+    [self playSingle:[sounds objectAtIndex:rand]];
+    //[self playSingle:@"backpack.mp3"];
+}
+
++(void)playerDroppedItem {
+    NSArray* sounds = [NSArray arrayWithObjects: @"drop1.mp3", @"drop2.mp3", nil];
+    int rand = arc4random() % [sounds count];
+    [self playSingle:[sounds objectAtIndex:rand]];
+    //[self playSingle:@"backpack.mp3"];
 }
 
 +(void)pathBlocked {
    NSLog(@"sound server: path blocked\n");
 }
 
-
 +(void)pathLocked {
-    NSLog(@"sound server: path locked\n");
+    [self playSingle:@"locked.mp3"];
 }
 
 +(void)pathUnlocked {
-    NSLog(@"sound server: path unlocked\n");
-    
-    NSSound* sound = [NSSound soundNamed:@"creak.mp3"];
-    [sound retain];
-    [sound setLoops: NO];
-    [sound setVolume:.9];
-    [sound play];
-    [sound release];
+    [self playSingle:@"creak.mp3"];
 }
 
 +(void)pathDark {
     NSLog(@"sound server: path dark\n");
 }
 
-+(void)transitonRoom {
-    NSLog(@"sound server: transition room\n");
+/***********************
+ *
+ *  Helper methods
+ *
+ ***********************/
+
+//changeAmbientSound should be used when changing environments
++(void)changeAmbientSound:(NSString*)theSoundName {
+    [NSThread detachNewThreadSelector:@selector(T_changeAmbientSound:) toTarget:self withObject:theSoundName];
 }
 
-+(void)transitionStairs {
-    NSLog(@"sound server: transition stairs\n");
+//T_changeAmbientSound should only be called from within changeAmbientSound
++(void)T_changeAmbientSound:(NSString*) theSoundName {
+    //wait for other transitions to finish
+    while (inTransition) {
+        usleep(10000);
+    }
+    
+    inTransition = true;
+    
+    //It's possible that the ambient sound isn't playing at full volume, or that it is nill
+    //+ so we check each iteration then break.
+    for(int i = 1; i < 100; i++) {
+        [ambient setVolume: (1.0 / i)];
+        usleep(60000);
+        
+        if ([ambient volume] < 0.1 || ambient == nil) {
+            [ambient stop];
+            [ambient release];
+            ambient = nil;
+            if (theSoundName) {
+                ambient = [NSSound soundNamed:theSoundName];
+                [ambient retain];
+                [ambient setVolume:1.0];
+                [ambient play];
+            }
+            break;
+        }
+    }
+    
+    inTransition = false;
 }
 
-+(void)envInside {
-    NSLog(@"sound server: environment inside\n");
+//Play a sound effect once then exit
++(void)playSingle:(NSString*)theSoundName {
+    if (theSoundName) {     //it would be better to also check if the file is in the bundle
+        NSSound* theSound = [NSSound soundNamed:theSoundName];
+        [theSound retain];
+        [theSound setLoops: NO];
+        [theSound setVolume:1.0];
+        [theSound play];
+        [theSound release];
+    } else {
+        NSLog(@"SoundServer:playSingle given nil filename");
+    }
 }
-
-+(void)envOutside {
-    NSLog(@"sound server: environment outside\n");
-    ambient = [NSSound soundNamed:@"wind.mp3"];
-    [ambient retain];
-    [ambient setLoops: YES];
-    [ambient setVolume:.7];
-    [ambient play];
-}
-
-+(void)envCave {
-    NSLog(@"sound server: environment cave\n");
-    ambient = [NSSound soundNamed:@"cave"];
-    [ambient retain];
-    [ambient setLoops: YES];
-    [ambient setVolume:.7];
-    [ambient play];
-}
-
-
 
 @end
