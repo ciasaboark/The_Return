@@ -22,7 +22,7 @@
         [itemToTake retain];
         if (itemToTake == nil ) {
             //the item is not in the room
-            [player outputMessage:@"\nThat items does not exist here"];
+            [player outputMessage:@"\nThat items does not exist here\n"];
 
         } else {
             //the item exists
@@ -31,7 +31,7 @@
                 [player outputMessage:[NSString stringWithFormat:@"\nYou try to lift the %@, but it does not budge.  Perhaps you are carrying too much.\n", secondWord]];
                  
             } else if ([itemToTake weight] < 0) {
-                [player outputMessage:@"\nHow could you take that?"];
+                [player outputMessage:@"\nHow could you take that?\n"];
                  
             
             } else {
@@ -60,7 +60,7 @@
         
 	}
 	else {
-        [player outputMessage:@"\nTake what?"];
+        [player outputMessage:@"\nTake what?\n"];
 	}
 	return NO;
 }

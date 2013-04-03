@@ -37,7 +37,6 @@
                 }
                 
                 else if ([secondWord isEqualToString:@"key"]) {
-                    //[[NSNotificationCenter defaultCenter] postNotificationName:@"pathUnlocked" object:self];
                     [player outputMessage:@"\nI left the key in the lock as I opened the door.  The hinges creaked as the door swung inward.\n"];
                     [[player currentRoom] setLongDescription:@"The hall ran south from the stairway. A door to the east led to a child's bedroom, a door to the west led to another bedroom. Light from both rooms flooded the northern end of the hall in light, but the southern end was wreathed in shadow. The door at the southern end was now open. A small panel overhead looked like it might lead to an attic."];
                     [player setCurrentWeight: [player currentWeight] - [tmpItem weight]];
@@ -47,13 +46,13 @@
                 }
                 
                 else if ([secondWord isEqualToString:@"axe"]) {
-                    [player outputMessage:@"\nI used the axe on the front door.  Splinters flew.  The way out was clear.\n"];
-                    [[player currentRoom] setLongDescription: @"The hallway was lit by two small windows flanking the main entrance to the south. The floor was bare wood, dark in color. The front door to the south lied in splinters. To the east there was a dining room.  To the west there was a formal hall.  The hall continued to the north, where i could see additonal rooms."];
+                    [player outputMessage:@"\nI used the axe on the front door. Splinters flew. The way out was clear.\n"];
+                    [[player currentRoom] setLongDescription: @"The hallway was lit by two small windows flanking the main entrance to the south. The floor was bare wood, dark in color. The front door to the south lied in splinters. To the east there was a dining room. To the west there was a formal hall. The hall continued to the north, where I could see additonal rooms."];
                     [[player currentRoom] setExit:@"south" toRoom:[[player currentRoom] getExit:@"hidden"]];
                 }
 
                 else if ([secondWord isEqualToString:@"ladder"]) {
-                    [player outputMessage:@"\nI placed the ladder against the wall underneath the panel.  It looked tall enough to reach the attic panel.\n"];
+                    [player outputMessage:@"\nI placed the ladder against the wall underneath the panel. It looked tall enough to reach the attic panel.\n"];
                     [player setCurrentWeight: [player currentWeight] - [tmpItem weight]];
                     [[player inventory] removeObjectForKey:@"ladder"];
                     //TODO change the hall description to include the ladder
@@ -61,7 +60,7 @@
                 }
 
                 else if ([secondWord isEqualToString:@"coal"]) {
-                    [player outputMessage:@"\nI picked a small piece of coal out of the box and dropped it into the well opening.  After a short delay I heard the distinct sound of rock hitting rock. I couldn't tell how deep the well was, but it shaft definately didn't end in water."];
+                    [player outputMessage:@"\nI picked a small piece of coal out of the box and dropped it into the well opening. After a short delay I heard the distinct sound of rock hitting rock. I couldn't tell how deep the well was, but it shaft definately didn't end in water."];
                 }
 
                 else {
