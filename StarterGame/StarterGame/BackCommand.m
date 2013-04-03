@@ -29,7 +29,7 @@
         [theRooms setObject:[player currentRoom] forKey:@"previous"];
         [theRooms setObject:backRoom forKey:@"current"];
 
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"playerDidEnterRoom" object:nextRoom userInfo:theRooms];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"playerDidEnterRoom" object:backRoom userInfo:theRooms];
 
         [player setCurrentRoom: backRoom];
         [player outputMessage:[NSString stringWithFormat:@"\nI traced my steps back to the %@.\n", backRoom]];

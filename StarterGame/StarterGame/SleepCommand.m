@@ -16,22 +16,23 @@
 -(BOOL)execute:(Player *)player
 {
     [player outputMessage:@"\nAn unbearable weight seemed to settle on me.  Alone and confused I sunk to the floor in a stupor...\n"];
-    unsigned long rand;
-    Room* wakeRoom;
-    
     //if the player doesn't even know how he got to this room how could he go back?
     [player clearRoomStack];
     
     //we don't want to wake to the same room
-    //rand = arc4random_uniform([[player sleepRooms] count]);
-    rand = arc4random() % [[player sleepRooms] count];
-    wakeRoom = [[player sleepRooms] objectAtIndex:rand];
+    unsigned long rand = arc4random() % [[player sleepRooms] count];
+    Room* wakeRoom = [[player sleepRooms] objectAtIndex:rand];
     
     while ( [[[player currentRoom] tag] isEqualToString:[wakeRoom tag]] ) {
-        //rand = arc4random_uniform([[player sleepRooms] count]);
         rand = arc4random() % [[player sleepRooms] count];
         wakeRoom = [[player sleepRooms] objectAtIndex:rand];
     }
+    
+    NSMutableDictionary* theRooms = [[NSMutableDictionary alloc] init];
+    [theRooms setObject:[player currentRoom] forKey:@"previous"];
+    [theRooms setObject:wakeRoom forKey:@"current"];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"playerDidEnterRoom" object:wakeRoom userInfo:theRooms];
     
     [player setCurrentRoom: wakeRoom];
     

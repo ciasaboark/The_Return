@@ -35,7 +35,7 @@
                 [player outputMessage:[NSString stringWithFormat:@"\nI searched the room for some time, but can not find a %@\n", secondWord]];
             } else {
                 //looking at an item in the inventory
-                [player outputMessage:[NSString stringWithFormat:@"\nI looked at the %@ in my backpack and saw: %@\n", [tmpItem name], [tmpItem description]]];
+                [player outputMessage:[NSString stringWithFormat:@"\n%@\n", [tmpItem description]]];
             }
         } else {
             //looking at an item in the room

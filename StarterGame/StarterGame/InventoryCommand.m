@@ -21,14 +21,14 @@
 
 -(BOOL)execute:(Player *)player
 {
-    NSString* returnString = @"\nI looked through my backpack and saw: ";
+    NSString* returnString = @"\nI looked through my backpack and saw:";
     
     if ([[player inventory] count] == 0) {
         returnString = @"\nI wasn't carrying anything yet.";
     } else {
         for (id key in [player inventory]) {
             Item* theItem = [[player inventory]  objectForKey: key];
-            returnString = [NSString stringWithFormat:@"%@  A %@.", returnString,  [theItem name]];
+            returnString = [NSString stringWithFormat:@"%@ A %@.", returnString,  [theItem name]];
         }
     }
     

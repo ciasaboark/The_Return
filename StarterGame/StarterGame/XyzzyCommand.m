@@ -25,7 +25,7 @@
     [theRooms setObject:[player currentRoom] forKey:@"previous"];
     [theRooms setObject:[player startRoom] forKey:@"current"];
 
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"playerDidEnterRoom" object:nextRoom userInfo:theRooms];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"playerDidEnterRoom" object:[player startRoom] userInfo:theRooms];
 
     [player setCurrentRoom: [player startRoom]];
     [player clearRoomStack];

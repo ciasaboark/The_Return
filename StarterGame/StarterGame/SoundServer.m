@@ -95,7 +95,7 @@ static bool inTransition;
 }
 
 +(void)pathBlocked {
-   NSLog(@"sound server: path blocked\n");
+   NSLog(@"SoundServer: path blocked\n");
 }
 
 +(void)pathLocked {
@@ -107,7 +107,7 @@ static bool inTransition;
 }
 
 +(void)pathDark {
-    NSLog(@"sound server: path dark\n");
+    NSLog(@"SoundServer: path dark\n");
 }
 
 /***********************
