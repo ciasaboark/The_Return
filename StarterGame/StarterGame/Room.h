@@ -16,6 +16,7 @@
 	NSMutableDictionary* exits;
     NSString* longDescription;
     NSMutableDictionary* items;
+    LockedRoomDelegate* 
 }
 
 @property (retain, nonatomic)NSString* tag;
@@ -26,7 +27,10 @@
 -(id)init;
 -(id)initWithTag:(NSString *)newTag;
 -(void)setExit:(NSString *)exit toRoom:(Room *)room;
--(void)addItem:(Item*) anItem;
+-(BOOL)hasItem:(NSString*)itemName;
+-(void)addItem:(Item*)anItem;
+-(Item*)getItem:(NSString*)itemName;	//only returns a reference to the item, nill if the item does not exist
+-(Item*)removeItem:(NSString*)itemName;
 -(Room *)getExit:(NSString *)exit;
 -(NSString *)getExits;
 

@@ -16,7 +16,8 @@
 	if ([self hasSecondWord]) {
         //check the current room to see if the item exist
         
-        Item* itemToDrop = [[player inventory] objectForKey: secondWord];
+        //Item* itemToDrop = [[player inventory] objectForKey: secondWord];
+        Item* itemToDrop = [player getItem: secondWord];
 		[itemToDrop retain];
         
         if (itemToDrop == nil ) {
@@ -32,7 +33,8 @@
             [player setCurrentWeight: [player currentWeight] - [itemToDrop weight]];
             
             //remove item from player
-            [[player inventory] removeObjectForKey:[itemToDrop name]];
+            //[[player inventory] removeObjectForKey:[itemToDrop name]];
+            [player removeItem: [itemToDrop name]];
             
             //add item to the current room
             [[[player currentRoom] items] setObject: itemToDrop forKey: [itemToDrop name]];

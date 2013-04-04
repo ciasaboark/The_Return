@@ -15,7 +15,9 @@
 {
 	if ([self hasSecondWord]) {
         //check that the item is in the inventory
-        Item* tmpItem = [[player inventory] objectForKey:secondWord];
+        //Item* tmpItem = [[player inventory] objectForKey:secondWord];
+        Item* tmpItem = [player getItem: secondWord];
+
         if (tmpItem != nil) {
             //check that we are in the correct room to use this item
             if ([tmpItem usedIn] == [player currentRoom]) {
@@ -40,9 +42,10 @@
                     [player outputMessage:@"\nI left the key in the lock as I opened the door.  The hinges creaked as the door swung inward.\n"];
                     [[player currentRoom] setLongDescription:@"The hall ran south from the stairway. A door to the east led to a child's bedroom, a door to the west led to another bedroom. Light from both rooms flooded the northern end of the hall in light, but the southern end was wreathed in shadow. The door at the southern end was now open. A small panel overhead looked like it might lead to an attic."];
                     [player setCurrentWeight: [player currentWeight] - [tmpItem weight]];
-                    [[player inventory] removeObjectForKey:@"key"];
+                    //[[player inventory] removeObjectForKey:@"key"];
+                    [player removeItem: @"key"];
                     [[player currentRoom] setExit:@"south" toRoom:[[player currentRoom] getExit:@"end"]];
-                    [[player currentRoom] setLongDescription:@""];                    
+                    //[[player currentRoom] setLongDescription:@""];                    
                 }
                 
                 else if ([secondWord isEqualToString:@"axe"]) {
@@ -54,7 +57,8 @@
                 else if ([secondWord isEqualToString:@"ladder"]) {
                     [player outputMessage:@"\nI placed the ladder against the wall underneath the panel. It looked tall enough to reach the attic panel.\n"];
                     [player setCurrentWeight: [player currentWeight] - [tmpItem weight]];
-                    [[player inventory] removeObjectForKey:@"ladder"];
+                    //[[player inventory] removeObjectForKey:@"ladder"];
+                    [player removeItem: @"ladder"];
                     //TODO change the hall description to include the ladder
                     [[player currentRoom] setExit:@"up" toRoom:[[player currentRoom] getExit:@"hidden"]];
                 }

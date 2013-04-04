@@ -63,9 +63,8 @@
             [[NSNotificationCenter defaultCenter] postNotificationName:@"pathDark" object:self];
             [self outputMessage:[NSString stringWithFormat:@"\nThe way %@ was too dark to proceed.\n", direction]];
         } else {            
-            //We will pass this to the notifications to simplify the logic later on
-            //+ (currentRoom is already in player object, and previous room can be
-            //+ accessed via [[player roomStack] lastItem], but thats ugly).
+            //We will pass this dictionary to the notifications to simplify the logic within
+            //+ the soundServer.
             NSMutableDictionary* theRooms = [[NSMutableDictionary alloc] init];
             [theRooms setObject:currentRoom forKey:@"previous"];
             [theRooms setObject:nextRoom forKey:@"current"];
@@ -98,17 +97,36 @@
 
 
 -(void)addItem:(Item*) anItem {
-    
+    if (anItem != nil) {
+        [inventory setObject: anItem forKey: [anItem name]];
+    }
 }
 
--(Boolean)hasItem:(NSString*) itemName {
-    Boolean playerHasItem = false;
-    return playerHasItem;
+-(BOOL)hasItem:(NSString*) itemName {
+    BOOL response = NO;
+    if ([[self inventory] objectForKey: itemName]) {
+        response = YES;
+    }
+
+    return response;
+}
+
+-(Item*)getItem:(NSString*)itemName {
+    return [inventory objectForKey: itemName];
 }
 
 -(Item*)removeItem:(NSString*) itemName {
-    return nil;
+    Item* theItem = [[self items] objectForKey: itemName];
+    [theItem retain];
+    [[self items] removeObjectforKey: itemName];
+
+    return [theItem autorelease];
 }
+
+-(int)invSize {
+    return [inventory count];
+}
+
 
 -(void)addPoints:(int) morePoints {
     [self setPoints: points + morePoints];

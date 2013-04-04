@@ -43,8 +43,10 @@
 -(void)outputMessage:(NSString *)message;
 
 -(void)addItem:(Item*) anItem;
--(Boolean)hasItem:(NSString*) itemName;
+-(BOOL)hasItem:(NSString*) itemName;
+-(Item*)getItem:(NSString*)itemName;    //does not modify inventory, returns nil for non existant item
 -(Item*)removeItem:(NSString*) itemName;
+-(int)invSize;
 
 -(void)addPoints:(int) morePoints;
 

@@ -24,11 +24,13 @@
 -(BOOL)execute:(Player *)player
 {
 	if ([self hasSecondWord]) {
-        Item* tmpItem = [[[player currentRoom] items] objectForKey: secondWord];
+        //Item* tmpItem = [[[player currentRoom] items] objectForKey: secondWord];
+        Item* tmpItem = [[player currentRoom] getItem: secondWord];
 
         if (tmpItem == nil) {
             //the item is not in the room, perhaps it is in the players inventory?
-            tmpItem = [[player inventory] objectForKey: secondWord];
+            //tmpItem = [[player inventory] objectForKey: secondWord];
+            tmpItem = [player getItem: secondWord];
             
             if (tmpItem == nil) {
                 //the item does not exist here

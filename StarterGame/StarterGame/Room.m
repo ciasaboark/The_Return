@@ -51,10 +51,32 @@
 	return [exits objectForKey:exit];
 }
 
--(void)addItem:(Item*) anItem {
+-(BOOL)hasItem:(NSString*)itemName {
+	BOOL response = NO;
+	if ([[self items] objectForKey: itemName]) {
+		response = YES;
+	}
+
+	return response;
+}
+
+-(void)addItem:(Item*)anItem {
     if (anItem != nil) {
         [items setObject: anItem forKey: [anItem name]];
     }
+}
+
+-(Item*)getItem:(NSString*)itemName {
+	return [items objectForKey: itemName];
+}
+
+
+-(Item*)removeItem:(NSString*)itemName {
+	Item* theItem = [[self items] objectForKey: itemName];
+	[theItem retain];
+	[[self items] removeObjectforKey: itemName];
+
+	return [theItem autorelease];
 }
 
 -(NSString *)getExits
@@ -62,6 +84,9 @@
 	NSArray *exitNames = [exits allKeys];
 	return [NSString stringWithFormat:@"Exits: %@", [exitNames componentsJoinedByString:@" "]];
 }
+
+-(Item*)removeItem
+
 
 -(NSString *)description
 {

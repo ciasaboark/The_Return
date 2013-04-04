@@ -25,6 +25,7 @@
     [backRoom retain];
     
     if (backRoom) {
+        //used to keep track of room transitions
         NSMutableDictionary* theRooms = [[NSMutableDictionary alloc] init];
         [theRooms setObject:[player currentRoom] forKey:@"previous"];
         [theRooms setObject:backRoom forKey:@"current"];
@@ -33,10 +34,11 @@
 
         [player setCurrentRoom: backRoom];
         [player outputMessage:[NSString stringWithFormat:@"\nI traced my steps back to the %@.\n", backRoom]];
-        [backRoom release];
     } else {
         [player outputMessage:@"\nThere was no path back.  There was only forwards.\n"];
     }
+
+    [backRoom release];
     
 	return NO;
 }

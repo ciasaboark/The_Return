@@ -10,12 +10,14 @@
     if (nil != self) {
         name = @"sleep";
     }
-    return self;
+   \
+   return self;
 }
 
 -(BOOL)execute:(Player *)player
 {
     [player outputMessage:@"\nAn unbearable weight seemed to settle on me.  Alone and confused I sunk to the floor in a stupor...\n"];
+    
     //if the player doesn't even know how he got to this room how could he go back?
     [player clearRoomStack];
     
@@ -28,6 +30,7 @@
         wakeRoom = [[player sleepRooms] objectAtIndex:rand];
     }
     
+    //this will be passed to the notifications so we can track transitions easier.
     NSMutableDictionary* theRooms = [[NSMutableDictionary alloc] init];
     [theRooms setObject:[player currentRoom] forKey:@"previous"];
     [theRooms setObject:wakeRoom forKey:@"current"];

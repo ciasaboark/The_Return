@@ -28,6 +28,7 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"playerDidEnterRoom" object:[player startRoom] userInfo:[theRooms autorelease]];
 
     [player setCurrentRoom: [player startRoom]];
+    //the player is jumping all the way back to the start room, so no need for a back command now
     [player clearRoomStack];
     [player outputMessage:[NSString stringWithFormat:@"\nAs I stepped forward my vision faded, and I found myself back in %@\n", [player startRoom]]];
     
