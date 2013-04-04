@@ -50,7 +50,7 @@ static bool inTransition;
     [sound retain];
     [sound setLoops: YES];
     [sound setVolume:.2];
-    [sound play];
+    [[sound autorelease] play];
 }
 
 +(void)didEnterRoom:(NSNotification*)notification {

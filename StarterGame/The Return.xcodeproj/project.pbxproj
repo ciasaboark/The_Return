@@ -24,6 +24,15 @@
 		81AF892116E6AAC400276C6B /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 81AF891F16E6AAC400276C6B /* Credits.rtf */; };
 		81AF892416E6AAC400276C6B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 81AF892316E6AAC400276C6B /* AppDelegate.m */; };
 		81AF892716E6AAC500276C6B /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81AF892516E6AAC500276C6B /* MainMenu.xib */; };
+		DF0BEF54170CDE2D0022B7FE /* arrow-north.png in Resources */ = {isa = PBXBuildFile; fileRef = DF0BEF53170CDE2D0022B7FE /* arrow-north.png */; };
+		DF0BEF58170CDE4E0022B7FE /* arrow-south.png in Resources */ = {isa = PBXBuildFile; fileRef = DF0BEF55170CDE4E0022B7FE /* arrow-south.png */; };
+		DF0BEF59170CDE4E0022B7FE /* arrow-east.png in Resources */ = {isa = PBXBuildFile; fileRef = DF0BEF56170CDE4E0022B7FE /* arrow-east.png */; };
+		DF0BEF5A170CDE4E0022B7FE /* arrow-west.png in Resources */ = {isa = PBXBuildFile; fileRef = DF0BEF57170CDE4E0022B7FE /* arrow-west.png */; };
+		DF0BEF5C170CDE9F0022B7FE /* downstairs.png in Resources */ = {isa = PBXBuildFile; fileRef = DF0BEF5B170CDE9F0022B7FE /* downstairs.png */; };
+		DF0BEF5E170CDEC40022B7FE /* upstairs.png in Resources */ = {isa = PBXBuildFile; fileRef = DF0BEF5D170CDEC30022B7FE /* upstairs.png */; };
+		DF0BEF60170CE77A0022B7FE /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DF0BEF5F170CE77A0022B7FE /* Icon.png */; };
+		DF0BEF62170CE7B90022B7FE /* cthulhu.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DF0BEF61170CE7B90022B7FE /* cthulhu.jpg */; };
+		DF0BEF64170CE7F00022B7FE /* cthulhu.png in Resources */ = {isa = PBXBuildFile; fileRef = DF0BEF63170CE7F00022B7FE /* cthulhu.png */; };
 		DF8DB433170BA6A400B37AAA /* backpack.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DF8DB425170BA6A400B37AAA /* backpack.mp3 */; };
 		DF8DB434170BA6A400B37AAA /* backpack2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DF8DB426170BA6A400B37AAA /* backpack2.mp3 */; };
 		DF8DB435170BA6A400B37AAA /* cave.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DF8DB427170BA6A400B37AAA /* cave.mp3 */; };
@@ -87,6 +96,15 @@
 		81AF892216E6AAC400276C6B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		81AF892316E6AAC400276C6B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		81AF892616E6AAC500276C6B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		DF0BEF53170CDE2D0022B7FE /* arrow-north.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-north.png"; sourceTree = "<group>"; };
+		DF0BEF55170CDE4E0022B7FE /* arrow-south.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-south.png"; sourceTree = "<group>"; };
+		DF0BEF56170CDE4E0022B7FE /* arrow-east.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-east.png"; sourceTree = "<group>"; };
+		DF0BEF57170CDE4E0022B7FE /* arrow-west.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-west.png"; sourceTree = "<group>"; };
+		DF0BEF5B170CDE9F0022B7FE /* downstairs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = downstairs.png; sourceTree = "<group>"; };
+		DF0BEF5D170CDEC30022B7FE /* upstairs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = upstairs.png; sourceTree = "<group>"; };
+		DF0BEF5F170CE77A0022B7FE /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		DF0BEF61170CE7B90022B7FE /* cthulhu.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cthulhu.jpg; sourceTree = "<group>"; };
+		DF0BEF63170CE7F00022B7FE /* cthulhu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cthulhu.png; sourceTree = "<group>"; };
 		DF70A6381704EB410036EFD6 /* The Return.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "The Return.entitlements"; sourceTree = "<group>"; };
 		DF8DB425170BA6A400B37AAA /* backpack.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = backpack.mp3; sourceTree = "<group>"; };
 		DF8DB426170BA6A400B37AAA /* backpack2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = backpack2.mp3; sourceTree = "<group>"; };
@@ -102,7 +120,7 @@
 		DF8DB431170BA6A400B37AAA /* unlock.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = unlock.mp3; sourceTree = "<group>"; };
 		DF8DB432170BA6A400B37AAA /* wind.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = wind.mp3; sourceTree = "<group>"; };
 		DF8DB442170BA6F700B37AAA /* 5GrungePaperBackground_banner_thumb02.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5GrungePaperBackground_banner_thumb02.jpg; sourceTree = "<group>"; };
-		DF8DB443170BA6F700B37AAA /* return.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; path = return.iconset; sourceTree = "<group>"; };
+		DF8DB443170BA6F700B37AAA /* return.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; name = return.iconset; path = Images/return.iconset; sourceTree = "<group>"; };
 		DF8DB446170BA7A100B37AAA /* coal.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = coal.mp3; sourceTree = "<group>"; };
 		DFA337AD16F534B100666817 /* DropCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropCommand.h; sourceTree = "<group>"; };
 		DFA337AE16F534B100666817 /* DropCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropCommand.m; sourceTree = "<group>"; };
@@ -195,6 +213,10 @@
 		81AF890116E6AAC400276C6B = {
 			isa = PBXGroup;
 			children = (
+				DF0BEF61170CE7B90022B7FE /* cthulhu.jpg */,
+				DF0BEF63170CE7F00022B7FE /* cthulhu.png */,
+				DF0BEF5F170CE77A0022B7FE /* Icon.png */,
+				DF8DB443170BA6F700B37AAA /* return.iconset */,
 				DF8DB441170BA6F700B37AAA /* Images */,
 				DF70A6381704EB410036EFD6 /* The Return.entitlements */,
 				DF8DB424170BA6A400B37AAA /* Sounds */,
@@ -280,8 +302,13 @@
 		DF8DB441170BA6F700B37AAA /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				DF0BEF53170CDE2D0022B7FE /* arrow-north.png */,
+				DF0BEF55170CDE4E0022B7FE /* arrow-south.png */,
+				DF0BEF56170CDE4E0022B7FE /* arrow-east.png */,
+				DF0BEF57170CDE4E0022B7FE /* arrow-west.png */,
+				DF0BEF5D170CDEC30022B7FE /* upstairs.png */,
+				DF0BEF5B170CDE9F0022B7FE /* downstairs.png */,
 				DF8DB442170BA6F700B37AAA /* 5GrungePaperBackground_banner_thumb02.jpg */,
-				DF8DB443170BA6F700B37AAA /* return.iconset */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -356,6 +383,15 @@
 				DF8DB444170BA6F700B37AAA /* 5GrungePaperBackground_banner_thumb02.jpg in Resources */,
 				DF8DB445170BA6F700B37AAA /* return.iconset in Resources */,
 				DF8DB447170BA7A100B37AAA /* coal.mp3 in Resources */,
+				DF0BEF54170CDE2D0022B7FE /* arrow-north.png in Resources */,
+				DF0BEF58170CDE4E0022B7FE /* arrow-south.png in Resources */,
+				DF0BEF59170CDE4E0022B7FE /* arrow-east.png in Resources */,
+				DF0BEF5A170CDE4E0022B7FE /* arrow-west.png in Resources */,
+				DF0BEF5C170CDE9F0022B7FE /* downstairs.png in Resources */,
+				DF0BEF5E170CDEC40022B7FE /* upstairs.png in Resources */,
+				DF0BEF60170CE77A0022B7FE /* Icon.png in Resources */,
+				DF0BEF62170CE7B90022B7FE /* cthulhu.jpg in Resources */,
+				DF0BEF64170CE7F00022B7FE /* cthulhu.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,7 +461,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -444,7 +480,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.4;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
@@ -454,7 +490,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -467,7 +503,8 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.4;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -475,12 +512,15 @@
 		81AF892B16E6AAC500276C6B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = "The Return.entitlements";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "StarterGame/The Return-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "StarterGame/The Return-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "The Return";
+				SUPPORTED_PLATFORMS = macosx;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -488,12 +528,15 @@
 		81AF892C16E6AAC500276C6B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = "The Return.entitlements";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "StarterGame/The Return-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "StarterGame/The Return-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "The Return";
+				SUPPORTED_PLATFORMS = macosx;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -25,11 +25,11 @@
     [theRooms setObject:[player currentRoom] forKey:@"previous"];
     [theRooms setObject:[player startRoom] forKey:@"current"];
 
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"playerDidEnterRoom" object:[player startRoom] userInfo:theRooms];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"playerDidEnterRoom" object:[player startRoom] userInfo:[theRooms autorelease]];
 
     [player setCurrentRoom: [player startRoom]];
     [player clearRoomStack];
-    [player outputMessage:[NSString stringWithFormat:@"\nAs you step forward your vision fades, and find yourself back in %@\n", [player startRoom]]];
+    [player outputMessage:[NSString stringWithFormat:@"\nAs I stepped forward my vision faded, and I found myself back in %@\n", [player startRoom]]];
     
 	return NO;
 }

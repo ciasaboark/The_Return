@@ -33,4 +33,11 @@
     }
     [sender setStringValue:@""];
 }
+
+-(IBAction)playerGoDirection:(id)sender {
+    if ([game execute: [NSString stringWithFormat:@"go %@", [sender alternateTitle]]]) {
+        [game end];
+    }
+    [sender setStringValue:@""];
+}
 @end

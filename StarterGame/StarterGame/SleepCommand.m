@@ -32,7 +32,7 @@
     [theRooms setObject:[player currentRoom] forKey:@"previous"];
     [theRooms setObject:wakeRoom forKey:@"current"];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"playerDidEnterRoom" object:wakeRoom userInfo:theRooms];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"playerDidEnterRoom" object:wakeRoom userInfo:[theRooms autorelease]];
     
     [player setCurrentRoom: wakeRoom];
     

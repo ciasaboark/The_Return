@@ -83,6 +83,7 @@
 
             [[NSNotificationCenter defaultCenter] postNotificationName:@"playerDidExitRoom" object:self userInfo:theRooms];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"playerDidEnterRoom" object:nextRoom userInfo:theRooms];
+            [theRooms autorelease];
         }
 	} else {
         [self outputMessage:[NSString stringWithFormat:@"\nThere was no path %@.\n", direction]];

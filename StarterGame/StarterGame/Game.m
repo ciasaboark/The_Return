@@ -267,12 +267,12 @@
         //collectable items
         Item* hat = [[Item alloc] initWithName:@"hat" andDescription:@"A rumbled bowler hat. Tucked into the rim of the hat was a faded piece of paper with the numbers \"42\", \"28\", and \"16\"." usedIn:nil andWeight:2 andRoomDescription:@"A bowlers HAT rested on a hook by the door."];
     
-        [mast_bed addItem: master_bedroom_bed];
-        [mast_bed addItem: master_bedroom_windows];
-        [mast_bed addItem: master_bedroom_couch];
-        [mast_bed addItem: master_bedroom_dresser];
-        [mast_bed addItem: master_bedroom_closet];
-        [mast_bed addItem: hat];
+        [mast_bed addItem: [master_bedroom_bed autorelease]];
+        [mast_bed addItem: [master_bedroom_windows autorelease]];
+        [mast_bed addItem: [master_bedroom_couch autorelease]];
+        [mast_bed addItem: [master_bedroom_dresser autorelease]];
+        [mast_bed addItem: [master_bedroom_closet autorelease]];
+        [mast_bed addItem: [hat autorelease]];
    
    //Items in the Master Bath
         //Fixed Items
@@ -285,11 +285,11 @@
         Item* mast_bath_shelf = [[Item alloc] initWithName:@"shelf" andDescription:@"A shelf of white wood." usedIn:nil andWeight:-1 andRoomDescription:@"A SHELF above the sink held a few items."];
             //Items on the shelf
             Item* razor = [[Item alloc] initWithName:@"razor" andDescription:@"It was a straight razor. The handle was made in ivory. It seemed to be sharp, but there are small spots of rust on the blade." usedIn:nil andWeight:1 andRoomDescription:@"A RAZOR is on the shelf."];
-            [[mast_bath_shelf hiddenItems] addObject: razor];
+            [[mast_bath_shelf hiddenItems] addObject: [razor autorelease]];
 
-        [mast_bath addItem: mast_bath_tub];
-        [mast_bath addItem: mast_bath_mirror];
-        [mast_bath addItem: mast_bath_shelf];
+        [mast_bath addItem: [mast_bath_tub autorelease]];
+        [mast_bath addItem: [mast_bath_mirror autorelease]];
+        [mast_bath addItem: [mast_bath_shelf autorelease]];
 
     //Items for the dining room
         //Fixed Items
@@ -297,9 +297,9 @@
         Item* dining_room_clock = [[Item alloc] initWithName:@"clock" andDescription:@"The grandfather CLOCK is large and dark." usedIn:nil andWeight: 60 andRoomDescription:@"Sitting against the wall by the door there is a grandfather CLOCK."];
         Item* dining_room_china = [[Item alloc] initWithName:@"cabinet" andDescription:@"The china CABINET is filled with dishes of fine porcelain and silverware that gleams even in the dim light." usedIn:nil andWeight:60 andRoomDescription:@"A large china CABINET has been placed along the center of the western wall, flanked on either side by serving trays."];
     
-        [dining_room addItem: dining_room_table];
-        [dining_room addItem: dining_room_clock];
-        [dining_room addItem: dining_room_china];
+        [dining_room addItem: [dining_room_table autorelease]];
+        [dining_room addItem: [dining_room_clock autorelease]];
+        [dining_room addItem: [dining_room_china autorelease]];
 
 
     //Items in the library
@@ -307,16 +307,16 @@
         Item* library_book_stand = [[Item alloc] initWithName:@"stand" andDescription:@"A book STAND. On the stand there is an open book. The book appears to be some kind of journal. A page is open, weighted down by a carved raven. Though the dates on the page are ledgable, the text is mostly gibberish. A single passage stands out, written in a shakey hand:\n----\nJuly 23rd 1918:\n\tSounds from below again. The well. The boards wont't hold forever. Should have ended it." usedIn:nil andWeight:40 andRoomDescription:@"Against the south wall there is a book STAND with an open book on top."];
             //Items on the book stand
             Item* raven = [[Item alloc] initWithName:@"raven" andDescription:@"A small black onyx carving of a raven. The birds beak is open, as if caught in a moment of speech." usedIn:nil andWeight:3 andRoomDescription:@"" andPoints: 0 andSpecial:true];
-            [[library_book_stand hiddenItems] addObject:raven];
+            [[library_book_stand hiddenItems] addObject:[raven autorelease]];
         
          Item* library_book_stack = [[Item alloc] initWithName:@"stack" andDescription:@"A large STACK of book. You look through the titles and notice some obscure subjects:\n\"The OCCULT of New Haven\"\n\"On the Religion of Papa New GUINEA\"\n\"Rituals and Practices of IRAM of the Pillars\"." usedIn:nil andWeight:-1 andRoomDescription:@"On a table beside the chairs there is a large STACK of books."];
             //Books in the stack
             Item* book_stack_occult = [[Item alloc] initWithName:@"occult" andDescription:@"" usedIn:nil andWeight:3 andRoomDescription:@"" andPoints: 10];
             Item* book_stack_guinea = [[Item alloc] initWithName:@"guinea" andDescription:@"" usedIn:nil andWeight:3 andRoomDescription:@"" andPoints: 10];
             Item* book_stack_iram = [[Item alloc] initWithName:@"iram" andDescription:@"" usedIn:nil andWeight:3 andRoomDescription:@"" andPoints: 10];
-            [[library_book_stack hiddenItems] addObject:book_stack_occult];
-            [[library_book_stack hiddenItems] addObject:book_stack_guinea];
-            [[library_book_stack hiddenItems] addObject:book_stack_iram];
+            [[library_book_stack hiddenItems] addObject:[book_stack_occult autorelease]];
+            [[library_book_stack hiddenItems] addObject:[book_stack_guinea autorelease]];
+            [[library_book_stack hiddenItems] addObject:[book_stack_iram autorelease]];
             
 
         Item* library_fireplace = [[Item alloc] initWithName:@"fireplace" andDescription:@"A brick FIREPLACE.  Three leather-covered chairs face the fireplace. The mantlepiece appears to be ebony. Carved figures adorn the sides. The brick and metal are cold, and there is not even the slightest smell of soot in the air. The cast iron grating covers the front." usedIn:nil andWeight:-1 andRoomDescription:@"Along the north wall of the library there is a FIREPLACE."];
@@ -326,10 +326,10 @@
         //Collectable Items
         Item* bust = [[Item alloc] initWithName:@"bust" andDescription:@"A pale marble bust of some long forgotten Greek god." usedIn:nil andWeight:5 andRoomDescription:@"" andPoints:0 andSpecial:true];
         
-        [sitting_room addItem: library_fireplace];
-        [sitting_room addItem: library_book_stand];
-        [sitting_room addItem: library_book_stack];
-        [sitting_room addItem: bust];
+        [sitting_room addItem: [library_fireplace autorelease]];
+        [sitting_room addItem: [library_book_stand autorelease]];
+        [sitting_room addItem: [library_book_stack autorelease]];
+        [sitting_room addItem: [bust autorelease]];
 
 
     //Items in the Formal room
@@ -337,13 +337,13 @@
         Item* formal_room_record = [[Item alloc] initWithName:@"phonograph" andDescription:@"A phonograph player of older design." usedIn:nil andWeight:60 andRoomDescription:@"In the middle of the western wall there is a PHONOGRAPH player. Dispite there being no record on the player you can almost hear the music playing."];
             //Items by the record player
             Item* formal_room_record_1 = [[Item alloc] initWithName:@"record" andDescription:@"A classical record by Claude Debussy \"En blanc et noir.\" I remembered finding a copy of this same record a few years back, and of dancing with a lady in white. It seemed strange that I could remember such a small detail, but nothing of who I was or who I danced with." usedIn:nil andWeight:1 andRoomDescription:@"There was a RECORD of classical music beside the phonograph." andPoints:10];
-            [[formal_room_record hiddenItems] addObject:formal_room_record_1];
+            [[formal_room_record hiddenItems] addObject:[formal_room_record_1 autorelease]];
             
         
         Item* formal_room_chairs = [[Item alloc] initWithName:@"chairs" andDescription:@"Two rows of chairs, one along the north wall, and one along the south. The chairs were ornate, and did not look like they had seen much use. It was obvious that the room was intended to be used for entertaining and socializing." usedIn:nil andWeight:-1 andRoomDescription:@"Along both the north and south wall there are rows of CHAIRS."];
 
-        [formal_room addItem: formal_room_record];
-        [formal_room addItem: formal_room_chairs];
+        [formal_room addItem: [formal_room_record autorelease]];
+        [formal_room addItem: [formal_room_chairs autorelease]];
 
     //Items in the kitchen
         //Fixed items
@@ -353,18 +353,18 @@
         //Collectable Items
         Item* knife = [[Item alloc] initWithName:@"knife" andDescription:@"" usedIn:nil andWeight:4 andRoomDescription:@""];
 
-        [kitchen addItem: kitchen_stove];
-        [kitchen addItem: kitchen_table];
-        [kitchen addItem: knife];
+        [kitchen addItem: [kitchen_stove autorelease]];
+        [kitchen addItem: [kitchen_table autorelease]];
+        [kitchen addItem: [knife autorelease]];
 
     //Items in the servant's dining room
         //Fixed items
         Item* srvnt_dining_room_table = [[Item alloc] initWithName:@"table" andDescription:@"" usedIn:nil andWeight:60 andRoomDescription:@""];
             //Items on the servant's dining room table
              Item* lantern = [[Item alloc] initWithName:@"lantern" andDescription:@"The metal was more rust than shine, and the glass covering was chipped at the top, but there was a small amount of oil in the reservoir, and a pair of matches were stuck into a container at the base. It might hold a flame long enough to see by." usedIn:cave andWeight:3 andRoomDescription:@"I saw an old LANTERN on the table."];
-            [[srvnt_dining_room_table hiddenItems] addObject: lantern];
+            [[srvnt_dining_room_table hiddenItems] addObject:[lantern autorelease]];
 
-        [srvnt_dining_room addItem: srvnt_dining_room_table];
+        [srvnt_dining_room addItem:[srvnt_dining_room_table autorelease]];
 
     //Items in the well house
         //Collectable items
@@ -372,10 +372,10 @@
         Item* well = [[Item alloc] initWithName:@"well" andDescription:@"The well was a wooden box covering a deep shaft. The first few feet were lined in brick but the light did not reach far enough down to see further. The rope that hung down into the darkness swayed, and a slight breeze rose from the depths. It smelled of damp and mold.  The hole seemed unusually wide, and I wondered how deep the shaft went." usedIn:nil andWeight:-1 andRoomDescription:@""];
             //Items next to the well
             Item* coal = [[Item alloc] initWithName:@"coal" andDescription:@"The box was small enough that I could carry it with me, and held only a few lumps of coal. The coal was damp to the touch and I didn't think it would hold a flame. I couldn't see a use for it yet." usedIn:well_house andWeight:6 andRoomDescription:@"There was a small wooden box of COAL next to the well."];
-            [[well hiddenItems] addObject: coal];
+            [[well hiddenItems] addObject:[coal autorelease]];
 
-        [well_house addItem:ladder];
-        [well_house addItem: well];
+        [well_house addItem:[ladder autorelease]];
+        [well_house addItem:[well autorelease]];
 
 
     //Items in the cave
@@ -383,9 +383,9 @@
         Item* cave_gleam = [[Item alloc] initWithName:@"gleam" andDescription:@"A small section of the floor gleamed a bit brighter than the rest. Sticking up slightly from the mud I saw the outline of something hard. I scraped the mud away and saw that there was a small statue embeded in the ground." usedIn:nil andWeight:-1 andRoomDescription:@""];
             //Items in the gleam
             Item* cthulhu = [[Item alloc] initWithName:@"statue" andDescription:@"A small jade statue of some obscene monstrosity. It is vaguely huminoid, but bat wings drap the figure, and a mass of tenticles are its mouth. The figure is crouched, as if waiting. Along the base there are words carved: \"Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn.\""usedIn:nil andWeight:3 andRoomDescription:@"" andPoints:0 andSpecial:true];
-            [[cave_gleam hiddenItems] addObject:cthulhu];
+            [[cave_gleam hiddenItems] addObject:[cthulhu autorelease]];
         
-        [cave addItem:cave_gleam];
+        [cave addItem:[cave_gleam autorelease]];
     
     //Items in the cave tunnel
     
@@ -394,20 +394,20 @@
         Item* grave = [[Item alloc] initWithName:@"grave" andDescription:@"The headstone read:\n\n\t\t\t\t\t\t William Alexander Gardner\n\t\t\t\t\t\t       1887 - 1918\n\t\t\t\t\t\tBeloved Husband and Father.\n\nThe ground around the grave had been recently disturbed, like some animal has dug into it. The hole reached far enough into the ground that the end disappeared into shadow, but I was sure I saw the lining of a casket below. I didn't notice a body in the grave, and this seemed like a strange place for grave robbers to visit." usedIn:nil andWeight:-1 andRoomDescription:@"At the western edge of the plot a GRAVE had been disturbed." andPoints:10];
             //Items beside the grave
             Item* locket = [[Item alloc] initWithName:@"locket" andDescription:@"A gold locket. I opened the locket and was greeted by a picture of a smiling man, woman, and infant. On the inside of the front, in letters small enough to be hard to read by the moonlight, there is an inscription: \n\t\"Olphelia, Wife and Mother. With love. W. 1913\"" usedIn:nil andWeight:1 andRoomDescription:@"I noticed the glint of a small locket in the dirt beside the grave." andPoints:0 andSpecial:true];
-            [[grave hiddenItems] addObject:locket];
-        [cemetery addItem:grave];
+            [[grave hiddenItems] addObject:[locket autorelease]];
+        [cemetery addItem:[grave autorelease]];
     
     //Items in the sewing room
         //Fixed items
         Item* sewing_room_corner = [[Item alloc] initWithName:@"corner" andDescription:@"In the corner there is movement EXPAND MOVEMENT TOWARDS MIRROR HERE" usedIn:nil andWeight:-1 andRoomDescription:@""];
             //Items in the corner
    			 Item* mirror = [[Item alloc] initWithName:@"thing" andDescription:@"In the corner of the room some THING waits crouched. In the dim light it is impossible to make out any details. EXPAND DESCRIPTION OF TOUCHING THE MIRROR" usedIn:nil andWeight:60 andRoomDescription:@"" andPoints:20];
-            [[sewing_room_corner hiddenItems] addObject:mirror];
+            [[sewing_room_corner hiddenItems] addObject:[mirror autorelease]];
         //Regular Items
         Item* axe = [[Item alloc] initWithName:@"axe" andDescription:@"A broken AXE. The handle is just long enough to be used as a hatchet." usedIn:hall1 andWeight:1 andRoomDescription:@"Lying beside the body there is a broken AXE."];
     
-        [sewing_room addItem:sewing_room_corner];
-        [sewing_room addItem:axe];
+        [sewing_room addItem:[sewing_room_corner autorelease]];
+        [sewing_room addItem:[axe autorelease]];
     
     //Items in the workroom
         //Fixed items
@@ -419,17 +419,17 @@
         Item* workroom_cirTable = [[Item alloc] initWithName:@"table" andDescription:@"The table was broad and wedge shaped. Its face bore many gouges and burn marks." usedIn:nil andWeight:-1 andRoomDescription:@"A semi-circular TABLE was pushed into the north-west corner."];
             //Items on the table
             Item* workroom_cirTable_burner = [[Item alloc] initWithName:@"burner" andDescription:@"The burner was fixed to the table with four solid bolts. The gas line had been cut, and there was no canister in sight." usedIn:nil andWeight:-1 andRoomDescription:@"A BURNER had been bolted to the table."];
-            [[workroom_cirTable hiddenItems] addObject:workroom_cirTable_burner];
+            [[workroom_cirTable hiddenItems] addObject:[workroom_cirTable_burner autorelease]];
         
         Item* workroom_box = [[Item alloc] initWithName:@"box" andDescription:@"The box was filled with a number of items all thrown in haphazardly." usedIn:nil andWeight:30 andRoomDescription:@"I noticed a BOX filled with a jumble of items near the door to the hall"];
             //Items in the box
             Item* workroom_box_flasks = [[Item alloc] initWithName:@"flasks" andDescription:@"There were a variety of glass flasks, some still covered in burn marks and residue. I couldn't tell what the flaks had been used for, but an acrid smell emanated from them." usedIn:nil andWeight:4 andRoomDescription:@"Inside the box there was a number of glass FLASKS."];
-            [[workroom_box hiddenItems] addObject:workroom_box_flasks];
+            [[workroom_box hiddenItems] addObject:[workroom_box_flasks autorelease]];
     
-        [workroom addItem:workroom_windows];
-        [workroom addItem:workroom_sign];
-        [workroom addItem:workroom_cirTable];
-        [workroom addItem:workroom_box];
+        [workroom addItem:[workroom_windows autorelease]];
+        [workroom addItem:[workroom_sign autorelease]];
+        [workroom addItem:[workroom_cirTable autorelease]];
+        [workroom addItem:[workroom_box autorelease]];
     
      
     //Some Items
