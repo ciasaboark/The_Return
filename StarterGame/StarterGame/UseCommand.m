@@ -39,8 +39,8 @@
                 }
                 
                 else if ([secondWord isEqualToString:@"key"]) {
-                    [player outputMessage:@"\nI left the key in the lock as I opened the door.  The hinges creaked as the door swung inward.\n"];
-                    [[player currentRoom] setLongDescription:@"The hall ran south from the stairway. A door to the east led to a child's bedroom, a door to the west led to another bedroom. Light from both rooms flooded the northern end of the hall in light, but the southern end was wreathed in shadow. The door at the southern end was now open. A small panel overhead looked like it might lead to an attic."];
+                    [player outputMessage:@"\nI left the key in the lock as I opened the door. The hinges creaked as the door swung inward.\n"];
+                    [[player currentRoom] setLongDescription:@"The hall ran south from the stairway. A door to the east led to a child's bedroom, a door to the west led to another bedroom. Light from both rooms flooded the northern end of the hall in light, but the southern end was wreathed in shadow. The door at the southern end was now open. A small panel overhead looked like it might lead to an attic.\n"];
                     [player setCurrentWeight: [player currentWeight] - [tmpItem weight]];
                     //[[player inventory] removeObjectForKey:@"key"];
                     [player removeItem: @"key"];
@@ -64,20 +64,20 @@
                 }
 
                 else if ([secondWord isEqualToString:@"coal"]) {
-                    [player outputMessage:@"\nI picked a small piece of coal out of the box and dropped it into the well opening. After a short delay I heard the distinct sound of rock hitting rock. I couldn't tell how deep the well was, but it shaft definately didn't end in water."];
+                    [player outputMessage:@"\nI picked a small piece of coal out of the box and dropped it into the well opening. After a short delay I heard the distinct sound of rock hitting rock. I couldn't tell how deep the well was, but it shaft definately didn't end in water.\n"];
                 }
 
                 else {
-                    [player outputMessage:@"\nWoops, this item is missing its use block"];
+                    [player outputMessage:@"\nWoops, this item is missing its use block\n"];
                 }
             } else {
-                [player outputMessage:[NSString stringWithFormat:@"I couldn't see how to use the %@ here.",secondWord]];
+                [player outputMessage:[NSString stringWithFormat:@"I couldn't see how to use the %@ here.\n",secondWord]];
             }
         } else {
-            [player outputMessage:@"I did not have that item."];
+            [player outputMessage:@"I did not have that item.\n"];
         }
     } else {
-        [player outputMessage:@"Use what?"];
+        [player outputMessage:@"Use what?\n"];
     }
     return NO;
 }

@@ -32,7 +32,6 @@
 		DF0BEF5E170CDEC40022B7FE /* upstairs.png in Resources */ = {isa = PBXBuildFile; fileRef = DF0BEF5D170CDEC30022B7FE /* upstairs.png */; };
 		DF0BEF60170CE77A0022B7FE /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DF0BEF5F170CE77A0022B7FE /* Icon.png */; };
 		DF0BEF62170CE7B90022B7FE /* cthulhu.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DF0BEF61170CE7B90022B7FE /* cthulhu.jpg */; };
-		DF0BEF64170CE7F00022B7FE /* cthulhu.png in Resources */ = {isa = PBXBuildFile; fileRef = DF0BEF63170CE7F00022B7FE /* cthulhu.png */; };
 		DF8DB433170BA6A400B37AAA /* backpack.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DF8DB425170BA6A400B37AAA /* backpack.mp3 */; };
 		DF8DB434170BA6A400B37AAA /* backpack2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DF8DB426170BA6A400B37AAA /* backpack2.mp3 */; };
 		DF8DB435170BA6A400B37AAA /* cave.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DF8DB427170BA6A400B37AAA /* cave.mp3 */; };
@@ -391,7 +390,6 @@
 				DF0BEF5E170CDEC40022B7FE /* upstairs.png in Resources */,
 				DF0BEF60170CE77A0022B7FE /* Icon.png in Resources */,
 				DF0BEF62170CE7B90022B7FE /* cthulhu.jpg in Resources */,
-				DF0BEF64170CE7F00022B7FE /* cthulhu.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

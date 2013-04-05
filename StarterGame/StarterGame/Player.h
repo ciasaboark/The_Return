@@ -46,7 +46,7 @@
 -(BOOL)hasItem:(NSString*) itemName;
 -(Item*)getItem:(NSString*)itemName;    //does not modify inventory, returns nil for non existant item
 -(Item*)removeItem:(NSString*) itemName;
--(int)invSize;
+-(unsigned long)invSize;
 
 -(void)addPoints:(int) morePoints;
 

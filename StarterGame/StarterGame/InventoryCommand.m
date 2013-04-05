@@ -24,7 +24,7 @@
     NSString* returnString = @"\nI looked through my backpack and saw:";
     
     //if ([[player inventory] count] == 0) {
-    if ([player invSize == 0]) {
+    if ([player invSize] == 0) {
         returnString = @"\nI wasn't carrying anything yet.";
     } else {
         for (id key in [player inventory]) {

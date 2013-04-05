@@ -104,7 +104,7 @@
 
 -(BOOL)hasItem:(NSString*) itemName {
     BOOL response = NO;
-    if ([[self inventory] objectForKey: itemName]) {
+    if ([[self inventory] objectForKey: itemName] != nil) {
         response = YES;
     }
 
@@ -112,18 +112,20 @@
 }
 
 -(Item*)getItem:(NSString*)itemName {
-    return [inventory objectForKey: itemName];
+    Item* theItem = [inventory objectForKey: itemName];
+    [theItem retain];
+    return [theItem autorelease];
 }
 
 -(Item*)removeItem:(NSString*) itemName {
-    Item* theItem = [[self items] objectForKey: itemName];
+    Item* theItem = [[self inventory] objectForKey: itemName];
     [theItem retain];
-    [[self items] removeObjectforKey: itemName];
+    [inventory removeObjectForKey: itemName];
 
     return [theItem autorelease];
 }
 
--(int)invSize {
+-(unsigned long)invSize {
     return [inventory count];
 }
 

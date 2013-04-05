@@ -53,7 +53,7 @@
 
 -(BOOL)hasItem:(NSString*)itemName {
 	BOOL response = NO;
-	if ([[self items] objectForKey: itemName]) {
+	if ([[self items] objectForKey: itemName] != nil) {
 		response = YES;
 	}
 
@@ -67,14 +67,16 @@
 }
 
 -(Item*)getItem:(NSString*)itemName {
-	return [items objectForKey: itemName];
+    Item* theItem = [items objectForKey: itemName];
+    [theItem retain];
+    return [theItem autorelease];
 }
 
 
 -(Item*)removeItem:(NSString*)itemName {
 	Item* theItem = [[self items] objectForKey: itemName];
 	[theItem retain];
-	[[self items] removeObjectforKey: itemName];
+	[items removeObjectForKey: itemName];
 
 	return [theItem autorelease];
 }
@@ -85,16 +87,12 @@
 	return [NSString stringWithFormat:@"Exits: %@", [exitNames componentsJoinedByString:@" "]];
 }
 
--(Item*)removeItem
 
-
--(NSString *)description
-{
+-(NSString *)description {
     return [NSString stringWithFormat:@"%@", tag];
 }
 
--(void)dealloc
-{
+-(void)dealloc {
 	[tag release];
 	[exits release];
     [longDescription release];

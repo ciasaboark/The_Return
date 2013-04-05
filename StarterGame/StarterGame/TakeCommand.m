@@ -20,7 +20,7 @@
         
         //TODO how about a method in Room to avoid this mess?
         //Item* itemToTake = [[[player currentRoom] items] objectForKey: secondWord];
-        Item* itemToTake = [player getItem: secondWord];
+        Item* itemToTake = [[player currentRoom] getItem: secondWord];
         [itemToTake retain];
 
         if (itemToTake == nil ) {

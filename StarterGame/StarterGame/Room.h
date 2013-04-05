@@ -16,7 +16,6 @@
 	NSMutableDictionary* exits;
     NSString* longDescription;
     NSMutableDictionary* items;
-    LockedRoomDelegate* 
 }
 
 @property (retain, nonatomic)NSString* tag;
