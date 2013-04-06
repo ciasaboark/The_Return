@@ -68,8 +68,9 @@
     cave = [[[Room alloc] initWithTag:@"an underground cave"] autorelease];
     cave_hall = [[[Room alloc] initWithTag:@"a long underground tunnel" ] autorelease];
     cemetery = [[[Room alloc] initWithTag:@"a small family cemetery"] autorelease];
-    [cave setType:3];
-    [cave_hall setType:3];
+    [cave setType:@"cave"];
+    [cave_hall setType:@"cave"];
+    [cemetery setType:@"outside"];
 
     //The upstairs rooms
 	Room 	*bed1, *workroom, *bed3, *bathroom, *upstairs_hall, *short_hall, *sewing_room, *srvnt_bed_room, *attic;

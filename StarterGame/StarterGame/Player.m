@@ -72,6 +72,7 @@
 
             [self pushRoom: currentRoom];
             [self setCurrentRoom:nextRoom];
+            NSLog(@"player now in %@", nextRoom);
             
             //We can pretty things up a bit by using some random verbs
             NSArray *verbs = [NSArray arrayWithObjects: @"entered", @"walked into", @"made my way to", nil];
@@ -121,7 +122,7 @@
     Item* theItem = [[self inventory] objectForKey: itemName];
     [theItem retain];
     [inventory removeObjectForKey: itemName];
-    [self setCurrentWeight: [player currentWeight] - [theItem weight]];
+    [self setCurrentWeight: [self currentWeight] - [theItem weight]];
 
     return [theItem autorelease];
 }

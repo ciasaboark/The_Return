@@ -39,7 +39,8 @@
         items = [[NSMutableDictionary alloc] init];
 
         //type is set to ground floor by default
-        type = 0;
+        [self setType:@"ground"];
+        [self setPreferedAmbient: nil];
 	}
     
 	return self;

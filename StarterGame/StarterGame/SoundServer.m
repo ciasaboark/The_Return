@@ -18,15 +18,16 @@ static NSMutableArray* transitionRequests;
     if (!sndServer) {
         sndServer = [[[self class] alloc] init];
         ambient = nil;
-        inTransition = false;
-        transitionRequets = [[NSMutableArray alloc] initWithCapacity:10];
+        //inTransition = false;
+        transitionRequests = [[NSMutableArray alloc] initWithCapacity:10];
         [self registerForNotifications];
     } else {
         NSLog(@"SoundServer: already running\n");
     }
 
     //we will let a background thread handle changing the ambient sounds
-    [NSThread detachNewThreadSelector:@selector(T_ambientSoundManager) toTarget:self];
+    //[self spawnAmbientWatcher];
+    [NSThread detachNewThreadSelector:@selector(T_ambientSoundManager) toTarget:self withObject:nil];
 
     return sndServer;
 }
@@ -71,11 +72,12 @@ static NSMutableArray* transitionRequests;
     } else {
         [self changeAmbientSound:nil];
     }
+}
 
 
 +(void)didRoomTransition:(NSNotification*)notification {
-    Room* previous = [[notification userInfo] objectForKey:@"previous"];
-    Room* current = [[notification userInfo] objectForKey:@"current"];
+  //  Room* previous = [[notification userInfo] objectForKey:@"previous"];
+  //  Room* current = [[notification userInfo] objectForKey:@"current"];
 
     //check each room for a type
 
@@ -131,14 +133,22 @@ static NSMutableArray* transitionRequests;
 
 //changeAmbientSound should be used when changing environments
 +(void)changeAmbientSound:(NSString*)theSoundName {
-    //[NSThread detachNewThreadSelector:@selector(T_changeAmbientSound:) toTarget:self withObject:theSoundName];
-    [[self transitonRequests] addObject:theSoundName];
+    //nil can not be inserted into an NSArray
+    NSLog(@"SoundServer: changing ambient sound to : %@", theSoundName);
+    if (theSoundName) {
+        [transitionRequests addObject:theSoundName];
+    }
+}
+
++(void)spawnAmbientWatcher {
+    //[NSThread detachNewThreadSelector:@selector(T_ambientSoundManager) toTarget:self ];
 }
 
 +(void)T_ambientSoundManager {
     //run in a constant loop looking for sound change requests
     while (true) {
         if ([transitionRequests count] != 0) {
+            NSLog(@"SoundServer: found a transition request");
             NSString* requestedFileName = [transitionRequests objectAtIndex:0];
             [requestedFileName retain];
             [transitionRequests removeObjectAtIndex:0];
@@ -156,7 +166,7 @@ static NSMutableArray* transitionRequests;
                         [ambient stop];
                         [ambient release];
                         ambient = nil;
-                        if (theSoundName) {
+                        if (requestedFileName) {
                             ambient = [NSSound soundNamed:requestedFileName];
                             [ambient retain];
                             [ambient setVolume:1.0];
