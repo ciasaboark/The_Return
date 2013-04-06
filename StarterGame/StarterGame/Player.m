@@ -80,8 +80,8 @@
             
             [self outputMessage:[NSString stringWithFormat:@"\nI %@ %@.\n", [verbs objectAtIndex: rand], nextRoom]];
 
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"playerDidExitRoom" object:self userInfo:theRooms];
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"playerDidEnterRoom" object:nextRoom userInfo:theRooms];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"playerDidRoomTransition" object:self userInfo:theRooms];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"playerDidEnterRoom" object:nextRoom];
             [theRooms autorelease];
         }
 	} else {
@@ -121,6 +121,7 @@
     Item* theItem = [[self inventory] objectForKey: itemName];
     [theItem retain];
     [inventory removeObjectForKey: itemName];
+    [self setCurrentWeight: [player currentWeight] - [theItem weight]];
 
     return [theItem autorelease];
 }

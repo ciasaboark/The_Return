@@ -21,11 +21,7 @@
 
 -(BOOL)execute:(Player *)player
 {
-	NSMutableDictionary* theRooms = [[NSMutableDictionary alloc] init];
-    [theRooms setObject:[player currentRoom] forKey:@"previous"];
-    [theRooms setObject:[player startRoom] forKey:@"current"];
-
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"playerDidEnterRoom" object:[player startRoom] userInfo:[theRooms autorelease]];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"playerDidEnterRoom" object:[player startRoom]];
 
     [player setCurrentRoom: [player startRoom]];
     //the player is jumping all the way back to the start room, so no need for a back command now

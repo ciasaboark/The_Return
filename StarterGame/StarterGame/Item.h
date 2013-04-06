@@ -15,7 +15,7 @@
 	//A long, free form description of the object as it appears in the room.  If the item is visible, this will be
 	//+ appended to the room description when the player uses the 'look' command.  If the item has been 'drop'ed in
 	//+ a room this description is not used, and a generic description of 'drop'ed items (the short name) is used
-	//+ instead.
+	//+ instead.  Non-unique items should have their name UPPERCASED here to indicate that they can be interacted with.
 	NSString* roomDescription;
 
 	//This item may have been dropped in a room other than where it was initially placed.

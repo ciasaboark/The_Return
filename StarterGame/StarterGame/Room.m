@@ -16,6 +16,7 @@
 @synthesize longDescription;
 @synthesize items;
 @synthesize exits;
+@synthesize type;
 
 -(id)init
 {
@@ -36,6 +37,9 @@
         
         //items are added after initialization
         items = [[NSMutableDictionary alloc] init];
+
+        //type is set to ground floor by default
+        type = 0;
 	}
     
 	return self;
@@ -81,15 +85,15 @@
 	return [theItem autorelease];
 }
 
--(NSString *)getExits
-{
-	NSArray *exitNames = [exits allKeys];
-	return [NSString stringWithFormat:@"Exits: %@", [exitNames componentsJoinedByString:@" "]];
-}
+// -(NSString *)getExits
+// {
+// 	NSArray *exitNames = [exits allKeys];
+// 	return [NSString stringWithFormat:@"Exits: %@", [exitNames componentsJoinedByString:@" "]];
+// }
 
 
 -(NSString *)description {
-    return [NSString stringWithFormat:@"%@", tag];
+    return tag;
 }
 
 -(void)dealloc {

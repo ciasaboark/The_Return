@@ -7,7 +7,6 @@
 //
 
 #import <Cocoa/Cocoa.h>
-//#import "Item.h"
 
 @class Item;
 
@@ -16,12 +15,14 @@
 	NSMutableDictionary* exits;
     NSString* longDescription;
     NSMutableDictionary* items;
+    NSString* type;	//one of: ground, upstairs, attic, cave, outside
 }
 
 @property (retain, nonatomic)NSString* tag;
 @property (retain, nonatomic)NSString* longDescription;
 @property (retain, nonatomic)NSMutableDictionary* items;
 @property (retain, nonatomic)NSMutableDictionary* exits;
+@property (nonatomic)int type;
 
 -(id)init;
 -(id)initWithTag:(NSString *)newTag;
@@ -31,6 +32,6 @@
 -(Item*)getItem:(NSString*)itemName;	//only returns a reference to the item, nill if the item does not exist
 -(Item*)removeItem:(NSString*)itemName;
 -(Room *)getExit:(NSString *)exit;
--(NSString *)getExits;
+// -(NSString *)getExits;
 
 @end

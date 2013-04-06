@@ -37,13 +37,13 @@
     //sendLine expects every incomming line to be able to fit in the width provided.  If there are
     //+ multiple lines that require wrapping then the content could be placed too far down to read.
     
-    //To fix this we split every outgoing line into multiple lines of 81 or less characters.
+    //To fix this we split every outgoing line into multiple lines of maxLength or less characters.
     
     //To keep the output from splitting mid-word we tokenize each word then check to see whether
     //+ adding that word would place the length over the max.
     
     //We keep track of spaces to make sure that lines of many short words do not go over the limit.
-    int maxlength = 96;
+    int maxlength = 95;
     NSArray *sLines = [input componentsSeparatedByString:@"\n"];
     
     for (id string in sLines) {
@@ -54,9 +54,7 @@
         for (id word in wordTokens) {
             if ([outLine length] + [word length] + spaces < maxlength) {
                 outLine = [NSString stringWithFormat:@"%@%@ ", outLine, word];
-                spaces++;
-                //NSLog(@"Adding %@ to outline",word);
-                
+                spaces++;                
             } else {
                 //the line is too long, we need to start a new one
                 [self sendLine:outLine];
@@ -67,7 +65,6 @@
         
       [self sendLine:outLine];
     }
-    //[self refreshOutput];
 }
 
 -(void)refreshOutput

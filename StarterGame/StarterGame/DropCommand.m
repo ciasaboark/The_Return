@@ -16,7 +16,6 @@
 	if ([self hasSecondWord]) {
         //check the current room to see if the item exist
         
-        //Item* itemToDrop = [[player inventory] objectForKey: secondWord];
         Item* itemToDrop = [player getItem: secondWord];
 		[itemToDrop retain];
         
@@ -30,14 +29,13 @@
             [itemToDrop setIsDropped:true];
             
             //lighten the load a bit
-            [player setCurrentWeight: [player currentWeight] - [itemToDrop weight]];
+            //[player setCurrentWeight: [player currentWeight] - [itemToDrop weight]];
             
             //remove item from player
-            //[[player inventory] removeObjectForKey:[itemToDrop name]];
             [player removeItem: [itemToDrop name]];
             
             //add item to the current room
-            [[[player currentRoom] items] setObject: itemToDrop forKey: [itemToDrop name]];
+            [[player currentRoom] addItem: itemToDrop];
             
             [player outputMessage:[NSString stringWithFormat:@"\nI dropped the %@ in the middle of the %@.\n", [itemToDrop name], [[player currentRoom] tag]]];
         }

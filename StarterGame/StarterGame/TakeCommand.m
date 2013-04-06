@@ -19,7 +19,6 @@
         //check the current room to see if the item exist
         
         //TODO how about a method in Room to avoid this mess?
-        //Item* itemToTake = [[[player currentRoom] items] objectForKey: secondWord];
         Item* itemToTake = [[player currentRoom] getItem: secondWord];
         [itemToTake retain];
 
@@ -40,9 +39,7 @@
             } else {
                 //we can take the item
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"playerTookItem" object:nil];
-                //[[[player currentRoom] items] removeObjectForKey: secondWord];    //remove the item from the room
                 [[player currentRoom] removeItem: secondWord];
-                //[[player inventory] setObject: itemToTake forKey: secondWord];      //and place it in the players inventory
                 [player addItem: itemToTake];
                 [itemToTake setIsDropped:false];
                 [player setCurrentWeight: [player currentWeight] + [itemToTake weight]];

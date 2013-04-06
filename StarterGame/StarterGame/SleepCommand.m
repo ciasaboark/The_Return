@@ -25,17 +25,12 @@
     unsigned long rand = arc4random() % [[player sleepRooms] count];
     Room* wakeRoom = [[player sleepRooms] objectAtIndex:rand];
     
-    while ( [[[player currentRoom] tag] isEqualToString:[wakeRoom tag]] ) {
+    while ( [[player currentRoom] isEqualToString:wakeRoom] ) {
         rand = arc4random() % [[player sleepRooms] count];
         wakeRoom = [[player sleepRooms] objectAtIndex:rand];
     }
     
-    //this will be passed to the notifications so we can track transitions easier.
-    NSMutableDictionary* theRooms = [[NSMutableDictionary alloc] init];
-    [theRooms setObject:[player currentRoom] forKey:@"previous"];
-    [theRooms setObject:wakeRoom forKey:@"current"];
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"playerDidEnterRoom" object:wakeRoom userInfo:[theRooms autorelease]];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"playerDidEnterRoom" object:wakeRoom];
     
     [player setCurrentRoom: wakeRoom];
     
