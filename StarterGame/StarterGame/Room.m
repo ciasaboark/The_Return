@@ -92,7 +92,6 @@
 // 	return [NSString stringWithFormat:@"Exits: %@", [exitNames componentsJoinedByString:@" "]];
 // }
 
-
 -(NSString *)description {
     return tag;
 }

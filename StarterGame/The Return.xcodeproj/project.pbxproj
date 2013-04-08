@@ -37,7 +37,6 @@
 		DF8DB435170BA6A400B37AAA /* cave.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DF8DB427170BA6A400B37AAA /* cave.mp3 */; };
 		DF8DB436170BA6A400B37AAA /* chop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DF8DB428170BA6A400B37AAA /* chop.mp3 */; };
 		DF8DB438170BA6A400B37AAA /* creak.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DF8DB42A170BA6A400B37AAA /* creak.mp3 */; };
-		DF8DB439170BA6A400B37AAA /* dark.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DF8DB42B170BA6A400B37AAA /* dark.mp3 */; };
 		DF8DB43A170BA6A400B37AAA /* drop1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DF8DB42C170BA6A400B37AAA /* drop1.mp3 */; };
 		DF8DB43B170BA6A400B37AAA /* drop2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DF8DB42D170BA6A400B37AAA /* drop2.mp3 */; };
 		DF8DB43C170BA6A400B37AAA /* keys.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DF8DB42E170BA6A400B37AAA /* keys.mp3 */; };
@@ -53,6 +52,10 @@
 		DFDCA0CC16FA20D200A00272 /* XyzzyCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = DFDCA0CB16FA20D200A00272 /* XyzzyCommand.m */; };
 		DFDCA0CF16FA215900A00272 /* BackCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = DFDCA0CE16FA215900A00272 /* BackCommand.m */; };
 		DFE23E711709ED1C000B5017 /* SoundServer.m in Sources */ = {isa = PBXBuildFile; fileRef = DFE23E701709ED1C000B5017 /* SoundServer.m */; };
+		DFF5BFDA17132EB500686BCF /* crickets.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DFF5BFD917132EB500686BCF /* crickets.mp3 */; };
+		DFF5BFDD1713328B00686BCF /* clock.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DFF5BFDC1713328B00686BCF /* clock.mp3 */; };
+		DFF5BFDF171335B700686BCF /* record.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DFF5BFDE171335B700686BCF /* record.mp3 */; };
+		DFF5BFE1171336F600686BCF /* dark.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DFF5BFE0171336F600686BCF /* dark.mp3 */; };
 		E7C0303F16F1397B00BA85F0 /* UseCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C0303E16F1397A00BA85F0 /* UseCommand.m */; };
 		E7C7CD6E16F0DAD700CB9292 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C7CD6C16F0DAD700CB9292 /* Item.m */; };
 		E7C7CD7216F0DDB700CB9292 /* LookCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C7CD7116F0DDB700CB9292 /* LookCommand.m */; };
@@ -110,7 +113,6 @@
 		DF8DB427170BA6A400B37AAA /* cave.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cave.mp3; sourceTree = "<group>"; };
 		DF8DB428170BA6A400B37AAA /* chop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = chop.mp3; sourceTree = "<group>"; };
 		DF8DB42A170BA6A400B37AAA /* creak.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = creak.mp3; sourceTree = "<group>"; };
-		DF8DB42B170BA6A400B37AAA /* dark.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = dark.mp3; sourceTree = "<group>"; };
 		DF8DB42C170BA6A400B37AAA /* drop1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = drop1.mp3; sourceTree = "<group>"; };
 		DF8DB42D170BA6A400B37AAA /* drop2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = drop2.mp3; sourceTree = "<group>"; };
 		DF8DB42E170BA6A400B37AAA /* keys.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = keys.mp3; sourceTree = "<group>"; };
@@ -131,6 +133,10 @@
 		DFDCA0CE16FA215900A00272 /* BackCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackCommand.m; sourceTree = "<group>"; };
 		DFE23E6F1709ED1C000B5017 /* SoundServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundServer.h; sourceTree = "<group>"; };
 		DFE23E701709ED1C000B5017 /* SoundServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundServer.m; sourceTree = "<group>"; };
+		DFF5BFD917132EB500686BCF /* crickets.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = crickets.mp3; sourceTree = "<group>"; };
+		DFF5BFDC1713328B00686BCF /* clock.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = clock.mp3; sourceTree = "<group>"; };
+		DFF5BFDE171335B700686BCF /* record.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = record.mp3; sourceTree = "<group>"; };
+		DFF5BFE0171336F600686BCF /* dark.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = dark.mp3; sourceTree = "<group>"; };
 		E7C0303D16F1397A00BA85F0 /* UseCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UseCommand.h; sourceTree = "<group>"; };
 		E7C0303E16F1397A00BA85F0 /* UseCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UseCommand.m; sourceTree = "<group>"; };
 		E7C7CD6B16F0DAD700CB9292 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
@@ -286,14 +292,17 @@
 				DF8DB446170BA7A100B37AAA /* coal.mp3 */,
 				DF8DB428170BA6A400B37AAA /* chop.mp3 */,
 				DF8DB42A170BA6A400B37AAA /* creak.mp3 */,
-				DF8DB42B170BA6A400B37AAA /* dark.mp3 */,
 				DF8DB42C170BA6A400B37AAA /* drop1.mp3 */,
+				DFF5BFE0171336F600686BCF /* dark.mp3 */,
 				DF8DB42D170BA6A400B37AAA /* drop2.mp3 */,
 				DF8DB42E170BA6A400B37AAA /* keys.mp3 */,
 				DF8DB42F170BA6A400B37AAA /* locked.mp3 */,
 				DF8DB430170BA6A400B37AAA /* match.mp3 */,
 				DF8DB431170BA6A400B37AAA /* unlock.mp3 */,
 				DF8DB432170BA6A400B37AAA /* wind.mp3 */,
+				DFF5BFDC1713328B00686BCF /* clock.mp3 */,
+				DFF5BFDE171335B700686BCF /* record.mp3 */,
+				DFF5BFD917132EB500686BCF /* crickets.mp3 */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -371,7 +380,6 @@
 				DF8DB435170BA6A400B37AAA /* cave.mp3 in Resources */,
 				DF8DB436170BA6A400B37AAA /* chop.mp3 in Resources */,
 				DF8DB438170BA6A400B37AAA /* creak.mp3 in Resources */,
-				DF8DB439170BA6A400B37AAA /* dark.mp3 in Resources */,
 				DF8DB43A170BA6A400B37AAA /* drop1.mp3 in Resources */,
 				DF8DB43B170BA6A400B37AAA /* drop2.mp3 in Resources */,
 				DF8DB43C170BA6A400B37AAA /* keys.mp3 in Resources */,
@@ -390,6 +398,10 @@
 				DF0BEF5E170CDEC40022B7FE /* upstairs.png in Resources */,
 				DF0BEF60170CE77A0022B7FE /* Icon.png in Resources */,
 				DF0BEF62170CE7B90022B7FE /* cthulhu.jpg in Resources */,
+				DFF5BFDA17132EB500686BCF /* crickets.mp3 in Resources */,
+				DFF5BFDD1713328B00686BCF /* clock.mp3 in Resources */,
+				DFF5BFDF171335B700686BCF /* record.mp3 in Resources */,
+				DFF5BFE1171336F600686BCF /* dark.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -62,6 +62,7 @@
 	andWeight:(int) aWeight andRoomDescription:(NSString*) newRoomDescription andPoints:(int) itemPoints
 	andSpecial:(Boolean) isSpecial;
 
+-(void)addHiddenItem:(Item*)theItem;
 -(void)removeHiddenItem:(Item*)anItem;
 
 -(void)dealloc;

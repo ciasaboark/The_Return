@@ -61,6 +61,15 @@
                 else if ([secondWord isEqualToString:@"coal"]) {
                     [player outputMessage:@"\nI picked a small piece of coal out of the box and dropped it into the well opening. After a short delay I heard the distinct sound of rock hitting rock. I couldn't tell how deep the well was, but it shaft definately didn't end in water.\n"];
                 }
+                
+                else if ([secondWord isEqualToString:@"record"]) {
+                    [player outputMessage:@"\nI placed the record on the player and flipped the switch. The music filled the room.\n"];
+                    [player removeItem:@"record"];
+                    [[player currentRoom] setPreferedAmbient:@"record.mp3"];
+                    //since the ambient sound changed but the player hasn't entered the sound won't be triggered yet.
+                    //+ We can just issue a new notification to simulate the move.
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"playerDidEnterRoom" object:[player currentRoom]];
+                }
 
                 else {
                     [player outputMessage:@"\nWoops, this item is missing its use block\n"];

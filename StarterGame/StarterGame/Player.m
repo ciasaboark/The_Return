@@ -113,9 +113,10 @@
 }
 
 -(Item*)getItem:(NSString*)itemName {
-    Item* theItem = [inventory objectForKey: itemName];
-    [theItem retain];
-    return [theItem autorelease];
+    // Item* theItem = [inventory objectForKey: itemName];
+    // [theItem retain];
+    // return [theItem autorelease];
+    return [inventory objectForKey: itemName];
 }
 
 -(Item*)removeItem:(NSString*) itemName {

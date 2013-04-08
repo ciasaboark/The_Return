@@ -25,7 +25,7 @@
     unsigned long rand = arc4random() % [[player sleepRooms] count];
     Room* wakeRoom = [[player sleepRooms] objectAtIndex:rand];
     
-    while ( [[[player currentRoom] tag] isEqualToString:wakeRoom] ) {
+    while ( [[[player currentRoom] tag] isEqualToString:[wakeRoom tag]] ) {
         rand = arc4random() % [[player sleepRooms] count];
         wakeRoom = [[player sleepRooms] objectAtIndex:rand];
     }

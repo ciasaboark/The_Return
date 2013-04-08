@@ -50,6 +50,11 @@
 	return self;
 }
 
+-(void)addHiddenItem:(Item*)theItem {
+	[[self hiddenItems] addObject: theItem];
+}
+
+
 -(void)removeHiddenItem:(Item*)anItem {
 	if (anItem) {
 		[[self hiddenItems] removeObject: anItem];
