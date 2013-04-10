@@ -10,6 +10,7 @@
 @synthesize ambient;
 
 static NSSound* ambient;
+static NSSound* gameMusic;
 static NSMutableArray* transitionRequests;
 
 +(id)sharedInstance {
@@ -17,6 +18,7 @@ static NSMutableArray* transitionRequests;
     if (!sndServer) {
         sndServer = [[[self class] alloc] init];
         ambient = nil;
+        gameMusic = nil;
         transitionRequests = [[NSMutableArray alloc] initWithCapacity:10];
         [self registerForNotifications];
     } else {
@@ -39,6 +41,8 @@ static NSMutableArray* transitionRequests;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerUsedItem:) name:@"playerUsedItem" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didRoomTransition:) name:@"playerDidRoomTransition" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerDroppedItem) name:@"playerDroppedItem" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerFinishedGame) name:@"playerFinishedGame" object:nil];
+
 }
 
 
@@ -50,11 +54,11 @@ static NSMutableArray* transitionRequests;
 
 +(void)gameStarted {
     //how about some moody music
-    NSSound* sound = [NSSound soundNamed:@"dark.mp3"];
-    [sound retain];
-    [sound setLoops: YES];
-    [sound setVolume:.2];
-    [[sound autorelease] play];
+    gameMusic = [NSSound soundNamed:@"dark.mp3"];
+    [gameMusic retain];
+    [gameMusic setLoops: YES];
+    [gameMusic setVolume:.2];
+    [gameMusic play];
 }
 
 +(void)didEnterRoom:(NSNotification*)notification {
@@ -123,6 +127,10 @@ static NSMutableArray* transitionRequests;
 
 +(void)pathUnlocked {
     [self playSingle:@"creak.mp3"];
+}
+
++(void)playerFinishedGame {
+    [self changeAmbientSound: @"end.mp3"];
 }
 
 /***********************

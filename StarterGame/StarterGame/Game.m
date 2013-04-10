@@ -470,8 +470,26 @@
 }
 
 -(void)end {
-    [player outputMessage:[self goodbye]];
-    playing = NO;
+    if ([player points] > 30) {
+        //30% ending
+        [player outputMessage:[self goodbye]];
+        playing = NO;
+    } else if ([player points] > 60) {
+        //60% ending
+        [player outputMessage:[self goodbye]];
+        playing = NO;
+    } else if ([player points] == 100) {
+        //perfect score ending
+        [player outputMessage:@"Hope of redemption faded as I walked out the front door into the night air. I remembered everything, the illness, my search for a cure. I remembered searching the globe for a chance, by any means, to avoid my fate. I remembered my trip to the nameless city in the desert, and how the elders there played me for a fool. They told me of a ritual sacrifice that would extend my existence indefinately. I had hoped that this ritual would give me more time to spend with my love and the child she bore. My greed for life killed my wife and daughter as surely as if I had wielded the axe and strung the noose myself. What had seemed to me a moment as short as the blink of an eye between my death and resurrection was, in fact, two years. Two years in the cold ground as the worms did their work on my body. That Old One, that Elder Being, to whom I had prayed and promised my very soul to kept his promise to give me life, only two years to late.\n\nThis house held nothing for me any longer. My wife and child were gone, and where they went I could not follow. The night was mine, and, soon, so too would be those who had betrayed me.\n\n"];
+        [player outputMessage:[self goodbye]];
+        playing = NO;
+    } else {
+        //generic lazy ending
+        [player outputMessage:@"I could not shake the feeling that I had been here before. Memories, as if from another life, floated at the edge my my mind. There were more enigmas here to uncover, but the cold air of night was my freedom, and freedom beckoned. Those secrets would have lie in wait for the next venturer.\n\n"];
+        [player outputMessage:[self goodbye]];
+        playing = NO;
+    }
+    
 }
 
 -(BOOL)execute:(NSString *)commandString {
