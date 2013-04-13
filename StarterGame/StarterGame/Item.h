@@ -32,10 +32,10 @@
 	//+ that that.  Items that are intended to be fixed in a specific room should have a weight greater than
 	//+ 30.  Items that have a weight of -1 are considered to be incorporeal or immobile.  This allows Item to describe
 	//+ places within a room (corner, window, a locked door) that should not even be attempted to be moved.
-	int weight;
+	unsigned int weight;
 
     //Some items may have points.  These transfered to the player when the item is looked at.
-    int points;
+   	unsigned int points;
 
     //special items are not UPPERCASED in the descriptions, these are tallied at the end of the game for an
     //+ additonal score
@@ -48,8 +48,8 @@
 @property (nonatomic)Boolean isDropped;
 @property (retain, nonatomic)NSMutableArray* hiddenItems;
 @property (retain, nonatomic)Room* usedIn;
-@property (nonatomic)int weight;
-@property (nonatomic)int points;
+@property (nonatomic)unsigned int weight;
+@property (nonatomic)unsigned int points;
 @property (nonatomic)Boolean special;
 
 

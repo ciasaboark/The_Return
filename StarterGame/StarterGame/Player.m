@@ -22,36 +22,40 @@
 @synthesize startRoom;
 @synthesize roomStack;
 @synthesize points;
+@synthesize codedPoints;
 
 -(id)init
 {
 	return [self initWithRoom:nil andIO:nil];
 }
 
--(id)initWithRoom:(NSMutableArray *)rooms andIO:(GameIO *)theIO
+-(id)initWithRoom:(NSMutableArray*)rooms andIO:(GameIO*)theIO
 {
 	self = [super init];
     
 	if (nil != self) {
         int rand = arc4random() % [rooms count];
 		[self setCurrentRoom:[rooms objectAtIndex:rand]];
-
-        [self setStartRoom: currentRoom];
         [self setIo:theIO];
         inventory = [[NSMutableDictionary alloc] init];
         [self setMaxWeight: 30];
         [self setCurrentWeight: 0];
         [self setSleepRooms: rooms];
         [self setHasTakenItem: false];
+        [self setStartRoom: currentRoom];
         roomStack = [[NSMutableArray alloc] init];
+        [self setPoints:0];
+
+        codedPoints = BN_new(); //allocate and initialize
+        BN_clear(codedPoints);  //set to 0
 	}
     
 	return self;
 }
 
--(void)walkTo:(NSString *)direction
+-(void)walkTo:(NSString*)direction
 {
-	Room *nextRoom = [currentRoom getExit:direction];
+	Room* nextRoom = [currentRoom getExit:direction];
     if (nextRoom) {
         if ([[nextRoom tag] isEqualToString:@"blocked"] ) {
             [[NSNotificationCenter defaultCenter] postNotificationName:@"pathBlocked" object:self];
@@ -75,7 +79,7 @@
             NSLog(@"player now in %@", nextRoom);
             
             //We can pretty things up a bit by using some random verbs
-            NSArray *verbs = [NSArray arrayWithObjects: @"entered", @"walked into", @"made my way to", nil];
+            NSArray* verbs = [NSArray arrayWithObjects: @"entered", @"walked into", @"made my way to", nil];
             int rand = arc4random() % [verbs count];
 
             
@@ -91,7 +95,7 @@
 
 }
 
--(void)outputMessage:(NSString *)message
+-(void)outputMessage:(NSString*)message
 {
     [io sendLines:message];
 }
@@ -135,7 +139,49 @@
 
 -(void)addPoints:(int) morePoints {
     [self setPoints: points + morePoints];
+
+    //create a new BUGNUM from morePoints
+    unsigned long tmp_points = morePoints;
+    BIGNUM* big_points = BN_new();
+    BN_clear(big_points);
+    BN_set_word(big_points, tmp_points);
+
+    //we will need a context object to use as a scatchpad in the multiplication
+    BN_CTX* ctx = BN_CTX_new(void);
+
+    BN_mul(codedPoints, codedPoints, big_points, ctx);
+    
+
+    //deallocate the unneeded BIGNUMs
+    BN_CTX_free(ctx);
+    BN_free(big_points);
+
 }
+
+-(BOOL)hasViewed:(int) storyCode {
+    BOOL result = NO;
+
+    //we need an unsigned long instead of an int
+    unsigned long tmp_code = storyCode;
+    BIGNUM* big_code = BN_new();    //alloc and initialize
+    BN_clear(big_code);             //set to zero
+    BN_set_word(big_code, tmp_code);
+
+    BIGNUM* rem = BN_new();
+    BN_clear(rem);
+    
+    BN_mod(rem, codedPoints, big_code);
+
+    if (BN_is_zero(remainder)) {
+        result = YES;
+    }
+
+    BN_free(big_code);
+    BN_free(rem);
+
+    return result;
+}
+
 
 -(void)pushRoom:(Room*)aRoom {
     [[self roomStack] addObject: aRoom];
@@ -152,14 +198,14 @@
     [[self roomStack] removeAllObjects];
 }
 
--(void)dealloc
-{
+-(void)dealloc {
 	[currentRoom release];
     [io release];
     [inventory release];
     [sleepRooms release];
     [startRoom release];
     [roomStack release];
+    BN_free(codedPoints);
          
 	[super dealloc];
 }

@@ -32,6 +32,8 @@
 		DF0BEF5E170CDEC40022B7FE /* upstairs.png in Resources */ = {isa = PBXBuildFile; fileRef = DF0BEF5D170CDEC30022B7FE /* upstairs.png */; };
 		DF0BEF60170CE77A0022B7FE /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DF0BEF5F170CE77A0022B7FE /* Icon.png */; };
 		DF0BEF62170CE7B90022B7FE /* cthulhu.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DF0BEF61170CE7B90022B7FE /* cthulhu.jpg */; };
+		DF1024AF1715E679007B15AA /* end.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DF1024AE1715E679007B15AA /* end.mp3 */; };
+		DF1024B41715EDF7007B15AA /* end2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DF1024B31715EDF7007B15AA /* end2.mp3 */; };
 		DF8DB433170BA6A400B37AAA /* backpack.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DF8DB425170BA6A400B37AAA /* backpack.mp3 */; };
 		DF8DB434170BA6A400B37AAA /* backpack2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DF8DB426170BA6A400B37AAA /* backpack2.mp3 */; };
 		DF8DB435170BA6A400B37AAA /* cave.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DF8DB427170BA6A400B37AAA /* cave.mp3 */; };
@@ -107,6 +109,8 @@
 		DF0BEF5F170CE77A0022B7FE /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		DF0BEF61170CE7B90022B7FE /* cthulhu.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cthulhu.jpg; sourceTree = "<group>"; };
 		DF0BEF63170CE7F00022B7FE /* cthulhu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cthulhu.png; sourceTree = "<group>"; };
+		DF1024AE1715E679007B15AA /* end.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = end.mp3; sourceTree = "<group>"; };
+		DF1024B31715EDF7007B15AA /* end2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = end2.mp3; sourceTree = "<group>"; };
 		DF70A6381704EB410036EFD6 /* The Return.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "The Return.entitlements"; sourceTree = "<group>"; };
 		DF8DB425170BA6A400B37AAA /* backpack.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = backpack.mp3; sourceTree = "<group>"; };
 		DF8DB426170BA6A400B37AAA /* backpack2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = backpack2.mp3; sourceTree = "<group>"; };
@@ -286,6 +290,7 @@
 		DF8DB424170BA6A400B37AAA /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				DF1024AE1715E679007B15AA /* end.mp3 */,
 				DF8DB425170BA6A400B37AAA /* backpack.mp3 */,
 				DF8DB426170BA6A400B37AAA /* backpack2.mp3 */,
 				DF8DB427170BA6A400B37AAA /* cave.mp3 */,
@@ -302,6 +307,7 @@
 				DF8DB432170BA6A400B37AAA /* wind.mp3 */,
 				DFF5BFDC1713328B00686BCF /* clock.mp3 */,
 				DFF5BFDE171335B700686BCF /* record.mp3 */,
+				DF1024B31715EDF7007B15AA /* end2.mp3 */,
 				DFF5BFD917132EB500686BCF /* crickets.mp3 */,
 			);
 			path = Sounds;
@@ -402,6 +408,8 @@
 				DFF5BFDD1713328B00686BCF /* clock.mp3 in Resources */,
 				DFF5BFDF171335B700686BCF /* record.mp3 in Resources */,
 				DFF5BFE1171336F600686BCF /* dark.mp3 in Resources */,
+				DF1024AF1715E679007B15AA /* end.mp3 in Resources */,
+				DF1024B41715EDF7007B15AA /* end2.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

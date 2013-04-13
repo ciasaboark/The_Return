@@ -42,6 +42,7 @@ static NSMutableArray* transitionRequests;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didRoomTransition:) name:@"playerDidRoomTransition" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerDroppedItem) name:@"playerDroppedItem" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerFinishedGame) name:@"playerFinishedGame" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerDidExit) name:@"playerDidExit" object:nil];
 
 }
 
@@ -129,8 +130,9 @@ static NSMutableArray* transitionRequests;
     [self playSingle:@"creak.mp3"];
 }
 
-+(void)playerFinishedGame {
-    [self changeAmbientSound: @"end.mp3"];
++(void)playerDidExit {
+    [gameMusic setVolume:0.0];
+    //[self changeAmbientSound: @"end.mp3"];
 }
 
 /***********************
