@@ -22,7 +22,7 @@
 @synthesize startRoom;
 @synthesize roomStack;
 @synthesize points;
-@synthesize codedPoints;
+@synthesize flags;
 
 -(id)init
 {
@@ -45,9 +45,7 @@
         [self setStartRoom: currentRoom];
         roomStack = [[NSMutableArray alloc] init];
         [self setPoints:0];
-
-        codedPoints = BN_new(); //allocate and initialize
-        BN_clear(codedPoints);  //set to 0
+        [self setFlags:0];
 	}
     
 	return self;
@@ -138,50 +136,16 @@
 
 
 -(void)addPoints:(unsigned int) morePoints {
-    [self setPoints: points + morePoints];
-
-    //create a new BUGNUM from morePoints
-    unsigned long tmp_points = morePoints;
-    BIGNUM* big_points = BN_new();
-    BN_clear(big_points);
-    BN_set_word(big_points, tmp_points);
-
-    //we will need a context object to use as a scatchpad in the multiplication
-    BN_CTX* ctx = BN_CTX_new();
-
-    BN_mul(codedPoints, codedPoints, big_points, ctx);
-    
-
-    //deallocate the unneeded BIGNUMs
-    BN_CTX_free(ctx);
-    BN_free(big_points);
-
+    //the points for each item grow as powers of two, this clamps the possible values from 2 - 23
+    [self setPoints: 1 + sqrt(sqrt(morePoints))];
+    [self setFlags: points + morePoints];
 }
 
--(BOOL)hasViewed:(int) storyCode {
+-(BOOL)hasViewed:(unsigned int) storyCode {
     BOOL result = NO;
 
-    //we need an unsigned long instead of an int
-    unsigned long tmp_code = storyCode;
-    BIGNUM* big_code = BN_new();    //alloc and initialize
-    BN_clear(big_code);             //set to zero
-    BN_set_word(big_code, tmp_code);
-
-    BIGNUM* rem = BN_new();
-    BN_clear(rem);
-    
-    BN_CTX* ctx = BN_CTX_new();
-    
-    BN_mod(rem, codedPoints, big_code, ctx);
-    int isZero = BN_is_zero(rem);
-    
-    if (isZero == 1) {
+    if ([player flags] & storyCode)
         result = YES;
-    }
-
-    BN_free(big_code);
-    BN_free(rem);
-    BN_CTX_free(ctx);
 
     return result;
 }
@@ -209,7 +173,6 @@
     [sleepRooms release];
     [startRoom release];
     [roomStack release];
-    BN_free(codedPoints);
          
 	[super dealloc];
 }

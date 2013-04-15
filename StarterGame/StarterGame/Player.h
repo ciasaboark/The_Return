@@ -8,7 +8,6 @@
 //  Modified by Rodrigo A. Obando on 3/7/13.
 
 #import <Cocoa/Cocoa.h>
-#include <openssl/bn.h>
 #import "Room.h"
 #import "Item.h"
 #import "GameIO.h"
@@ -24,8 +23,8 @@
     Boolean hasTakenItem;				//whether or not the player has picked anything up yet
     Room* startRoom;					//used for the xyzzy command
     NSMutableArray* roomStack;          //used for the back command
-    int points;
-    BIGNUM* codedPoints;
+    unsigned int points;
+    unsigned int flags;
 }
 
 @property (retain, nonatomic)Room *currentRoom;
@@ -38,7 +37,7 @@
 @property (retain, nonatomic)Room* startRoom;
 @property (retain, nonatomic)NSMutableArray* roomStack;
 @property (nonatomic)int points;
-@property (nonatomic)BIGNUM* codedPoints;
+@property (nonatomic)unsigned int flags;
 
 -(id)init;
 -(id)initWithRoom:(NSArray *)rooms andIO:(GameIO *)theIO;

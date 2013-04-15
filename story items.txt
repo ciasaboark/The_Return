@@ -1,21 +1,21 @@
-2			portrait?																				*DONE*
-3			drawing (of girl in servants bedroom).													*DONE*
-5			record (played during the wedding).														*DONE*
-7			picture (picture from wedding)
-11			book guiena																				*DONE*
-13			music box						
-17			book iram																				*DONE*
-19			book occult (referencing how the Old Ones are separated from this world by a veil).		*DONE*
-23			workroom sigil bloot spot																*DONE*
-29			grave																					*DONE*
-31			notebook (in workroom)																	*DONE*
-37			journal (referencing illness and search)	
-41			log (travel log referencing search for a cure)
-43			locket (also a special item)															*DONE*
-47			workroom sigil																			*DONE*
-53			body of Ophelia (name should only be known if locket has been found)					
-59			body of childs																			
-61			mirror (should only be referenced when enough of the story has been uncovered)			*DONE*
+1			portrait?																				*DONE*
+2			drawing (of girl in servants bedroom).													*DONE*
+4			record (played during the wedding).														*DONE*
+8			picture (picture from wedding)															*DONE*
+16			book guiena																				*DONE*
+32			music box																				*DONE*
+64			book iram																				*DONE*
+128			book occult (referencing how the Old Ones are separated from this world by a veil).		*DONE*
+256			workroom sigil bloot spot																*DONE*
+512			grave																					*DONE*
+1024		notebook (in workroom)																	*DONE*
+4096		journal (referencing illness and search)	
+8192		log (travel log referencing search for a cure)
+16384		locket (also a special item)															*DONE*
+32768		workroom sigil																			*DONE*
+65536		body of Ophelia (name should only be known if locket has been found)					
+131072		body of child																			
+262144		mirror (should only be referenced when enough of the story has been uncovered)			*DONE*
 
 
 
