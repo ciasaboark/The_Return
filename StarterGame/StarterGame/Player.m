@@ -137,7 +137,7 @@
 }
 
 
--(void)addPoints:(int) morePoints {
+-(void)addPoints:(unsigned int) morePoints {
     [self setPoints: points + morePoints];
 
     //create a new BUGNUM from morePoints

@@ -258,6 +258,7 @@
         Item* master_bedroom_bed = [[Item alloc] initWithName:@"bed" andDescription:@"The bed was large and seemed to be made entirely out of some glossy dark wood. The covers were unmade. For some reason this seemed to fill me with dispair." usedIn:nil andWeight:40 andRoomDescription:@"The little light that filtered through illuminated a large four post BED draped in what looked to be velvet."];
         Item* master_bedroom_windows = [[Item alloc] initWithName:@"windows" andDescription:@"The windows were curtained in heavy purple cloth. They seemed familiar, or, to be more precise, I felt as though they should feel familiar." usedIn:nil andWeight:60 andRoomDescription:@""];
         Item* master_bedroom_couch = [[Item alloc] initWithName:@"couch" andDescription:@"The couch was made from a dark wood, intricately carved on the legs and back. The cushions were uphostered in a red velvet." usedIn:nil andWeight:60 andRoomDescription:@"A COUCH shared the wall with the bathroom entrance."];
+        Item* master_bedroom_picture = [[Item alloc] initWithName:@"picture" andDescription:@"The picture was of a man and woman at a wedding altar. The man wore a buttoned coat, and the woman a dress of lace. Memories stirred. I remembered being there, but not this view." usedIn:nil andWeight:2 andRoomDescription:@"There was a PICTURE of a smiling man and woman on the dresser." andPoints:7];
         
         //items with hidden items
         Item* master_bedroom_dresser = [[Item alloc] initWithName:@"dresser" andDescription:@"The dresser was large and made in the Victorian fashion." usedIn:nil andWeight:40 andRoomDescription:@"A heavy DRESSER sat along the western wall."];
@@ -330,6 +331,7 @@
 
         Item* library_fireplace = [[Item alloc] initWithName:@"fireplace" andDescription:@"A brick FIREPLACE. Three leather-covered chairs face the fireplace. The mantlepiece appears to be ebony. Carved figures adorn the sides. The brick and metal were cold, and there was not even the slightest smell of soot in the air. The cast iron grating covered the front." usedIn:nil andWeight:-1 andRoomDescription:@"Along the north wall of the library there was a FIREPLACE."];
             //Items inside the fireplace
+        Item* library_portrait = [[Item alloc] initWithName:@"portrait" andDescription:@"A portrait of a middle aged man, clean-shaven, wearing a navy blue pea coat. A cap is tucked under one arm, while the other holds a portable brass telescope. The man stares into the distance." usedIn:nil andWeight:-1 andRoomDescription:@"A PORTRAIT of a man hangs above the fireplace." andPoints:2];
             
     
         //Collectable Items
@@ -338,6 +340,7 @@
         [sitting_room addItem: [library_fireplace autorelease]];
         [sitting_room addItem: [library_book_stand autorelease]];
         [sitting_room addItem: [library_book_stack autorelease]];
+        [sitting_room addItem: [library_portrait autorelease]];
         [sitting_room addItem: [bust autorelease]];
 
 

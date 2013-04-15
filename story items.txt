@@ -1,4 +1,4 @@
-2			portrait?
+2			portrait?																				*DONE*
 3			drawing (of girl in servants bedroom).													*DONE*
 5			record (played during the wedding).														*DONE*
 7			picture (picture from wedding)
