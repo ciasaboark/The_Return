@@ -147,7 +147,7 @@
     BN_set_word(big_points, tmp_points);
 
     //we will need a context object to use as a scatchpad in the multiplication
-    BN_CTX* ctx = BN_CTX_new(void);
+    BN_CTX* ctx = BN_CTX_new();
 
     BN_mul(codedPoints, codedPoints, big_points, ctx);
     
@@ -170,14 +170,18 @@
     BIGNUM* rem = BN_new();
     BN_clear(rem);
     
-    BN_mod(rem, codedPoints, big_code);
-
-    if (BN_is_zero(remainder)) {
+    BN_CTX* ctx = BN_CTX_new();
+    
+    BN_mod(rem, codedPoints, big_code, ctx);
+    int isZero = BN_is_zero(rem);
+    
+    if (isZero == 1) {
         result = YES;
     }
 
     BN_free(big_code);
     BN_free(rem);
+    BN_CTX_free(ctx);
 
     return result;
 }

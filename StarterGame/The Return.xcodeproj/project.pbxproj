@@ -50,6 +50,7 @@
 		DF8DB445170BA6F700B37AAA /* return.iconset in Resources */ = {isa = PBXBuildFile; fileRef = DF8DB443170BA6F700B37AAA /* return.iconset */; };
 		DF8DB447170BA7A100B37AAA /* coal.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DF8DB446170BA7A100B37AAA /* coal.mp3 */; };
 		DFA337AF16F534B100666817 /* DropCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA337AE16F534B100666817 /* DropCommand.m */; };
+		DFD841D61718E233002152DA /* libssl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DFD841D31718DF18002152DA /* libssl.dylib */; settings = {ATTRIBUTES = (Required, ); }; };
 		DFDA7AB116F4CB7E00A03E30 /* SleepCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = DFDA7AB016F4CB7E00A03E30 /* SleepCommand.m */; };
 		DFDCA0CC16FA20D200A00272 /* XyzzyCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = DFDCA0CB16FA20D200A00272 /* XyzzyCommand.m */; };
 		DFDCA0CF16FA215900A00272 /* BackCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = DFDCA0CE16FA215900A00272 /* BackCommand.m */; };
@@ -129,6 +130,7 @@
 		DF8DB446170BA7A100B37AAA /* coal.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = coal.mp3; sourceTree = "<group>"; };
 		DFA337AD16F534B100666817 /* DropCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropCommand.h; sourceTree = "<group>"; };
 		DFA337AE16F534B100666817 /* DropCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropCommand.m; sourceTree = "<group>"; };
+		DFD841D31718DF18002152DA /* libssl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libssl.dylib; path = usr/lib/libssl.dylib; sourceTree = SDKROOT; };
 		DFDA7AAF16F4CB7E00A03E30 /* SleepCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SleepCommand.h; sourceTree = "<group>"; };
 		DFDA7AB016F4CB7E00A03E30 /* SleepCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SleepCommand.m; sourceTree = "<group>"; };
 		DFDCA0CA16FA20D200A00272 /* XyzzyCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XyzzyCommand.h; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DFD841D61718E233002152DA /* libssl.dylib in Frameworks */,
 				81AF891116E6AAC400276C6B /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -222,6 +225,7 @@
 		81AF890116E6AAC400276C6B = {
 			isa = PBXGroup;
 			children = (
+				DFD841D31718DF18002152DA /* libssl.dylib */,
 				DF0BEF61170CE7B90022B7FE /* cthulhu.jpg */,
 				DF0BEF63170CE7F00022B7FE /* cthulhu.png */,
 				DF0BEF5F170CE77A0022B7FE /* Icon.png */,
