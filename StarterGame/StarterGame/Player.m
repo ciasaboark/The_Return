@@ -135,16 +135,18 @@
 }
 
 
--(void)addPoints:(unsigned int) morePoints {
-    //the points for each item grow as powers of two, this clamps the possible values from 2 - 23
-    [self setPoints: 1 + sqrt(sqrt(morePoints))];
-    [self setFlags: points + morePoints];
+-(void)addPoints:(int) morePoints {
+    //the points for each item grow as powers of two, this clamps the possible values from 2 - ~23
+    if (morePoints > 0) {
+        [self setPoints: points + 1 + sqrt(sqrt(morePoints))];
+        [self setFlags: flags + morePoints];
+    }
 }
 
--(BOOL)hasViewed:(unsigned int) storyCode {
+-(BOOL)hasViewed:(int) storyCode {
     BOOL result = NO;
 
-    if ([player flags] & storyCode)
+    if ([self flags] & storyCode)
         result = YES;
 
     return result;

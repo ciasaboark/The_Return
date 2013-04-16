@@ -60,11 +60,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "StarterGame/Game.m"
-         timestampString = "387311959.35637"
+         timestampString = "387754079.673084"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "336"
-         endingLineNumber = "336"
+         startingLineNumber = "337"
+         endingLineNumber = "337"
          landmarkName = "-createWorld"
          landmarkType = "5">
       </FileBreakpoint>
@@ -72,13 +72,26 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "StarterGame/SoundServer.m"
-         timestampString = "387312031.023062"
+         filePath = "StarterGame/Player.m"
+         timestampString = "387754402.014357"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "153"
-         endingLineNumber = "153"
-         landmarkName = "+T_ambientSoundManager"
+         startingLineNumber = "147"
+         endingLineNumber = "147"
+         landmarkName = "-hasViewed:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "StarterGame/Player.m"
+         timestampString = "387754111.916875"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "139"
+         endingLineNumber = "139"
+         landmarkName = "-addPoints:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

@@ -35,7 +35,7 @@
                     [[[player currentRoom] exits] removeObjectForKey:@"west"];
                     [[[player currentRoom] exits] removeObjectForKey:@"down"];
                              
-                    [[player currentRoom] setLongDescription: @"At the bottom of the well I found myself in a cave of some sorts. The light from the lantern illuminated a passageway leading north. The rope from the well ended a foot above the floor."];
+                    [[player currentRoom] setLongDescription: @"At the bottom of the well I found myself in a cave of some sorts. The walls and floor were rock, and shone in the light of the lantern. A small portion of the floor gleamed more brightly than the rest. The light from the lantern illuminated a passageway leading north. The rope from the well ended a foot above the floor."];
                 }
                 
                 else if ([secondWord isEqualToString:@"key"]) {

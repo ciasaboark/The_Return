@@ -277,6 +277,7 @@
         [mast_bed addItem: [master_bedroom_bed autorelease]];
         [mast_bed addItem: [master_bedroom_windows autorelease]];
         [mast_bed addItem: [master_bedroom_couch autorelease]];
+        [mast_bed addItem: [master_bedroom_picture autorelease]];
         [mast_bed addItem: [master_bedroom_dresser autorelease]];
         [mast_bed addItem: [master_bedroom_closet autorelease]];
         [mast_bed addItem: [hat autorelease]];
@@ -365,7 +366,7 @@
         [formal_room addItem: [formal_room_chairs autorelease]];
         [formal_room addItem: [formal_room_pedestal autorelease]];
 
-    //Items in the kitchen
+	//Items in the kitchen
         //Fixed items
         Item* kitchen_stove = [[Item alloc] initWithName:@"stove" andDescription:@"It was a small pot-bellied Franklin stove. A tin pipe ran from the top of the stove up through the ceiling." usedIn:nil andWeight:60 andRoomDescription:@"A Franklin STOVE sat in the south eastern corner, next to the oven. A small fire in the stove shed enough light through the grating to cast shadows throughout the room."];
         Item* kitchen_table = [[Item alloc] initWithName:@"table" andDescription:@"The table was too small to eat at. It seemed likely that it was only used to prepare meals." usedIn:nil andWeight:60 andRoomDescription:@"There was a small square TABLE beside the sinks."];
@@ -400,7 +401,7 @@
 
     //Items in the cave
         //Fixed items
-        Item* cave_gleam = [[Item alloc] initWithName:@"gleam" andDescription:@"A small section of the floor gleamed a bit brighter than the rest. Sticking up slightly from the mud I saw the outline of something hard. I scraped the mud away and saw that there was a small statue embeded in the ground." usedIn:nil andWeight:-1 andRoomDescription:@""];
+        Item* cave_gleam = [[Item alloc] initWithName:@"floor" andDescription:@"A small section of the floor gleamed a bit brighter than the rest. Sticking up slightly from the mud I saw the outline of something hard. I scraped the mud away and saw that there was a small statue embeded in the ground." usedIn:nil andWeight:-1 andRoomDescription:@""];
             //Items in the gleam
             Item* cthulhu = [[Item alloc] initWithName:@"statue" andDescription:@"A small jade statue of some obscene monstrosity. It was vaguely huminoid, but bat wings drap the figure, and a mass of tenticles were its mouth. The figure was crouched, as if waiting. Along the base there were words carved: \"Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn.\""usedIn:nil andWeight:3 andRoomDescription:@"" andPoints:0 andSpecial:true];
             [cave_gleam addHiddenItem:[cthulhu autorelease]];
@@ -483,7 +484,7 @@
         [bathroom addItem:[bathroom_tub autorelease]];
     
     //Items in the childs bedroom
-        Item* child_musicbox = [[Item alloc] initWithName:@"box" andDescription:@"A musicbox. The lid, covered in a raised relief, depicts a small child on a field surrounded by sheep." usedIn:bed1 andWeight:1 andRoomDescription:@"On a table beside the bed there was a small music BOX."];
+    Item* child_musicbox = [[Item alloc] initWithName:@"box" andDescription:@"A musicbox. The lid, covered in a raised relief, depicts a small child on a field surrounded by sheep." usedIn:bed1 andWeight:1 andRoomDescription:@"On a table beside the bed there was a small music BOX." andPoints:32];
         [bed1 addItem:[child_musicbox autorelease]];
 
 
@@ -507,14 +508,24 @@
 -(void)end {
     //There are 501 points available to collect in the game, we can divide by 5 and get a rough % complete
     //If the player has less than 50 points then we assume that they didn't discover enough to unlock the back story.
-    int endpoints = [player points] / 5;
+    int endpoints = [player points];
     
     if (endpoints < 40) {
         [player outputMessage:@"I could not shake the feeling that I had been here before. Memories, as if from another life, floated at the edge my my mind. There were more enigmas here to uncover, but the cold air of night was my freedom, and freedom beckoned. Those secrets would have lie in wait for the next venturer.\n\n"];
         [player outputMessage:[self goodbye]];
         playing = NO;
-    } else if (endpoints < 70) {
+    } else if (endpoints >= 40 && endpoints <= 99) {
         [player outputMessage:@"I had been here before, I was sure of that. Memories floated at the edge my my mind, vague recollections of a time passed. I wasn't sure who's bodies I had discovered upstairs, but I knew that I had known them. There were more enigmas here to uncover, but the cold air of night was my freedom, and freedom beckoned. Those secrets would have lie in wait for the next venturer.\n\n"];
+            if ([player hasViewed: 1])
+                [player outputMessage:@"I have seen the portrait"];
+            if ([player hasViewed: 128])
+                [player outputMessage:@"I have seen the occult"];
+            if ([player hasViewed: 16384])
+                [player outputMessage:@"I have seen the locket"];
+            if ([player hasViewed: 262144])
+                [player outputMessage:@"I have seen the mirror"];
+            if ([player hasViewed: 32])
+                [player outputMessage:@"I have seen the music box"];
         [player outputMessage:[self goodbye]];
         playing = NO;
     } else if (endpoints > 99) {
@@ -525,6 +536,7 @@
     }
     
 }
+
 
 -(BOOL)execute:(NSString *)commandString {
 	BOOL finished = NO;
