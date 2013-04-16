@@ -212,7 +212,7 @@
     
     [sitting_room setLongDescription: @"It was a library of some kind. The western wall was filled with bookcases from floor to ceiling, except for a small window in the center of the wall. Above the door there sat a marble bust of some long forgotten poet."];
     
-    [kitchen setLongDescription: @"The northern and western walls of the kitchen were lined with counter-tops and cabinets. The southern wall had two sinks. One was deep enough to hold a number of lenins, the other smaller. The center of the room was dominated with a long counter over which there hung a number of pots, pans, and utensiles. A Franklin stove sat in the south eastern corner, next to the oven. A small fire in the oven shed enough light through the grating to cast shadows throughout the room."];
+    [kitchen setLongDescription: @"The northern and western walls of the kitchen were lined with counter-tops and cabinets. The southern wall had two sinks. One was deep enough to hold a number of lenins, the other smaller. In the center of the room there was a long counter over which there hung a number of pots, pans, and utensiles."];
     
     [mast_bath setLongDescription: @"The master bathroom was spotless white tile. A window along the eastern wall let in light from a gas lamp by the street."];
     
@@ -367,15 +367,15 @@
 
     //Items in the kitchen
         //Fixed items
-        Item* kitchen_stove = [[Item alloc] initWithName:@"stove" andDescription:@"" usedIn:nil andWeight:60 andRoomDescription:@""];
-        Item* kitchen_table = [[Item alloc] initWithName:@"table" andDescription:@"" usedIn:nil andWeight:60 andRoomDescription:@""];
+        Item* kitchen_stove = [[Item alloc] initWithName:@"stove" andDescription:@"It was a small pot-bellied Franklin stove. A tin pipe ran from the top of the stove up through the ceiling." usedIn:nil andWeight:60 andRoomDescription:@"A Franklin STOVE sat in the south eastern corner, next to the oven. A small fire in the stove shed enough light through the grating to cast shadows throughout the room."];
+        Item* kitchen_table = [[Item alloc] initWithName:@"table" andDescription:@"The table was too small to eat at. It seemed likely that it was only used to prepare meals." usedIn:nil andWeight:60 andRoomDescription:@"There was a small square TABLE beside the sinks."];
+            //Items on the table
+            Item* knife = [[Item alloc] initWithName:@"knife" andDescription:@"It was a normal kitchen knife." usedIn:nil andWeight:4 andRoomDescription:@"There was a carving KNIFE left out on one of the counters."];
+            [kitchen_table addHiddenItem:[knife autorelease]];
 
-        //Collectable Items
-        Item* knife = [[Item alloc] initWithName:@"knife" andDescription:@"" usedIn:nil andWeight:4 andRoomDescription:@""];
-
-        [kitchen addItem: [kitchen_stove autorelease]];
         [kitchen addItem: [kitchen_table autorelease]];
-        [kitchen addItem: [knife autorelease]];
+        [kitchen addItem: [kitchen_stove autorelease]];
+
 
     //Items in the servant's dining room
         //Fixed items

@@ -24,7 +24,7 @@ TODO
 -check for capitalized names in item descriptions
 -check that item name is capitalized in the item room description
 -items need to be added to servents room								*DONE*
--items need to be added to kitchen
+-items need to be added to kitchen										*DONE*
 -items need to be completed in sewing room
 -book needs to be completed in library
 -travel log needs to be written (bedroom?)
@@ -32,3 +32,5 @@ TODO
 -wedding picture in bedroom
 -picture of child in childs bedroom?
 -music box in childs bedroom
+-finish kitchen item descriptions
+-add numerous items to the rooms to flesh them out
