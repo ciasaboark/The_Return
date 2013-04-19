@@ -23,7 +23,16 @@
     Boolean hasTakenItem;				//whether or not the player has picked anything up yet
     Room* startRoom;					//used for the xyzzy command
     NSMutableArray* roomStack;          //used for the back command
+    
+    //points and flags are based on item points, and are assigned when the player
+    //+ 'look's at an item. The item points are either 0 or a unique power of 2.
+
+    //the sum of the filtered points from each item the player has looked at.
+    //+ The filter should reduce the range from 2 to ~26 points per item.
     int points;
+
+    //the sum of all the points of items the player has looked at. This will be used to create
+    //+ a mask so that we can later check which items the player has discovered.
     int flags;
 }
 

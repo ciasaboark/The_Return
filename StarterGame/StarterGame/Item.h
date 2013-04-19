@@ -40,6 +40,9 @@
     //special items are not UPPERCASED in the descriptions, these are tallied at the end of the game for an
     //+ additonal score
     Boolean special;
+
+    //some items should not be visible until the player's score is high enough.
+    unsigned int visibleWhenPointsEqual;
 }
 
 @property (retain, nonatomic)NSString* name;
@@ -51,6 +54,7 @@
 @property (nonatomic)int weight;
 @property (nonatomic)unsigned int points;
 @property (nonatomic)Boolean special;
+@property (nonatomic)unsigned int visibleWhenPointsEqual;
 
 
 -(id)init;
@@ -61,6 +65,9 @@
 -(id)initWithName:(NSString *)newName andDescription:(NSString*) newDescription usedIn:(Room*) aRoom
 	andWeight:(int) aWeight andRoomDescription:(NSString*) newRoomDescription andPoints:(int) itemPoints
 	andSpecial:(Boolean) isSpecial;
+-(id)initWithName:(NSString *)newName andDescription:(NSString*) newDescription usedIn:(Room*) aRoom
+	andWeight:(int) aWeight andRoomDescription:(NSString*) newRoomDescription andPoints:(int) itemPoints
+	andSpecial:(Boolean) isSpecial visibleAfterPointsEqual:(unsigned int) visiblePoints;
 
 -(void)addHiddenItem:(Item*)theItem;
 -(void)removeHiddenItem:(Item*)anItem;

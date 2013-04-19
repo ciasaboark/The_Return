@@ -72,7 +72,7 @@
         }
         
 	} else {
-        //player wants a description of the current room and known items
+        //player wants a description of the current room and visible items
 
         //Build a string for native items and a string for dropped items
         NSString* droppedText = @"";
@@ -81,10 +81,12 @@
         for (NSString* key in [[player currentRoom] items])  {
             Item* thisItem = [[[player currentRoom] items] objectForKey: key];
             
-            if ([thisItem isDropped]) {
-                droppedText = [NSString stringWithFormat:@"%@ A %@.", droppedText, [thisItem name]];
-            } else {
-                nativeItemText = [NSString stringWithFormat:@"%@ %@", nativeItemText, [thisItem roomDescription]];
+            if ([thisItem visibleWhenPointsEqual] <= [player points]) {
+                if ([thisItem isDropped]) {
+                    droppedText = [NSString stringWithFormat:@"%@ A %@.", droppedText, [thisItem name]];
+                } else {
+                    nativeItemText = [NSString stringWithFormat:@"%@ %@", nativeItemText, [thisItem roomDescription]];
+                }
             }
             
         }

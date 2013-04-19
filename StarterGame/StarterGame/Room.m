@@ -81,7 +81,12 @@
 -(Item*)removeItem:(NSString*)itemName {
 	Item* theItem = [[self items] objectForKey: itemName];
 	[theItem retain];
-	[items removeObjectForKey: itemName];
+	
+	@try {
+		[items removeObjectForKey: itemName];
+	} @catch (NSNSInvalidArgumentException e) {
+		fprintf(stderr, "Room:removeItem given nill for itemName");
+	}
 
 	return [theItem autorelease];
 }

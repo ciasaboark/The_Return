@@ -15,9 +15,11 @@
 32768		workroom sigil																			*DONE*
 65536		body of Ophelia (name should only be known if locket has been found)					
 131072		body of child																			
-262144		mirror (should only be referenced when enough of the story has been uncovered)			*DONE*
+262144		thing (corner should only be referenced when enough of the story has been uncovered)	*DONE*
+524288		you (in the mirror, now you know you are dead)											*DONE*
 
-
+183 || 176 total points (test)
+1048575 total coded points
 
 TODO
 -make sure item points are correct
@@ -28,7 +30,7 @@ TODO
 -items need to be completed in sewing room
 -book needs to be completed in library
 -travel log needs to be written (bedroom?)
--journal needs to be written (in empty bedroom)
+-journal needs to be written (in empty bedroom)	
 -wedding picture in bedroom
 -picture of child in childs bedroom?
 -music box in childs bedroom

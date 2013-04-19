@@ -14,14 +14,16 @@
 @synthesize weight;
 @synthesize points;
 @synthesize special;
+@synthesize visibleWhenPointsEqual;
 
 -(id)init {
+	fprintf(stderr, "Item:init called with no arguments, this is likely a bug\n");
 	return [self initWithName:@"Default Item" andDescription:@"Default Description" usedIn:nil andWeight:-1 andRoomDescription:@"Default Room Description"];
 }
 
 -(id)initWithName:(NSString *)newName andDescription:(NSString*) newDescription usedIn:(Room*) aRoom
 	andWeight:(int) aWeight andRoomDescription:(NSString*) newRoomDescription {
-    return [self initWithName:newName andDescription:newDescription usedIn:aRoom andWeight:aWeight andRoomDescription:newRoomDescription andPoints:0 andSpecial:false];
+    return [self initWithName:newName andDescription:newDescription usedIn:aRoom andWeight:aWeight andRoomDescription:newRoomDescription andPoints:0];
 }
 
 -(id)initWithName:(NSString *)newName andDescription:(NSString*) newDescription usedIn:(Room*) aRoom
@@ -29,10 +31,16 @@
     return [self initWithName:newName andDescription:newDescription usedIn:aRoom andWeight:aWeight andRoomDescription:newRoomDescription andPoints:itemPoints andSpecial:false];
 }
 
-
 -(id)initWithName:(NSString *)newName andDescription:(NSString*) newDescription usedIn:(Room*) aRoom
 	andWeight:(int) aWeight andRoomDescription:(NSString*) newRoomDescription andPoints:(int)itemPoints
 	andSpecial:(Boolean) isSpecial {
+    return [self initWithName:newName andDescription:newDescription usedIn:aRoom andWeight:aWeight andRoomDescription:newRoomDescription andPoints:itemPoints andSpecial:isSpecial visibleAfterPointsEqual:0];
+
+}
+
+-(id)initWithName:(NSString *)newName andDescription:(NSString*) newDescription usedIn:(Room*) aRoom
+	andWeight:(int) aWeight andRoomDescription:(NSString*) newRoomDescription andPoints:(int)itemPoints
+	andSpecial:(Boolean) isSpecial visibleAfterPointsEqual:(unsigned int)visiblePoints {
 	self = [super init];
 
 	if (self != nil) {
@@ -43,15 +51,18 @@
 		[self setRoomDescription: newRoomDescription];
 		[self setHiddenItems: [[NSMutableArray alloc] init]];
 		[self setIsDropped: false];
-        points = itemPoints;
+        [self setPoints: itemPoints];
         [self setSpecial: isSpecial];
+        [self setVisibleWhenPointsEqual:visiblePoints];
 	}
 
 	return self;
 }
 
 -(void)addHiddenItem:(Item*)theItem {
-	[[self hiddenItems] addObject: theItem];
+	if (theItem) {
+		[[self hiddenItems] addObject: theItem];
+	}
 }
 
 
