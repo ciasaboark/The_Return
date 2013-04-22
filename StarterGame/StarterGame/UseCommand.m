@@ -74,6 +74,10 @@
                 else {
                     [player outputMessage:@"\nWoops, this item is missing its use block\n"];
                 }
+            } else if ([secondWord isEqualToString:@"musicbox"]) {  //the only item that can be used anywhere
+                [player outputMessage:@"\nI turned the crank on the musicbox\n"];
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"playerUsedItem" object:secondWord];
+
             } else {
                 [player outputMessage:[NSString stringWithFormat:@"I couldn't see how to use the %@ here.\n",secondWord]];
             }

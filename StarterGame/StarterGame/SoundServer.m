@@ -101,8 +101,10 @@ static NSMutableArray* transitionRequests;
         [self playSingle:@"chop.mp3"];
     } else if ([itemName isEqualToString:@"key"]) {
         [self playSingle:@"unlock.mp3"];
-    }  else if ([itemName isEqualToString:@"coal"]) {
+    } else if ([itemName isEqualToString:@"coal"]) {
         [self playSingle:@"coal.mp3"];
+    } else if ([itemName isEqualToString:@"musicbox"]) {
+        [self playSingle:@"musicbox.mp3"];
     }
 }
 

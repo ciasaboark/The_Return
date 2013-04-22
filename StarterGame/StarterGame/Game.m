@@ -205,7 +205,7 @@
 
 	[hall3 setLongDescription: @"There wasn't much light at the northern end of the hallway. To the west I saw a kitchen. Light from within spilled into the hall, but the penumbra was large and the hall was draped in shadow. To the east there was a small room with a plain wooden table. To the north there was a plain door."];
 	
-	[dining_room setLongDescription: @"The light from the hallway illuminated an ornate and formal dining room. Nearly the entirity of the floor was covered by a single large rug, woven with a mozaic of birds in flight. A long table sat in the center of the room, with a number of elegantly carved chairs waiting in position. Each chair was fronted by a complete table set. Curiously the two on the southern end seemed to have been used recently."];
+	[dining_room setLongDescription: @"The light from the hallway illuminated an ornate and formal dining room. Nearly the entirity of the floor was covered by a single large rug, woven with a mozaic of birds in flight."];
 	[dining_room setPreferedAmbient:@"clock.mp3"];
 	
 	[formal_room setLongDescription: @"The floor was polished marble, white speckled with pink. A crystal chandaleer, old enough to have once held a multitude of candles, but now fitted with electric lights, hung from the ceiling."];
@@ -301,17 +301,19 @@
 
 	//Items for the dining room
 		//Fixed Items
-		Item* dining_room_table = [[Item alloc] initWithName:@"table" andDescription:@"A large TABLE. There were still platters of half eaten food on two of the settings. A bowl leaned at a angle, soup covered the tablecloth." usedIn:nil andWeight: 60 andRoomDescription:@"In the center of the room there was a large TABLE."];
+		Item* dining_room_table = [[Item alloc] initWithName:@"table" andDescription:@"A large TABLE. There were still platters of half eaten food on two of the settings. A bowl leaned at a angle, soup covered the tablecloth." usedIn:nil andWeight: 60 andRoomDescription:@"A long TABLE occupied the center of the room, with a number of elegantly carved chairs waiting in position. Each chair was fronted by a complete table set. The two on the southern end seemed to have been used recently."];
 			//Items beside the table
 			Item* dining_room_doll = [[Item alloc] initWithName:@"doll" andDescription:@"A bisque doll. The paint was faded and the clothes have been mended." usedIn:nil andWeight:2 andRoomDescription:@"I noticed a doll laying beside the table."];
 			[dining_room_table addHiddenItem: [dining_room_doll autorelease]];
 		Item* dining_room_clock = [[Item alloc] initWithName:@"clock" andDescription:@"The grandfather CLOCK was large and stained dark." usedIn:nil andWeight: 60 andRoomDescription:@"Sitting against the wall by the door there was a grandfather CLOCK."];
 		Item* dining_room_china = [[Item alloc] initWithName:@"cabinet" andDescription:@"The china CABINET was filled with dishes of fine porcelain and silverware that gleams even in the dim light." usedIn:nil andWeight:60 andRoomDescription:@"A large china CABINET has been placed along the center of the western wall, flanked on either side by serving trays."];
+		Item* dining_room_painting = [[Item alloc] initWithName:@"painting" andDescription:@"The painting depected a three masted ship in rough seas. The sun setting behind the ship was partially obscured by heavy clouds and threw long streamers of light over the full sails." usedIn:nil andWeight:60 andRoomDescription:@"There was a PAINTING on the north wall."];
+		Item* dining_room_window = [[Item alloc] initWithName:@"window" andDescription:@"Light from a street lamp in the distance dimly illuminated the lawn and steps. The steps descended from the front door in a series of concentrically larger half circles. A number of manicured shrubs grew at the base of the window. There was a series of muddy handprints on the outside of the glass, smeared as though someone had tried to open the window from the outside." usedIn:nil andWeight:-1 andRoomDescription:@"A WINDOW on the southern wall overlooked the front lawn."];
 	
 		[dining_room addItem: [dining_room_table autorelease]];
 		[dining_room addItem: [dining_room_clock autorelease]];
 		[dining_room addItem: [dining_room_china autorelease]];
-
+		[dining_room addItem: [dining_room_painting autorelease]];
 
 	//Items in the library
 		//Items with hidden items
@@ -371,7 +373,7 @@
 		Item* kitchen_stove = [[Item alloc] initWithName:@"stove" andDescription:@"It was a small pot-bellied Franklin stove. A tin pipe ran from the top of the stove up through the ceiling." usedIn:nil andWeight:60 andRoomDescription:@"A Franklin STOVE sat in the south eastern corner, next to the oven. A small fire in the stove shed enough light through the grating to cast shadows throughout the room."];
 		Item* kitchen_table = [[Item alloc] initWithName:@"table" andDescription:@"The table was too small to eat at. It seemed likely that it was only used to prepare meals." usedIn:nil andWeight:60 andRoomDescription:@"There was a small square TABLE beside the sinks."];
 			//Items on the table
-			Item* knife = [[Item alloc] initWithName:@"knife" andDescription:@"It was a normal kitchen knife." usedIn:nil andWeight:4 andRoomDescription:@"There was a carving KNIFE left out on one of the counters."];
+			Item* knife = [[Item alloc] initWithName:@"knife" andDescription:@"It was a normal kitchen knife." usedIn:nil andWeight:4 andRoomDescription:@"There was a carving KNIFE left out on the counter."];
 			[kitchen_table addHiddenItem:[knife autorelease]];
 
 		[kitchen addItem: [kitchen_table autorelease]];
@@ -380,9 +382,9 @@
 
 	//Items in the servant's dining room
 		//Fixed items
-		Item* srvnt_dining_room_table = [[Item alloc] initWithName:@"table" andDescription:@"" usedIn:nil andWeight:60 andRoomDescription:@""];
+		Item* srvnt_dining_room_table = [[Item alloc] initWithName:@"table" andDescription:@"The table was plain, uncarved and unpainted, but well made." usedIn:nil andWeight:60 andRoomDescription:@"In the center of the room there was a square wooden table."];
 			//Items on the servant's dining room table
-			 Item* lantern = [[Item alloc] initWithName:@"lantern" andDescription:@"The metal was more rust than shine, and the glass covering was chipped at the top, but there was a small amount of oil in the reservoir, and a pair of matches were stuck into a container at the base. It might hold a flame long enough to see by." usedIn:cave andWeight:3 andRoomDescription:@"I saw an old LANTERN on the table."];
+			 Item* lantern = [[Item alloc] initWithName:@"lantern" andDescription:@"The metal was more rust than shine, and the glass covering was chipped at the top, but there was a small amount of oil in the reservoir, and a pair of matches were stuck into a container at the base. It might hold a flame long enough to see by." usedIn:cave andWeight:3 andRoomDescription:@"I saw an old tin LANTERN on the table."];
 			[srvnt_dining_room_table addHiddenItem:[lantern autorelease]];
 
 		[srvnt_dining_room addItem:[srvnt_dining_room_table autorelease]];
@@ -414,7 +416,7 @@
 		//Fixed items
 		Item* grave = [[Item alloc] initWithName:@"grave" andDescription:@"The headstone read:\n\n\t\t\t\t\t\t William Alexander Gardner\n\t\t\t\t\t\t       1887 - 1918\n\t\t\t\t\t\tBeloved Husband and Father.\n\nThe ground around the grave had been recently disturbed, like some animal has dug into it. The hole reached far enough into the ground that the end disappeared into shadow, but I was sure I saw the lining of a casket below. I didn't notice a body in the grave, and this seemed like a strange place for grave robbers to visit." usedIn:nil andWeight:-1 andRoomDescription:@"At the western edge of the plot a GRAVE had been disturbed." andPoints:512];
 			//Items beside the grave
-			Item* locket = [[Item alloc] initWithName:@"locket" andDescription:@"A gold locket. I opened the locket and was greeted by a picture of a smiling man, woman, and infant. On the inside of the front, in letters small enough to be hard to read by the moonlight, there was an inscription: \n\t\"Olphelia, Wife and Mother. With love. W. 1913\"" usedIn:nil andWeight:1 andRoomDescription:@"I noticed the glint of a small locket in the dirt beside the grave." andPoints:16384 andSpecial:true];
+			Item* locket = [[Item alloc] initWithName:@"locket" andDescription:@"A gold locket. I opened the locket and was greeted by a picture of a smiling man and woman. On the inside of the front, in letters small enough to be hard to read by the moonlight, there was an inscription: \n\t\"Olphelia my love. W. 1914.\"" usedIn:nil andWeight:1 andRoomDescription:@"I noticed the glint of a small locket in the dirt beside the grave." andPoints:16384 andSpecial:true];
 			[grave addHiddenItem:[locket autorelease]];
 		[cemetery addItem:[grave autorelease]];
 	
@@ -527,7 +529,44 @@
 		[player outputMessage:[self goodbye]];
 		playing = NO;
 	} else if (endpoints >= 40 && endpoints <= 99) {    //only bits and pieces were discovered
-		[player outputMessage:@"I had been here before, I was sure of that. Memories floated at the edge my my mind, vague recollections of a time passed. I wasn't sure who's bodies I had discovered upstairs, but I knew that I had known them. There were more enigmas here to uncover, but the cold air of night was my freedom, and freedom beckoned. Those secrets would have lie in wait for the next venturer.\n\n"];
+		[player outputMessage:@"I had been here before, I was sure of that. Thoughts floated at the edge my my mind, vague recollections of a time passed from memory."
+
+			
+			if ([player hasViewed:65536]) { //if the player saw the body of the woman
+				NSString* womanDescription = @"The image of";
+
+				if ([player hasViewed:16384]) {
+					//we know her name from the locket
+					womanDescription = [NSString stringWithFormat:@"%@ %@", womanDescription, @"Olphelia"]
+				} else {
+					//does not know the name
+					womanDescription = [NSString stringWithFormat:@"%@ %@", womanDescription, @"the woman upstairs"]
+				}
+
+				womanDescription = [NSString stringWithFormat:@"%@ %@", womanDescription, @"swinging gently from that noose would forever haunt my dreams."];
+
+				[player outputMessage:womanDescription];
+			}
+
+			if ([player hasViewed:131072]) { //if the player has seend the body of the child
+				NSString* childDescription = @"That poor child";
+
+				if ([player hasViewed:2]) {
+					//we know the childs name from the drawing
+					childDescription = [NSString stringWithFormat:@"%@ %@", childDescription, @", Victoria"];
+				} else {
+					//we do not know the childs name
+				}
+
+				childDescription = [NSString stringWithFormat:@"%@ %@", childDescription, @", murdered by her own mother. What madness could affect such a terrible crime"];
+
+				[player outputMessage:childDescription];
+			}
+
+
+
+			[player outputMessage:@"There were more enigmas here to uncover, but the cold air of night was my freedom, and freedom beckoned. Those secrets would have lie in wait for the next venturer.\n\n"];
+
 			if ([player hasViewed: 1])
 				[player outputMessage:@"I have seen the portrait"];
 			if ([player hasViewed: 128])
