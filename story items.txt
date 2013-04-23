@@ -38,6 +38,11 @@ TODO
 -add numerous items to the rooms to flesh them out
 
 /home/ciasaboark/Downloads/98333__cgeffex__edelweiss-music-box.wav http://freesound.org/people/CGEffex/sounds/98333/
+walk1.mp3 http://freesound.org/people/ddohler/sounds/34256/
+walk2.mp3 http://freesound.org/people/Ndheger/sounds/118106/
+walk3.mp3 http://freesound.org/people/bahaish/sounds/145786/ and http://freesound.org/people/pauliep83/sounds/33679/
+walk4.mp3 http://freesound.org/people/Zabuhailo/sounds/167655/
+walk5.mp3 http://freesound.org/people/RutgerMuller/sounds/155858/
 
 DATES
 may 1915 - wedding

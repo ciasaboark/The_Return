@@ -89,7 +89,31 @@ static NSMutableArray* transitionRequests;
 
 
 +(void)didRoomTransition:(NSNotification*)notification {
-    //this stub could be used to play a transition effect (footsteps, creaking rope, stairs)
+    //play a transition effect.  In general this should be keyed to the type of environment
+    //+ that we are walking into, except for vertical transitions
+    NSString* from = [[userInfo objectForKey:@"previous"] type];
+    NSString* to = [[userInfo objectForKey:@"previous"] type];
+
+    //there has got to be a better way to do this
+    
+    if ([to isEqualToString:@"outisde"]) {     //the outside is a dead end, no need to 
+        [self playSingle:@"walk4.mp3"];
+    } else if ([from isEqualToString:@"cave"] && [to isEqualToString:@"cave"]) {    //only for transitions between the two
+        [self playSingle:@"walk5.mp3"];
+    } else if ([from isEqualToString:@"cave"] && [to isEqualToString:@"ground"]) {  //climbing up the rope
+        [self playSingle:@"walk3.mp3"];
+    } else if ([from isEqualToString:@"ground"] && [to isEqualToString:@"cave"]) {  //climbing down the rope
+        [self playSingle:@"walk3.mp3"];
+    } else if ([from isEqualToString:@"ground"] && [to isEqualToString:@"upstairs"]) {  //stairs
+        [self playSingle:@"walk2.mp3"];
+    } else if ([from isEqualToString:@"upstairs"] && [to isEqualToString:@"ground"]) {  //also stairs
+        [self playSingle:@"walk2.mp3"];
+    } else if ([from isEqualToString:@"attic"] || [to isEqualToString:@"attic"]) {  //reusing the stairs sound as a ladder
+        [self playSingle:@"walk2.mp3"];
+    } else {
+        [self playSingle:@"walk1.mp3"];     //the generic inside walking sound
+    }
+
 }
 
 +(void)playerUsedItem:(NSNotification*) notification {
