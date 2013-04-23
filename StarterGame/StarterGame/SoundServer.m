@@ -105,6 +105,8 @@ static NSMutableArray* transitionRequests;
         [self playSingle:@"coal.mp3"];
     } else if ([itemName isEqualToString:@"musicbox"]) {
         [self playSingle:@"musicbox.mp3"];
+    } else if ([itemName isEqualToString:@"ladder"]) {
+        [self playSingle:@"drop2.mp3"];
     }
 }
 
@@ -177,6 +179,7 @@ static NSMutableArray* transitionRequests;
                                 [ambient retain];
                                 [ambient setName:requestedFileName];
                                 [ambient setVolume:1.0];
+                                [ambient setLoops:YES];
                                 [ambient play];
                             } @catch (NSException* exception) {
                                 fprintf(stderr, "SoundServer:T_ambientSoundManager: error opening new sound\n");

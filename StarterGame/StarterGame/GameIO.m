@@ -43,7 +43,7 @@
     //+ adding that word would place the length over the max.
     
     //We keep track of spaces to make sure that lines of many short words do not go over the limit.
-    int maxlength = 95;
+    int maxlength = 93;
     NSArray *sLines = [input componentsSeparatedByString:@"\n"];
     
     for (id string in sLines) {

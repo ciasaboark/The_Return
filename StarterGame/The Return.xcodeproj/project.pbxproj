@@ -24,6 +24,7 @@
 		81AF892116E6AAC400276C6B /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 81AF891F16E6AAC400276C6B /* Credits.rtf */; };
 		81AF892416E6AAC400276C6B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 81AF892316E6AAC400276C6B /* AppDelegate.m */; };
 		81AF892716E6AAC500276C6B /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81AF892516E6AAC500276C6B /* MainMenu.xib */; };
+		DF09A1D317259E52007C95B9 /* musicbox.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DF09A1D217259E52007C95B9 /* musicbox.mp3 */; };
 		DF0BEF54170CDE2D0022B7FE /* arrow-north.png in Resources */ = {isa = PBXBuildFile; fileRef = DF0BEF53170CDE2D0022B7FE /* arrow-north.png */; };
 		DF0BEF58170CDE4E0022B7FE /* arrow-south.png in Resources */ = {isa = PBXBuildFile; fileRef = DF0BEF55170CDE4E0022B7FE /* arrow-south.png */; };
 		DF0BEF59170CDE4E0022B7FE /* arrow-east.png in Resources */ = {isa = PBXBuildFile; fileRef = DF0BEF56170CDE4E0022B7FE /* arrow-east.png */; };
@@ -100,6 +101,7 @@
 		81AF892216E6AAC400276C6B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		81AF892316E6AAC400276C6B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		81AF892616E6AAC500276C6B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		DF09A1D217259E52007C95B9 /* musicbox.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = musicbox.mp3; sourceTree = "<group>"; };
 		DF0BEF53170CDE2D0022B7FE /* arrow-north.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-north.png"; sourceTree = "<group>"; };
 		DF0BEF55170CDE4E0022B7FE /* arrow-south.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-south.png"; sourceTree = "<group>"; };
 		DF0BEF56170CDE4E0022B7FE /* arrow-east.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-east.png"; sourceTree = "<group>"; };
@@ -129,7 +131,6 @@
 		DF8DB446170BA7A100B37AAA /* coal.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = coal.mp3; sourceTree = "<group>"; };
 		DFA337AD16F534B100666817 /* DropCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropCommand.h; sourceTree = "<group>"; };
 		DFA337AE16F534B100666817 /* DropCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropCommand.m; sourceTree = "<group>"; };
-		DFD841D31718DF18002152DA /* libssl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libssl.dylib; path = usr/lib/libssl.dylib; sourceTree = SDKROOT; };
 		DFDA7AAF16F4CB7E00A03E30 /* SleepCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SleepCommand.h; sourceTree = "<group>"; };
 		DFDA7AB016F4CB7E00A03E30 /* SleepCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SleepCommand.m; sourceTree = "<group>"; };
 		DFDCA0CA16FA20D200A00272 /* XyzzyCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XyzzyCommand.h; sourceTree = "<group>"; };
@@ -223,7 +224,6 @@
 		81AF890116E6AAC400276C6B = {
 			isa = PBXGroup;
 			children = (
-				DFD841D31718DF18002152DA /* libssl.dylib */,
 				DF0BEF61170CE7B90022B7FE /* cthulhu.jpg */,
 				DF0BEF63170CE7F00022B7FE /* cthulhu.png */,
 				DF0BEF5F170CE77A0022B7FE /* Icon.png */,
@@ -292,6 +292,7 @@
 		DF8DB424170BA6A400B37AAA /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				DF09A1D217259E52007C95B9 /* musicbox.mp3 */,
 				DF1024AE1715E679007B15AA /* end.mp3 */,
 				DF8DB425170BA6A400B37AAA /* backpack.mp3 */,
 				DF8DB426170BA6A400B37AAA /* backpack2.mp3 */,
@@ -412,6 +413,7 @@
 				DFF5BFE1171336F600686BCF /* dark.mp3 in Resources */,
 				DF1024AF1715E679007B15AA /* end.mp3 in Resources */,
 				DF1024B41715EDF7007B15AA /* end2.mp3 in Resources */,
+				DF09A1D317259E52007C95B9 /* musicbox.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

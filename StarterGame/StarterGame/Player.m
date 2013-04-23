@@ -74,7 +74,7 @@
 
             [self pushRoom: currentRoom];
             [self setCurrentRoom:nextRoom];
-            NSLog(@"player now in %@", nextRoom);
+            //NSLog(@"player now in %@", nextRoom);
             
             //We can pretty things up a bit by using some random verbs
             NSArray* verbs = [NSArray arrayWithObjects: @"entered", @"walked into", @"made my way to", nil];

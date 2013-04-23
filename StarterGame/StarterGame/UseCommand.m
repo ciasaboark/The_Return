@@ -72,10 +72,10 @@
                 }
 
                 else {
-                    [player outputMessage:@"\nWoops, this item is missing its use block\n"];
+                    //This item has no use in an explicit room
                 }
             } else if ([secondWord isEqualToString:@"musicbox"]) {  //the only item that can be used anywhere
-                [player outputMessage:@"\nI turned the crank on the musicbox\n"];
+                [player outputMessage:@"\nI turned the crank on the musicbox, the simple tune was hauntingly familiar.\n"];
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"playerUsedItem" object:secondWord];
 
             } else {

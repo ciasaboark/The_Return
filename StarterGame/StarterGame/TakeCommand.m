@@ -30,7 +30,7 @@
             //the item exists
             if ([itemToTake weight] + [player currentWeight] > [player maxWeight] ) {
                 //the item is too heavy
-                [player outputMessage:[NSString stringWithFormat:@"\nI tried to lift the %@, but it did not budge.  Perhaps I was carrying too much.\n", secondWord]];
+                [player outputMessage:[NSString stringWithFormat:@"\nI tried to lift the %@, but it did not budge.\n", secondWord]];
                  
             } else if ([itemToTake weight] < 0) {
                 //the item is incorporial
@@ -46,7 +46,7 @@
                 
                 //give some fancy feedback if this was the first item we picked up
                 if ([player hasTakenItem] == false ) {
-                    [player outputMessage: [NSString stringWithFormat:@"\nI searched for something to carry the %@ in but find nothing.  My pants, once fine, were torn, and seemed to have been made without pockets.  I took off my coat and, with a little work, fashioned a crude backpack of sorts, hoping that the %@ would remain secure.\n", secondWord, secondWord]];
+                    [player outputMessage: [NSString stringWithFormat:@"\nI searched for something to carry the %@ in but found nothing.  My pants, once fine, were torn, and seemed to have been made without pockets.  I took off my coat and, with a little work, fashioned a crude backpack of sorts, hoping that the %@ would remain secure.\n", secondWord, secondWord]];
                     [player setHasTakenItem: true];
                 } else {                    
                     [player outputMessage: [NSString stringWithFormat:@"\nI placed the %@ in my backpack.\n", secondWord]];

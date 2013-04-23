@@ -268,8 +268,8 @@
 
 		Item* master_bedroom_closet = [[Item alloc] initWithName:@"closet" andDescription:@"The closet was a mess. Clothes were scattered all over the floor. I searched through the mess for something that might be of use." usedIn:nil andWeight:-1 andRoomDescription:@"A CLOSET was to the south."];
 			//Items in the closet
-			Item* flashlight = [[Item alloc] initWithName:@"flashlight" andDescription:@"An old chrome flashlight. I couldn't see how to open the battery compartment, but it feelt heavy. I thought it might be of use later." usedIn:sewing_room andWeight:2 andRoomDescription: @"On the top shelf of the closet there was a FLASHLIGHT."];
-			[master_bedroom_closet addHiddenItem: [flashlight autorelease]];
+			Item* coat = [[Item alloc] initWithName:@"coat" andDescription:@"A faded navy blue pea coat." usedIn:nil andWeight:2 andRoomDescription: @"On the top shelf of the closet there was a COAT."];
+			[master_bedroom_closet addHiddenItem: [coat autorelease]];
 
 		//collectable items
 		Item* hat = [[Item alloc] initWithName:@"hat" andDescription:@"A rumbled bowler hat. Tucked into the rim of the hat was a faded piece of paper with the numbers \"42\", \"28\", and \"16\"." usedIn:nil andWeight:2 andRoomDescription:@"A bowlers HAT rested on a hook by the door."];
@@ -301,12 +301,12 @@
 
 	//Items for the dining room
 		//Fixed Items
-		Item* dining_room_table = [[Item alloc] initWithName:@"table" andDescription:@"A large TABLE. There were still platters of half eaten food on two of the settings. A bowl leaned at a angle, soup covered the tablecloth." usedIn:nil andWeight: 60 andRoomDescription:@"A long TABLE occupied the center of the room, with a number of elegantly carved chairs waiting in position. Each chair was fronted by a complete table set. The two on the southern end seemed to have been used recently."];
+		Item* dining_room_table = [[Item alloc] initWithName:@"table" andDescription:@"A large table. There were still platters of half eaten food on two of the settings. A bowl leaned at a angle, soup covered the tablecloth." usedIn:nil andWeight: 60 andRoomDescription:@"A long TABLE occupied the center of the room, with a number of elegantly carved chairs waiting in position. Each chair was fronted by a complete table set. The two on the southern end seemed to have been used recently."];
 			//Items beside the table
-			Item* dining_room_doll = [[Item alloc] initWithName:@"doll" andDescription:@"A bisque doll. The paint was faded and the clothes have been mended." usedIn:nil andWeight:2 andRoomDescription:@"I noticed a doll laying beside the table."];
+			Item* dining_room_doll = [[Item alloc] initWithName:@"doll" andDescription:@"A bisque doll. The paint was faded and the clothes have been mended." usedIn:nil andWeight:2 andRoomDescription:@"I noticed a DOLL laying beside the table."];
 			[dining_room_table addHiddenItem: [dining_room_doll autorelease]];
-		Item* dining_room_clock = [[Item alloc] initWithName:@"clock" andDescription:@"The grandfather CLOCK was large and stained dark." usedIn:nil andWeight: 60 andRoomDescription:@"Sitting against the wall by the door there was a grandfather CLOCK."];
-		Item* dining_room_china = [[Item alloc] initWithName:@"cabinet" andDescription:@"The china CABINET was filled with dishes of fine porcelain and silverware that gleams even in the dim light." usedIn:nil andWeight:60 andRoomDescription:@"A large china CABINET has been placed along the center of the western wall, flanked on either side by serving trays."];
+		Item* dining_room_clock = [[Item alloc] initWithName:@"clock" andDescription:@"The grandfather clock was large and stained dark." usedIn:nil andWeight: 60 andRoomDescription:@"Sitting against the wall by the door there was a grandfather CLOCK."];
+		Item* dining_room_china = [[Item alloc] initWithName:@"cabinet" andDescription:@"The china cabinet was filled with dishes of fine porcelain and silverware that gleams even in the dim light." usedIn:nil andWeight:60 andRoomDescription:@"A large china CABINET has been placed along the center of the western wall, flanked on either side by serving trays."];
 		Item* dining_room_painting = [[Item alloc] initWithName:@"painting" andDescription:@"The painting depected a three masted ship in rough seas. The sun setting behind the ship was partially obscured by heavy clouds and threw long streamers of light over the full sails." usedIn:nil andWeight:60 andRoomDescription:@"There was a PAINTING on the north wall."];
 		Item* dining_room_window = [[Item alloc] initWithName:@"window" andDescription:@"Light from a street lamp in the distance dimly illuminated the lawn and steps. The steps descended from the front door in a series of concentrically larger half circles. A number of manicured shrubs grew at the base of the window. There was a series of muddy handprints on the outside of the glass, smeared as though someone had tried to open the window from the outside." usedIn:nil andWeight:-1 andRoomDescription:@"A WINDOW on the southern wall overlooked the front lawn."];
 	
@@ -314,6 +314,7 @@
 		[dining_room addItem: [dining_room_clock autorelease]];
 		[dining_room addItem: [dining_room_china autorelease]];
 		[dining_room addItem: [dining_room_painting autorelease]];
+        [dining_room addItem: [dining_room_window autorelease]];
 
 	//Items in the library
 		//Items with hidden items
@@ -382,7 +383,7 @@
 
 	//Items in the servant's dining room
 		//Fixed items
-		Item* srvnt_dining_room_table = [[Item alloc] initWithName:@"table" andDescription:@"The table was plain, uncarved and unpainted, but well made." usedIn:nil andWeight:60 andRoomDescription:@"In the center of the room there was a square wooden table."];
+		Item* srvnt_dining_room_table = [[Item alloc] initWithName:@"table" andDescription:@"The table was plain, uncarved and unpainted, but well made." usedIn:nil andWeight:60 andRoomDescription:@""];
 			//Items on the servant's dining room table
 			 Item* lantern = [[Item alloc] initWithName:@"lantern" andDescription:@"The metal was more rust than shine, and the glass covering was chipped at the top, but there was a small amount of oil in the reservoir, and a pair of matches were stuck into a container at the base. It might hold a flame long enough to see by." usedIn:cave andWeight:3 andRoomDescription:@"I saw an old tin LANTERN on the table."];
 			[srvnt_dining_room_table addHiddenItem:[lantern autorelease]];
@@ -422,7 +423,7 @@
 	
 	//Items in the sewing room
 		//Fixed items
-		Item* sewing_room_corner = [[Item alloc] initWithName:@"corner" andDescription:@"In the corner there was movement. The light was too dim to see properly, but I was sure that some THING crouced in the corner." usedIn:nil andWeight:-1 andRoomDescription:@"I almosted missed seeing movement in the CORNER." andPoints:0 andSpecial:false visibleAfterPointsEqual:100];
+		Item* sewing_room_corner = [[Item alloc] initWithName:@"corner" andDescription:@"In the corner there was movement. The light was too dim to see properly, but I was sure that some THING crouched in the corner." usedIn:nil andWeight:-1 andRoomDescription:@"I almosted missed seeing movement in the CORNER." andPoints:0 andSpecial:false visibleAfterPointsEqual:100];
 			//Items in the corner
 			 Item* thing = [[Item alloc] initWithName:@"thing" andDescription:@"In the corner of the room some THING waits crouched. In the dim light it was impossible to make out any details. I approached the apparition with dread. As I moved closer it seemed to grow in size. So engrossed was I in the specter that my footing slipped and I stumbled forward with no control. I raised my hands to break my fall and was startled as my tumble was broken short as my fingers fell on the cold and unyielding surface of polished glass." usedIn:nil andWeight:60 andRoomDescription:@"" andPoints:262144];
 				//You (in the mirror)
@@ -444,7 +445,7 @@
 		Item* srvnt_bed_room_trunk = [[Item alloc] initWithName:@"trunk" andDescription:@"The trunk was made from pine wood, supported by iron bands, and decorated with a punched tin relief." usedIn:nil andWeight:60 andRoomDescription:@"A steamer TRUNK was at the foot of the bed."];
 		Item* srvnt_bed_room_table = [[Item alloc] initWithName:@"table" andDescription:@"The table had a small horizontal shelf at its top, with small cutouts to hold an ink well and pen. The writing surface was angled downwards. A small shelf at the bottom held a charcoal pencil." usedIn:nil andWeight:60 andRoomDescription:@"There was a small writing TABLE in the northwest corner."];
 			//Items on the table
-			Item* srvnt_bed_room_table_drawing = [[Item alloc] initWithName:@"drawing" andDescription:@"The drawing had been done with a charcoal pencil, obviously by a child. It showed a child and a grown woman holding hands. Underneath the figures there wre names written: Miss. Anne and Victoria." usedIn:nil andWeight:1 andRoomDescription:@"There was a DRAWING on the writing table." andPoints:2];
+			Item* srvnt_bed_room_table_drawing = [[Item alloc] initWithName:@"drawing" andDescription:@"The drawing had been done with a charcoal pencil, obviously by a child. It showed a child and a grown woman holding hands. Underneath the figures there were names written: Miss. Anne and Victoria." usedIn:nil andWeight:1 andRoomDescription:@"There was a DRAWING on the writing table." andPoints:2];
 			[srvnt_bed_room_table addHiddenItem: [srvnt_bed_room_table_drawing autorelease]];
 
 		[srvnt_bed_room addItem:[srvnt_bed_room_bed autorelease]];
@@ -472,7 +473,7 @@
 		Item* workroom_box = [[Item alloc] initWithName:@"box" andDescription:@"The box was filled with a number of items all thrown in haphazardly." usedIn:nil andWeight:30 andRoomDescription:@"I noticed a BOX filled with a jumble of items near the door to the hall"];
 			//Items in the box
 			Item* workroom_box_flasks = [[Item alloc] initWithName:@"flasks" andDescription:@"There were a variety of glass flasks, some still covered in burn marks and residue. I couldn't tell what the flaks had been used for, but an acrid smell emanated from them." usedIn:nil andWeight:4 andRoomDescription:@"Inside the box there was a number of glass FLASKS."];
-			Item* workroom_box_notebook = [[Item alloc] initWithName:@"notebook" andDescription:@"The notebook was filled with sketches of various sigils, some of which seemed similar to the pattern on the floor. One of these sigils, the last in the series, was circled. A hastily scribbled note beside the pattern reads:\n\n\tthis one\n\tI could feel HIS presence during the sacrifice\n\tanimal blood will not be strong enough to bind HIM long enough\n." usedIn:nil andWeight:-1 andRoomDescription:@"I saw a small NOTEBOOK in the pile." andPoints:1024];
+			Item* workroom_box_notebook = [[Item alloc] initWithName:@"notebook" andDescription:@"The notebook was filled with sketches of various sigils, some of which seemed similar to the pattern on the floor. One of these sigils, the last in the series, was circled. A hastily scribbled note beside the pattern reads:\n\n\tthis one\n\tI could feel HIS presence during the sacrifice\n\tanimal blood will not be strong enough to bind HIM long enough\n." usedIn:nil andWeight:1 andRoomDescription:@"I saw a small NOTEBOOK in the pile." andPoints:1024];
 			[workroom_box addHiddenItem:[workroom_box_flasks autorelease]];
 			[workroom_box addHiddenItem:[workroom_box_notebook autorelease]];
 	
@@ -491,11 +492,11 @@
 		[bathroom addItem:[bathroom_tub autorelease]];
 	
 	//Items in the childs bedroom
-		Item* child_musicbox = [[Item alloc] initWithName:@"box" andDescription:@"A musicbox. The lid, covered in a raised relief, depicts a small child on a field surrounded by sheep." usedIn:bed1 andWeight:1 andRoomDescription:@"On a table beside the bed there was a small music BOX." andPoints:32];
+		Item* child_musicbox = [[Item alloc] initWithName:@"musicbox" andDescription:@"A musicbox. The lid, covered in a raised relief, depicts a small child on a field surrounded by sheep." usedIn:nil andWeight:1 andRoomDescription:@"On a table beside the bed there was a small MUSICBOX." andPoints:32];
 		[bed1 addItem:[child_musicbox autorelease]];
 
 	//Items in the attic
-		Item* attic_box = [[Item alloc] initWithName:@"box" andDescription:@"A wooden box filled with a number of books." usedIn:nil andWeight:60 andRoomDescription:@"Near the opening to the attic there was a large BOX."]
+		Item* attic_box = [[Item alloc] initWithName:@"box" andDescription:@"A wooden box filled with a number of books." usedIn:nil andWeight:60 andRoomDescription:@"Near the opening to the attic there was a large BOX."];
 			//Items in the box
 			Item* attic_log = [[Item alloc] initWithName:@"journal" andDescription:@"The journal was marked on the first page with the name \"W. A. Gardner.\" I flipped through the pages, most of which detailed records of shipments received. Toward the end the entries changed note. An entry dated 4th Dec '16 noted that \"That damned cough is back, the doctors still claim that nothing can be done. I'll have to keep drinking that blasted concoction and wait for the weather to warm.\n\nLater an entry dated 23rd July '17" usedIn:nil andWeight:2 andRoomDescription:@"" andPoints:4096];
 			[attic_box addHiddenItem:[attic_log autorelease]];
@@ -529,7 +530,7 @@
 		[player outputMessage:[self goodbye]];
 		playing = NO;
 	} else if (endpoints >= 40 && endpoints <= 99) {    //only bits and pieces were discovered
-		[player outputMessage:@"I had been here before, I was sure of that. Thoughts floated at the edge my my mind, vague recollections of a time passed from memory."
+		[player outputMessage:@"I had been here before, I was sure of that. Thoughts floated at the edge my my mind, vague recollections of a time passed from memory."];
 
 			
 			if ([player hasViewed:65536]) { //if the player saw the body of the woman
@@ -537,10 +538,10 @@
 
 				if ([player hasViewed:16384]) {
 					//we know her name from the locket
-					womanDescription = [NSString stringWithFormat:@"%@ %@", womanDescription, @"Olphelia"]
+					womanDescription = [NSString stringWithFormat:@"%@ %@", womanDescription, @"Olphelia"];
 				} else {
 					//does not know the name
-					womanDescription = [NSString stringWithFormat:@"%@ %@", womanDescription, @"the woman upstairs"]
+					womanDescription = [NSString stringWithFormat:@"%@ %@", womanDescription, @"the woman upstairs"];
 				}
 
 				womanDescription = [NSString stringWithFormat:@"%@ %@", womanDescription, @"swinging gently from that noose would forever haunt my dreams."];
