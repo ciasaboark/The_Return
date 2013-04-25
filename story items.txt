@@ -9,12 +9,12 @@
 256			workroom sigil bloot spot																*DONE*
 512			grave																					*DONE*
 1024		notebook (in workroom)																	*DONE*
-4096		journal (referencing illness and search)	
-8192		log (travel log referencing search for a cure)
+4096		journal (referencing illness and search, in attic)										*DONE*
+8192		log (travel log referencing search for a cure)											
 16384		locket (also a special item)															*DONE*
 32768		workroom sigil																			*DONE*
-65536		body of Ophelia (name should only be known if locket has been found)					
-131072		body of child																			
+65536		body of Ophelia (name should only be known if locket has been found)					*DONE*
+131072		body of child																			*DONE*
 262144		thing (corner should only be referenced when enough of the story has been uncovered)	*DONE*
 524288		you (in the mirror, now you know you are dead)											*DONE*
 
@@ -23,19 +23,20 @@
 
 TODO
 -make sure item points are correct
--check for capitalized names in item descriptions
--check that item name is capitalized in the item room description
+-check for capitalized names in item descriptions						*DONE*
+-check that item name is capitalized in the item room descriptions		*DONE*
 -items need to be added to servents room								*DONE*
 -items need to be added to kitchen										*DONE*
--items need to be completed in sewing room
--book needs to be completed in library
+-items need to be completed in sewing rooms								*DONE*
+-book needs to be completed in library									*DONE*
 -travel log needs to be written (bedroom?)
--journal needs to be written (in empty bedroom)	
--wedding picture in bedroom
--picture of child in childs bedroom?
--music box in childs bedroom
--finish kitchen item descriptions
--add numerous items to the rooms to flesh them out
+-journal needs to be written (in empty bedroom)							*DONE*
+-wedding picture in bedroom												*DONE*
+-picture of child in childs bedroom?									NO, REPLACED WITH DRAWING
+-music box in childs bedroom											*DONE*
+-finish kitchen item descriptions										*DONE*
+-add numerous items to the rooms to flesh them occult					MEH
+-resize to 1280x900
 
 /home/ciasaboark/Downloads/98333__cgeffex__edelweiss-music-box.wav http://freesound.org/people/CGEffex/sounds/98333/
 walk1.mp3 http://freesound.org/people/ddohler/sounds/34256/

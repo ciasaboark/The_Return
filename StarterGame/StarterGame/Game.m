@@ -199,7 +199,7 @@
 	//The Downstairs rooms
 	[mast_bed setLongDescription: @"The room was dimly lit. The WINDOWS along the east of the room were curtained and shuttered, and let in no light from the street lamp. The overhead light was off, but small bulbs burned in sconces on both sides of the entrance, illuminating the room. To the north I noticed a bathroom. The entrance to the hall was west. Dust motes floated in the air."];
 	
-	[hall1 setLongDescription: @"The hallway was lit by two miniature chandeliers, one in this section of the hall and one somewhat farther down. The floor was bare wood, dark in color. The walls were white plaster, with molding that matched the floor. The front door was large and barricaded with a number of hastily placed boards. I wouldn't be able to remove the barrier with my bare hands. To the east there was a dining room. To the west there was a formal hall. The hallway continued north, where I could see additonal rooms."];
+	[hall1 setLongDescription: @"The hallway was lit by two miniature chandeliers, one in this section of the hall and one somewhat farther down. The floor was bare wood, dark in color. The walls were white plaster, with molding that matched the floor. To the east there was a dining room. To the west there was a formal hall. The hallway continued north, where I could see additonal rooms."];
 
 	[hall2 setLongDescription: @"The hallway was lit by a miniature chandelier overhead. The walls were white plaster with dark wood molding and the floor, a dark stained wood in the style of the molding, was covered by a long rug woven in some oriential style. The hallway continued north and south from here.  The southern end lead to the front door as well as two additional rooms.  To the north the hallway entered shadow. To the east there was a bedroom. To the west I saw some sort of library. There was a stairway here leading up to the second floor."];
 
@@ -244,7 +244,7 @@
 	
 	[short_hall setLongDescription: @"The hall ran between the western workroom and the bathroom to the east. A door in the middle of the hall opened north to the servant's quarters."];
 	
-	[sewing_room setLongDescription: @"The southern wall was dominated by a set of large double doors, opening to a small terrace. Light from the open door to the north only let in a faint glow, but the open doors let in enough moonlight to illuminate the contents of the room. In the dim glow I beheld a grim sight. In the middle of the room there was a WOMAN. Pale golden hair hung loose covering her face. Her dress was a pale blue stiched with a floral pattern along the hem. The front of the dress was splashed in crimson. In front of her there lay an overturned chair. Her feet faintly trailed on the floor as her body gently swung from a noose. Beside her, on the ground, there was a small BODY. The vision so disturbed and overwhelmed me that I fell to my knees in dispair."];
+	[sewing_room setLongDescription: @"The southern wall was dominated by a set of large double doors, opening to a small terrace. Light from the open door to the north only let in a faint glow, but the open doors let in enough moonlight to illuminate the contents of the room."];
 	
 	[srvnt_bed_room setLongDescription: @"The room was plain, but well kept. The room was paneled in wood, unlike the white plaster I had found in the rest of the house."];
 
@@ -253,10 +253,18 @@
 	* Items for the rooms
 	*****************************/
 
+	//Items in the south of the hallway
+		//fixed items
+		Item* barricade = [[Item alloc] initWithName:@"barricade" andDescription:@"The front door was large and barricaded with a number of hastily placed boards. I wouldn't be able to remove the barrier with my bare hands." usedIn:nil andWeight:-1 andRoomDescription:@"The front door had been blocked by a BARRICADE."];
+		//collectable items
+		Item* hammer = [[Item alloc] initWithName:@"hammer" andDescription:@"A hammer, one side has a wide striking face, the other a narrow point. I wouldn't be able to remove the nails or break the boards with the hammer." usedIn:nil andWeight:3 andRoomDescription:@"Beside the door on the ground there was a HAMMER."];
+		[hall1 addItem:[barricade autorelease]];
+		[hall1 addItem:[hammer autorelease]];
+
 	//Items in the Master Bedroom
 		//fixed items
 		Item* master_bedroom_bed = [[Item alloc] initWithName:@"bed" andDescription:@"The bed was large and seemed to be made entirely out of some glossy dark wood. The covers were unmade. For some reason this seemed to fill me with dispair." usedIn:nil andWeight:40 andRoomDescription:@"The little light that filtered through illuminated a large four post BED draped in what looked to be velvet."];
-		Item* master_bedroom_windows = [[Item alloc] initWithName:@"windows" andDescription:@"The windows were curtained in heavy purple cloth. They seemed familiar, or, to be more precise, I felt as though they should feel familiar." usedIn:nil andWeight:60 andRoomDescription:@""];
+		Item* master_bedroom_windows = [[Item alloc] initWithName:@"windows" andDescription:@"The windows were curtained in heavy purple cloth. They seemed familiar, or, to be more precise, I felt as though they should feel familiar." usedIn:nil andWeight:60 andRoomDescription:@"Heavy purple curtains covered the WINDOWS."];
 		Item* master_bedroom_couch = [[Item alloc] initWithName:@"couch" andDescription:@"The couch was made from a dark wood, intricately carved on the legs and back. The cushions were uphostered in a red velvet." usedIn:nil andWeight:60 andRoomDescription:@"A COUCH shared the wall with the bathroom entrance."];
 		Item* master_bedroom_picture = [[Item alloc] initWithName:@"picture" andDescription:@"The picture was of a man and woman at a wedding altar. The man wore a buttoned coat, and the woman a dress of lace. Memories stirred. I remembered being there, but not this view." usedIn:nil andWeight:2 andRoomDescription:@"There was a PICTURE of a smiling man and woman on the dresser." andPoints:8];
 		
@@ -268,11 +276,11 @@
 
 		Item* master_bedroom_closet = [[Item alloc] initWithName:@"closet" andDescription:@"The closet was a mess. Clothes were scattered all over the floor. I searched through the mess for something that might be of use." usedIn:nil andWeight:-1 andRoomDescription:@"A CLOSET was to the south."];
 			//Items in the closet
-			Item* coat = [[Item alloc] initWithName:@"coat" andDescription:@"A faded navy blue pea coat." usedIn:nil andWeight:2 andRoomDescription: @"On the top shelf of the closet there was a COAT."];
+			Item* coat = [[Item alloc] initWithName:@"coat" andDescription:@"A faded navy blue pea coat." usedIn:nil andWeight:2 andRoomDescription: @"Hanging on a rack in the closet I saw a COAT that looked familiar."];
 			[master_bedroom_closet addHiddenItem: [coat autorelease]];
 
 		//collectable items
-		Item* hat = [[Item alloc] initWithName:@"hat" andDescription:@"A rumbled bowler hat. Tucked into the rim of the hat was a faded piece of paper with the numbers \"42\", \"28\", and \"16\"." usedIn:nil andWeight:2 andRoomDescription:@"A bowlers HAT rested on a hook by the door."];
+		Item* hat = [[Item alloc] initWithName:@"hat" andDescription:@"A rumbled bowler hat." usedIn:nil andWeight:2 andRoomDescription:@"A bowlers HAT rested on a hook by the door."];
 	
 		[mast_bed addItem: [master_bedroom_bed autorelease]];
 		[mast_bed addItem: [master_bedroom_windows autorelease]];
@@ -290,7 +298,7 @@
 		Item* mast_bath_mirror = [[Item alloc] initWithName:@"mirror" andDescription:@"A broken mirror. I couldn't see any blood on the glass shards. The frame had spots of mud along the sides." usedIn:nil andWeight:6 andRoomDescription:@"The MIRROR that was once above the sink lied shattered on the floor."];
 
 		//Items with hidden items
-		Item* mast_bath_shelf = [[Item alloc] initWithName:@"shelf" andDescription:@"A shelf of white wood." usedIn:nil andWeight:-1 andRoomDescription:@"A SHELF above the sink held a few items."];
+		Item* mast_bath_shelf = [[Item alloc] initWithName:@"shelf" andDescription:@"The shelf was white painted wood." usedIn:nil andWeight:-1 andRoomDescription:@"A SHELF above the sink held a few items."];
 			//Items on the shelf
 			Item* razor = [[Item alloc] initWithName:@"razor" andDescription:@"It was a straight razor. The handle was made in ivory. It seemed to be sharp, but there were small spots of rust on the blade." usedIn:nil andWeight:1 andRoomDescription:@"A RAZOR was on the shelf."];
 			[mast_bath_shelf addHiddenItem: [razor autorelease]];
@@ -325,15 +333,15 @@
 		
 		 Item* library_book_stack = [[Item alloc] initWithName:@"stack" andDescription:@"A large stack of books. I looked through the titles and noticed some obscure subjects." usedIn:nil andWeight:-1 andRoomDescription:@"On a table beside the chairs there was a large STACK of books."];
 			//Books in the stack
-			Item* book_stack_occult = [[Item alloc] initWithName:@"occult" andDescription:@"" usedIn:nil andWeight:3 andRoomDescription:@"\"The OCCULT of New Haven.\"" andPoints: 128];
-			Item* book_stack_guinea = [[Item alloc] initWithName:@"guinea" andDescription:@"The text was a long and varied. Toward the middle of the book there were a number of pages that had been dog-eared. I looked through this section more closely and saw a description of a ritual sacrifice that, according to the author, granted strength and health to the practictioner. The sacrifice was known by many names to the various tribes on the island." usedIn:nil andWeight:3 andRoomDescription:@"There was a book titled \"On the Religion of Papa New GUINEA.\"" andPoints: 16];
-			Item* book_stack_iram = [[Item alloc] initWithName:@"iram" andDescription:@"The cover was torn, the only text visible in the bottom corner read: \"dul Alharzed\"\nI scanned through the text, but most of it seemed to be written in a number of languages I was unfamiliar with. There were numerous pages with drawings of strange symbols and gliphs. A section toward the end referenced a Nameless City wherein eldritch rituals are performed by a group of elders and, in doing so they are renewed for another season. In the margin of the page, scribbled in pencil there was a note:\n\n\t\"alignment in 3 months\n\tit will be my only chance for the sacrifice\"\n" usedIn:nil andWeight:3 andRoomDescription:@"\"Rituals and Practices of IRAM of the Pillars.\"" andPoints: 64];
+			Item* book_stack_occult = [[Item alloc] initWithName:@"occult" andDescription:@"The book was a historical examination of the trials of two women that had been accused of witchcraft in the New Haven area at the end of the 17th century. Most of the text was dry and unremarkable. A section marked with a silk bookmark caught my eye. The  author noted that, unlike the trials of Salem, the women in this trial readily confessed to being practictioners of the dark arts. One passage in particular stood out:\n----\n\"When asked why they had abandoned the true path of Christ the women replied that it was not they who had abandoned the true path, for they worshiped the powers far older than he. When pressed further one of the women replied that they worshiped the powers of the Outside, that crawling madness and the Old Ones that inhabited it, which is separated from this world by the thinnest of viels." usedIn:nil andWeight:3 andRoomDescription:@"\"The OCCULT of New Haven.\"" andPoints: 128];
+			Item* book_stack_guinea = [[Item alloc] initWithName:@"guinea" andDescription:@"The text was a long and varied. Toward the middle of the book there were a number of pages that had been dog-eared. I looked through this section more closely and saw a description of a ritual sacrifice that, according to the author, granted strength and health to the practictioner. The sacrifice was known by many names to the various tribes on the island, but all shared a common theme; the sacrifice must be human." usedIn:nil andWeight:3 andRoomDescription:@"There was a book titled \"On the Religions of Papa New GUINEA.\"" andPoints: 16];
+			Item* book_stack_iram = [[Item alloc] initWithName:@"iram" andDescription:@"The cover was torn, the only text visible in the bottom corner read: \"dul Alharzed\"\nI scanned through the text, but most of it seemed to be written in a number of languages I was unfamiliar with. There were numerous pages with drawings of strange symbols and gliphs. A section toward the end referenced a Nameless City wherein eldritch rituals are performed by a group of elders and, in doing so they are renewed for another season. In the margin of the page, scribbled in pencil there was a note:\n\n\t\"it will take months to arrive by ship\n\tI must leave soon before my strength is wasted\"\n" usedIn:nil andWeight:3 andRoomDescription:@"\"Rituals and Practices of IRAM of the Pillars.\"" andPoints: 64];
 			[library_book_stack addHiddenItem:[book_stack_occult autorelease]];
 			[library_book_stack addHiddenItem:[book_stack_guinea autorelease]];
 			[library_book_stack addHiddenItem:[book_stack_iram autorelease]];
 			
 
-		Item* library_fireplace = [[Item alloc] initWithName:@"fireplace" andDescription:@"A brick FIREPLACE. Three leather-covered chairs face the fireplace. The mantlepiece appears to be ebony. Carved figures adorn the sides. The brick and metal were cold, and there was not even the slightest smell of soot in the air. The cast iron grating covered the front." usedIn:nil andWeight:-1 andRoomDescription:@"Along the north wall of the library there was a FIREPLACE."];
+		Item* library_fireplace = [[Item alloc] initWithName:@"fireplace" andDescription:@"A brick fireplace. Three leather-covered chairs face the fireplace. The mantlepiece appears to be ebony. Carved figures adorn the sides. The brick and metal were cold, and there was not even the slightest smell of soot in the air. The cast iron grating covered the front." usedIn:nil andWeight:-1 andRoomDescription:@"Along the north wall of the library there was a FIREPLACE."];
 			//Items inside the fireplace
 		Item* library_portrait = [[Item alloc] initWithName:@"portrait" andDescription:@"A portrait of a middle aged man, clean-shaven, wearing a navy blue pea coat. A cap is tucked under one arm, while the other holds a portable brass telescope. The man stares into the distance." usedIn:nil andWeight:-1 andRoomDescription:@"A PORTRAIT of a man hangs above the fireplace." andPoints:1];
 			
@@ -350,10 +358,10 @@
 
 	//Items in the Formal room
 		//Fixed items
-		Item* formal_room_record = [[Item alloc] initWithName:@"phonograph" andDescription:@"A phonograph player of older design." usedIn:nil andWeight:60 andRoomDescription:@"In the middle of the western wall there was a PHONOGRAPH player. Dispite there being no record on the player I could almost hear the music playing."];
+		Item* formal_room_phonograph = [[Item alloc] initWithName:@"phonograph" andDescription:@"A phonograph player of older design." usedIn:nil andWeight:60 andRoomDescription:@"In the middle of the western wall there was a PHONOGRAPH player. Dispite there being no record on the player I could almost hear the music playing."];
 			//Items by the record player
-			Item* formal_room_record_1 = [[Item alloc] initWithName:@"record" andDescription:@"A classical record by Claude Debussy \"En blanc et noir.\" I remembered finding a copy of this same record a few years back, and of dancing with a lady in white. It seemed strange that I could remember such a small detail, but nothing of who I was or who I danced with." usedIn:formal_room andWeight:1 andRoomDescription:@"There was a RECORD of classical music beside the phonograph." andPoints:4];
-			[formal_room_record addHiddenItem:[formal_room_record_1 autorelease]];
+			Item* formal_room_record = [[Item alloc] initWithName:@"record" andDescription:@"A classical record by Claude Debussy \"En blanc et noir.\" I remembered finding a copy of this same record a few years back, and of dancing with a lady in white. It seemed strange that I could remember such a small detail, but nothing of who I was or who I danced with." usedIn:formal_room andWeight:1 andRoomDescription:@"There was a RECORD of classical music beside the phonograph." andPoints:4];
+			[formal_room_phonograph addHiddenItem:[formal_room_record autorelease]];
 			
 		Item* formal_room_pedestal = [[Item alloc] initWithName:@"pedestal" andDescription:@"The pedestals were marble, ornately chissiled in the greccian fashion. On top of each pedestal there was a model of a boat incased in a glass dome. The coverings were fixed to the base and immobile." usedIn:nil andWeight:-1 andRoomDescription:@"In a gap in the chairs along the south wall there were three marble pedestalS."];
 			//Item on the pedestals
@@ -365,7 +373,7 @@
 			[formal_room_pedestal addHiddenItem:[formal_room_pedestal_boat3 autorelease]];
 		Item* formal_room_chairs = [[Item alloc] initWithName:@"chairs" andDescription:@"Two rows of chairs, one along the north wall, and one along the south. The chairs were ornate, and did not look like they had seen much use. It was obvious that the room was intended to be used for entertaining and socializing." usedIn:nil andWeight:-1 andRoomDescription:@"Along both the north and south wall there were rows of CHAIRS."];
 
-		[formal_room addItem: [formal_room_record autorelease]];
+		[formal_room addItem: [formal_room_phonograph autorelease]];
 		[formal_room addItem: [formal_room_chairs autorelease]];
 		[formal_room addItem: [formal_room_pedestal autorelease]];
 
@@ -406,7 +414,7 @@
 		//Fixed items
 		Item* cave_gleam = [[Item alloc] initWithName:@"floor" andDescription:@"A small section of the floor gleamed a bit brighter than the rest. Sticking up slightly from the mud I saw the outline of something hard. I scraped the mud away and saw that there was a small statue embeded in the ground." usedIn:nil andWeight:-1 andRoomDescription:@""];
 			//Items in the gleam
-			Item* cthulhu = [[Item alloc] initWithName:@"statue" andDescription:@"A small jade statue of some obscene monstrosity. It seemed to be a sort of monster, or symbol representing a monster, of a form which only a diseased fancy could conceive. A pulpy, tentacled head surmounted a grotesque and scaly body with rudimentary wings; but it was the general outline of the whole which made it most shockingly frightful.Along the base there were words carved: \"Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn.\""usedIn:nil andWeight:3 andRoomDescription:@"" andPoints:0 andSpecial:true];
+			Item* cthulhu = [[Item alloc] initWithName:@"statue" andDescription:@"A small jade statue of some obscene monstrosity. It seemed to be a sort of monster, or a symbol representing a monster, a form which only a diseased fancy could conceive. A pulpy, tentacled head surmounted a grotesque and scaly body with rudimentary wings; but it was the general outline of the whole which made it most shockingly frightful.Along the base there were words carved: \"Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn.\""usedIn:nil andWeight:3 andRoomDescription:@"" andPoints:0 andSpecial:true];
 			[cave_gleam addHiddenItem:[cthulhu autorelease]];
 		
 		[cave addItem:[cave_gleam autorelease]];
@@ -423,7 +431,7 @@
 	
 	//Items in the sewing room
 		//Fixed items
-		Item* sewing_room_corner = [[Item alloc] initWithName:@"corner" andDescription:@"In the corner there was movement. The light was too dim to see properly, but I was sure that some THING crouched in the corner." usedIn:nil andWeight:-1 andRoomDescription:@"I almosted missed seeing movement in the CORNER." andPoints:0 andSpecial:false visibleAfterPointsEqual:100];
+		Item* sewing_room_corner = [[Item alloc] initWithName:@"corner" andDescription:@"In the corner there was movement. The light was too dim to see properly, but I was sure that some THING crouched in the corner." usedIn:nil andWeight:-1 andRoomDescription:@"I almosted missed seeing movement in the CORNER." andPoints:0 andSpecial:false visibleAfterPointsEqual:80];
 			//Items in the corner
 			 Item* thing = [[Item alloc] initWithName:@"thing" andDescription:@"In the corner of the room some THING waits crouched. In the dim light it was impossible to make out any details. I approached the apparition with dread. As I moved closer it seemed to grow in size. So engrossed was I in the specter that my footing slipped and I stumbled forward with no control. I raised my hands to break my fall and was startled as my tumble was broken short as my fingers fell on the cold and unyielding surface of polished glass." usedIn:nil andWeight:60 andRoomDescription:@"" andPoints:262144];
 				//You (in the mirror)
@@ -431,12 +439,16 @@
 				[thing addHiddenItem: [mirror autorelease]];
 			[sewing_room_corner addHiddenItem:[thing autorelease]];
 
+		Item* woman = [[Item alloc] initWithName:@"woman" andDescription:@"Pale golden hair hung loose covering her face. Her dress was robbins egg blue stiched with a floral pattern along the hem. The front of the dress was splashed in crimson. In front of her there lay an overturned chair. Her feet faintly trailed on the floor as her body gently swung from a noose." usedIn:nil andWeight:60 andRoomDescription:@"In the dim glow I beheld a grim sight. In the middle of the room there was a WOMAN." andPoints:65536];
 
-		//Regular Items
-		Item* axe = [[Item alloc] initWithName:@"axe" andDescription:@"A broken AXE. The handle was just long enough to be used as a hatchet." usedIn:hall1 andWeight:1 andRoomDescription:@"Laying beside the body of the child there was a broken AXE."];
+		Item* child = [[Item alloc] initWithName:@"child" andDescription:@"The child lay face down on the floor, shoulder length hair covered her face. A pool of blood stretched out from her body before mingling into the pattern of the rug. Though I longed to look upon her face I could not bring myself to touch her body." usedIn:nil andWeight:-1 andRoomDescription:@"Beside her, on the ground, there was a small BODY. The vision so disturbed and overwhelmed me that I fell to my knees in dispair." andPoints:131072];
+			//Items beside the child
+			Item* axe = [[Item alloc] initWithName:@"axe" andDescription:@"A broken AXE. The handle was just long enough to be used as a hatchet." usedIn:hall1 andWeight:3 andRoomDescription:@"Laying beside the body of the child in a pool of blood there was a broken AXE."];
+			[child addHiddenItem:[axe autorelease]];
 	
 		[sewing_room addItem:[sewing_room_corner autorelease]];
-		[sewing_room addItem:[axe autorelease]];
+		[sewing_room addItem:[woman autorelease]];
+		[sewing_room addItem:[child autorelease]];
 
 	//Items in the servants bedroom
 		//Fixed Items
@@ -492,14 +504,14 @@
 		[bathroom addItem:[bathroom_tub autorelease]];
 	
 	//Items in the childs bedroom
-		Item* child_musicbox = [[Item alloc] initWithName:@"musicbox" andDescription:@"A musicbox. The lid, covered in a raised relief, depicts a small child on a field surrounded by sheep." usedIn:nil andWeight:1 andRoomDescription:@"On a table beside the bed there was a small MUSICBOX." andPoints:32];
+		Item* child_musicbox = [[Item alloc] initWithName:@"musicbox" andDescription:@"A musicbox. The lid, covered in a raised relief, depicts a small child on a grassy field surrounded by sheep. I remembered the simple tune it would play, even while I could not remember having heard it." usedIn:nil andWeight:1 andRoomDescription:@"On a table beside the bed there was a small MUSICBOX." andPoints:32];
 		[bed1 addItem:[child_musicbox autorelease]];
 
 	//Items in the attic
 		Item* attic_box = [[Item alloc] initWithName:@"box" andDescription:@"A wooden box filled with a number of books." usedIn:nil andWeight:60 andRoomDescription:@"Near the opening to the attic there was a large BOX."];
 			//Items in the box
-			Item* attic_log = [[Item alloc] initWithName:@"journal" andDescription:@"The journal was marked on the first page with the name \"W. A. Gardner.\" I flipped through the pages, most of which detailed records of shipments received. Toward the end the entries changed note. An entry dated 4th Dec '16 noted that \"That damned cough is back, the doctors still claim that nothing can be done. I'll have to keep drinking that blasted concoction and wait for the weather to warm.\n\nLater an entry dated 23rd July '17" usedIn:nil andWeight:2 andRoomDescription:@"" andPoints:4096];
-			[attic_box addHiddenItem:[attic_log autorelease]];
+			Item* journal = [[Item alloc] initWithName:@"journal" andDescription:@"The journal was marked on the first page with the name \"W. A. Gardner.\" I flipped through the pages, most of which detailed records of shipments received. Toward the end the entries changed note. An entry dated 4th Dec '16 noted that \"That damned cough is back, the doctors still claim that nothing can be done. I'll have to keep drinking that blasted concoction and wait for the weather to warm.\n\n" usedIn:nil andWeight:2 andRoomDescription:@"" andPoints:4096];
+			[attic_box addHiddenItem:[journal autorelease]];
 		[attic addItem: [attic_box autorelease]];
 
 
@@ -509,6 +521,9 @@
 	//move these to appropriate rooms once the story is fleshed out.
 	//Item* item_name = [[Item alloc] initWithName:@"name" andDescription:@"name" usedIn:nil andWeight: andRoomDescription:@""];
  
+ 	
+
+ 	Item* log = [[Item alloc] initWithName:@"log" andDescription:@"" usedIn:nil andWeight: andRoomDescription:@"In the box there were a large number o"
 	
 	//In order to advance the sense of amnesia we can start in a (semi) random room.
 	//+ We return the entire array so that player can keep a copy to use with the sleep command
@@ -529,7 +544,7 @@
 		[player outputMessage:@"I could not shake the feeling that I had been here before. Memories, as if from another life, floated at the edge my my mind. There were more enigmas here to uncover, but the cold air of night was my freedom, and freedom beckoned. Those secrets would have lie in wait for the next venturer.\n\n"];
 		[player outputMessage:[self goodbye]];
 		playing = NO;
-	} else if (endpoints >= 40 && endpoints <= 99) {    //only bits and pieces were discovered
+	} else if (endpoints >= 40 && endpoints <= 170) {    //only bits and pieces were discovered
 		[player outputMessage:@"I had been here before, I was sure of that. Thoughts floated at the edge my my mind, vague recollections of a time passed from memory."];
 
 			
@@ -550,20 +565,24 @@
 			}
 
 			if ([player hasViewed:131072]) { //if the player has seend the body of the child
-				NSString* childDescription = @"That poor child";
+				NSString* childDescription = @"That poor child.";
 
 				if ([player hasViewed:2]) {
 					//we know the childs name from the drawing
-					childDescription = [NSString stringWithFormat:@"%@ %@", childDescription, @", Victoria"];
+					childDescription = [NSString stringWithFormat:@"%@ %@", childDescription, @", Victoria, the child I never had a chance to know."];
 				} else {
 					//we do not know the childs name
 				}
 
-				childDescription = [NSString stringWithFormat:@"%@ %@", childDescription, @", murdered by her own mother. What madness could affect such a terrible crime"];
+				childDescription = [NSString stringWithFormat:@"%@ %@", childDescription, @" Murdered by her own mother. What madness could affect such a terrible crime?"];
 
 				[player outputMessage:childDescription];
 			}
 
+			//has the player seen any of the occult items (sigil, occult book, book of new guiena?
+			if ([player hasviewed:32768] || [player hasViewed:128] || [player hasViewed:16]) {
+				[player outputMessage:@"I had seen terrible things that no human mind should know. Occult things and evidence of strange rituals. Only madness can come of such things."];
+			}
 
 
 			[player outputMessage:@"There were more enigmas here to uncover, but the cold air of night was my freedom, and freedom beckoned. Those secrets would have lie in wait for the next venturer.\n\n"];
@@ -580,8 +599,8 @@
 				[player outputMessage:@"I have seen the music box"];
 		[player outputMessage:[self goodbye]];
 		playing = NO;
-	} else if (endpoints > 99) {         //perfect ending
-		[player outputMessage:@"Hope of redemption faded as I walked out the front door into the night air. I remembered everything, the illness, my search for a cure. I remembered searching the globe for a chance, by any means, to avoid my fate. I remembered my trip to the nameless city in the desert, and how the elders there played me for a fool. They told me of a ritual sacrifice that would extend my existence indefinately. I had hoped that this ritual would give me more time to spend with my love and the child she bore. My greed for life killed my wife and daughter as surely as if I had wielded the axe and strung the noose myself. What had seemed to me a moment as short as the blink of an eye between my death and resurrection was, in fact, years. Four years in the cold ground as the worms did their work. That Old One, that Elder Being, to whom I had prayed and promised my very soul to kept his promise to give me life, only four years to late.\n\nThis house held nothing for me any longer. My wife and child were gone, and where they went I could not follow. The night was mine, and soon, so too would be those who had betrayed me.\n\n"];
+	} else if (endpoints > 170) {         //the player has seen enough things to peice together the entire story
+		[player outputMessage:@"Hope of redemption faded as I walked out the front door into the night air. I remembered everything, the illness, my fruitless search for a cure. I remembered searching the globe for a chance, by any means, to avoid my fate. I remembered the chance meeting with the old dock hand Hakan and how he told me of rumors about a ritual that could restore my health. I remembered my trip by steamship to a port on the Arabian penninsula and how the fellahin there directed me with averted eyes to the desert. I remembered the overland journey to the nameless city in the desert. I remembered meeting with the elders there, and how they convinced me that their dreaded god would grant my desire. I was played for a fool. That nameless thing which they worshiped cared nothing for hope or love or life. My greed killed my wife and daughter as surely as if I had wielded the axe and strung the noose myself. Even though my strength was high during my return home it faded fast, and soon I was confined to my bed with convulsions that sapped what little energy remained. What had seemed to me a moment as short as the blink of an eye between my those final aweful moments and my resurrection was, in fact, years. Four years in the cold ground as the worms did their work. That Old One, that Elder Being, to whom I had prayed and promised my very soul to kept his promise to give me life, only four years to late. When I awoke I remembered nothing of who I was, not even the memory of being human. After clawing my way through the moldering earth I found myself lost. The distant lights of the house drew me near, but as I approached the dining room window my love saw me. I will forever remember the horror in her eyes, how she grabbed the small one and fled. I fled the house and wandered for a time before finding myself back in the graveyard. The tunnels, which I had never explored in life, provided entrance to the house. I remembered being drawn to the sound of hammering in the hallway, the screams when the sound of my shuffling drew their attention, and of how they fled past me upstairs after Olphelia struck me with the hammer."];
 		[player outputMessage:[self goodbye]];
 		playing = NO;
 	}
