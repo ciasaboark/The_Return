@@ -16,7 +16,7 @@
 @synthesize longDescription;
 @synthesize items;
 @synthesize exits;
-@synthesize type;
+@synthesize roomType;
 
 -(id)init
 {
@@ -38,8 +38,8 @@
         //items are added after initialization
         items = [[NSMutableDictionary alloc] init];
 
-        //type is set to ground floor by default
-        [self setType:@"ground"];
+        //roomType is set to ground floor by default
+        [self setRoomType:@"ground"];
         [self setPreferedAmbient: nil];
 	}
     

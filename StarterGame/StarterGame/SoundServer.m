@@ -70,15 +70,15 @@ static NSMutableArray* transitionRequests;
     if ([theRoom preferedAmbient]) {
         [self changeAmbientSound: [theRoom preferedAmbient]];
     } else {
-        if ([[theRoom type] isEqualToString:@"outside"] ) {
+        if ([[theRoom roomType] isEqualToString:@"outside"] ) {
             [self changeAmbientSound:@"wind.mp3"];
-        } else if ([[theRoom type] isEqualToString:@"cave"]) {
+        } else if ([[theRoom roomType] isEqualToString:@"cave"]) {
             [self changeAmbientSound:@"cave.mp3"];
-        } else if ([[theRoom type] isEqualToString:@"attic"]) {
+        } else if ([[theRoom roomType] isEqualToString:@"attic"]) {
             [self changeAmbientSound:nil];
-        } else if ([[theRoom type] isEqualToString:@"ground"]) {
+        } else if ([[theRoom roomType] isEqualToString:@"ground"]) {
             [self changeAmbientSound:nil];
-        } else if ([[theRoom type] isEqualToString:@"upstairs"]) {
+        } else if ([[theRoom roomType] isEqualToString:@"upstairs"]) {
             [self changeAmbientSound:nil];
         } else {
             fprintf(stderr, "SoundServer:didEnterRoom: room is of an unknown type, this is probably a bug.\n");
@@ -91,12 +91,14 @@ static NSMutableArray* transitionRequests;
 +(void)didRoomTransition:(NSNotification*)notification {
     //play a transition effect.  In general this should be keyed to the type of environment
     //+ that we are walking into, except for vertical transitions
-    NSString* from = [[userInfo objectForKey:@"previous"] type];
-    NSString* to = [[userInfo objectForKey:@"previous"] type];
+    NSString* from = [[[notification userInfo] objectForKey:@"previous"] roomType];
+    NSString* to = [[[notification userInfo] objectForKey:@"current"] roomType];
 
     //there has got to be a better way to do this
     
-    if ([to isEqualToString:@"outisde"]) {     //the outside is a dead end, no need to 
+    if ([to isEqualToString:@"outside"]) {     //the outside is a dead end, no need to 
+        [self playSingle:@"walk4.mp3"];
+    } else if ([from isEqualToString:@"outside"] && [to isEqualToString:@"cave"]) { //walking back into the cave
         [self playSingle:@"walk4.mp3"];
     } else if ([from isEqualToString:@"cave"] && [to isEqualToString:@"cave"]) {    //only for transitions between the two
         [self playSingle:@"walk5.mp3"];
@@ -113,6 +115,8 @@ static NSMutableArray* transitionRequests;
     } else {
         [self playSingle:@"walk1.mp3"];     //the generic inside walking sound
     }
+    
+
 
 }
 

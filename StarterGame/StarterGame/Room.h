@@ -15,7 +15,7 @@
 	NSMutableDictionary* exits;
     NSString* longDescription;
     NSMutableDictionary* items;
-    NSString* type;	//one of: ground, upstairs, attic, cave, outside
+    NSString* roomType;	//one of: ground, upstairs, attic, cave, outside
     NSString* preferedAmbient;
 }
 
@@ -23,7 +23,7 @@
 @property (retain, nonatomic)NSString* longDescription;
 @property (retain, nonatomic)NSMutableDictionary* items;
 @property (retain, nonatomic)NSMutableDictionary* exits;
-@property (retain, nonatomic)NSString* type;
+@property (retain, nonatomic)NSString* roomType;
 @property (retain, nonatomic)NSString* preferedAmbient;
 
 -(id)init;

@@ -49,7 +49,7 @@
 		[self setUsedIn: aRoom];
 		[self setWeight: aWeight];
 		[self setRoomDescription: newRoomDescription];
-		[self setHiddenItems: [[NSMutableArray alloc] init]];
+		[self setHiddenItems: [[[NSMutableArray alloc] init] autorelease]];
 		[self setIsDropped: false];
         [self setPoints: itemPoints];
         [self setSpecial: isSpecial];

@@ -82,10 +82,10 @@
                 [player outputMessage:[NSString stringWithFormat:@"I couldn't see how to use the %@ here.\n",secondWord]];
             }
         } else {
-            [player outputMessage:@"I did not have that item.\n"];
+            [player outputMessage:@"\nI did not have that item.\n"];
         }
     } else {
-        [player outputMessage:@"Use what?\n"];
+        [player outputMessage:@"\nUse what?\n"];
     }
     return NO;
 }

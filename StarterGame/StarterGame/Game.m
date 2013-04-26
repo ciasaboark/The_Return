@@ -68,9 +68,9 @@
 	cave = [[[Room alloc] initWithTag:@"an underground cave"] autorelease];
 	cave_hall = [[[Room alloc] initWithTag:@"a long underground tunnel" ] autorelease];
 	cemetery = [[[Room alloc] initWithTag:@"a small family cemetery"] autorelease];
-	[cave setType:@"cave"];
-	[cave_hall setType:@"cave"];
-	[cemetery setType:@"outside"];
+	[cave setRoomType:@"cave"];
+	[cave_hall setRoomType:@"cave"];
+	[cemetery setRoomType:@"outside"];
 
 	//The upstairs rooms
 	Room 	*bed1, *workroom, *bed3, *bathroom, *upstairs_hall, *short_hall, *sewing_room, *srvnt_bed_room, *attic;
@@ -84,7 +84,15 @@
 	sewing_room = [[[Room alloc] initWithTag:@"the sewing room"] autorelease];
 	srvnt_bed_room = [[[Room alloc] initWithTag:@"the servant's bedroom"] autorelease];
 	attic = [[[Room alloc] initWithTag:@"the attic"] autorelease];
-
+    [bed1 setRoomType:@"upstairs"];
+    [workroom  setRoomType:@"upstairs"];
+    [bed3 setRoomType:@"upstairs"];
+    [bathroom setRoomType:@"upstairs"];
+    [upstairs_hall setRoomType:@"upstairs"];
+    [short_hall setRoomType:@"upstairs"];
+    [sewing_room setRoomType:@"upstairs"];
+    [srvnt_bed_room setRoomType:@"upstairs"];
+    [attic setRoomType:@"attic"];
 	
 	//Downstairs room connections
 	[hall1 setExit:@"west" toRoom:dining_room];
@@ -245,6 +253,7 @@
 	[short_hall setLongDescription: @"The hall ran between the western workroom and the bathroom to the east. A door in the middle of the hall opened north to the servant's quarters."];
 	
 	[sewing_room setLongDescription: @"The southern wall was dominated by a set of large double doors, opening to a small terrace. Light from the open door to the north only let in a faint glow, but the open doors let in enough moonlight to illuminate the contents of the room."];
+    [sewing_room setPreferedAmbient:@"crickets.mp3"];
 	
 	[srvnt_bed_room setLongDescription: @"The room was plain, but well kept. The room was paneled in wood, unlike the white plaster I had found in the rest of the house."];
 
@@ -414,7 +423,7 @@
 		//Fixed items
 		Item* cave_gleam = [[Item alloc] initWithName:@"floor" andDescription:@"A small section of the floor gleamed a bit brighter than the rest. Sticking up slightly from the mud I saw the outline of something hard. I scraped the mud away and saw that there was a small statue embeded in the ground." usedIn:nil andWeight:-1 andRoomDescription:@""];
 			//Items in the gleam
-			Item* cthulhu = [[Item alloc] initWithName:@"statue" andDescription:@"A small jade statue of some obscene monstrosity. It seemed to be a sort of monster, or a symbol representing a monster, a form which only a diseased fancy could conceive. A pulpy, tentacled head surmounted a grotesque and scaly body with rudimentary wings; but it was the general outline of the whole which made it most shockingly frightful.Along the base there were words carved: \"Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn.\""usedIn:nil andWeight:3 andRoomDescription:@"" andPoints:0 andSpecial:true];
+			Item* cthulhu = [[Item alloc] initWithName:@"statue" andDescription:@"A small jade statue of some obscene monstrosity. It seemed to be a sort of monster, or a symbol representing a monster, a form which only a diseased fancy could conceive. A pulpy, tentacled head surmounted a grotesque and scaly body with rudimentary wings; but it was the general outline of the whole which made it most shockingly frightful. Along the base there were words carved: \"Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn.\""usedIn:nil andWeight:3 andRoomDescription:@"" andPoints:0 andSpecial:true];
 			[cave_gleam addHiddenItem:[cthulhu autorelease]];
 		
 		[cave addItem:[cave_gleam autorelease]];
@@ -431,9 +440,9 @@
 	
 	//Items in the sewing room
 		//Fixed items
-		Item* sewing_room_corner = [[Item alloc] initWithName:@"corner" andDescription:@"In the corner there was movement. The light was too dim to see properly, but I was sure that some THING crouched in the corner." usedIn:nil andWeight:-1 andRoomDescription:@"I almosted missed seeing movement in the CORNER." andPoints:0 andSpecial:false visibleAfterPointsEqual:80];
+		Item* sewing_room_corner = [[Item alloc] initWithName:@"corner" andDescription:@"In the corner there was movement. The light was too dim to see properly, but I was sure that some THING crouched in the corner." usedIn:nil andWeight:-1 andRoomDescription:@"I almosted missed seeing movement in the CORNER." andPoints:0 andSpecial:false visibleAfterPointsEqual:70];
 			//Items in the corner
-			 Item* thing = [[Item alloc] initWithName:@"thing" andDescription:@"In the corner of the room some THING waits crouched. In the dim light it was impossible to make out any details. I approached the apparition with dread. As I moved closer it seemed to grow in size. So engrossed was I in the specter that my footing slipped and I stumbled forward with no control. I raised my hands to break my fall and was startled as my tumble was broken short as my fingers fell on the cold and unyielding surface of polished glass." usedIn:nil andWeight:60 andRoomDescription:@"" andPoints:262144];
+			 Item* thing = [[Item alloc] initWithName:@"thing" andDescription:@"In the corner of the room some thing waits crouched. In the dim light it was impossible to make out any details. I approached the apparition with dread. As I moved closer it seemed to grow in size. So engrossed was I in the specter that my footing slipped and I stumbled forward with no control. I raised my hands to break my fall and was startled as my tumble was broken short as my fingers fell on the cold and unyielding surface of polished glass." usedIn:nil andWeight:60 andRoomDescription:@"" andPoints:262144];
 				//You (in the mirror)
 				Item* mirror = [[Item alloc] initWithName:@"mirror" andDescription:@"That thing in the mirror was a grotesque parody of humanity. Its clothes, once fine, were torn and dirty. Its skin, visible through the tears, hung in dessicated strips. The scalp was nearly bare bone, and the flesh was eaten through in numerous places. I raised my hands to its face, to my face, and knew the awful truth." usedIn:nil andWeight:60 andRoomDescription:@"" andPoints:524288];
 				[thing addHiddenItem: [mirror autorelease]];
@@ -441,7 +450,7 @@
 
 		Item* woman = [[Item alloc] initWithName:@"woman" andDescription:@"Pale golden hair hung loose covering her face. Her dress was robbins egg blue stiched with a floral pattern along the hem. The front of the dress was splashed in crimson. In front of her there lay an overturned chair. Her feet faintly trailed on the floor as her body gently swung from a noose." usedIn:nil andWeight:60 andRoomDescription:@"In the dim glow I beheld a grim sight. In the middle of the room there was a WOMAN." andPoints:65536];
 
-		Item* child = [[Item alloc] initWithName:@"child" andDescription:@"The child lay face down on the floor, shoulder length hair covered her face. A pool of blood stretched out from her body before mingling into the pattern of the rug. Though I longed to look upon her face I could not bring myself to touch her body." usedIn:nil andWeight:-1 andRoomDescription:@"Beside her, on the ground, there was a small BODY. The vision so disturbed and overwhelmed me that I fell to my knees in dispair." andPoints:131072];
+		Item* child = [[Item alloc] initWithName:@"child" andDescription:@"The child lay face down on the floor, shoulder length hair covered her face. A pool of blood stretched out from her body before mingling into the pattern of the rug. Though I longed to look upon her face I could not bring myself to touch her body." usedIn:nil andWeight:-1 andRoomDescription:@"Beside her, on the ground, there was the body of a small CHILD. The vision so disturbed and overwhelmed me that I fell to my knees in dispair." andPoints:131072];
 			//Items beside the child
 			Item* axe = [[Item alloc] initWithName:@"axe" andDescription:@"A broken AXE. The handle was just long enough to be used as a hatchet." usedIn:hall1 andWeight:3 andRoomDescription:@"Laying beside the body of the child in a pool of blood there was a broken AXE."];
 			[child addHiddenItem:[axe autorelease]];
@@ -510,7 +519,7 @@
 	//Items in the attic
 		Item* attic_box = [[Item alloc] initWithName:@"box" andDescription:@"A wooden box filled with a number of books." usedIn:nil andWeight:60 andRoomDescription:@"Near the opening to the attic there was a large BOX."];
 			//Items in the box
-			Item* journal = [[Item alloc] initWithName:@"journal" andDescription:@"The journal was marked on the first page with the name \"W. A. Gardner.\" I flipped through the pages, most of which detailed records of shipments received. Toward the end the entries changed note. An entry dated 4th Dec '16 noted that \"That damned cough is back, the doctors still claim that nothing can be done. I'll have to keep drinking that blasted concoction and wait for the weather to warm.\n\n" usedIn:nil andWeight:2 andRoomDescription:@"" andPoints:4096];
+			Item* journal = [[Item alloc] initWithName:@"journal" andDescription:@"The journal was marked on the first page with the name \"W. A. Gardner.\" I flipped through the pages, most of which detailed records of shipments received. Toward the end the entries changed note. An entry dated 4th Dec '16 noted that \"That damned cough is back, the doctors still claim that nothing can be done. I'll have to keep drinking that blasted concoction and wait for the weather to warm.\n\n" usedIn:nil andWeight:2 andRoomDescription:@"In the box there was a JOURNAL." andPoints:4096];
 			[attic_box addHiddenItem:[journal autorelease]];
 		[attic addItem: [attic_box autorelease]];
 
@@ -523,7 +532,7 @@
  
  	
 
- 	Item* log = [[Item alloc] initWithName:@"log" andDescription:@"" usedIn:nil andWeight: andRoomDescription:@"In the box there were a large number o"
+ 	Item* log = [[Item alloc] initWithName:@"log" andDescription:@"" usedIn:nil andWeight:1 andRoomDescription:@"In the box there were a large number o"];
 	
 	//In order to advance the sense of amnesia we can start in a (semi) random room.
 	//+ We return the entire array so that player can keep a copy to use with the sleep command
@@ -547,59 +556,57 @@
 	} else if (endpoints >= 40 && endpoints <= 170) {    //only bits and pieces were discovered
 		[player outputMessage:@"I had been here before, I was sure of that. Thoughts floated at the edge my my mind, vague recollections of a time passed from memory."];
 
-			
-			if ([player hasViewed:65536]) { //if the player saw the body of the woman
-				NSString* womanDescription = @"The image of";
+        
+        if ([player hasViewed:65536]) { //if the player saw the body of the woman
+            NSString* womanDescription = @"The image of";
 
-				if ([player hasViewed:16384]) {
-					//we know her name from the locket
-					womanDescription = [NSString stringWithFormat:@"%@ %@", womanDescription, @"Olphelia"];
-				} else {
-					//does not know the name
-					womanDescription = [NSString stringWithFormat:@"%@ %@", womanDescription, @"the woman upstairs"];
-				}
+            if ([player hasViewed:16384]) {
+                //we know her name from the locket
+                womanDescription = [NSString stringWithFormat:@"%@ %@", womanDescription, @"Olphelia"];
+            } else {
+                //does not know the name
+                womanDescription = [NSString stringWithFormat:@"%@ %@", womanDescription, @"the woman upstairs"];
+            }
 
-				womanDescription = [NSString stringWithFormat:@"%@ %@", womanDescription, @"swinging gently from that noose would forever haunt my dreams."];
+            womanDescription = [NSString stringWithFormat:@"%@ %@", womanDescription, @"swinging gently from that noose would forever haunt my dreams."];
 
-				[player outputMessage:womanDescription];
-			}
+            [player outputMessage:womanDescription];
+        }
 
-			if ([player hasViewed:131072]) { //if the player has seend the body of the child
-				NSString* childDescription = @"That poor child.";
+        if ([player hasViewed:131072]) { //if the player has seend the body of the child
+            NSString* childDescription = @"That poor child";
 
-				if ([player hasViewed:2]) {
-					//we know the childs name from the drawing
-					childDescription = [NSString stringWithFormat:@"%@ %@", childDescription, @", Victoria, the child I never had a chance to know."];
-				} else {
-					//we do not know the childs name
-				}
+            if ([player hasViewed:2]) {
+                //we know the childs name from the drawing
+                childDescription = [NSString stringWithFormat:@"%@ %@", childDescription, @", Victoria, the child I never had a chance to know"];
+            } else {
+                //we do not know the childs name
+            }
 
-				childDescription = [NSString stringWithFormat:@"%@ %@", childDescription, @" Murdered by her own mother. What madness could affect such a terrible crime?"];
+            childDescription = [NSString stringWithFormat:@"%@ %@", childDescription, @". Murdered by her own mother. What madness could affect such a terrible crime?"];
 
-				[player outputMessage:childDescription];
-			}
+            [player outputMessage:childDescription];
+        }
 
-			//has the player seen any of the occult items (sigil, occult book, book of new guiena?
-			if ([player hasviewed:32768] || [player hasViewed:128] || [player hasViewed:16]) {
-				[player outputMessage:@"I had seen terrible things that no human mind should know. Occult things and evidence of strange rituals. Only madness can come of such things."];
-			}
+        //has the player seen any of the occult items (sigil, occult book, book of new guiena?
+        if ([player hasViewed:32768] || [player hasViewed:128] || [player hasViewed:16]) {
+            [player outputMessage:@"I had seen terrible things that no human mind should know. Occult things and evidence of strange rituals. Only madness can come of such things."];
+        }
+        
+        //has the player seen the thing in the corner
+        if ([player hasViewed:262144]) {
+            if ([player hasViewed:524288]) {
+                [player outputMessage:@"I knew what I was, or perhaps I should say that I knew what I had once been. The husk of a body that I wore now was a parody of my former self."];
+            } else {
+                [player outputMessage:@"I could not shake the memory of that thing in the corner. I checked back over my shoulder to make sure it did not follow me into the night."];
+            }
+        }
 
-
-			[player outputMessage:@"There were more enigmas here to uncover, but the cold air of night was my freedom, and freedom beckoned. Those secrets would have lie in wait for the next venturer.\n\n"];
-
-			if ([player hasViewed: 1])
-				[player outputMessage:@"I have seen the portrait"];
-			if ([player hasViewed: 128])
-				[player outputMessage:@"I have seen the occult"];
-			if ([player hasViewed: 16384])
-				[player outputMessage:@"I have seen the locket"];
-			if ([player hasViewed: 262144])
-				[player outputMessage:@"I have seen the mirror"];
-			if ([player hasViewed: 32])
-				[player outputMessage:@"I have seen the music box"];
+        [player outputMessage:@"There were more enigmas here to uncover, but the cold air of night was my freedom, and freedom beckoned. Those secrets would have lie in wait for the next venturer.\n\n"];
+        
 		[player outputMessage:[self goodbye]];
 		playing = NO;
-	} else if (endpoints > 170) {         //the player has seen enough things to peice together the entire story
+	}  else if (endpoints > 160) {         //the player has seen enough things to peice together the entire story
 		[player outputMessage:@"Hope of redemption faded as I walked out the front door into the night air. I remembered everything, the illness, my fruitless search for a cure. I remembered searching the globe for a chance, by any means, to avoid my fate. I remembered the chance meeting with the old dock hand Hakan and how he told me of rumors about a ritual that could restore my health. I remembered my trip by steamship to a port on the Arabian penninsula and how the fellahin there directed me with averted eyes to the desert. I remembered the overland journey to the nameless city in the desert. I remembered meeting with the elders there, and how they convinced me that their dreaded god would grant my desire. I was played for a fool. That nameless thing which they worshiped cared nothing for hope or love or life. My greed killed my wife and daughter as surely as if I had wielded the axe and strung the noose myself. Even though my strength was high during my return home it faded fast, and soon I was confined to my bed with convulsions that sapped what little energy remained. What had seemed to me a moment as short as the blink of an eye between my those final aweful moments and my resurrection was, in fact, years. Four years in the cold ground as the worms did their work. That Old One, that Elder Being, to whom I had prayed and promised my very soul to kept his promise to give me life, only four years to late. When I awoke I remembered nothing of who I was, not even the memory of being human. After clawing my way through the moldering earth I found myself lost. The distant lights of the house drew me near, but as I approached the dining room window my love saw me. I will forever remember the horror in her eyes, how she grabbed the small one and fled. I fled the house and wandered for a time before finding myself back in the graveyard. The tunnels, which I had never explored in life, provided entrance to the house. I remembered being drawn to the sound of hammering in the hallway, the screams when the sound of my shuffling drew their attention, and of how they fled past me upstairs after Olphelia struck me with the hammer."];
 		[player outputMessage:[self goodbye]];
 		playing = NO;
@@ -633,7 +640,7 @@
 -(NSString *)welcome {
 	NSString* asciiArtThe = @"\t\t\t\t\t\t  _____ _\n\t\t\t\t\t\t |_   _| |__   ___\n\t\t\t\t\t\t   | | | '_ \\ / _ \\\n\t\t\t\t\t\t   | | | | | |  __/\n\t\t\t\t\t\t   |_| |_| |_|\\___|";
 	NSString* asciiArtReturn = @"\t\t\t\t\t\t\t     ____      _\n\t\t\t\t\t\t\t    |  _ \\ ___| |_ _   _ _ __ _ __\n\t\t\t\t\t\t\t    | |_) / _ \\ __| | | | '__| '_ \\\n\t\t\t\t\t\t\t    |  _ <  __/ |_| |_| | |  | | | |\n\t\t\t\t\t\t\t    |_| \\_\\___|\\__|\\__,_|_|  |_| |_|\n\t\t\t\t\t\t  ****************************************\n";
-	return [NSString stringWithFormat:@"%@\n\n%@\n\n\n\n\n\n\n\n\n\n\n\nI awoke. The pain in my head was blinding. I was laying in a puddle of mud and water. My clothes, which I did not recognize, appeared to have once been fine but were now torn, muddy, and soaked. I couldn't remember how I came to this place.  Perhaps this house holds some answers.\n\nUse your words to control the player, search the house to find a way out, or explore further to unlock hidden mysteries.\n\nSay 'help' for a complete list of commands.\n", asciiArtThe, asciiArtReturn];
+	return [NSString stringWithFormat:@"%@\n\n%@\n\n\n\n\n\n\n\nI awoke. The pain in my head was blinding. I was laying in a puddle of mud and water. My clothes, which I did not recognize, appeared to have once been fine but were now torn, muddy, and soaked. I couldn't remember how I came to this place.  Perhaps this house holds some answers.\n\nUse your words to control the player, search the house to find a way out, or explore further to unlock hidden mysteries.\n\nSay 'help' for a complete list of commands.\n", asciiArtThe, asciiArtReturn];
 }
 
 -(NSString *)goodbye {
@@ -645,7 +652,7 @@
 		 }
 	 }
 	
-	return [NSString stringWithFormat:@"\nThank you for playing, Goodbye.\n\tHidden Items found: %i\n\tTotal Story uncovered: %i%%", hiddenItems, [player points]];
+	return [NSString stringWithFormat:@"\nThank you for playing, Goodbye.\n\tHidden Items found: %i\n\tPoints: %i", hiddenItems, [player points]];
 }
 
 -(void)registerForNotifications {
