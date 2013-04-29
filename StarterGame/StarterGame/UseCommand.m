@@ -47,7 +47,8 @@
                 
                 else if ([secondWord isEqualToString:@"axe"]) {
                     [player outputMessage:@"\nI used the axe on the front door. Splinters flew. The way out was clear.\n"];
-                    [[player currentRoom] setLongDescription: @"The hallway was lit by two small windows flanking the main entrance to the south. The floor was bare wood, dark in color. The front door to the south lied in splinters. To the east there was a dining room. To the west there was a formal hall. The hall continued to the north, where I could see additonal rooms."];
+                    [[player currentRoom] setLongDescription: @"The hallway was lit by two small windows flanking the main entrance to the south. The floor was bare wood, dark in color. The front door to the south was in splinters. To the east there was a dining room. To the west there was a formal hall. The hall continued to the north, where I could see additonal rooms."];
+                    [[player currentRoom] removeItem:@"barricade"];
                     [[player currentRoom] setExit:@"south" toRoom:[[player currentRoom] getExit:@"hidden"]];
                 }
 

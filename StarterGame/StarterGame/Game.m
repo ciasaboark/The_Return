@@ -520,7 +520,9 @@
 		Item* attic_box = [[Item alloc] initWithName:@"box" andDescription:@"A wooden box filled with a number of books." usedIn:nil andWeight:60 andRoomDescription:@"Near the opening to the attic there was a large BOX."];
 			//Items in the box
 			Item* journal = [[Item alloc] initWithName:@"journal" andDescription:@"The journal was marked on the first page with the name \"W. A. Gardner.\" I flipped through the pages, most of which detailed records of shipments received. Toward the end the entries changed note. An entry dated 4th Dec '16 noted that \"That damned cough is back, the doctors still claim that nothing can be done. I'll have to keep drinking that blasted concoction and wait for the weather to warm.\n\n" usedIn:nil andWeight:2 andRoomDescription:@"In the box there was a JOURNAL." andPoints:4096];
+        Item* log = [[Item alloc] initWithName:@"log" andDescription:@"The logbook's first entry was dated Feb 22nd '16: \"Down at the docks today to oversee the unloading of the Bridgeport, arrived from Athens. Overheard one of the new hands, Hakan, speaking of the mystics in the desert that can cure nearly any disease. Claims he is from Yemen, though the name he gave is Turkish. It's probably nonsense, but I asked the overseer to send him to the office tomorrow.\"\n\nFeb 23rd '16: \"Unloading will take for a few more days before she heads back out to sea. Spoke to Hakan in private this morning. A foul man. Wouldn't meet my eye. Claims he spent a number of years living with the bedouins of Arabia, though I've never heard of such an arrangement. When I asked about the mystics he claimed to know nothing firsthand, only the tales he had heard from the nomads. A lost city in the desert, inhabited by men that did not age. They had a number of powers, the bedouins claimed, including the ability to heal any injury. He said that the tribes would sometimes leave their injured within sight of the city (they would come no closer). Sometimes the injured would return, oftentimes they were never seen again. When asked if he could lead me to this city he would only shake his head.\"\n\nLater in the log there is an entry dated Jul 17th '16: \"The illness has progressed, dispite the work of the fools here that call themselves doctors. They have told me that I will succumb before the year is done. I have not been able to forget my conversation with Hakim earlier. I have decided that, when the Bridgeport returns, I will depart with it. I have not yet been able to tell my dear wife. I do not think she would understand.\"" usedIn:nil andWeight:1 andRoomDescription:@"A LOG book caught my eye." andPoints:8192];
 			[attic_box addHiddenItem:[journal autorelease]];
+            [attic_box addHiddenItem:[log autorelease]];
 		[attic addItem: [attic_box autorelease]];
 
 
@@ -532,7 +534,7 @@
  
  	
 
- 	Item* log = [[Item alloc] initWithName:@"log" andDescription:@"" usedIn:nil andWeight:1 andRoomDescription:@"In the box there were a large number o"];
+ 	
 	
 	//In order to advance the sense of amnesia we can start in a (semi) random room.
 	//+ We return the entire array so that player can keep a copy to use with the sleep command
