@@ -17,6 +17,7 @@
 @synthesize items;
 @synthesize exits;
 @synthesize roomType;
+@synthesize preferedAmbient;
 
 -(id)init
 {

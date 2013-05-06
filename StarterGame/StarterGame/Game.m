@@ -256,6 +256,7 @@
     [sewing_room setPreferedAmbient:@"crickets.mp3"];
 	
 	[srvnt_bed_room setLongDescription: @"The room was plain, but well kept. The room was paneled in wood, unlike the white plaster I had found in the rest of the house."];
+    [attic setLongDescription:@""];
 
 
 	/*****************************
@@ -372,7 +373,7 @@
 			Item* formal_room_record = [[Item alloc] initWithName:@"record" andDescription:@"A classical record by Claude Debussy \"En blanc et noir.\" I remembered finding a copy of this same record a few years back, and of dancing with a lady in white. It seemed strange that I could remember such a small detail, but nothing of who I was or who I danced with." usedIn:formal_room andWeight:1 andRoomDescription:@"There was a RECORD of classical music beside the phonograph." andPoints:4];
 			[formal_room_phonograph addHiddenItem:[formal_room_record autorelease]];
 			
-		Item* formal_room_pedestal = [[Item alloc] initWithName:@"pedestal" andDescription:@"The pedestals were marble, ornately chissiled in the greccian fashion. On top of each pedestal there was a model of a boat incased in a glass dome. The coverings were fixed to the base and immobile." usedIn:nil andWeight:-1 andRoomDescription:@"In a gap in the chairs along the south wall there were three marble pedestalS."];
+		Item* formal_room_pedestal = [[Item alloc] initWithName:@"pedestals" andDescription:@"The pedestals were marble, ornately chissiled in the greccian fashion. On top of each pedestal there was a model of a boat incased in a glass dome. The coverings were fixed to the base and immobile." usedIn:nil andWeight:-1 andRoomDescription:@"In a gap in the chairs along the south wall there were three marble PEDESTALS."];
 			//Item on the pedestals
 			Item* formal_room_pedestal_boat1 = [[Item alloc] initWithName:@"ship" andDescription:@"The ship was an older style, broad and deep, with three tall masts rigged with a number of sails. A plaque at the bottom read: \"Amsterdam - 1741\"." usedIn:nil andWeight:-1 andRoomDescription:@"A model of a large SHIP was on top of one of the pedestals"];
 			Item* formal_room_pedestal_boat2 = [[Item alloc] initWithName:@"clipper" andDescription:@"A wooden boat in the distinctive style of a Baltimore Clipper. Five narrow sails were rigged to two tall masts. This type of ship hadn't been common in nearly a century. A plaque at the bottom read: \"Savannah - 1837\"." usedIn:nil andWeight:-1 andRoomDescription:@"A model of a Baltimore CLIPPER was on top of one of the pedestals."];
