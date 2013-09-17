@@ -27,7 +27,7 @@
         [player walkTo:secondWord];
 	}
 	else {
-        [player outputMessage:@"\nGo where?"];
+        [player outputMessage:@"\nGo where? (Valid directions are north, south, east, west, up, down)"];
 	}
 	return NO;
 }
