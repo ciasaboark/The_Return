@@ -539,7 +539,7 @@
 	
 	//In order to advance the sense of amnesia we can start in a (semi) random room.
 	//+ We return the entire array so that player can keep a copy to use with the sleep command
-	NSMutableArray *rooms = [NSArray arrayWithObjects: bed1, bed3, mast_bed, srvnt_bed_room, nil];
+	NSMutableArray *rooms = [NSMutableArray arrayWithObjects: bed1, bed3, mast_bed, srvnt_bed_room, nil];
   
 	return rooms;
 }
